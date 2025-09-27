@@ -19,7 +19,9 @@ execute:
 
 ## Course Description
 
-Course Information (Emails, Office Hours, etc.): see [Home](index.qmd).
+Welcome to "Computing for the Social Sciences"!
+
+For course information (Emails, Office Hours, etc.) see [Home](index.qmd).
 
 This is an applied course for social scientists with little-to-no programming experience who wish to harness growing digital and computational resources. The focus is on learning the basics of programming in R and generating reproducible research. Topics include coding concepts (e.g., data structures, control structures. etc.), data visualization, data wrangling, web-scraping, version control software, exploratory data analysis, and more. Students will leave the course with basic programming skills for the social sciences and the ability to adapt and expand these skills as they encounter new questions, methods, and data beyond the course.
 
@@ -63,7 +65,7 @@ Each class has readings and class materials posted on the course website. Review
 **Attend class**  
 Regular attendance is expected. Please inform the instructor in advance if you must miss a class. It is fine to miss 1–2 lectures throughout the quarter, but no more than that, unless this is due to health or other serious issues. Bring a laptop to each class.  
 
-**Learn Honestly, Stay on Track**  
+**Own Your Learning Journey**  
 Adhere to the course-specific AI policies for assignments (see below). At this point, I am confident that state-of-the-art AI can by and large solve most of this course's assignments. But this course is about learning to code in R, not learning to use AI to code in R. Assignments may feel challenging, but they are carefully designed and tested to be achievable without AI. Start early, meet deadlines, and reach out if you need help along the way.
 
 **Trust**  
@@ -170,7 +172,7 @@ To achieve *Excellent* in a given category, all requirements described above mus
 -->
 
 
-### Academic Integrity Policies
+### Academic Integrity & Use of AI Policies
 
 #### Plagiarism: UChicago Policy
 

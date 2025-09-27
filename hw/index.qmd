@@ -10,7 +10,7 @@ format:
 
 <div class="my-4"></div>
 
-Each homework assignment (four in total) and the final project will have its own page containing specific guidelines. **Pages will be accessible from here once the assignment is released — check our [Course Schedule](../lectures/index.qmd) for release and due dates.**
+Homework assignments (four in total) and the final project will be accessible from here once the assignment is released — check our [Course Schedule](../lectures/index.qmd) for release and due dates.
 
 <!--
 - [Homework 1](hw01.qmd)
