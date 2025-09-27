@@ -1,0 +1,30 @@
+---
+title: "Lecture 9: Exam 1; Strings and Regular Expressions"
+date: 2025-10-27
+summary: "Exam 1; Strings and Regular Expressions"
+url_slides: 09-slides.qmd
+#url_code: css-materials/
+page-layout: full
+draft: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Info and Materials
+
+* **Date**: {{< meta date >}}
+* **Topics**: {{< meta summary >}}
+* **Slides**: [View Slides]({{< meta url_slides >}})
+* **Code**: No in-class code to download
+
+
+## Learning Objectives
+
+
+
+
+## Readings
+
+

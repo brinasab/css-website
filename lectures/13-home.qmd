@@ -1,0 +1,27 @@
+---
+title: "Lecture 13: Functions 1"
+date: 2025-11-10
+summary: "Functions 1"
+url_slides: 13-slides.qmd
+#url_code: css-materials/functions
+page-layout: full
+draft: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Info and Materials
+
+* **Date**: {{< meta date >}}
+* **Topics**: {{< meta summary >}}
+* **Slides**: [View Slides]({{< meta url_slides >}})
+* **Code**: No in-class code to download
+
+
+## Learning Objectives
+
+
+## Readings
+

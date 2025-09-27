@@ -1,0 +1,26 @@
+---
+title: "Lecture 15: Web-Scraping 1"
+date: 2025-11-17
+summary: "Web-Scraping 1"
+url_slides: 15-slides.qmd
+#url_code: css-materials/scraping-1
+page-layout: full
+draft: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Info and Materials
+
+* **Date**: {{< meta date >}}
+* **Topics**: {{< meta summary >}}
+* **Slides**: [View Slides]({{< meta url_slides >}})
+* **Code**: No in-class code to download
+
+
+## Learning Objectives
+
+
+## Readings

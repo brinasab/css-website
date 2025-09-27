@@ -1,0 +1,26 @@
+---
+title: "Lecture 14: Functions 2, Debugging"
+date: 2025-11-12
+summary: "Functions 2, Debugging"
+url_slides: 14-slides.qmd
+#url_code: css-materials/functions
+page-layout: full
+draft: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Info and Materials
+
+* **Date**: {{< meta date >}}
+* **Topics**: {{< meta summary >}}
+* **Slides**: [View Slides]({{< meta url_slides >}})
+* **Code**: No in-class code to download
+
+
+## Learning Objectives
+
+
+## Readings

@@ -1,0 +1,21 @@
+---
+title: "Computing for the Social Sciences"
+format:
+  html:
+    toc: false
+    theme: cosmo
+---
+
+### Homework Assignments Fall 2025
+
+<div class="my-4"></div>
+
+Each homework assignment (four in total) and the final project will have its own page containing specific guidelines. **Pages will be accessible from here once the assignment is released — check our [Course Schedule](../lectures/index.qmd) for release and due dates.**
+
+<!--
+- [Homework 1](hw01.qmd)
+- [Homework 2](hw02.qmd)
+- [Homework 3](hw03.qmd)
+-->
+
+Refer to the [Syllabus](../syllabus.qmd) for assessment policies, including guidelines on late or missing submissions, grading rubric, AI policies, and more.

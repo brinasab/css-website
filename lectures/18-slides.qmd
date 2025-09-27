@@ -1,0 +1,20 @@
+---
+title: "Computing for the Social Sciences: Lecture 18"
+subtitle: "Topics: Final Project Check-In"
+author: "Sabrina Nardin, Fall 2025"
+format:
+  revealjs:
+    theme: simple
+    slide-number: true
+    incremental: false
+    css: ../style/styles.css
+    code-overflow: wrap
+    highlight-style: github
+    ratio: 16:9
+    chalkboard: true
+    toc: false
+    center: true
+---
+
+
+## Check back here—slides will be posted before class!
