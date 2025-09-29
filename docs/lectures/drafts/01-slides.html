@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.7.31">
 
   <meta name="author" content="Sabrina Nardin, Fall 2025">
-  <title>css-website – Introduction to R: Lecture 1</title>
+  <title>css-website – Computing for the Social Sciences: Lecture 1</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -196,7 +196,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Introduction to R: Lecture 1</h1>
+  <h1 class="title">Computing for the Social Sciences: Lecture 1</h1>
   <p class="subtitle">Topics: Course Logistics, R, Markdown</p>
 
 <div class="quarto-title-authors">
@@ -208,20 +208,16 @@ Sabrina Nardin, Fall 2025
 </div>
 
 </section>
-<section class="slide level2 center">
-
+<section id="agenda" class="title-slide slide level1 center">
+<h1>Agenda</h1>
+<div class="agenda-list">
+<ol type="1">
+<li>Welcome to the Course!</li>
+<li>Intro to R, RStudio, and Workbench</li>
+<li>R Markdown</li>
+</ol>
+</div>
 <!--
-
-# Agenda {.center}
-
-::: agenda-list
-1.  Welcome to the Course!
-2.  Intro to R, RStudio, and Workbench
-3.  R Markdown
-:::
-
-SUMMER 25 LECTURE 1 OUTLINE 
-
 Three main topics, each 30ish minutes
 
 1. Welcome Course
@@ -241,97 +237,106 @@ Three main topics, each 30ish minutes
 Today we will talk about course objectives, expectations, evaluation, software setup, and do a group activity on your expectations and tips to succeed in this course, etc.
 
 Let me start by introducing myself and the TA... then will go around and introduce each other
+-->
+</section>
 
+<section>
+<section id="welcome-to-the-course" class="title-slide slide level1 center middle">
+<h1>1. Welcome to the Course!</h1>
 
-# 1. Welcome to the Course! {.slide .center .middle}
-
----
-
-## Teaching Team
-
-| Role              | Name                                                                 | Email                  | Office Hours                         |
-|-------------------|----------------------------------------------------------------------|------------------------|---------------------------------------|
-| Instructor        | [Sabrina Nardin](https://macss.uchicago.edu/directory/Sabrina-Nardin) | nardin@uchicago.edu    | Tue & Thu, 2:30–3:30 PM (after class) |
-| Teaching Assistant| Zach Meyer                                                           | zmeyer@uchicago.edu    | Tue 2:30–3:30 PM (after class)        |
-
-<br>
-
-::: fragment
-**How to Reach Out**
-
--   Ask questions during or after class
--   Attend OHs (Office Hours, no appointment needed)
--   Email us or post on Ed Discussion for course-related concerns
--   Use the course website for slides, class materials, etc.
-:::
-
-</br>
-
----
-
-## Course Objectives {.no-fragment}
-
-The goal of this course is to acquire basic computational skills. Specifically:
-
-1.  Learning R, especially the "tidyverse"
-2.  Learning best practices for reproducible research
-
-::: fragment
-You won't become an R expert in a few weeks, BUT you will:
-
--   learn the basics and gain confidence to explore new techniques beyond this course
-
--   use R as a tool for analyzing social science data
-:::
-
----
-
-## Course Topics
-
-Main topics of this course:
-
--   Git/GitHub via RStudio
--   R Markdown
--   Data Visualization
--   Data Cleaning and Transformation
--   Exploratory Data Analysis
--   Web-Scraping
--   Reproducible Research
--   R Programming: Control Structures, Data Structures, etc.
-
----
-
-## How We'll Do This
-
-We start simple and build toward more complex code
-
-
-::: {.cell}
-
-```{.r .cell-code}
-# create a variable and print it
-x <- "Hello!"
-print(x)
-```
-
-::: {.cell-output .cell-output-stdout}
-
-```
-[1] "Hello!"
-```
-
-
-:::
-:::
-
-
-<br>
-
-We use a mix of lectures, in-class activities, assignments (take-home and in-class), and we rely on several platforms (e.g., course website, Canvas, Ed Discussion, Workbench, Git/GitHub, and Markdown). 
-
-All course materials are free and accessible from our website.
-
-```{=html}
+</section>
+<section id="teaching-team" class="slide level2 center">
+<h2>Teaching Team</h2>
+</section>
+<section id="teaching-team-1" class="slide level2 center">
+<h2>Teaching Team</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Role</th>
+<th>Name</th>
+<th>Email</th>
+<th>Office Hours</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Instructor</td>
+<td><a href="https://macss.uchicago.edu/directory/Sabrina-Nardin">Sabrina Nardin</a></td>
+<td><a href="mailto:nardin@uchicago.edu">nardin@uchicago.edu</a></td>
+<td>Tue &amp; Thu, 2:30–3:30 PM (after class)</td>
+</tr>
+<tr class="even">
+<td>Teaching Assistant</td>
+<td>Zach Meyer</td>
+<td><a href="mailto:zmeyer@uchicago.edu">zmeyer@uchicago.edu</a></td>
+<td>Tue 2:30–3:30 PM (after class)</td>
+</tr>
+<tr class="odd">
+<td>Teaching Assistant</td>
+<td>Zixuan Zhou (she/her)</td>
+<td><a href="mailto:zixuanzhou@uchicago.edu">zixuanzhou@uchicago.edu</a></td>
+<td>Thu 2:30–3:30 PM (after class)</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<div class="fragment">
+<p><strong>How to Reach Out</strong></p>
+<ul>
+<li>Ask questions during or after class</li>
+<li>Attend Office Hours</li>
+<li>Post on Ed Discussion course-related questions</li>
+</ul>
+</div>
+<p><br></p>
+</section>
+<section id="course-objectives" class="slide level2 no-fragment center">
+<h2>Course Objectives</h2>
+<p>The goal of this course is to acquire basic computational skills. Specifically:</p>
+<ol type="1">
+<li>Learning R, especially the “tidyverse”</li>
+<li>Learning best practices for reproducible research</li>
+</ol>
+<div class="fragment">
+<p>You won’t become an R expert in a few weeks, BUT you will:</p>
+<ul>
+<li><p>learn the basics and gain confidence to explore new techniques beyond this course</p></li>
+<li><p>use R as a tool for analyzing social science data</p></li>
+</ul>
+</div>
+</section>
+<section id="course-topics" class="slide level2 center">
+<h2>Course Topics</h2>
+<p>Main topics of this course:</p>
+<ul>
+<li>Git/GitHub via RStudio</li>
+<li>R Markdown</li>
+<li>Data Visualization</li>
+<li>Data Cleaning and Transformation</li>
+<li>Exploratory Data Analysis</li>
+<li>Web-Scraping</li>
+<li>Reproducible Research</li>
+<li>R Programming: Control Structures, Data Structures, etc.</li>
+</ul>
+</section>
+<section id="how-well-do-this" class="slide level2 center">
+<h2>How We’ll Do This</h2>
+<p>We start simple and build toward more complex code</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># create a variable and print it</span></span>
+<span id="cb1-2"><a></a>x <span class="ot">&lt;-</span> <span class="st">"Hello!"</span></span>
+<span id="cb1-3"><a></a><span class="fu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Hello!"</code></pre>
+</div>
+</div>
+</section>
+<section id="how-well-do-this-1" class="slide level2 center">
+<h2>How We’ll Do This</h2>
+<p>We use a mix of lectures and in-class activities, and we rely on several platforms (e.g., course website, Canvas, Ed Discussion, Workbench, Git/GitHub, and Markdown).</p>
+<p>All course materials are free and accessible from our website.</p>
 <!-- IN CLASS
 
 A lot to take in at first but after week 1 things should go smoothly and if not reach out; on homework: most of your learning will happen there!
@@ -342,38 +347,23 @@ You will spend time finding resources to help:
 Google, ChatGPT are OK (within limits, more on this later)...but the documentation and the class materials should be the first places to go!
 
 -->
-<pre><code>
-&lt;/br&gt;
-
----
-
-## Homework and Evaluation
-
-See "Assessment" from our Syllabus and the [Course Schedule](https://docs.google.com/spreadsheets/d/1CmuUXTp0uvhAVk3mmOQMEfb8BjdR-I36/edit?usp=sharing&amp;ouid=112534119211880791899&amp;rtpof=true&amp;sd=true):
-
--   **Assessment and Evaluation:**  There will be in-class quizzes and take-home assignments. Check the syllabus for the grading rubric for details.
--   **Arrive on Time:** Each class starts right at 1:00 PM with a quick quiz. These are short and meant to help you stay on track. Be here and ready to go by 1:00 PM!
--   **Submission Policies:**  Info on how we handle late or missed assignments is in the syllabus.
-
-
-```{=html}
-&lt;!--
-* **Weekly programming assignments and Final Project**: see [here](https://computing-soc-sci.netlify.app/homework/) 
-
-* **Submission Policies** for missed assignments, late work, etc.: see [here](https://computing-soc-sci.netlify.app/faq/homework-evaluations/#missed-assignments-resubmission-late-work-etc)
-
-* **Evaluation Philosophy and Rubric**: see [here](https://computing-soc-sci.netlify.app/faq/homework-evaluations/#evaluation-philosophy)
-
-
-**Tips**:
-
-* do the readings before class, even if you do not understand everything
-* start early to work on the homework assignments 
-* assignments (starting from the 2nd) will be a bit challenging, especially if you have never programmed before: they won't tell you exactly what to do to solve the problem
-* submit code that runs 
-* form a study group, and ask for help if you get stuck
-
---&gt;</code></pre>
+<p><br></p>
+</section>
+<section id="assessment" class="slide level2 center">
+<h2>Assessment</h2>
+<p>See “Assessment” section of our Syllabus and the <a href="https://brinasab.github.io/css-website/lectures/">Course Schedule</a>:</p>
+<ul>
+<li><p><strong>Assessment and Evaluation:</strong> There will be four take-home assignments, one final project, and two short in-class exams. Check the syllabus for details.</p></li>
+<li><p><strong>Submission Policies:</strong> See Syllabus, especially for late or missed assignments.</p></li>
+<li><p><strong>Evaluation Philosophy and Rubric</strong></p></li>
+</ul>
+<p><strong>Tips</strong>:</p>
+<ul>
+<li>do the readings before class, even if you do not understand everything</li>
+<li>start early to work on the take-home assignments; (starting from the 2nd) they will be a bit challenging, especially if you have never programmed before: they won’t tell you exactly what to do to solve the problem</li>
+<li>read our AI policy</li>
+<li>form a study group, and ask for help if you get stuck</li>
+</ul>
 </section>
 <section id="software-setup" class="slide level2 center">
 <h2>Software Setup</h2>
@@ -401,7 +391,7 @@ If you're having trouble with the setup, stay after class or come to Office Hour
 <h2>Activity: Meet &amp; Share Goals</h2>
 <p><strong>In groups of 3-5 people, please share:</strong></p>
 <ul>
-<li>Your name, plus something about yourself that you’re comfortable sharing (e.g., a hobby, your favorite food, your high school, your experience with programming, etc.)</li>
+<li>Your name, plus something about yourself that you’re comfortable sharing (e.g., a hobby, your experience with programming, etc.)</li>
 <li>What you hope to learn or achieve in this course</li>
 <li>Any questions you have, and strategies you plan to use to stay on track (we’ll go around the room and answer questions)</li>
 </ul>
@@ -415,7 +405,7 @@ If you're having trouble with the setup, stay after class or come to Office Hour
 <p><strong>Done early?</strong></p>
 </div>
 <div class="callout-content">
-<p>If your group finishes early, please complete <a href="https://forms.gle/pY7sCoCVEDEe7bYD7">this short survey</a> if you haven’t already. It only takes a minute and helps us better understand your background and what you’re hoping to learn in this course.</p>
+<p>If your group finishes early, please complete <a href="https://forms.gle/SrVxNwCAixZSFr1QA">this short survey</a> if you haven’t already. It only takes a minute and helps us better understand your background and what you’re hoping to learn in this course.</p>
 </div>
 </div>
 </div>
@@ -459,36 +449,33 @@ See [Should I take this course?](https://computing-soc-sci.netlify.app/faq/whom-
 <ul>
 <li>Discuss and debug with peers</li>
 <li>Rewrite code found online in your own style<br> and cite the source<br></li>
-<li>Use AI to help debug or clarify concepts</li>
+<li>Use AI to debug or clarify concepts <em>after</em> you try yourself</li>
 <li>Submit code you wrote</li>
 <li>Submit code you fully understand</li>
+<li>Prioritize methods from class materials and readings</li>
 </ul>
 </div><div class="column" style="width:50%;">
 <h3 id="dont">🚫 DON’T:</h3>
 <ul>
 <li>Copy code from your classmaters or others</li>
 <li>Simply copy and paste chunks of code from<br> the internet<br></li>
-<li>Ask AI to write code for you</li>
+<li>Use AI beyond the AI-Policy of this course</li>
 <li>Submit code you didn’t write</li>
 <li>Submit code you can’t explain</li>
+<li>Write code that</li>
 </ul>
 </div></div>
 <!--
 ### Resource Disclosure
 
-In your homework, list any help or resources you used.  
-For example:  
-- *"I collaborated with First Lastname on debugging"*  
-- *"I used ChatGPT to understand how to plot a bar chart"*
-
-
-ADD HERE A MORE STRONGER AI STATEMTN WITH A SLIDE THAT TITLES LET'S TALK ABOUT AI OR SO
+ADD HERE AN AI POLICY SLIDE WITH A SLIDE THAT TITLES LET'S TALK ABOUT AI OR SO
 
 share that I think is my responsibility to set expectations and draw boundaries on what is an acceptable vs not use of AI
 (e.g. not sloppinnes, no using AI to replace thinking, reading text, going through slides etc.) and enforce it (e.g. linked yo your grading and assessment system, e.g/ AI statment, exercise using both AI and slides/books etc.)
 
 it is your resonsiblity to ask questions if smt is not clear, comply with instructions, and provide feedbakc if smt is not working to improve it, do not plagiariz
 
+Do not use ai to brainstorm, or write code for yo
 
 -->
 </section>
@@ -501,7 +488,7 @@ it is your resonsiblity to ask questions if smt is not clear, comply with instru
 </div>
 <div class="fragment">
 <ul>
-<li>“Homework took more time and effort than I expected.” <br><em>Advice: Start early! You don’t need to know everything before you begin: just get started and review the materials as needed. Complete the in-class exercises before tackling a homework.</em></li>
+<li>“Homework took more time and effort than I expected.” <br><em>Advice: Start early! You don’t need to know everything before you begin: just get started and review the materials as needed. Use pen and paper to write pseudo-code before you start.</em></li>
 </ul>
 </div>
 <div class="fragment">
@@ -517,10 +504,6 @@ it is your resonsiblity to ask questions if smt is not clear, comply with instru
 <!-- IN CLASS: 
 Share some further tips to be successful
 
-pen and paper! make a plan before you code
-
-keep things organized! e.g. all your slides and RMd files, customize them know where to find what and when we covered it (vs chatGPt...)
-
 say everyone who puts effort and works hard on this class has gotten at least a B+ and usually in the A range
 
 Add to point above a version of the following: HWs assignments are take-home with no limited time and open-books, as such they are designed to be more challenging that in-class exercises
@@ -529,7 +512,7 @@ Add one question on Make at habit to go to Office Hours and post on Ed this is t
 
 Use the drop-in and by appointment model as in Fall 2024 and ask TAs to schedule OHs before HW are due and aim at covering all days
 -->
-</section>
+</section></section>
 <section>
 <section id="intro-to-r-rstudio-and-workbench" class="title-slide slide level1 center middle">
 <h1>2. Intro to R, RStudio, and Workbench</h1>
@@ -697,19 +680,19 @@ R Markdown: an extension of Markdown designed for R -->
 <section id="r-markdown-example" class="slide level2 center">
 <h2>R Markdown: Example</h2>
 <p>This is what we type (YAML, text, code):</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a></a>---</span>
-<span id="cb2-2"><a></a>title: "Homework 1"</span>
-<span id="cb2-3"><a></a>author: "Sabrina Nardin"</span>
-<span id="cb2-4"><a></a>output: html_document</span>
-<span id="cb2-5"><a></a>---</span>
-<span id="cb2-6"><a></a></span>
-<span id="cb2-7"><a></a>I write my homework description here. </span>
-<span id="cb2-8"><a></a>I can format the text in many ways, for example, by bolding **key concepts**.</span>
-<span id="cb2-9"><a></a></span>
-<span id="cb2-10"><a></a>```{r}</span>
-<span id="cb2-11"><a></a># create a variable</span>
-<span id="cb2-12"><a></a>x &lt;- 5</span>
-<span id="cb2-13"><a></a>```</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a></a>---</span>
+<span id="cb3-2"><a></a>title: "Homework 1"</span>
+<span id="cb3-3"><a></a>author: "Sabrina Nardin"</span>
+<span id="cb3-4"><a></a>output: html_document</span>
+<span id="cb3-5"><a></a>---</span>
+<span id="cb3-6"><a></a></span>
+<span id="cb3-7"><a></a>I write my homework description here. </span>
+<span id="cb3-8"><a></a>I can format the text in many ways, for example, by bolding **key concepts**.</span>
+<span id="cb3-9"><a></a></span>
+<span id="cb3-10"><a></a>```{r}</span>
+<span id="cb3-11"><a></a># create a variable</span>
+<span id="cb3-12"><a></a>x &lt;- 5</span>
+<span id="cb3-13"><a></a>```</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <!-- IN CLASS: 
 copy this on a blank Rmd document on Workbench and render it -->
 </section>
@@ -717,11 +700,11 @@ copy this on a blank Rmd document on Workbench and render it -->
 <h2>YAML: <strong>Y</strong>et <strong>A</strong>nother <strong>M</strong>arkup <strong>L</strong>anguage</h2>
 <p>The YAML header sits at the top of your <code>.Rmd</code> and tells R what the document is about and how to display it (e.g., as a html, PDF, Word, etc.). Spacing, indentation, and <code>---</code> all matters!</p>
 <p>The example below shows three fields but many more can be added:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a></a>---</span>
-<span id="cb3-2"><a></a>title: "Homework 1"</span>
-<span id="cb3-3"><a></a>author: "Sabrina Nardin"</span>
-<span id="cb3-4"><a></a>output: html_document</span>
-<span id="cb3-5"><a></a>---</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb4-1"><a></a>---</span>
+<span id="cb4-2"><a></a>title: "Homework 1"</span>
+<span id="cb4-3"><a></a>author: "Sabrina Nardin"</span>
+<span id="cb4-4"><a></a>output: html_document</span>
+<span id="cb4-5"><a></a>---</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <!-- IN CLASS: 
 Change output to word and observe diffrence. Say that pdf might give problems occasionally due to an additonal package needed which is latex
 
@@ -737,10 +720,10 @@ output:
 <div class="columns">
 <div class="column" style="width:50%;">
 <h3 id="syntax">Syntax</h3>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a></a>*Italics*  </span>
-<span id="cb4-2"><a></a>**Bold**  </span>
-<span id="cb4-3"><a></a>~~Strikethrough~~  </span>
-<span id="cb4-4"><a></a><span class="in">`inline code`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a></a>*Italics*  </span>
+<span id="cb5-2"><a></a>**Bold**  </span>
+<span id="cb5-3"><a></a>~~Strikethrough~~  </span>
+<span id="cb5-4"><a></a><span class="in">`inline code`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:50%;">
 <h3 id="output">Output</h3>
 <p><em>Italics</em><br>
@@ -774,15 +757,15 @@ I do not want a list here, I want the literal number followed by a dot: 1\.
 <div class="columns">
 <div class="column" style="width:50%;">
 <h3 id="syntax-1">Syntax</h3>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a></a><span class="ss">+ </span>item 1  </span>
-<span id="cb5-2"><a></a><span class="ss">  + </span>sub  </span>
-<span id="cb5-3"><a></a><span class="ss">  + </span>sub  </span>
-<span id="cb5-4"><a></a><span class="ss">- </span>item 2  </span>
-<span id="cb5-5"><a></a><span class="ss">  - </span>sub  </span>
-<span id="cb5-6"><a></a><span class="ss">  - </span>sub  </span>
-<span id="cb5-7"><a></a><span class="ss">+ </span>item 3  </span>
-<span id="cb5-8"><a></a><span class="ss">  - </span>sub  </span>
-<span id="cb5-9"><a></a><span class="ss">  * </span>sub  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a></a><span class="ss">+ </span>item 1  </span>
+<span id="cb6-2"><a></a><span class="ss">  + </span>sub  </span>
+<span id="cb6-3"><a></a><span class="ss">  + </span>sub  </span>
+<span id="cb6-4"><a></a><span class="ss">- </span>item 2  </span>
+<span id="cb6-5"><a></a><span class="ss">  - </span>sub  </span>
+<span id="cb6-6"><a></a><span class="ss">  - </span>sub  </span>
+<span id="cb6-7"><a></a><span class="ss">+ </span>item 3  </span>
+<span id="cb6-8"><a></a><span class="ss">  - </span>sub  </span>
+<span id="cb6-9"><a></a><span class="ss">  * </span>sub  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:50%;">
 <h3 id="output-1">Output</h3>
 <ul>
@@ -810,18 +793,18 @@ I do not want a list here, I want the literal number followed by a dot: 1\.
 <div class="columns">
 <div class="column" style="width:50%;">
 <h3 id="syntax-2">Syntax</h3>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a></a><span class="ss">1. </span>item 1  </span>
-<span id="cb6-2"><a></a><span class="ss">    + </span>sub  </span>
-<span id="cb6-3"><a></a><span class="ss">      + </span>sub  </span>
-<span id="cb6-4"><a></a><span class="ss">    + </span>sub  </span>
-<span id="cb6-5"><a></a></span>
-<span id="cb6-6"><a></a><span class="ss">1. </span>item 2  </span>
-<span id="cb6-7"><a></a><span class="ss">    * </span>sub  </span>
-<span id="cb6-8"><a></a><span class="ss">      * </span>sub  </span>
-<span id="cb6-9"><a></a><span class="ss">    * </span>sub  </span>
-<span id="cb6-10"><a></a></span>
-<span id="cb6-11"><a></a><span class="ss">1. </span>item 3  </span>
-<span id="cb6-12"><a></a><span class="ss">    - </span>sub  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a></a><span class="ss">1. </span>item 1  </span>
+<span id="cb7-2"><a></a><span class="ss">    + </span>sub  </span>
+<span id="cb7-3"><a></a><span class="ss">      + </span>sub  </span>
+<span id="cb7-4"><a></a><span class="ss">    + </span>sub  </span>
+<span id="cb7-5"><a></a></span>
+<span id="cb7-6"><a></a><span class="ss">1. </span>item 2  </span>
+<span id="cb7-7"><a></a><span class="ss">    * </span>sub  </span>
+<span id="cb7-8"><a></a><span class="ss">      * </span>sub  </span>
+<span id="cb7-9"><a></a><span class="ss">    * </span>sub  </span>
+<span id="cb7-10"><a></a></span>
+<span id="cb7-11"><a></a><span class="ss">1. </span>item 3  </span>
+<span id="cb7-12"><a></a><span class="ss">    - </span>sub  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:50%;">
 <h3 id="output-2">Output</h3>
 <ol type="1">
@@ -853,9 +836,9 @@ I do not want a list here, I want the literal number followed by a dot: 1\.
 </section>
 <section id="r-markdown-formatting-headers" class="slide level2 center">
 <h2>R Markdown: Formatting Headers</h2>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a></a><span class="fu"># Heading 1  </span></span>
-<span id="cb7-2"><a></a><span class="fu">## Heading 2  </span></span>
-<span id="cb7-3"><a></a><span class="fu">### Heading 3  </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a></a><span class="fu"># Heading 1  </span></span>
+<span id="cb8-2"><a></a><span class="fu">## Heading 2  </span></span>
+<span id="cb8-3"><a></a><span class="fu">### Heading 3  </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <h1>
 Heading 1
 </h1>
@@ -871,10 +854,10 @@ Heading 3
 <div class="columns">
 <div class="column" style="width:50%;">
 <h3 id="in-code">In Code</h3>
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="co"># Assign number to variable</span></span>
-<span id="cb8-2"><a></a>x <span class="ot">&lt;-</span> <span class="dv">5</span> </span>
-<span id="cb8-3"><a></a><span class="co"># Assign text to variable</span></span>
-<span id="cb8-4"><a></a>name <span class="ot">&lt;-</span> <span class="st">"Sabrina"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="co"># Assign number to variable</span></span>
+<span id="cb9-2"><a></a>x <span class="ot">&lt;-</span> <span class="dv">5</span> </span>
+<span id="cb9-3"><a></a><span class="co"># Assign text to variable</span></span>
+<span id="cb9-4"><a></a>name <span class="ot">&lt;-</span> <span class="st">"Sabrina"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li><code>#</code> starts a <strong>COMMENT</strong> in R Scripts and R Markdown Code Chunks</li>
 <li>Comments are <strong>ignored</strong> when the code runs</li>
@@ -882,10 +865,10 @@ Heading 3
 </ul>
 </div><div class="column" style="width:50%;">
 <h3 id="in-r-markdown-text">In R Markdown Text</h3>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a></a><span class="fu"># Title (h1)</span></span>
-<span id="cb9-2"><a></a><span class="fu">## Section (h2)</span></span>
-<span id="cb9-3"><a></a><span class="fu">### Subsection (h3)</span></span>
-<span id="cb9-4"><a></a><span class="fu">#### More Subsections (h4)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a></a><span class="fu"># Title (h1)</span></span>
+<span id="cb10-2"><a></a><span class="fu">## Section (h2)</span></span>
+<span id="cb10-3"><a></a><span class="fu">### Subsection (h3)</span></span>
+<span id="cb10-4"><a></a><span class="fu">#### More Subsections (h4)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li><code>#</code> creates a <strong>HEADER</strong> in Markdown or R Markdown Text</li>
 <li>The number of <code>#</code> signs = <strong>heading level</strong></li>

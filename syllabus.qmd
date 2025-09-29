@@ -122,32 +122,32 @@ Grades are part of the system here, but a score reflects one assignment, not you
 
 Assignments are scored as *Excellent* (roughly A+/A), *Very Good* (A-), *Good* (B/B+), *Needs Improvement* (C), or *Not Sufficient* (below C) across five categories, weighted as follows:  
 
-- **Coding Strategy (20%)**: Evaluates  
+- **Coding Strategy (20%)**:  
   - the logic of your code (how it solves the problem),  
   - correctness (does it work?),  
   - sophistication (depth of solution),  
   - use of course tools/techniques (e.g., conditionals, functions, tidyverse, etc.),  
   - efficiency (avoiding unnecessary repetition).  
 
-- **Presentation and Explanation (20%)**: Evaluates  
+- **Presentation and Explanation (20%)**:   
   - effectiveness of visualizations, tables, or summaries,  
   - clarity of conceptual choices in presenting data,  
   - your ability to interpret results,  
   - use of Markdown syntax.    
 
-- **Achievement (20%)**: Evaluates  
+- **Achievement (20%)**:  
   - your mastery of the required concepts/tools,  
   - creativity and initiative,  
   - ability to go beyond minimum requirements,  
   - note that *Excellent* in this category indicates truly outstanding work.  
 
-- **Reproducibility (20%)**: Evaluates  
+- **Reproducibility (20%)**:  
   - compliance with course conventions (repo access, required files submitted),  
   - clear use of Markdown/RMarkdown,  
   - meaningful and rich history of commit messages,  
   - etc. 
 
-- **Coding Style (10%)**: Evaluates  
+- **Coding Style (10%)**:  
   - adherence to [R code conventions](http://adv-r.had.co.nz/Style.html),  
   - clarity for others reading your code,  
   - appropriate comments (neither too few nor too many),  
