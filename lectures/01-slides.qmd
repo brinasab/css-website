@@ -68,7 +68,7 @@ But let me start by introducing myself and the TA... then will go around and int
 | Role   | Name                                   | Email                        |
 |--------|----------------------------------------|------------------------------|
 | Instructor | Sabrina Nardin (she/her)           | [snardin@uchicago.edu](mailto:snardin@uchicago.edu) |
-| TA     | Zach Meyer (he/him)                         | [ethan@uchicago.edu](mailto:zmeyer@uchicago.edu) |
+| TA     | Zach Meyer (he/him)                         | [zmeyer@uchicago.edu](mailto:zmeyer@uchicago.edu) |
 | TA     | Zixuan Zhou (she/her)                  | [zixuanzhou@uchicago.edu](mailto:zixuanzhou@uchicago.edu) |
 
 
@@ -159,7 +159,7 @@ See "Assessment" section of our Syllabus and the [Course Schedule](https://brina
 
 -   **Submission Policies:** See Syllabus, especially for late or missed assignments.
 
--   **Evaluation Philosophy and Rubric:** See Syllabus
+-   **Evaluation Philosophy and Rubric:** See Syllabus.
 
 **Tips**:
 
@@ -233,10 +233,10 @@ Researchers collaborate on projects. Developers work in teams to write programs.
 
 -   Discuss and debug with peers
 -   Rewrite code found online in your own style<br> and cite the source</br>
--   Use AI to debug or clarify concepts *after* you try yourself
+-   Use AI to debug or clarify concepts *after* you try
 -   Submit code you wrote
 -   Submit code you fully understand
--   Prioritize methods from class materials and readings
+-   Always, prioritize methods from class materials and readings
 :::
 
 ::: {.column width="50%"}
@@ -269,9 +269,13 @@ Researchers collaborate on projects. Developers work in teams to write programs.
 :::
 :::
 
-In this course. **AI is NOT allowed to brainstorm, write code for you, replace course materials.**
+**In this course, AI is:**  
 
-See [Academic Integrity & Use of AI Policies](https://brinasab.github.io/css-website/syllabus.html#academic-integrity-use-of-ai-policies)
+- NOT allowed to brainstorm, write code for you, or replace course materials  
+
+- allowed to debug and learn more (e.g., clarify class materials, ask for more explanations about a specific function, ask for examples, etc.). 
+
+Make sure to read the [Academic Integrity & Use of AI Policies](https://brinasab.github.io/css-website/syllabus.html#academic-integrity-use-of-ai-policies)
 
 ---
 

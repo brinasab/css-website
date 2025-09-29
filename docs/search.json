@@ -2909,7 +2909,7 @@
     "href": "lectures/01-slides.html#teaching-team",
     "title": "Computing for the Social Sciences: Lecture 1",
     "section": "Teaching Team",
-    "text": "Teaching Team\n\n\n\nRole\nName\nEmail\n\n\n\n\nInstructor\nSabrina Nardin (she/her)\nsnardin@uchicago.edu\n\n\nTA\nZach Meyer (he/him)\nethan@uchicago.edu\n\n\nTA\nZixuan Zhou (she/her)\nzixuanzhou@uchicago.edu\n\n\n\n\n\nHow to Reach Out\n\nAsk questions during or after class\nAttend Office Hours (see website)\nPost on Ed Discussion course-related questions"
+    "text": "Teaching Team\n\n\n\nRole\nName\nEmail\n\n\n\n\nInstructor\nSabrina Nardin (she/her)\nsnardin@uchicago.edu\n\n\nTA\nZach Meyer (he/him)\nzmeyer@uchicago.edu\n\n\nTA\nZixuan Zhou (she/her)\nzixuanzhou@uchicago.edu\n\n\n\n\n\nHow to Reach Out\n\nAsk questions during or after class\nAttend Office Hours (see website)\nPost on Ed Discussion course-related questions"
   },
   {
     "objectID": "lectures/01-slides.html#teaching-team-1",
@@ -2951,7 +2951,7 @@
     "href": "lectures/01-slides.html#assessment",
     "title": "Computing for the Social Sciences: Lecture 1",
     "section": "Assessment",
-    "text": "Assessment\nSee “Assessment” section of our Syllabus and the Course Schedule:\n\nAssessment and Evaluation: There will be four take-home assignments, one final project, and two short in-class exams. Check the syllabus for details.\nSubmission Policies: See Syllabus, especially for late or missed assignments.\nEvaluation Philosophy and Rubric: See Syllabus\n\nTips:\n\ndo the readings before class, even if you do not understand everything\nstart early to work on the take-home assignments; (starting from the 2nd) they will be a bit challenging, especially if you have never programmed before: they won’t tell you exactly what to do to solve the problem\nAI is cool but read our AI policy in the Syllabus\nform a study group, and ask for help if you get stuck"
+    "text": "Assessment\nSee “Assessment” section of our Syllabus and the Course Schedule:\n\nAssessment and Evaluation: There will be four take-home assignments, one final project, and two short in-class exams. Check the syllabus for details.\nSubmission Policies: See Syllabus, especially for late or missed assignments.\nEvaluation Philosophy and Rubric: See Syllabus.\n\nTips:\n\ndo the readings before class, even if you do not understand everything\nstart early to work on the take-home assignments; (starting from the 2nd) they will be a bit challenging, especially if you have never programmed before: they won’t tell you exactly what to do to solve the problem\nAI is cool but read our AI policy in the Syllabus\nform a study group, and ask for help if you get stuck"
   },
   {
     "objectID": "lectures/01-slides.html#software-setup",
@@ -2986,7 +2986,7 @@
     "href": "lectures/01-slides.html#collaboration-vs.-plagiarism",
     "title": "Computing for the Social Sciences: Lecture 1",
     "section": "Collaboration vs. Plagiarism",
-    "text": "Collaboration vs. Plagiarism\n\n\n✅ DO:\n\nDiscuss and debug with peers\nRewrite code found online in your own style and cite the source\nUse AI to debug or clarify concepts after you try yourself\nSubmit code you wrote\nSubmit code you fully understand\nPrioritize methods from class materials and readings\n\n\n🚫 DON’T:\n\nCopy code from your classmates or others\nSimply copy and paste chunks of code from the internet\nUse AI beyond the AI-Policy of this course\nSubmit code you didn’t write\nSubmit code you can’t explain\nWrite code not taught in class or reading (even if it works) as primary solution"
+    "text": "Collaboration vs. Plagiarism\n\n\n✅ DO:\n\nDiscuss and debug with peers\nRewrite code found online in your own style and cite the source\nUse AI to debug or clarify concepts after you try\nSubmit code you wrote\nSubmit code you fully understand\nAlways, prioritize methods from class materials and readings\n\n\n🚫 DON’T:\n\nCopy code from your classmates or others\nSimply copy and paste chunks of code from the internet\nUse AI beyond the AI-Policy of this course\nSubmit code you didn’t write\nSubmit code you can’t explain\nWrite code not taught in class or reading (even if it works) as primary solution"
   },
   {
     "objectID": "lectures/01-slides.html#tips-from-former-students",
@@ -3161,6 +3161,6 @@
     "href": "lectures/01-slides.html#my-take-on-ai-for-this-course",
     "title": "Computing for the Social Sciences: Lecture 1",
     "section": "My take on AI for this course",
-    "text": "My take on AI for this course\n\n\nIt is my responsibility to\n- Set expectations & boundaries\n- Enforce them (via grading & AI statements)\n\nIt is your responsibility to\n- Respect the AI policy\n- Ask questions if something is unclear\n\nIn this course. AI is NOT allowed to brainstorm, write code for you, replace course materials.\nSee Academic Integrity & Use of AI Policies"
+    "text": "My take on AI for this course\n\n\nIt is my responsibility to\n- Set expectations & boundaries\n- Enforce them (via grading & AI statements)\n\nIt is your responsibility to\n- Respect the AI policy\n- Ask questions if something is unclear\n\nIn this course, AI is:\n\nNOT allowed to brainstorm, write code for you, or replace course materials\nallowed to debug and learn more (e.g., clarify class materials, ask for more explanations about a specific function, ask for examples, etc.).\n\nMake sure to read the Academic Integrity & Use of AI Policies"
   }
 ]
