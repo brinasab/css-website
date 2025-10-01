@@ -3134,5 +3134,187 @@
     "title": "Tools for R Programming and Collaboration",
     "section": "Shell",
     "text": "Shell\nThe shell (or bash or terminal) is a program on your computer whose job is to run other programs, rather than do calculations itself. The shell is a very old program and in a time before the mouse it was the only way to interact with a computer. It is still extremely popular among programmers because it is fast and powerful at automating repetitive tasks.\nHere we use the shell for a more modest goal: to navigate the file system, confirm the present working directory, and cement the git to GitHub connection.\n\nStarting the shell\nIn RStudio, go to Tools &gt; Shell. This should take you to the shell (on Mac: Terminal, on Windows: GitBash or equivalent). It should be a simple blinking cursor, waiting for input (white text on black background, or black text on white background)\n\n\nUsing the shell\nThe most basic commands are listed below:\n\npwd (print working directory). Shows the folder (or directory) you are currently operating in. This is not necessarily the same as the R working directory you get from getwd().\nls (list all files). Shows all files in the current working directory. This is equivalent to looking at the files in your Finder/Explorer/File Manager. Use ls -a to also list hidden files, such as .Rhistory and .git.\ncd (change directory). Allows you to navigate through your folders by changing the shell’s working directory. You can navigate like so:\n\ngo to subfolder foo of current working directory: cd foo\ngo to parent folder of current working directory: cd ..\ngo to home folder: cd ~ or simply cd\ngo to folder using absolute path, works regardless of your current working directory: cd /home/my_username/Desktop. Windows uses a slightly different syntax with the slashes between the folder names reversed, \\, e.g. cd C:\\Users\\MY_USERNAME\\Desktop.\n\nTip 1: Dragging and dropping a file or folder into the terminal window will paste the absolute path into the window.\nTip 2: Use the tab key to autocomplete unambiguous folder and file names. Hit tab twice to see all ambiguous options.\n\n\nUse arrow-up and arrow-down to repeat previous commands. Or search for previous commands with CTRL+r.\ngit status is the most used git command and informs you of your current branch, any changes or untracked files, and whether you are in sync with your remotes.\ngit remote -v lists all remotes. Very useful for making sure git knows about your remote and that the remote address is correct.\ngit remote add origin GITHUB_URL adds the remote GITHUB_URL with nickname origin.\ngit remote set-url origin GITHUB_URL changes the remote url of origin to GITHUB_URL. This way you can fix typos in the remote url.\n\n\n\nA note for Windows users\nOn Windows, the program that runs the shell is called Command Prompt or cmd.exe.\nUnfortunately, the default Windows shell does not support all the commands that other operating systems do. This is where GitBash comes in handy: it installs a light version of a shell that does support all the above commands. When you access the shell through RStudio, RStudio actually tries to open GitBash if it can find it, but it will open the default Windows Command Prompt if GitBash is not found.\nIf you get an error message such as `pwd is not recognized as an internal or external command, operable program or batch file.` from any of the previous commands, that means that RStudio could not find GitBash. The most likely cause of this is that you did not install git using the recommended method so try re-installing git.\nIf you followed the installation instructions and still cannot run GitBash, you should find it under “Menu &gt; Git &gt; Git Bash”. If you’re still confused, go back and watch the first three minutes of this video tutorial on installing Git for Windows."
+  },
+  {
+    "objectID": "lectures/02-slides.html#two-different-approaches",
+    "href": "lectures/02-slides.html#two-different-approaches",
+    "title": "Computing for the Social Sciences: Lecture 2",
+    "section": "Two Different Approaches",
+    "text": "Two Different Approaches\nTASK: Write a report on the relationship between income and crime rates in Chicago.\nAPPROACH: Jane and Sally approach this task differently…\n\n\n\nJane: GUI Workflow\n\nSearches for data files online\n\nCleans the data using Excel\n\nAnalyzes the data in Excel (or similar)\n\nWrites her report in Google Docs\nSaves different versions of her work manually\n\n\nSally: Programmatic Workflow\n\nSearches for data files online\n\nCleans the data using R\n\nAnalyzes the data in R\n\nWrites her report in R Markdown\nTracks changes automatically using Git"
+  },
+  {
+    "objectID": "lectures/02-slides.html#two-main-advantages-of-a-programmatic-workflow",
+    "href": "lectures/02-slides.html#two-main-advantages-of-a-programmatic-workflow",
+    "title": "Computing for the Social Sciences: Lecture 2",
+    "section": "Two Main Advantages of a Programmatic Workflow",
+    "text": "Two Main Advantages of a Programmatic Workflow\n1. Automation\n\nUses programs (e.g., R) to perform tasks systematically\n\nIn the long run, reduces manual effort and human errors\n\nEnables fast and consistent repetition of analyses\n\n\n2. Reproducibility\n\nScientific research should share both data and code used for analysis\n\nAllows verification and reuse by others\n\nEnables exact replication of results, even years later"
+  },
+  {
+    "objectID": "lectures/02-slides.html#often-used-together-but-they-are-different-tools",
+    "href": "lectures/02-slides.html#often-used-together-but-they-are-different-tools",
+    "title": "Computing for the Social Sciences: Lecture 2",
+    "section": "Often used together, but they are different tools",
+    "text": "Often used together, but they are different tools\n\n\n\nGit\n\nVersion control software\n\nRuns locally on your computer\nNote locally = your Workbench for this course\n\n\n\nGitHub\n\nCloud-based platform\n\nRuns online at https://github.com"
+  },
+  {
+    "objectID": "lectures/02-slides.html#what-is-version-control-e.g.-git",
+    "href": "lectures/02-slides.html#what-is-version-control-e.g.-git",
+    "title": "Computing for the Social Sciences: Lecture 2",
+    "section": "What is Version Control (e.g., Git)?",
+    "text": "What is Version Control (e.g., Git)?\nVersion Control\nVersion Control is a system that records every change you make to your files in a folder and lets you restore previous versions of your files in that folder.\nThe folder lives on your computer (e.g., Workbench for this course) and becomes your local repository or local repo.\n\nGit\nGit is a specific software for version control: Git will record and save changes you make to the files in that folder.\nEvery change is saved by Git with a time stamp, author info, and a message (that you type in); you can restore them, if needed."
+  },
+  {
+    "objectID": "lectures/02-slides.html#why-using-version-control-e.g.-git",
+    "href": "lectures/02-slides.html#why-using-version-control-e.g.-git",
+    "title": "Computing for the Social Sciences: Lecture 2",
+    "section": "Why using Version Control (e.g., Git)?",
+    "text": "Why using Version Control (e.g., Git)?\nWithout Version Control you have to track changes manually, and rename the file every time, which can be messy and hard to manage, like:\n\nanalysis-1.R\nanalysis-2.R\nanalysis-final.R\nanalysis-final-FINAL.R"
+  },
+  {
+    "objectID": "lectures/02-slides.html#git-github-comparison",
+    "href": "lectures/02-slides.html#git-github-comparison",
+    "title": "Computing for the Social Sciences: Lecture 2",
+    "section": "Git & GitHub Comparison",
+    "text": "Git & GitHub Comparison\n\n\n\n\n\n\n\n\nFeature\nGit\nGitHub\n\n\n\n\nWhat it is\nVersion control software\nCloud platform for Git repos\n\n\nWhere it runs\nLocally (your computer)\nOnline (web-based)\n\n\nWhat it does\nTracks changes in your local repo\nStores & shares remote copies\n\n\nCollaboration\nNot built-in\nPull, issues, code reviews\n\n\nUse in RStudio\nGit Tab\nConnect via setup or terminal\n\n\nRepo\nLocal repo = your folder\nRemote repo = copy on GitHub\n\n\n\n\nNote: In this course, we use Git + GitHub via RStudio only, but other tools (vs. RStudio) exists like GitHub Desktop, terminal, etc."
+  },
+  {
+    "objectID": "lectures/02-slides.html#lets-put-this-into-practice",
+    "href": "lectures/02-slides.html#lets-put-this-into-practice",
+    "title": "Computing for the Social Sciences: Lecture 2",
+    "section": "Let’s put this into practice!",
+    "text": "Let’s put this into practice!\nWe’ll practice in two steps:\nStep 1: Configure your Setup: Set up Git, GitHub, and RStudio so everything works well together\nStep 2: Use Git and GitHub in RStudio Tutorial: Complete tutorial to practice using version control in RStudio"
+  },
+  {
+    "objectID": "lectures/02-slides.html#step-1-configure-your-setup",
+    "href": "lectures/02-slides.html#step-1-configure-your-setup",
+    "title": "Computing for the Social Sciences: Lecture 2",
+    "section": "💻 Step 1: Configure your Setup",
+    "text": "💻 Step 1: Configure your Setup\nComplete https://brinasab.github.io/css-website/setup/setup-workbench.html"
+  },
+  {
+    "objectID": "lectures/02-slides.html#step-2-use-git-and-github-in-rstudio-tutorial",
+    "href": "lectures/02-slides.html#step-2-use-git-and-github-in-rstudio-tutorial",
+    "title": "Computing for the Social Sciences: Lecture 2",
+    "section": "💻 Step 2: Use Git and GitHub in RStudio Tutorial",
+    "text": "💻 Step 2: Use Git and GitHub in RStudio Tutorial\nOnce Step 1 is done, complete https://brinasab.github.io/css-website/setup/setup-test.html\n\nInstructions:\n\nWork in pairs: one person (the most experienced with programming) read the instructions and guide the other, who executes the commands. Switch roles at the end so both persons have completed the set up.\nKeep track of your questions as you go and raise your hand if you need help!"
+  },
+  {
+    "objectID": "lectures/02-slides.html#recap-beginner-friendly-git-github-workflow",
+    "href": "lectures/02-slides.html#recap-beginner-friendly-git-github-workflow",
+    "title": "Computing for the Social Sciences: Lecture 2",
+    "section": "Recap: Beginner-Friendly Git & GitHub Workflow",
+    "text": "Recap: Beginner-Friendly Git & GitHub Workflow\n\nMake & Save Changes Locally\nEdit your files locally (e.g., Workbench) and save them. \nPull from GitHub\nRefresh your local copy to get the latest changes (nothing should happen when you work alone, but this helps avoid conflicts).\nStage Changes\nSelect which files you want Git to track in the next snapshot.\nCommit with a Message\nSave a snapshot of your staged changes in your local Git repo. Add a short message.\nPush to GitHub\nUpload your committed changes to the online repository.\n\n\n\n\n\n\n\nImportant\n\n\nYou will complete this workflow for all homework assignments!"
+  },
+  {
+    "objectID": "lectures/02-slides.html#git-reminders",
+    "href": "lectures/02-slides.html#git-reminders",
+    "title": "Computing for the Social Sciences: Lecture 2",
+    "section": "Git Reminders",
+    "text": "Git Reminders\n\nStage and commit often\nThink of commits as snapshots of your work. Save, stage, and commit regularly during your workflow.\nWrite clear, useful commit messages\nKeep messages concise but descriptive. They should explain what changed and why. Many tips online for “commit message best practices.”\nPush regularly, but not necessarily every time you commit Some people push every time they commit, while others push multiple commits at once. Experiment and find what works best for you.\nWork locally, and push on GitHub\nDo not do the other way around (e.g., do not modify your GitHub repository directly; work on your local copy, and push changes to GitHub)."
+  },
+  {
+    "objectID": "lectures/02-slides.html#what-to-commit-not-to-commit",
+    "href": "lectures/02-slides.html#what-to-commit-not-to-commit",
+    "title": "Computing for the Social Sciences: Lecture 2",
+    "section": "What to Commit / Not to Commit",
+    "text": "What to Commit / Not to Commit\n\n\n✅ What to Commit\n\nCode files\nMarkdown or Quarto files\nSmall data files\nREADME and documentation\n\n\n🚫 What Not to Commit\n\nTemporary files (e.g., .Rproj.user/)\nLog or output files\nFiles with private information\nFiles larger than 100 MB\n\n\n\n\nWhat Not to Commit goes in the “gitignore” file\n\nThe “gitignore” file tells Git what to ignore from your folder\nUse a template (search for R-specific template, which works well for most class projects)"
+  },
+  {
+    "objectID": "lectures/02-slides.html#git-conflicts",
+    "href": "lectures/02-slides.html#git-conflicts",
+    "title": "Computing for the Social Sciences: Lecture 2",
+    "section": "Git Conflicts",
+    "text": "Git Conflicts\nA Git conflict may happen when Git finds two competing versions of the same file: one in your local repo (Git, on your computer) VS. one in the remote repo (GitHub, online).\nThe local and remote repos are expected to match. If they don’t, Git tries to merge them automatically, with two possibile outcomes:\n✅ If the changes are in different parts of the file, Git merges automatically and no action is needed.\n❌ If the same part of the file was changed in both versions, Git cannot decide what to keep. You must manually review and resolve the conflict."
+  },
+  {
+    "objectID": "lectures/02-slides.html#when-do-conflicts-happen",
+    "href": "lectures/02-slides.html#when-do-conflicts-happen",
+    "title": "Computing for the Social Sciences: Lecture 2",
+    "section": "When Do Conflicts Happen?",
+    "text": "When Do Conflicts Happen?\nCollaborative Work\n- You and a teammate edit the same file (or even the same line)\n- You push changes without pulling the latest version from GitHub first\n- Tip: Always run git pull before git push\n\nWorking Solo\n- You make changes locally and also edit the same file directly on GitHub\n- Git can’t tell which version to keep\n- Tip: Always work in your local repository and use the workflow from the previous slide to push to Github"
+  },
+  {
+    "objectID": "lectures/02-slides.html#what-causes-a-conflict",
+    "href": "lectures/02-slides.html#what-causes-a-conflict",
+    "title": "Computing for the Social Sciences: Lecture 2",
+    "section": "What Causes a Conflict?",
+    "text": "What Causes a Conflict?\nA Git conflict may happen when Git finds two competing versions of the same file: one in your local repo (Git, on your computer) VS. one in the remote repo (GitHub, online)\nThe local and remote repos are expected to match. If they don’t, Git tries to merge them automatically.\nTwo Possible Outcomes\n✅ No conflict:\nIf the changes are in different parts of the file, Git merges automatically and no action is needed.\n❌ Conflict:\nIf the same part of the file was changed in both versions, Git cannot decide what to keep.\n→ You must manually review and resolve the conflict."
+  },
+  {
+    "objectID": "lectures/02-slides.html#what-a-git-conflict-looks-like",
+    "href": "lectures/02-slides.html#what-a-git-conflict-looks-like",
+    "title": "Computing for the Social Sciences: Lecture 2",
+    "section": "What a Git Conflict Looks Like",
+    "text": "What a Git Conflict Looks Like\nWhen a conflict happens, Git marks the file with special lines to show the two versions:\n&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD\nThis is your version (from your local repo)\n=======\nThis is the other version (from GitHub or your teammate)\n&gt;&gt;&gt;&gt;&gt;&gt;&gt; main\nUnfortunately, you cannot solve a Git Conflict using the integrated Git from RStudio. To solve it, you need to use Git from the terminal."
+  },
+  {
+    "objectID": "lectures/02-slides.html#avoiding-most-git-conflicts",
+    "href": "lectures/02-slides.html#avoiding-most-git-conflicts",
+    "title": "Computing for the Social Sciences: Lecture 2",
+    "section": "Avoiding (Most) Git Conflicts",
+    "text": "Avoiding (Most) Git Conflicts\nRather than solving conflicts, we want to avoid them with good practices:\n\nMake changes locally, then stage and commit\nPush regularly to keep your GitHub repo in sync\n\nAlways pull before you push to avoid conflicts\n\nKey Sequence to Use:\ngit pull → make changes → git add → git commit → git push"
+  },
+  {
+    "objectID": "lectures/02-slides.html#burn-it-all-down",
+    "href": "lectures/02-slides.html#burn-it-all-down",
+    "title": "Computing for the Social Sciences: Lecture 2",
+    "section": "Burn it All Down",
+    "text": "Burn it All Down"
+  },
+  {
+    "objectID": "lectures/02-slides.html#recap-what-we-learned-today",
+    "href": "lectures/02-slides.html#recap-what-we-learned-today",
+    "title": "Computing for the Social Sciences: Lecture 2",
+    "section": "Recap: What We Learned Today",
+    "text": "Recap: What We Learned Today\n\nFamiliarized with Git & GitHub\nHow to use Git & GitHub within RStudio"
+  },
+  {
+    "objectID": "lectures/02-slides.html#accept-homework-1",
+    "href": "lectures/02-slides.html#accept-homework-1",
+    "title": "Computing for the Social Sciences: Lecture 2",
+    "section": "💻 Accept Homework 1",
+    "text": "💻 Accept Homework 1\nAccept Homework 1 from the course site and follow the instructions.\nNote: this will only work if we have your GitHub username and you accepted the invite to our GitHub organization (which was sent to the email linked to your GitHub account)!"
+  },
+  {
+    "objectID": "lectures/02-slides.html#reminders",
+    "href": "lectures/02-slides.html#reminders",
+    "title": "Computing for the Social Sciences: Lecture 2",
+    "section": "Reminders",
+    "text": "Reminders\n\nAssignment 1 is now open and due next week. Check the Course Schedule on our website for the due date.\nIf you haven’t completed these yet, please do so ASAP, as you won’t be able to access and complete Assignment 1 otherwise:\n\nRegister a GitHub account and submit your username (see Lecture 1)\nSetup your computer (see Lecture 2)"
+  },
+  {
+    "objectID": "lectures/02-slides.html#to-print-these-slides-as-pdf",
+    "href": "lectures/02-slides.html#to-print-these-slides-as-pdf",
+    "title": "Computing for the Social Sciences: Lecture 2",
+    "section": "To print these slides as pdf",
+    "text": "To print these slides as pdf\nClick on the icon bottom-right corner &gt; Tools &gt; PDF Export Mode &gt; Print as a Pdf"
+  },
+  {
+    "objectID": "lectures/02-slides.html#when-do-git-conflicts-happen",
+    "href": "lectures/02-slides.html#when-do-git-conflicts-happen",
+    "title": "Computing for the Social Sciences: Lecture 2",
+    "section": "When Do Git Conflicts Happen?",
+    "text": "When Do Git Conflicts Happen?\nCollaborative Work\n- You and a teammate edit the same file (or even the same line)\n- You push changes without pulling the latest version from GitHub first - Conflict: Git can’t tell which version to keep\n- Tip: Always run git pull before git push\n\nWorking Solo\n- You make changes locally and also edit the same file directly on GitHub\n- Conflict: Git can’t tell which version to keep\n- Tip: Always work in your local repository first, then push to GitHub"
+  },
+  {
+    "objectID": "lectures/02-slides.html#how-to-solve-a-git-conflict",
+    "href": "lectures/02-slides.html#how-to-solve-a-git-conflict",
+    "title": "Computing for the Social Sciences: Lecture 2",
+    "section": "How to solve a Git Conflict",
+    "text": "How to solve a Git Conflict\n\nGo to R (Workbench) and open your terminal. Pull the latest changes from GitHub by typing git pull origin main\nOpen the file or files and look for the conflict markers such as &lt;&lt;&lt;&lt;&lt;&lt;&lt;, =======, &gt;&gt;&gt;&gt;&gt;&gt;&gt;\nDecide which version to keep or manually combine them\nDelete the conflict markers\nSave the file\nRun the following commands from your terminal:\ngit add &lt;filename&gt;\ngit commit -m \"solved conflict\"\ngit push origin main"
+  },
+  {
+    "objectID": "lectures/02-slides.html#how-version-control-e.g.-git-github-work-togheter",
+    "href": "lectures/02-slides.html#how-version-control-e.g.-git-github-work-togheter",
+    "title": "Computing for the Social Sciences: Lecture 2",
+    "section": "How Version Control (e.g., Git) + GitHub Work Togheter",
+    "text": "How Version Control (e.g., Git) + GitHub Work Togheter\nYou could only use Git and keep everything to your local computer. Often though, like in this class, people use Git + GitHub (e.g., you can link your local Git repository to an online GitHub repository).\nWith Git + GitHub you can:\n\nPush your local changes to GitHub (think at this as having an online back up of your local files)\nShare your work with others"
+  },
+  {
+    "objectID": "lectures/02-slides.html#git-large-file-storage-git-lfs",
+    "href": "lectures/02-slides.html#git-large-file-storage-git-lfs",
+    "title": "Computing for the Social Sciences: Lecture 2",
+    "section": "Git Large File Storage (Git LFS)",
+    "text": "Git Large File Storage (Git LFS)\nWhat if you need to track a file larger than 100 MB? GitHub does not allow pushing files over 100 MB. If you have such a file, don’t try to push it directly.\nInstead:\n\nUse Git Large File Storage (Git LFS)\nA separate tool that integrates with Git\nDesigned specifically for large files (e.g., datasets, media)\nNote: Git LFS storage on GitHub often comes with usage limits and may require a paid plan"
   }
 ]
