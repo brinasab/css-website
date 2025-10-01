@@ -46,7 +46,7 @@
     "href": "setup/setup-workbench.html#step-3-configure-git-in-rstudio-workbench",
     "title": "RStudio Workbench Setup",
     "section": "Step 3: Configure Git in RStudio Workbench",
-    "text": "Step 3: Configure Git in RStudio Workbench\nTo make Git work smoothly in this course, you’ll configure these settings: (3.1) Identify yourself to Git with your name and email, so Git can track your work and (3.2) Set up SSH Authentication, so GitHub knows it’s you\nYou only need to do this once per machine!\nYou can also watch a video walkthrough of the setup process.\n\n3.1 Identify yourself to Git\nTo track your work and link changes to you, Git needs to know your name and email address.\nGo to the Console tab in RStudio and run the code below, replacing name and email with your own:\n\nyour name can be your GitHub username or your actual first and last name\nyour email must be the same email you used to sign up for GitHub when you created an account\n\nlibrary(usethis)\nusethis::use_git_config(user.name = \"Your Name\", user.email = \"your@email.com\")\nTo confirm it worked (e.g., that Git got your credentials), go to Tools &gt; Shell and run the following command in the shell/terminal tab that opens up:\ngit config --global --list\nIf you see your name and email, you’re all set. If something looks off—like a typo in your name or you used the wrong email (not the one linked to your GitHub account)—just re-run the R code with the correct information. It will overwrite the previous settings.\n\n\n\n3.2 Set Up SSH Authentication\n\nWhat is this?\nNow Git knows your name and email. But to send your work from Git (on your computer – in our case, Workbench) to GitHub (online), you need to prove to GitHub that’s really you — this is called authentication.\nWhen you log into GitHub in your browser, you use your username and password. But Git uses a different method for authentication: either SSH keys or HTTPS with a personal access token. Both options allow Git to connect to GitHub securely, so you can push and pull changes without entering your password each time.\nSince we are using the RStudio Workbench for the class, you will need to use SSH keys to authenticate. The server that host our Workbench does not have the ability to cache your personal access token for HTTPS.\nThe Secure Shell Protocol (SSH) is a secure way to prove your identity when connecting to GitHub. Unlike passwords, which can be vulnerable to brute-force attacks, SSH keys are much harder to crack.\nWhen you generate an SSH key pair, you get two long strings of characters:\n\na public key, which you upload to GitHub\na private key, which stays safely on your computer (or in RStudio Workbench)\n\nWhen you try to connect to GitHub, Git uses your private key to unlock the connection. If it matches the public key on GitHub, you’re authenticated!\nNote that on GitHub, the URL for SSH looks like git@github.com:&lt;OWNER&gt;/&lt;REPO&gt;.git (make sure you use this SSH URL to create a project or clone a repository. If you accidentally use the HTTPS version, the operation will not work).\n\n\nWhat you need to do to\nYou need to create and store an SSH key pair, by running the following code in your R Console:\ncredentials::ssh_setup_github()\nYou’ll be guided through a few steps:\n\nIt should say “No SSH key found. Generate one now?” → Type Yes\nA long string of characters will appear in the Console, that’s your public SSH key\nYou will be asked to open a browser → Type Yes\nBefore or after opening a new browser, copy the entire SSH key (including the ssh-rsa or ssh-ed25519 at the beginning) from your Console\n\nOnce you are on the GitHub page:\n\nPaste your entire SSH key into the GitHub page that opened in your new browser (you can do this only if you registered a GitHub account, see step 1 above)\nUnder “Title”, give the key an informative name, something like csp-workbench-summer25 or another label to record the course and computer\nLeave “Key type” set to Authentication Key\nClick the green “Add SSH key” button\nIf prompted, complete GitHub’s security steps (e.g., enter a verification code or password or anything else asked)\n\nYou should now see your key listed in your GitHub account!\nTo confirm it worked, go back R, then to Tools &gt; Shell and run the following command in the shell/terminal tab that opens up:\nls -l ~/.ssh\nYou should see two lines showing the keys you just created: id_rsa is your private SSH key (keep it secure and do not share it), your id_rsa.pub is your public SSH key (the one you put on GitHub).\nIf you see more than these two files, it likely means you’ve set up extra SSH keys, which we want to avoid as it might create problems. Please contact us — we’ll help you reset and start fresh!"
+    "text": "Step 3: Configure Git in RStudio Workbench\nTo make Git work smoothly in this course, you’ll configure settings 3.1 and 3.2 below.\nYou only need to do this once per machine!\nYou can also watch a video walkthrough of the setup process.\n\n3.1 Identify yourself to Git\n\nWhat is this?\nTo track your work and link changes to you, Git needs to know your name and email address. So, you need to tell them to Git. Use the same email you used to your set up your GitHub account (see Lecture 1 “Before class”).\n\n\nWhat you need to do to\nGo to the Console tab in RStudio and run the code below, replacing name and email with your own:\n\nyour name can be your GitHub username or your actual first and last name\nyour email must be the same email you used to sign up for GitHub when you created an account\n\nlibrary(usethis)\nusethis::use_git_config(user.name = \"Your GitHub Username\", user.email = \"your@email.com\")\nTo confirm it worked (e.g., that Git got your credentials), go to Tools &gt; Terminal and run the following command in the shell/terminal tab that opens up:\ngit config --global --list\nIf you see your name and email, you’re all set.\nIf something is off, like a typo in your name or the wrong email (you must use the email linked to your GitHub account): just re-run the R code with the correct information. It will overwrite the previous settings.\n\n\n\n\n3.2 Set Up SSH Authentication\n\nWhat is this?\nNow Git knows your name and email. But to send your work from Git (on your computer – in our case, Workbench) to GitHub (online), you need to prove to GitHub that’s really you — this is called authentication.\nThere are two methods for authentication: either SSH keys or HTTPS with a personal access token. Both options allow Git to connect to GitHub securely, so you can push and pull changes smoothly. Since we are using RStudio Workbench for the class, you will need to use the SSH method to authenticate. The server that hosts our Workbench does not have the ability to cache your personal access token for the HTTPS method.\nSSH, or Secure Shell Protocol, is a secure way to prove your identity when connecting to GitHub. Unlike passwords, which can be vulnerable to brute-force attacks, SSH keys are much harder to crack.\nWhen you generate an SSH key pair, you get two long strings of characters:\n\na public key, which you upload to GitHub\na private key, which stays safely on your computer (or in RStudio Workbench)\n\nWhen you connect to GitHub, Git uses your private key to unlock the connection. If it matches the public key on GitHub, you’re authenticated!\nNote: on GitHub, the URL for SSH looks like git@github.com:&lt;OWNER&gt;/&lt;REPO&gt;.git Make sure you use this SSH URL to create a project or clone a repository. If you accidentally use the HTTPS version, the operation will not work.\n\n\nWhat you need to do to\nYou need to create and store an SSH key pair, by running the following code in your R Console:\ncredentials::ssh_setup_github()\nOnce you do that, you’ll be guided through a few steps:\n\nIt should say “No SSH key found. Generate one now?” → Select Yes\nA long string of characters will appear in the Console, that’s your public SSH key\nYou will be asked to open a browser → Select Yes\nBefore or after opening a new browser, copy the entire SSH key (including the ssh-rsa at the beginning) from your Console\n\nOnce you are on the GitHub page:\n\nPaste your entire SSH key into the GitHub page that opened in your new browser (you can do this only if you registered a GitHub account, see step 1 above)\nUnder “Title”, give the key an informative name, something like csp-workbench-fall25 or similar\nLeave “Key type” set to Authentication Key\nClick the green “Add SSH key” button\nIf prompted, complete GitHub’s security steps (e.g., enter a verification code or password or anything else asked)\n\nYou should now see your key listed in your GitHub account under the “SSH and GPG keys” page!\nTo confirm it worked, go back R, then to Tools &gt; Terminal and run the following command in the shell/terminal tab that opens up:\nls -l ~/.ssh\nYou should see two lines showing the keys you just created: id_rsa is your private SSH key (do not share with others), your id_rsa.pub is your public SSH key (the one you put on GitHub).\nIf you see more than these two files, it likely means you’ve set up extra SSH keys, which we want to avoid as it might create problems. You want to reset all keys, and start fresh (contact us if you need help with this)."
   },
   {
     "objectID": "setup/setup-workbench.html#whats-next",
@@ -952,6 +952,55 @@
     "text": "To print these slides as pdf\nClick on the icon bottom-right corner &gt; Tools &gt; PDF Export Mode &gt; Print as a Pdf"
   },
   {
+    "objectID": "lectures/drafts/01-slides.html#teaching-team",
+    "href": "lectures/drafts/01-slides.html#teaching-team",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "Teaching Team",
+    "text": "Teaching Team"
+  },
+  {
+    "objectID": "lectures/drafts/01-slides.html#teaching-team-1",
+    "href": "lectures/drafts/01-slides.html#teaching-team-1",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "Teaching Team",
+    "text": "Teaching Team\n\n\n\nRole\nName\nEmail\nOffice Hours\n\n\n\n\nInstructor\nSabrina Nardin\nnardin@uchicago.edu\nTue & Thu, 2:30–3:30 PM (after class)\n\n\nTeaching Assistant\nZach Meyer\nzmeyer@uchicago.edu\nTue 2:30–3:30 PM (after class)\n\n\nTeaching Assistant\nZixuan Zhou (she/her)\nzixuanzhou@uchicago.edu\nThu 2:30–3:30 PM (after class)\n\n\n\n\n\n\nHow to Reach Out\n\nAsk questions during or after class\nAttend Office Hours\nPost on Ed Discussion course-related questions"
+  },
+  {
+    "objectID": "lectures/drafts/01-slides.html#course-objectives",
+    "href": "lectures/drafts/01-slides.html#course-objectives",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "Course Objectives",
+    "text": "Course Objectives\nThe goal of this course is to acquire basic computational skills. Specifically:\n\nLearning R, especially the “tidyverse”\nLearning best practices for reproducible research\n\n\nYou won’t become an R expert in a few weeks, BUT you will:\n\nlearn the basics and gain confidence to explore new techniques beyond this course\nuse R as a tool for analyzing social science data"
+  },
+  {
+    "objectID": "lectures/drafts/01-slides.html#course-topics",
+    "href": "lectures/drafts/01-slides.html#course-topics",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "Course Topics",
+    "text": "Course Topics\nMain topics of this course:\n\nGit/GitHub via RStudio\nR Markdown\nData Visualization\nData Cleaning and Transformation\nExploratory Data Analysis\nWeb-Scraping\nReproducible Research\nR Programming: Control Structures, Data Structures, etc."
+  },
+  {
+    "objectID": "lectures/drafts/01-slides.html#how-well-do-this",
+    "href": "lectures/drafts/01-slides.html#how-well-do-this",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "How We’ll Do This",
+    "text": "How We’ll Do This\nWe start simple and build toward more complex code\n\n# create a variable and print it\nx &lt;- \"Hello!\"\nprint(x)\n\n[1] \"Hello!\""
+  },
+  {
+    "objectID": "lectures/drafts/01-slides.html#how-well-do-this-1",
+    "href": "lectures/drafts/01-slides.html#how-well-do-this-1",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "How We’ll Do This",
+    "text": "How We’ll Do This\nWe use a mix of lectures and in-class activities, and we rely on several platforms (e.g., course website, Canvas, Ed Discussion, Workbench, Git/GitHub, and Markdown).\nAll course materials are free and accessible from our website."
+  },
+  {
+    "objectID": "lectures/drafts/01-slides.html#assessment",
+    "href": "lectures/drafts/01-slides.html#assessment",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "Assessment",
+    "text": "Assessment\nSee “Assessment” section of our Syllabus and the Course Schedule:\n\nAssessment and Evaluation: There will be four take-home assignments, one final project, and two short in-class exams. Check the syllabus for details.\nSubmission Policies: See Syllabus, especially for late or missed assignments.\nEvaluation Philosophy and Rubric\n\nTips:\n\ndo the readings before class, even if you do not understand everything\nstart early to work on the take-home assignments; (starting from the 2nd) they will be a bit challenging, especially if you have never programmed before: they won’t tell you exactly what to do to solve the problem\nread our AI policy\nform a study group, and ask for help if you get stuck"
+  },
+  {
     "objectID": "lectures/drafts/01-slides.html#software-setup",
     "href": "lectures/drafts/01-slides.html#software-setup",
     "title": "Computing for the Social Sciences: Lecture 1",
@@ -1701,11 +1750,242 @@
     "text": "Course Information Fall 2025\n\n\n\nLectures: Mondays & Wednesdays, 1:30–3:20 PM, 1155 Building E. 60th St, Room 295\n\n\n\nTeaching Team:\n\nInstructor: Sabrina Nardin (she/her) – nardin@uchicago.edu\n\nTA: Zach Meyer (he/him) – zmeyer@uchicago.edu\nTA: Zixuan Zhou (she/her) – zixuanzhou@uchicago.edu\n\n\n\n\nOffice Hours (all in-person):\n\n\n\nDay & Time\nType\nLocation\nPerson\n\n\n\n\nMon 3:20–3:30 PM (after class)\nDrop-in (short questions)\nSame as classroom\nSabrina\n\n\nTue 2:00–4:00 PM\nBy appointment\n1155 Bldg, Room 221A\nSabrina\n\n\nWed 11:00 AM–12:40 PM\nBy appointment\n1155 Bldg, Room 222\nZach\n\n\nWed 12:40–1:10 PM\nDrop-in (short questions)\n1155 Bldg, Room 222\nZach\n\n\nWed 3:20–3:30 PM (after class)\nDrop-in (short questions)\nSame as classroom\nSabrina\n\n\nThu 1:30–3:10 PM\nBy appointment\n1155 Bldg, Room 222\nZixuan\n\n\nThu 3:10–3:40 PM\nDrop-in (short questions)\n1155 Bldg, Room 222\nZixuan\n\n\n\n\n\n\nQuick Links:\n\nR Workbench\n\nCanvas\n\nEd Discussion\nUChicago GenAI"
   },
   {
-    "objectID": "lectures/01-slides.html#check-back-hereslides-will-be-posted-before-class",
-    "href": "lectures/01-slides.html#check-back-hereslides-will-be-posted-before-class",
+    "objectID": "lectures/01-slides.html#teaching-team",
+    "href": "lectures/01-slides.html#teaching-team",
     "title": "Computing for the Social Sciences: Lecture 1",
-    "section": "Check back here—slides will be posted before class!",
-    "text": "Check back here—slides will be posted before class!"
+    "section": "Teaching Team",
+    "text": "Teaching Team\n\n\n\nRole\nName\nEmail\n\n\n\n\nInstructor\nSabrina Nardin (she/her)\nsnardin@uchicago.edu\n\n\nTA\nZach Meyer (he/him)\nzmeyer@uchicago.edu\n\n\nTA\nZixuan Zhou (she/her)\nzixuanzhou@uchicago.edu\n\n\n\n\n\nHow to Reach Out\n\nAsk questions during or after class\nAttend Office Hours (see website)\nPost on Ed Discussion course-related questions"
+  },
+  {
+    "objectID": "lectures/01-slides.html#course-objectives",
+    "href": "lectures/01-slides.html#course-objectives",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "Course Objectives",
+    "text": "Course Objectives\nThe goal of this course is to acquire basic computational skills. Specifically:\n\nLearning R, especially the “tidyverse”\nLearning best practices for reproducible research\n\n\nYou won’t become an R expert in a few weeks, BUT you will learn a lot:\n\nlearn the basics and gain confidence to explore new techniques beyond this course\nuse R as a tool for analyzing social science data"
+  },
+  {
+    "objectID": "lectures/01-slides.html#course-topics",
+    "href": "lectures/01-slides.html#course-topics",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "Course Topics",
+    "text": "Course Topics\nMain topics of this course:\n\nGit/GitHub via RStudio\nR Markdown\nData Visualization\nData Cleaning and Transformation\nExploratory Data Analysis\nWeb-Scraping\nReproducible Research\nR Programming: Control Structures, Data Structures, etc."
+  },
+  {
+    "objectID": "lectures/01-slides.html#how-well-do-this",
+    "href": "lectures/01-slides.html#how-well-do-this",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "How We’ll Do This",
+    "text": "How We’ll Do This\nWe start simple and build toward more complex code\n\n# create a variable and print it\nx &lt;- \"Hello!\"\nprint(x)\n\n[1] \"Hello!\"\n\n\n\nWe use a mix of lectures and in-class activities, and we rely on several platforms (e.g., course website, Canvas, Ed Discussion, Workbench, Git/GitHub, and Markdown).\nAll course materials are free and accessible from our website.\nIs this course for you?"
+  },
+  {
+    "objectID": "lectures/01-slides.html#software-setup",
+    "href": "lectures/01-slides.html#software-setup",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "Software Setup",
+    "text": "Software Setup\nIn this course we use RStudio Workbench, which is cloud-based version of RStudio that runs in your browser.\nNext lecture we will learn the basics of Git and GitHub and complete the Software Setup with Workbench for the course.\nCheck our website under “Software Setup” for details."
+  },
+  {
+    "objectID": "lectures/01-slides.html#assessment",
+    "href": "lectures/01-slides.html#assessment",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "Assessment",
+    "text": "Assessment\nSee “Assessment” section of our Syllabus and the Course Schedule:\n\nAssessment and Evaluation: There will be four take-home assignments, one final project, and two short in-class exams. Check the syllabus for details.\nSubmission Policies: See Syllabus, especially for late or missed assignments.\nEvaluation Philosophy and Rubric: See Syllabus.\n\nTips:\n\ndo the readings before class, even if you do not understand everything\nstart early to work on the take-home assignments; (starting from the 2nd) they will be a bit challenging, especially if you have never programmed before: they won’t tell you exactly what to do to solve the problem\nAI is cool but read our AI policy in the Syllabus\nform a study group, and ask for help if you get stuck"
+  },
+  {
+    "objectID": "lectures/01-slides.html#course-expectations",
+    "href": "lectures/01-slides.html#course-expectations",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "Course Expectations",
+    "text": "Course Expectations\nSee How to Succeed in this Course from the Syllabus"
+  },
+  {
+    "objectID": "lectures/01-slides.html#tips-from-former-students",
+    "href": "lectures/01-slides.html#tips-from-former-students",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "Tips from former students…",
+    "text": "Tips from former students…\n\n\n“One of the hardest things for me was remembering where I saw a concept or piece of code.”Advice: Stay organized (e.g., customize slides and notes, and create your own system to retrieve info)!\n\n\n\n\n“Homework took more time and effort than I expected.” Advice: Start early! You don’t need to know everything before you begin: just get started and review the materials as needed. Use pen and paper to write pseudo-code before you start.\n\n\n\n\n“I’m in week 4, and I feel lost.”Advice: Reach out to us! Concepts build over time. The big picture will click IF you stay consistent with your efforts every week.\n\n\n\n\n“I found code that worked but wasn’t covered in class, so I wasn’t sure whether to use it.”Advice: Stick to class syntax and functions — they’re chosen for a reason. But you can show both approaches by comparing the function(s) covered in class with your own."
+  },
+  {
+    "objectID": "lectures/01-slides.html#yes-to-collaboration-no-to-copying",
+    "href": "lectures/01-slides.html#yes-to-collaboration-no-to-copying",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "Yes to Collaboration, No to Copying",
+    "text": "Yes to Collaboration, No to Copying\nResearchers collaborate on projects. Developers work in teams to write programs. AI is becoming part of our daily and academic lives.\n\n→ Collaboration is good and encouraged, but in this course you are also expected to:\n\nComplete your own work individually\nWrite your code and fully understand it\nBe ready to explain your code line-by-line to someone else"
+  },
+  {
+    "objectID": "lectures/01-slides.html#collaboration-vs.-plagiarism",
+    "href": "lectures/01-slides.html#collaboration-vs.-plagiarism",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "Collaboration vs. Plagiarism",
+    "text": "Collaboration vs. Plagiarism\n\n\n✅ DO:\n\nDiscuss and debug with peers\nRewrite code found online in your own style and cite the source\nUse AI to debug or clarify concepts after you try\nSubmit code you wrote\nSubmit code you fully understand\nAlways, prioritize methods from class materials and readings\n\n\n🚫 DON’T:\n\nCopy code from your classmates or others\nSimply copy and paste chunks of code from the internet\nUse AI beyond the AI-Policy of this course\nSubmit code you didn’t write\nSubmit code you can’t explain\nWrite code not taught in class or reading (even if it works) as primary solution"
+  },
+  {
+    "objectID": "lectures/01-slides.html#my-take-on-ai-for-this-course",
+    "href": "lectures/01-slides.html#my-take-on-ai-for-this-course",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "My take on AI for this course",
+    "text": "My take on AI for this course\n\n\nIt is my responsibility to\n- Set expectations & boundaries\n- Enforce them (via grading & AI statements)\n\nIt is your responsibility to\n- Respect the AI policy\n- Ask questions if something is unclear\n\nIn this course, AI is:\n\nNOT allowed to brainstorm, write code for you, or replace course materials\nallowed to debug and learn more (e.g., clarify class materials, ask for more explanations about a specific function, ask for examples, etc.).\n\nMake sure to read the Academic Integrity & Use of AI Policies"
+  },
+  {
+    "objectID": "lectures/01-slides.html#activity-meet-share-goals",
+    "href": "lectures/01-slides.html#activity-meet-share-goals",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "Activity: Meet & Share Goals",
+    "text": "Activity: Meet & Share Goals\nIn groups of 3-5 people, please share:\n\nYour name, plus something about yourself that you’re comfortable sharing (e.g., a hobby, your experience with programming, etc.)\nWhat you hope to learn or achieve in this course\nAny questions you have, and strategies you plan to use to stay on track (we’ll go around the room and answer questions)\n\n\n\n\n\n\n\n\nDone early?\n\n\nIf your group finishes early, please complete this short survey if you haven’t already. It only takes a minute and helps us better understand your background and what you’re hoping to learn in this course."
+  },
+  {
+    "objectID": "lectures/01-slides.html#what-are-these-tools",
+    "href": "lectures/01-slides.html#what-are-these-tools",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "What Are These Tools?",
+    "text": "What Are These Tools?\n\n\n\n\n\n\n\nTool\nWhat It Is\n\n\n\n\nR\nA programming language for data analysis, statistics, and visualization.\n\n\nRStudio\nA user-friendly interface (IDE) for using R.\n\n\nWorkbench\nA cloud-based version of R/RStudio with everything pre-installed. We will use it in this course to minimize setup issues."
+  },
+  {
+    "objectID": "lectures/01-slides.html#lets-start-by-exploring-our-software",
+    "href": "lectures/01-slides.html#lets-start-by-exploring-our-software",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "Let’s start by exploring our Software",
+    "text": "Let’s start by exploring our Software\nWorkbench: https://macss-r.uchicago.edu/\n\nLog in\nLook at panels\nHow to export/import files between Workbench and your machine\nCreate an empty R Script"
+  },
+  {
+    "objectID": "lectures/01-slides.html#getting-started-with-r",
+    "href": "lectures/01-slides.html#getting-started-with-r",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "Getting Started with R",
+    "text": "Getting Started with R\nToday we learn how to:\n\nCreate and use variables\n\nUnderstand variable types (e.g., number, text, logical, etc.)\n\nWrite comments and organize your code\n\nUse scripts (vs. console) for reproducibility\n\nClear your environment\n\nGroup values using vectors"
+  },
+  {
+    "objectID": "lectures/01-slides.html#live-coding-activity-to-get-started-with-r",
+    "href": "lectures/01-slides.html#live-coding-activity-to-get-started-with-r",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "💻 Live Coding Activity to get Started with R",
+    "text": "💻 Live Coding Activity to get Started with R\nWe learn all of this via a live coding activity:\n\nLog into Workbench https://macss-r.uchicago.edu/\nType along with me as we write and run code together\nStop me anytime if you have questions"
+  },
+  {
+    "objectID": "lectures/01-slides.html#deep-dive-on-r-markown",
+    "href": "lectures/01-slides.html#deep-dive-on-r-markown",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "Deep Dive on R Markown",
+    "text": "Deep Dive on R Markown\nR Markdown is a file format (with extension .Rmd) that combines R code, using code chunks, and text in a single document. It’s very popular because it makes it easy to create reproducible reports, analyses, and presentations.\nYou might hear about Quarto (with extension .qmd), which is a newer alternative to R Markdown. We won’t cover Quarto in this course, but if you learn R Markdown, you can quickly adjust to Quarto."
+  },
+  {
+    "objectID": "lectures/01-slides.html#comparing-r-scripts-r-markdown-and-markdown",
+    "href": "lectures/01-slides.html#comparing-r-scripts-r-markdown-and-markdown",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "Comparing R Scripts, R Markdown, and Markdown",
+    "text": "Comparing R Scripts, R Markdown, and Markdown\n\n\n\nFile Type\nExtension\nKey Differences\n\n\n\n\nR Script\n.R\nSupports code\n\n\nR Markdown\n.Rmd\nSupports code and formatted text\n\n\nMarkdown\n.md\nSupports formatted text\n\n\n\nWe use all three, but mainly .Rmd for assignments and .md for Git/GitHub documentation."
+  },
+  {
+    "objectID": "lectures/01-slides.html#r-markdown-three-main-components",
+    "href": "lectures/01-slides.html#r-markdown-three-main-components",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "R Markdown: Three Main Components",
+    "text": "R Markdown: Three Main Components\n\nYAML header for document title, author, output format, etc. Insert it at the top between ---\nText regular Markdown for headers, lists, links, etc.\nCode chunks for code. Insert it with triple backticks ```\n\n\n\n\n\n\n\n\nCode Chunk Tips\n\n\nThree ways to insert a code chunk in your R Markdown:\n\nUse the RStudio toolbar\n\nType manually ```{r} and ```\nUse a shortcut\n\nMac: ⌘ + ⌥ + I\n\nWindows: Ctrl + Alt + I"
+  },
+  {
+    "objectID": "lectures/01-slides.html#r-markdown-example",
+    "href": "lectures/01-slides.html#r-markdown-example",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "R Markdown: Example",
+    "text": "R Markdown: Example\nThis is what we type (YAML, text, code):\n---\ntitle: \"Homework 1\"\nauthor: \"Sabrina Nardin\"\noutput: html_document\n---\n\nI write my homework description here. \nI can format the text in many ways, for example, by bolding **key concepts**.\n\n```{r}\n# create a variable\nx &lt;- 5\n```"
+  },
+  {
+    "objectID": "lectures/01-slides.html#yaml-yet-another-markup-language",
+    "href": "lectures/01-slides.html#yaml-yet-another-markup-language",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "YAML: Yet Another Markup Language",
+    "text": "YAML: Yet Another Markup Language\nThe YAML header sits at the top of your .Rmd and tells R what the document is about and how to display it (e.g., as a html, PDF, Word, etc.). Spacing, indentation, and --- all matters!\nThe example below shows three fields but many more can be added:\n---\ntitle: \"Homework 1\"\nauthor: \"Sabrina Nardin\"\noutput: html_document\n---"
+  },
+  {
+    "objectID": "lectures/01-slides.html#r-markdown-formatting-text",
+    "href": "lectures/01-slides.html#r-markdown-formatting-text",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "R Markdown: Formatting Text",
+    "text": "R Markdown: Formatting Text\n\n\nSyntax\n*Italics*  \n**Bold**  \n~~Strikethrough~~  \n`inline code`\n\nOutput\nItalics\nBold\nStrikethrough\ninline code"
+  },
+  {
+    "objectID": "lectures/01-slides.html#r-markdown-unordered-lists",
+    "href": "lectures/01-slides.html#r-markdown-unordered-lists",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "R Markdown: Unordered Lists",
+    "text": "R Markdown: Unordered Lists\n\n\nSyntax\n+ item 1  \n  + sub  \n  + sub  \n- item 2  \n  - sub  \n  - sub  \n+ item 3  \n  - sub  \n  * sub  \n\nOutput\n\nitem 1\n\nsub\nsub\n\nitem 2\n\nsub\nsub\n\nitem 3\n\nsub\nsub"
+  },
+  {
+    "objectID": "lectures/01-slides.html#r-markdown-ordered-lists",
+    "href": "lectures/01-slides.html#r-markdown-ordered-lists",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "R Markdown: Ordered Lists",
+    "text": "R Markdown: Ordered Lists\n\n\nSyntax\n1. item 1  \n    + sub  \n      + sub  \n    + sub  \n\n1. item 2  \n    * sub  \n      * sub  \n    * sub  \n\n1. item 3  \n    - sub  \n\nOutput\n\nitem 1\n\nsub\n\nsub\n\n\nsub\n\nitem 2\n\nsub\n\nsub\n\n\nsub\n\nitem 3\n\nsub"
+  },
+  {
+    "objectID": "lectures/01-slides.html#r-markdown-formatting-headers",
+    "href": "lectures/01-slides.html#r-markdown-formatting-headers",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "R Markdown: Formatting Headers",
+    "text": "R Markdown: Formatting Headers\n# Heading 1  \n## Heading 2  \n### Heading 3  \n\nHeading 1\n\n\nHeading 2\n\n\nHeading 3"
+  },
+  {
+    "objectID": "lectures/01-slides.html#using-in-code-vs.-markdown-text",
+    "href": "lectures/01-slides.html#using-in-code-vs.-markdown-text",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "Using # in Code vs. Markdown Text",
+    "text": "Using # in Code vs. Markdown Text\n\n\nIn Code\n# Assign number to variable\nx &lt;- 5 \n# Assign text to variable\nname &lt;- \"Sabrina\"\n\n# starts a COMMENT in R Scripts and R Markdown Code Chunks\nComments are ignored when the code runs\nUse one single # for code explanations or debugging, space doesn’t matter\n\n\nIn R Markdown Text\n# Title (h1)\n## Section (h2)\n### Subsection (h3)\n#### More Subsections (h4)\n\n# creates a HEADER in Markdown or R Markdown Text\nThe number of # signs = heading level\nUse as many # as needed for organizing document sections, space matters"
+  },
+  {
+    "objectID": "lectures/01-slides.html#r-markdown-insert-links-images-and-tables",
+    "href": "lectures/01-slides.html#r-markdown-insert-links-images-and-tables",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "R Markdown: Insert Links, Images, and Tables",
+    "text": "R Markdown: Insert Links, Images, and Tables\n\n\n\nElement\nSyntax Example\nNotes\nPreview\n\n\n\n\nLink\n[RStudio](https://www.rstudio.com/)\nText in [], URL in ()\nLink\n\n\nImage\n![Logo](images/logo.png \"Optional title\")\nStart with !, include optional \"title\"\nImage\n\n\nTable\n| Tool    | Use     ||---------|---------|| R       | Stats   |\nUse | for columns and --- for header\nTable\n\n\n\nNote:\n\nSpacing always matters\nFor images to display, the file (e.g., .png, .jpg) must be saved in your current working dir or project folder"
+  },
+  {
+    "objectID": "lectures/01-slides.html#r-markdown-handy-code-chunk-options",
+    "href": "lectures/01-slides.html#r-markdown-handy-code-chunk-options",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "R Markdown: Handy Code Chunk Options",
+    "text": "R Markdown: Handy Code Chunk Options\n\n\n\n\n\n\n\n\n\nOption\nWhat it does\nDefault\n\n\n\n\neval = FALSE\nCode is not run, only shown; results do not appear. Useful for code examples or showing code with errors.\neval = TRUE\n\n\ninclude = FALSE\nCode is run, but both code and results are hidden. Useful for setup code you don’t want to display.\ninclude = TRUE\n\n\necho = FALSE\nCode is run, results are shown, but code is hidden. Good when readers only need the output.\necho = TRUE\n\n\nerror = TRUE\nCode is run and shown, even if it throws an error. Useful when demonstrating broken code.\nerror = FALSE\n\n\nmessage = FALSE / warning = FALSE\nCode is run, but messages and warnings are hidden from the output.\nmessage = TRUE / warning = TRUE\n\n\n\n\nCheck this table and options for more."
+  },
+  {
+    "objectID": "lectures/01-slides.html#rendering-r-markdown-documents",
+    "href": "lectures/01-slides.html#rendering-r-markdown-documents",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "Rendering R Markdown Documents",
+    "text": "Rendering R Markdown Documents\nR Markdown lets you create documents that combine text, code, and output, and “render” or “knit” them in formats like html, pdf, word, and more.\n\n\n\n\n\n\n\nRendering Tips\n\n\nThree ways to render your R Markdown document:\n\nClick “Knit” in RStudio and choose an output\nSet the format in the YAML header such as html_document,word_document, pdf_document, github_document, etc.\nUse render() in your console by typing rmarkdown::render(\"my-document.Rmd\", output_format: html_document). More info here"
+  },
+  {
+    "objectID": "lectures/01-slides.html#r-markdown-knitting-process",
+    "href": "lectures/01-slides.html#r-markdown-knitting-process",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "R Markdown: Knitting process",
+    "text": "R Markdown: Knitting process\nWhen you “knit” your document, the following sequential things happen:\n\nR Markdown sends the .Rmd file to knitr http://yihui.name/knitr/\nKnitr executes all of the code chunks and creates a new plain Markdown .md file which includes the code and its output\nThis plain Markdown file is then converted by pandoc into any number of output types including html, PDF, Word document, etc.: http://pandoc.org/"
+  },
+  {
+    "objectID": "lectures/01-slides.html#practice-r-markdown-syntax",
+    "href": "lectures/01-slides.html#practice-r-markdown-syntax",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "💻 Practice R Markdown Syntax",
+    "text": "💻 Practice R Markdown Syntax\n\nLog into Workbench https://macss-r.uchicago.edu/\nDownload today’s code from Lecture 1 on our website\nComplete the R Markdown in-class practice\nWant more? Try this interactive tutorial"
+  },
+  {
+    "objectID": "lectures/01-slides.html#recap-what-we-learned-today",
+    "href": "lectures/01-slides.html#recap-what-we-learned-today",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "Recap: What We Learned Today",
+    "text": "Recap: What We Learned Today\n\nFamiliarized with Workbench\nWrote simple R code\nKey components of R Markdown\nHow to run and render R Markdown Documents"
+  },
+  {
+    "objectID": "lectures/01-slides.html#reminders",
+    "href": "lectures/01-slides.html#reminders",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "Reminders",
+    "text": "Reminders\n\nRegister for a GitHub account and share your GitHub username with us (see Lecture 1 on our website for details)\nReview today’s materials to prep for the short quiz at the beginning of next class\nCheck Lecture 2 homepage"
+  },
+  {
+    "objectID": "lectures/01-slides.html#to-print-these-slides-as-pdf",
+    "href": "lectures/01-slides.html#to-print-these-slides-as-pdf",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "To print these slides as pdf",
+    "text": "To print these slides as pdf\nClick on the icon bottom-right corner &gt; Tools &gt; PDF Export Mode &gt; Print as a Pdf"
   },
   {
     "objectID": "lectures/02-slides.html#check-back-hereslides-will-be-posted-before-class",
@@ -2811,7 +3091,7 @@
     "href": "setup/setup-test.html#step-7-the-end-delete-this-test-repo",
     "title": "Git within RStudio Tutorial",
     "section": "Step 7 (The End): Delete this Test Repo",
-    "text": "Step 7 (The End): Delete this Test Repo\nOnce you’re done experimenting, delete the myrepo repository — this was just a test, and there’s no need to keep it. We need to remove it from both your computer (e.g., here Workbench) and GitHub:\n\nDelete the local repository: find where you stored it on your computer ( e.g., here Workbench) and delete the folder (click the red X labeled “Delete”);\nDelete the repository from GitHub:\n\nOpen the repository in your browser\nClick on Settings\nScroll to the bottom of the page and click Delete this repository\nFollow the confirmation instructions\n\n\nCongrats—you made it to the end! Done early? Switch roles with your teammate, or read more about these tools here: What are these Tools?"
+    "text": "Step 7 (The End): Delete this Test Repo\nOnce you’re done experimenting, delete the myrepo repository — this was just a test, and there’s no need to keep it. We need to remove it from both your computer (e.g., here Workbench) and GitHub:\n\nDelete the local repository: find where you stored it on your computer ( e.g., here Workbench) and delete the folder (click the red X labeled “Delete”). Sometimes on Workbench it looks like the folder has not been deleted: quit the current Workbench session and open a new one.\nDelete the repository from GitHub:\n\nOpen the repository in your browser\nClick on Settings\nScroll to the bottom of the page and click Delete this repository\nFollow the confirmation instructions\n\n\nCongrats—you made it to the end! Done early? Switch roles with your teammate, or read more about these tools here: What are these Tools?"
   },
   {
     "objectID": "setup/setup-test.html#alternative-to-step-3",
@@ -2854,334 +3134,5 @@
     "title": "Tools for R Programming and Collaboration",
     "section": "Shell",
     "text": "Shell\nThe shell (or bash or terminal) is a program on your computer whose job is to run other programs, rather than do calculations itself. The shell is a very old program and in a time before the mouse it was the only way to interact with a computer. It is still extremely popular among programmers because it is fast and powerful at automating repetitive tasks.\nHere we use the shell for a more modest goal: to navigate the file system, confirm the present working directory, and cement the git to GitHub connection.\n\nStarting the shell\nIn RStudio, go to Tools &gt; Shell. This should take you to the shell (on Mac: Terminal, on Windows: GitBash or equivalent). It should be a simple blinking cursor, waiting for input (white text on black background, or black text on white background)\n\n\nUsing the shell\nThe most basic commands are listed below:\n\npwd (print working directory). Shows the folder (or directory) you are currently operating in. This is not necessarily the same as the R working directory you get from getwd().\nls (list all files). Shows all files in the current working directory. This is equivalent to looking at the files in your Finder/Explorer/File Manager. Use ls -a to also list hidden files, such as .Rhistory and .git.\ncd (change directory). Allows you to navigate through your folders by changing the shell’s working directory. You can navigate like so:\n\ngo to subfolder foo of current working directory: cd foo\ngo to parent folder of current working directory: cd ..\ngo to home folder: cd ~ or simply cd\ngo to folder using absolute path, works regardless of your current working directory: cd /home/my_username/Desktop. Windows uses a slightly different syntax with the slashes between the folder names reversed, \\, e.g. cd C:\\Users\\MY_USERNAME\\Desktop.\n\nTip 1: Dragging and dropping a file or folder into the terminal window will paste the absolute path into the window.\nTip 2: Use the tab key to autocomplete unambiguous folder and file names. Hit tab twice to see all ambiguous options.\n\n\nUse arrow-up and arrow-down to repeat previous commands. Or search for previous commands with CTRL+r.\ngit status is the most used git command and informs you of your current branch, any changes or untracked files, and whether you are in sync with your remotes.\ngit remote -v lists all remotes. Very useful for making sure git knows about your remote and that the remote address is correct.\ngit remote add origin GITHUB_URL adds the remote GITHUB_URL with nickname origin.\ngit remote set-url origin GITHUB_URL changes the remote url of origin to GITHUB_URL. This way you can fix typos in the remote url.\n\n\n\nA note for Windows users\nOn Windows, the program that runs the shell is called Command Prompt or cmd.exe.\nUnfortunately, the default Windows shell does not support all the commands that other operating systems do. This is where GitBash comes in handy: it installs a light version of a shell that does support all the above commands. When you access the shell through RStudio, RStudio actually tries to open GitBash if it can find it, but it will open the default Windows Command Prompt if GitBash is not found.\nIf you get an error message such as `pwd is not recognized as an internal or external command, operable program or batch file.` from any of the previous commands, that means that RStudio could not find GitBash. The most likely cause of this is that you did not install git using the recommended method so try re-installing git.\nIf you followed the installation instructions and still cannot run GitBash, you should find it under “Menu &gt; Git &gt; Git Bash”. If you’re still confused, go back and watch the first three minutes of this video tutorial on installing Git for Windows."
-  },
-  {
-    "objectID": "lectures/drafts/01-slides.html#teaching-team",
-    "href": "lectures/drafts/01-slides.html#teaching-team",
-    "title": "Computing for the Social Sciences: Lecture 1",
-    "section": "Teaching Team",
-    "text": "Teaching Team"
-  },
-  {
-    "objectID": "lectures/drafts/01-slides.html#teaching-team-1",
-    "href": "lectures/drafts/01-slides.html#teaching-team-1",
-    "title": "Computing for the Social Sciences: Lecture 1",
-    "section": "Teaching Team",
-    "text": "Teaching Team\n\n\n\nRole\nName\nEmail\nOffice Hours\n\n\n\n\nInstructor\nSabrina Nardin\nnardin@uchicago.edu\nTue & Thu, 2:30–3:30 PM (after class)\n\n\nTeaching Assistant\nZach Meyer\nzmeyer@uchicago.edu\nTue 2:30–3:30 PM (after class)\n\n\nTeaching Assistant\nZixuan Zhou (she/her)\nzixuanzhou@uchicago.edu\nThu 2:30–3:30 PM (after class)\n\n\n\n\n\n\nHow to Reach Out\n\nAsk questions during or after class\nAttend Office Hours\nPost on Ed Discussion course-related questions"
-  },
-  {
-    "objectID": "lectures/drafts/01-slides.html#course-objectives",
-    "href": "lectures/drafts/01-slides.html#course-objectives",
-    "title": "Computing for the Social Sciences: Lecture 1",
-    "section": "Course Objectives",
-    "text": "Course Objectives\nThe goal of this course is to acquire basic computational skills. Specifically:\n\nLearning R, especially the “tidyverse”\nLearning best practices for reproducible research\n\n\nYou won’t become an R expert in a few weeks, BUT you will:\n\nlearn the basics and gain confidence to explore new techniques beyond this course\nuse R as a tool for analyzing social science data"
-  },
-  {
-    "objectID": "lectures/drafts/01-slides.html#course-topics",
-    "href": "lectures/drafts/01-slides.html#course-topics",
-    "title": "Computing for the Social Sciences: Lecture 1",
-    "section": "Course Topics",
-    "text": "Course Topics\nMain topics of this course:\n\nGit/GitHub via RStudio\nR Markdown\nData Visualization\nData Cleaning and Transformation\nExploratory Data Analysis\nWeb-Scraping\nReproducible Research\nR Programming: Control Structures, Data Structures, etc."
-  },
-  {
-    "objectID": "lectures/drafts/01-slides.html#how-well-do-this",
-    "href": "lectures/drafts/01-slides.html#how-well-do-this",
-    "title": "Computing for the Social Sciences: Lecture 1",
-    "section": "How We’ll Do This",
-    "text": "How We’ll Do This\nWe start simple and build toward more complex code\n\n# create a variable and print it\nx &lt;- \"Hello!\"\nprint(x)\n\n[1] \"Hello!\""
-  },
-  {
-    "objectID": "lectures/drafts/01-slides.html#how-well-do-this-1",
-    "href": "lectures/drafts/01-slides.html#how-well-do-this-1",
-    "title": "Computing for the Social Sciences: Lecture 1",
-    "section": "How We’ll Do This",
-    "text": "How We’ll Do This\nWe use a mix of lectures and in-class activities, and we rely on several platforms (e.g., course website, Canvas, Ed Discussion, Workbench, Git/GitHub, and Markdown).\nAll course materials are free and accessible from our website."
-  },
-  {
-    "objectID": "lectures/drafts/01-slides.html#assessment",
-    "href": "lectures/drafts/01-slides.html#assessment",
-    "title": "Computing for the Social Sciences: Lecture 1",
-    "section": "Assessment",
-    "text": "Assessment\nSee “Assessment” section of our Syllabus and the Course Schedule:\n\nAssessment and Evaluation: There will be four take-home assignments, one final project, and two short in-class exams. Check the syllabus for details.\nSubmission Policies: See Syllabus, especially for late or missed assignments.\nEvaluation Philosophy and Rubric\n\nTips:\n\ndo the readings before class, even if you do not understand everything\nstart early to work on the take-home assignments; (starting from the 2nd) they will be a bit challenging, especially if you have never programmed before: they won’t tell you exactly what to do to solve the problem\nread our AI policy\nform a study group, and ask for help if you get stuck"
-  },
-  {
-    "objectID": "lectures/01-slides.html#teaching-team",
-    "href": "lectures/01-slides.html#teaching-team",
-    "title": "Computing for the Social Sciences: Lecture 1",
-    "section": "Teaching Team",
-    "text": "Teaching Team\n\n\n\nRole\nName\nEmail\n\n\n\n\nInstructor\nSabrina Nardin (she/her)\nsnardin@uchicago.edu\n\n\nTA\nZach Meyer (he/him)\nzmeyer@uchicago.edu\n\n\nTA\nZixuan Zhou (she/her)\nzixuanzhou@uchicago.edu\n\n\n\n\n\nHow to Reach Out\n\nAsk questions during or after class\nAttend Office Hours (see website)\nPost on Ed Discussion course-related questions"
-  },
-  {
-    "objectID": "lectures/01-slides.html#teaching-team-1",
-    "href": "lectures/01-slides.html#teaching-team-1",
-    "title": "Computing for the Social Sciences: Lecture 1",
-    "section": "Teaching Team",
-    "text": "Teaching Team\n\n\n\nRole\nName\nEmail\nOffice Hours\n\n\n\n\nInstructor\nSabrina Nardin\nnardin@uchicago.edu\nTue & Thu, 2:30–3:30 PM (after class)\n\n\nTeaching Assistant\nZach Meyer\nzmeyer@uchicago.edu\nTue 2:30–3:30 PM (after class)\n\n\nTeaching Assistant\nZixuan Zhou (she/her)\nzixuanzhou@uchicago.edu\nThu 2:30–3:30 PM (after class)\n\n\n\n\n\n\nHow to Reach Out\n\nAsk questions during or after class\nAttend Office Hours\nPost on Ed Discussion course-related questions"
-  },
-  {
-    "objectID": "lectures/01-slides.html#course-objectives",
-    "href": "lectures/01-slides.html#course-objectives",
-    "title": "Computing for the Social Sciences: Lecture 1",
-    "section": "Course Objectives",
-    "text": "Course Objectives\nThe goal of this course is to acquire basic computational skills. Specifically:\n\nLearning R, especially the “tidyverse”\nLearning best practices for reproducible research\n\n\nYou won’t become an R expert in a few weeks, BUT you will learn a lot:\n\nlearn the basics and gain confidence to explore new techniques beyond this course\nuse R as a tool for analyzing social science data"
-  },
-  {
-    "objectID": "lectures/01-slides.html#course-topics",
-    "href": "lectures/01-slides.html#course-topics",
-    "title": "Computing for the Social Sciences: Lecture 1",
-    "section": "Course Topics",
-    "text": "Course Topics\nMain topics of this course:\n\nGit/GitHub via RStudio\nR Markdown\nData Visualization\nData Cleaning and Transformation\nExploratory Data Analysis\nWeb-Scraping\nReproducible Research\nR Programming: Control Structures, Data Structures, etc."
-  },
-  {
-    "objectID": "lectures/01-slides.html#how-well-do-this",
-    "href": "lectures/01-slides.html#how-well-do-this",
-    "title": "Computing for the Social Sciences: Lecture 1",
-    "section": "How We’ll Do This",
-    "text": "How We’ll Do This\nWe start simple and build toward more complex code\n\n# create a variable and print it\nx &lt;- \"Hello!\"\nprint(x)\n\n[1] \"Hello!\"\n\n\n\nWe use a mix of lectures and in-class activities, and we rely on several platforms (e.g., course website, Canvas, Ed Discussion, Workbench, Git/GitHub, and Markdown).\nAll course materials are free and accessible from our website.\nIs this course for you?"
-  },
-  {
-    "objectID": "lectures/01-slides.html#how-well-do-this-1",
-    "href": "lectures/01-slides.html#how-well-do-this-1",
-    "title": "Computing for the Social Sciences: Lecture 1",
-    "section": "How We’ll Do This",
-    "text": "How We’ll Do This\nWe use a mix of lectures and in-class activities, and we rely on several platforms (e.g., course website, Canvas, Ed Discussion, Workbench, Git/GitHub, and Markdown).\nAll course materials are free and accessible from our website."
-  },
-  {
-    "objectID": "lectures/01-slides.html#assessment",
-    "href": "lectures/01-slides.html#assessment",
-    "title": "Computing for the Social Sciences: Lecture 1",
-    "section": "Assessment",
-    "text": "Assessment\nSee “Assessment” section of our Syllabus and the Course Schedule:\n\nAssessment and Evaluation: There will be four take-home assignments, one final project, and two short in-class exams. Check the syllabus for details.\nSubmission Policies: See Syllabus, especially for late or missed assignments.\nEvaluation Philosophy and Rubric: See Syllabus.\n\nTips:\n\ndo the readings before class, even if you do not understand everything\nstart early to work on the take-home assignments; (starting from the 2nd) they will be a bit challenging, especially if you have never programmed before: they won’t tell you exactly what to do to solve the problem\nAI is cool but read our AI policy in the Syllabus\nform a study group, and ask for help if you get stuck"
-  },
-  {
-    "objectID": "lectures/01-slides.html#software-setup",
-    "href": "lectures/01-slides.html#software-setup",
-    "title": "Computing for the Social Sciences: Lecture 1",
-    "section": "Software Setup",
-    "text": "Software Setup\nIn this course we use RStudio Workbench, which is cloud-based version of RStudio that runs in your browser.\nNext lecture we will learn the basics of Git and GitHub and complete the Software Setup with Workbench for the course.\nCheck our website under “Software Setup” for details."
-  },
-  {
-    "objectID": "lectures/01-slides.html#activity-meet-share-goals",
-    "href": "lectures/01-slides.html#activity-meet-share-goals",
-    "title": "Computing for the Social Sciences: Lecture 1",
-    "section": "Activity: Meet & Share Goals",
-    "text": "Activity: Meet & Share Goals\nIn groups of 3-5 people, please share:\n\nYour name, plus something about yourself that you’re comfortable sharing (e.g., a hobby, your experience with programming, etc.)\nWhat you hope to learn or achieve in this course\nAny questions you have, and strategies you plan to use to stay on track (we’ll go around the room and answer questions)\n\n\n\n\n\n\n\n\nDone early?\n\n\nIf your group finishes early, please complete this short survey if you haven’t already. It only takes a minute and helps us better understand your background and what you’re hoping to learn in this course."
-  },
-  {
-    "objectID": "lectures/01-slides.html#course-expectations",
-    "href": "lectures/01-slides.html#course-expectations",
-    "title": "Computing for the Social Sciences: Lecture 1",
-    "section": "Course Expectations",
-    "text": "Course Expectations\nSee How to Succeed in this Course from the Syllabus"
-  },
-  {
-    "objectID": "lectures/01-slides.html#yes-to-collaboration-no-to-copying",
-    "href": "lectures/01-slides.html#yes-to-collaboration-no-to-copying",
-    "title": "Computing for the Social Sciences: Lecture 1",
-    "section": "Yes to Collaboration, No to Copying",
-    "text": "Yes to Collaboration, No to Copying\nResearchers collaborate on projects. Developers work in teams to write programs. AI is becoming part of our daily and academic lives.\n\n→ Collaboration is good and encouraged, but in this course you are also expected to:\n\nComplete your own work individually\nWrite your code and fully understand it\nBe ready to explain your code line-by-line to someone else"
-  },
-  {
-    "objectID": "lectures/01-slides.html#collaboration-vs.-plagiarism",
-    "href": "lectures/01-slides.html#collaboration-vs.-plagiarism",
-    "title": "Computing for the Social Sciences: Lecture 1",
-    "section": "Collaboration vs. Plagiarism",
-    "text": "Collaboration vs. Plagiarism\n\n\n✅ DO:\n\nDiscuss and debug with peers\nRewrite code found online in your own style and cite the source\nUse AI to debug or clarify concepts after you try\nSubmit code you wrote\nSubmit code you fully understand\nAlways, prioritize methods from class materials and readings\n\n\n🚫 DON’T:\n\nCopy code from your classmates or others\nSimply copy and paste chunks of code from the internet\nUse AI beyond the AI-Policy of this course\nSubmit code you didn’t write\nSubmit code you can’t explain\nWrite code not taught in class or reading (even if it works) as primary solution"
-  },
-  {
-    "objectID": "lectures/01-slides.html#tips-from-former-students",
-    "href": "lectures/01-slides.html#tips-from-former-students",
-    "title": "Computing for the Social Sciences: Lecture 1",
-    "section": "Tips from former students…",
-    "text": "Tips from former students…\n\n\n“One of the hardest things for me was remembering where I saw a concept or piece of code.”Advice: Stay organized (e.g., customize slides and notes, and create your own system to retrieve info)!\n\n\n\n\n“Homework took more time and effort than I expected.” Advice: Start early! You don’t need to know everything before you begin: just get started and review the materials as needed. Use pen and paper to write pseudo-code before you start.\n\n\n\n\n“I’m in week 4, and I feel lost.”Advice: Reach out to us! Concepts build over time. The big picture will click IF you stay consistent with your efforts every week.\n\n\n\n\n“I found code that worked but wasn’t covered in class, so I wasn’t sure whether to use it.”Advice: Stick to class syntax and functions — they’re chosen for a reason. But you can show both approaches by comparing the function(s) covered in class with your own."
-  },
-  {
-    "objectID": "lectures/01-slides.html#what-are-these-tools",
-    "href": "lectures/01-slides.html#what-are-these-tools",
-    "title": "Computing for the Social Sciences: Lecture 1",
-    "section": "What Are These Tools?",
-    "text": "What Are These Tools?\n\n\n\n\n\n\n\nTool\nWhat It Is\n\n\n\n\nR\nA programming language for data analysis, statistics, and visualization.\n\n\nRStudio\nA user-friendly interface (IDE) for using R.\n\n\nWorkbench\nA cloud-based version of R/RStudio with everything pre-installed. We will use it in this course to minimize setup issues."
-  },
-  {
-    "objectID": "lectures/01-slides.html#lets-start-by-exploring-our-software",
-    "href": "lectures/01-slides.html#lets-start-by-exploring-our-software",
-    "title": "Computing for the Social Sciences: Lecture 1",
-    "section": "Let’s start by exploring our Software",
-    "text": "Let’s start by exploring our Software\nWorkbench: https://macss-r.uchicago.edu/\n\nLog in\nLook at panels\nHow to export/import files between Workbench and your machine\nCreate an empty R Script"
-  },
-  {
-    "objectID": "lectures/01-slides.html#getting-started-with-r",
-    "href": "lectures/01-slides.html#getting-started-with-r",
-    "title": "Computing for the Social Sciences: Lecture 1",
-    "section": "Getting Started with R",
-    "text": "Getting Started with R\nToday we learn how to:\n\nCreate and use variables\n\nUnderstand variable types (e.g., number, text, logical, etc.)\n\nWrite comments and organize your code\n\nUse scripts (vs. console) for reproducibility\n\nClear your environment\n\nGroup values using vectors"
-  },
-  {
-    "objectID": "lectures/01-slides.html#live-coding-activity-to-get-started-with-r",
-    "href": "lectures/01-slides.html#live-coding-activity-to-get-started-with-r",
-    "title": "Computing for the Social Sciences: Lecture 1",
-    "section": "💻 Live Coding Activity to get Started with R",
-    "text": "💻 Live Coding Activity to get Started with R\nWe learn all of this via a live coding activity:\n\nLog into Workbench https://macss-r.uchicago.edu/\nType along with me as we write and run code together\nStop me anytime if you have questions"
-  },
-  {
-    "objectID": "lectures/01-slides.html#deep-dive-on-r-markown",
-    "href": "lectures/01-slides.html#deep-dive-on-r-markown",
-    "title": "Computing for the Social Sciences: Lecture 1",
-    "section": "Deep Dive on R Markown",
-    "text": "Deep Dive on R Markown\nR Markdown is a file format (with extension .Rmd) that combines R code, using code chunks, and text in a single document. It’s very popular because it makes it easy to create reproducible reports, analyses, and presentations.\nYou might hear about Quarto (with extension .qmd), which is a newer alternative to R Markdown. We won’t cover Quarto in this course, but if you learn R Markdown, you can quickly adjust to Quarto."
-  },
-  {
-    "objectID": "lectures/01-slides.html#comparing-r-scripts-r-markdown-and-markdown",
-    "href": "lectures/01-slides.html#comparing-r-scripts-r-markdown-and-markdown",
-    "title": "Computing for the Social Sciences: Lecture 1",
-    "section": "Comparing R Scripts, R Markdown, and Markdown",
-    "text": "Comparing R Scripts, R Markdown, and Markdown\n\n\n\nFile Type\nExtension\nKey Differences\n\n\n\n\nR Script\n.R\nSupports code\n\n\nR Markdown\n.Rmd\nSupports code and formatted text\n\n\nMarkdown\n.md\nSupports formatted text\n\n\n\nWe use all three, but mainly .Rmd for assignments and .md for Git/GitHub documentation."
-  },
-  {
-    "objectID": "lectures/01-slides.html#r-markdown-three-main-components",
-    "href": "lectures/01-slides.html#r-markdown-three-main-components",
-    "title": "Computing for the Social Sciences: Lecture 1",
-    "section": "R Markdown: Three Main Components",
-    "text": "R Markdown: Three Main Components\n\nYAML header for document title, author, output format, etc. Insert it at the top between ---\nText regular Markdown for headers, lists, links, etc.\nCode chunks for code. Insert it with triple backticks ```\n\n\n\n\n\n\n\n\nCode Chunk Tips\n\n\nThree ways to insert a code chunk in your R Markdown:\n\nUse the RStudio toolbar\n\nType manually ```{r} and ```\nUse a shortcut\n\nMac: ⌘ + ⌥ + I\n\nWindows: Ctrl + Alt + I"
-  },
-  {
-    "objectID": "lectures/01-slides.html#r-markdown-example",
-    "href": "lectures/01-slides.html#r-markdown-example",
-    "title": "Computing for the Social Sciences: Lecture 1",
-    "section": "R Markdown: Example",
-    "text": "R Markdown: Example\nThis is what we type (YAML, text, code):\n---\ntitle: \"Homework 1\"\nauthor: \"Sabrina Nardin\"\noutput: html_document\n---\n\nI write my homework description here. \nI can format the text in many ways, for example, by bolding **key concepts**.\n\n```{r}\n# create a variable\nx &lt;- 5\n```"
-  },
-  {
-    "objectID": "lectures/01-slides.html#yaml-yet-another-markup-language",
-    "href": "lectures/01-slides.html#yaml-yet-another-markup-language",
-    "title": "Computing for the Social Sciences: Lecture 1",
-    "section": "YAML: Yet Another Markup Language",
-    "text": "YAML: Yet Another Markup Language\nThe YAML header sits at the top of your .Rmd and tells R what the document is about and how to display it (e.g., as a html, PDF, Word, etc.). Spacing, indentation, and --- all matters!\nThe example below shows three fields but many more can be added:\n---\ntitle: \"Homework 1\"\nauthor: \"Sabrina Nardin\"\noutput: html_document\n---"
-  },
-  {
-    "objectID": "lectures/01-slides.html#r-markdown-formatting-text",
-    "href": "lectures/01-slides.html#r-markdown-formatting-text",
-    "title": "Computing for the Social Sciences: Lecture 1",
-    "section": "R Markdown: Formatting Text",
-    "text": "R Markdown: Formatting Text\n\n\nSyntax\n*Italics*  \n**Bold**  \n~~Strikethrough~~  \n`inline code`\n\nOutput\nItalics\nBold\nStrikethrough\ninline code"
-  },
-  {
-    "objectID": "lectures/01-slides.html#r-markdown-unordered-lists",
-    "href": "lectures/01-slides.html#r-markdown-unordered-lists",
-    "title": "Computing for the Social Sciences: Lecture 1",
-    "section": "R Markdown: Unordered Lists",
-    "text": "R Markdown: Unordered Lists\n\n\nSyntax\n+ item 1  \n  + sub  \n  + sub  \n- item 2  \n  - sub  \n  - sub  \n+ item 3  \n  - sub  \n  * sub  \n\nOutput\n\nitem 1\n\nsub\nsub\n\nitem 2\n\nsub\nsub\n\nitem 3\n\nsub\nsub"
-  },
-  {
-    "objectID": "lectures/01-slides.html#r-markdown-ordered-lists",
-    "href": "lectures/01-slides.html#r-markdown-ordered-lists",
-    "title": "Computing for the Social Sciences: Lecture 1",
-    "section": "R Markdown: Ordered Lists",
-    "text": "R Markdown: Ordered Lists\n\n\nSyntax\n1. item 1  \n    + sub  \n      + sub  \n    + sub  \n\n1. item 2  \n    * sub  \n      * sub  \n    * sub  \n\n1. item 3  \n    - sub  \n\nOutput\n\nitem 1\n\nsub\n\nsub\n\n\nsub\n\nitem 2\n\nsub\n\nsub\n\n\nsub\n\nitem 3\n\nsub"
-  },
-  {
-    "objectID": "lectures/01-slides.html#r-markdown-formatting-headers",
-    "href": "lectures/01-slides.html#r-markdown-formatting-headers",
-    "title": "Computing for the Social Sciences: Lecture 1",
-    "section": "R Markdown: Formatting Headers",
-    "text": "R Markdown: Formatting Headers\n# Heading 1  \n## Heading 2  \n### Heading 3  \n\nHeading 1\n\n\nHeading 2\n\n\nHeading 3"
-  },
-  {
-    "objectID": "lectures/01-slides.html#using-in-code-vs.-markdown-text",
-    "href": "lectures/01-slides.html#using-in-code-vs.-markdown-text",
-    "title": "Computing for the Social Sciences: Lecture 1",
-    "section": "Using # in Code vs. Markdown Text",
-    "text": "Using # in Code vs. Markdown Text\n\n\nIn Code\n# Assign number to variable\nx &lt;- 5 \n# Assign text to variable\nname &lt;- \"Sabrina\"\n\n# starts a COMMENT in R Scripts and R Markdown Code Chunks\nComments are ignored when the code runs\nUse one single # for code explanations or debugging, space doesn’t matter\n\n\nIn R Markdown Text\n# Title (h1)\n## Section (h2)\n### Subsection (h3)\n#### More Subsections (h4)\n\n# creates a HEADER in Markdown or R Markdown Text\nThe number of # signs = heading level\nUse as many # as needed for organizing document sections, space matters"
-  },
-  {
-    "objectID": "lectures/01-slides.html#r-markdown-insert-links-images-and-tables",
-    "href": "lectures/01-slides.html#r-markdown-insert-links-images-and-tables",
-    "title": "Computing for the Social Sciences: Lecture 1",
-    "section": "R Markdown: Insert Links, Images, and Tables",
-    "text": "R Markdown: Insert Links, Images, and Tables\n\n\n\nElement\nSyntax Example\nNotes\nPreview\n\n\n\n\nLink\n[RStudio](https://www.rstudio.com/)\nText in [], URL in ()\nLink\n\n\nImage\n![Logo](images/logo.png \"Optional title\")\nStart with !, include optional \"title\"\nImage\n\n\nTable\n| Tool    | Use     ||---------|---------|| R       | Stats   |\nUse | for columns and --- for header\nTable\n\n\n\nNote:\n\nSpacing always matters\nFor images to display, the file (e.g., .png, .jpg) must be saved in your current working dir or project folder"
-  },
-  {
-    "objectID": "lectures/01-slides.html#r-markdown-handy-code-chunk-options",
-    "href": "lectures/01-slides.html#r-markdown-handy-code-chunk-options",
-    "title": "Computing for the Social Sciences: Lecture 1",
-    "section": "R Markdown: Handy Code Chunk Options",
-    "text": "R Markdown: Handy Code Chunk Options\n\n\n\n\n\n\n\n\n\nOption\nWhat it does\nDefault\n\n\n\n\neval = FALSE\nCode is not run, only shown; results do not appear. Useful for code examples or showing code with errors.\neval = TRUE\n\n\ninclude = FALSE\nCode is run, but both code and results are hidden. Useful for setup code you don’t want to display.\ninclude = TRUE\n\n\necho = FALSE\nCode is run, results are shown, but code is hidden. Good when readers only need the output.\necho = TRUE\n\n\nerror = TRUE\nCode is run and shown, even if it throws an error. Useful when demonstrating broken code.\nerror = FALSE\n\n\nmessage = FALSE / warning = FALSE\nCode is run, but messages and warnings are hidden from the output.\nmessage = TRUE / warning = TRUE\n\n\n\n\nCheck this table and options for more."
-  },
-  {
-    "objectID": "lectures/01-slides.html#rendering-r-markdown-documents",
-    "href": "lectures/01-slides.html#rendering-r-markdown-documents",
-    "title": "Computing for the Social Sciences: Lecture 1",
-    "section": "Rendering R Markdown Documents",
-    "text": "Rendering R Markdown Documents\nR Markdown lets you create documents that combine text, code, and output, and “render” or “knit” them in formats like html, pdf, word, and more.\n\n\n\n\n\n\n\nRendering Tips\n\n\nThree ways to render your R Markdown document:\n\nClick “Knit” in RStudio and choose an output\nSet the format in the YAML header such as html_document,word_document, pdf_document, github_document, etc.\nUse render() in your console by typing rmarkdown::render(\"my-document.Rmd\", output_format: html_document). More info here"
-  },
-  {
-    "objectID": "lectures/01-slides.html#r-markdown-knitting-process",
-    "href": "lectures/01-slides.html#r-markdown-knitting-process",
-    "title": "Computing for the Social Sciences: Lecture 1",
-    "section": "R Markdown: Knitting process",
-    "text": "R Markdown: Knitting process\nWhen you “knit” your document, the following sequential things happen:\n\nR Markdown sends the .Rmd file to knitr http://yihui.name/knitr/\nKnitr executes all of the code chunks and creates a new plain Markdown .md file which includes the code and its output\nThis plain Markdown file is then converted by pandoc into any number of output types including html, PDF, Word document, etc.: http://pandoc.org/"
-  },
-  {
-    "objectID": "lectures/01-slides.html#practice-r-markdown-syntax",
-    "href": "lectures/01-slides.html#practice-r-markdown-syntax",
-    "title": "Computing for the Social Sciences: Lecture 1",
-    "section": "💻 Practice R Markdown Syntax",
-    "text": "💻 Practice R Markdown Syntax\n\nLog into Workbench https://macss-r.uchicago.edu/\nDownload today’s code from Lecture 1 on our website\nComplete the R Markdown in-class practice\nWant more? Try this interactive tutorial"
-  },
-  {
-    "objectID": "lectures/01-slides.html#recap-what-we-learned-today",
-    "href": "lectures/01-slides.html#recap-what-we-learned-today",
-    "title": "Computing for the Social Sciences: Lecture 1",
-    "section": "Recap: What We Learned Today",
-    "text": "Recap: What We Learned Today\n\nFamiliarized with Workbench\nWrote simple R code\nKey components of R Markdown\nHow to run and render R Markdown Documents"
-  },
-  {
-    "objectID": "lectures/01-slides.html#reminders",
-    "href": "lectures/01-slides.html#reminders",
-    "title": "Computing for the Social Sciences: Lecture 1",
-    "section": "Reminders",
-    "text": "Reminders\n\nRegister for a GitHub account and share your GitHub username with us (see Lecture 1 on our website for details)\nReview today’s materials to prep for the short quiz at the beginning of next class\nCheck Lecture 2 homepage"
-  },
-  {
-    "objectID": "lectures/01-slides.html#to-print-these-slides-as-pdf",
-    "href": "lectures/01-slides.html#to-print-these-slides-as-pdf",
-    "title": "Computing for the Social Sciences: Lecture 1",
-    "section": "To print these slides as pdf",
-    "text": "To print these slides as pdf\nClick on the icon bottom-right corner &gt; Tools &gt; PDF Export Mode &gt; Print as a Pdf"
-  },
-  {
-    "objectID": "lectures/01-slides.html#this-course-ai-policy",
-    "href": "lectures/01-slides.html#this-course-ai-policy",
-    "title": "Computing for the Social Sciences: Lecture 1",
-    "section": "This course AI Policy",
-    "text": "This course AI Policy\nADD SLIDE"
-  },
-  {
-    "objectID": "lectures/01-slides.html#my-take-on-ai-for-this-course",
-    "href": "lectures/01-slides.html#my-take-on-ai-for-this-course",
-    "title": "Computing for the Social Sciences: Lecture 1",
-    "section": "My take on AI for this course",
-    "text": "My take on AI for this course\n\n\nIt is my responsibility to\n- Set expectations & boundaries\n- Enforce them (via grading & AI statements)\n\nIt is your responsibility to\n- Respect the AI policy\n- Ask questions if something is unclear\n\nIn this course, AI is:\n\nNOT allowed to brainstorm, write code for you, or replace course materials\nallowed to debug and learn more (e.g., clarify class materials, ask for more explanations about a specific function, ask for examples, etc.).\n\nMake sure to read the Academic Integrity & Use of AI Policies"
-  },
-  {
-    "objectID": "index.html#office-hours-all-in-person",
-    "href": "index.html#office-hours-all-in-person",
-    "title": "Computing for the Social Sciences",
-    "section": "Office Hours (all in-person)",
-    "text": "Office Hours (all in-person)"
-  },
-  {
-    "objectID": "index.html#office-hours-all-in-person-1",
-    "href": "index.html#office-hours-all-in-person-1",
-    "title": "Computing for the Social Sciences",
-    "section": "Office Hours (all in-person)",
-    "text": "Office Hours (all in-person)"
-  },
-  {
-    "objectID": "index.html#office-hours-all-in-person-2",
-    "href": "index.html#office-hours-all-in-person-2",
-    "title": "Computing for the Social Sciences",
-    "section": "Office Hours (all in-person)",
-    "text": "Office Hours (all in-person)\n\n\n\nDay & Time\nType\nLocation\nInstructor\n\n\n\n\nMon 3:20–3:30 PM (after class)\nDrop-in (short questions)\nSame as classroom\nSabrina\n\n\nTue 2:00–4:00 PM\nBy appointment\n1155 Bldg, Room 221A\nSabrina\n\n\nWed 11:00 AM–12:30 PM\nBy appointment\n1155 Bldg, Room TBD\nZach\n\n\nWed 12:30–1:00 PM\nDrop-in (short questions)\n1155 Bldg, Room TBD\nZach\n\n\nWed 3:20–3:30 PM (after class)\nDrop-in (short questions)\nSame as classroom\nSabrina\n\n\nThu 12:30–1:00 PM\nDrop-in (short questions)\n1155 Bldg, Room TBD\nZixuan\n\n\nThu 1:00–3:30 PM\nBy appointment\n1155 Bldg, Room TBD\nZixuan\n\n\n\n\nMonday\n\n3:20–3:30 PM (Drop-in, quick questions, after class) · Sabrina · Same as classroom\n\n\n\nTuesday\n\n2:00–4:00 PM (By appointment) · Sabrina · 1155 Bldg, Room 221A\nBook here\n\n\n\nWednesday\n\n11:00 AM–12:30 PM (By appointment) · Zach · 1155 Bldg, Room TBD\nBook here\n\n12:30–1:00 PM (Drop-in, quick questions) · Zach · Same as above\n\n3:20–3:30 PM (Drop-in, quick questions, after class) · Sabrina · Same as classroom\n\n\n\nThursday\n\n12:30–1:00 PM (Drop-in, quick questions) · Zixuan · 1155 Bldg, Room TBD\n\n1:00–3:30 PM (By appointment) · Zixuan · Same as above\nBook here\n\n\n\n\nDay & Time\nInstructor\nType\nLocation\nAppointment Link\n\n\n\n\nTue 2:00–4:00 PM\nSabrina\nBy appointment\n1155 Bldg, Room 221A\nBook here\n\n\nAfter class (15 min)\nSabrina\nDrop-in\nSame as classroom\n—\n\n\nWed 11:00 AM–12:30 PM\nZach\nBy appointment\n1155 Bldg, Room TBD\nBook here\n\n\nWed 12:30–1:00 PM\nZach\nDrop-in\nSame as above\n—\n\n\nThu 12:30–1:00 PM\nZixuan\nDrop-in\n1155 Bldg, Room TBD\n—\n\n\nThu 1:00–3:30 PM\nZixuan\nBy appointment\nSame as above\nBook here\n\n\n\n\nQuick Links:\n\nR Workbench\n\nCanvas\n\nEd Discussion\nUChicago GenAI"
   }
 ]

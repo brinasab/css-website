@@ -169,7 +169,7 @@ Before pushing changes from your local Git repository to GitHub, you should alwa
 
 Once you're done experimenting, delete the `myrepo` repository — this was just a test, and there's no need to keep it. We need to remove it from *both* your computer (e.g., here Workbench) and GitHub:
 
-- *Delete the local repository*: find where you stored it on your computer ( e.g., here Workbench) and delete the folder (click the red X labeled "Delete");
+- *Delete the local repository*: find where you stored it on your computer ( e.g., here Workbench) and delete the folder (click the red X labeled "Delete"). Sometimes on Workbench it looks like the folder has not been deleted: quit the current Workbench session and open a new one.
 - *Delete the repository from GitHub*:
   - Open the repository in your browser
   - Click on *Settings*
