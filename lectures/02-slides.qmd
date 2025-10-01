@@ -433,7 +433,7 @@ Unfortunately, you cannot solve a Git Conflict using the integrated Git from RSt
 
 ## How to solve a Git Conflict
 
-1. Go to R (Workbench) and open your terminal. Pull the latest changes from GitHub by typing `git pull origin main`
+1. Go to R (Workbench) and open your terminal. Pull the latest changes from GitHub by typing `git pull origin main` and by following the message that shows up on Git (which will tell you what to type)
    
 2. Open the file or files and look for the conflict markers such as `<<<<<<<`, `=======`, `>>>>>>>`
 

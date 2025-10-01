@@ -2111,7 +2111,7 @@
     "href": "lectures/02-slides.html#how-to-solve-a-git-conflict",
     "title": "Computing for the Social Sciences: Lecture 2",
     "section": "How to solve a Git Conflict",
-    "text": "How to solve a Git Conflict\n\nGo to R (Workbench) and open your terminal. Pull the latest changes from GitHub by typing git pull origin main\nOpen the file or files and look for the conflict markers such as &lt;&lt;&lt;&lt;&lt;&lt;&lt;, =======, &gt;&gt;&gt;&gt;&gt;&gt;&gt;\nDecide which version to keep or manually combine them\nDelete the conflict markers\nSave the file\nRun the following commands from your terminal:\ngit add &lt;filename&gt;\ngit commit -m \"solved conflict\"\ngit push origin main"
+    "text": "How to solve a Git Conflict\n\nGo to R (Workbench) and open your terminal. Pull the latest changes from GitHub by typing git pull origin main and by following the message that shows up on Git (which will tell you what to type)\nOpen the file or files and look for the conflict markers such as &lt;&lt;&lt;&lt;&lt;&lt;&lt;, =======, &gt;&gt;&gt;&gt;&gt;&gt;&gt;\nDecide which version to keep or manually combine them\nDelete the conflict markers\nSave the file\nRun the following commands from your terminal:\ngit add &lt;filename&gt;\ngit commit -m \"solved conflict\"\ngit push origin main"
   },
   {
     "objectID": "lectures/02-slides.html#avoiding-most-git-conflicts",
