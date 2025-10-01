@@ -260,16 +260,17 @@ If this didn’t work
 <section id="step-2-create-a-new-repository-on-github" class="level2">
 <h2 class="anchored" data-anchor-id="step-2-create-a-new-repository-on-github">Step 2: Create a New Repository on GitHub</h2>
 <ul>
-<li><p>Go to <a href="https://www.github.com">GitHub</a> and log in. If you haven’t already, sign up for an account, and share your GitHub username with us using the Excel file linked in Lecture 1.</p></li>
+<li><p>Go to <a href="https://www.github.com">GitHub</a> and log in (If you haven’t already, sign up for an account, and share your GitHub username with us using the Excel file linked in Lecture 1)</p></li>
 <li><p>Go to <em>Repositories</em> and click the green <em>New</em> or <em>New Repository</em> button and fill in the following:</p>
 <ul>
 <li><em>Repository name:</em> <code>myrepo</code></li>
-<li>Set the repository to <em>Public</em></li>
+<li><em>Description:</em> you can leave it blank or add a short description of what the repo is about</li>
+<li>Set the repository visibility to <em>Public</em></li>
 <li><em>Check</em> the box to add a <em>README</em> file</li>
-<li><em>Leave the default (None)</em> the <code>.gitignore</code> and license</li>
+<li><em>Leave the default (None)</em> both the <code>.gitignore</code> and the license</li>
 <li>Click the green <em>Create repository</em> button</li>
 </ul></li>
-<li><p>Once the repository is created, click the green <em>Code</em> button. You should see options to clone via <em>HTTPS</em> or <em>SSH</em>. If you followed the <a href="../setup/setup-workbench.html">RStudio Workbench Setup</a> page you should have configured Git with the SSH authentication method, so copy the SSH url (which should look like <code>git@github.com:&lt;OWNER&gt;/&lt;REPO&gt;.git</code>) to your clipboard.</p></li>
+<li><p>Once the repository is created, click the green <em>Code</em> button. You should see options to clone via <em>HTTPS</em> or <em>SSH</em>. Since we have configured Git with the SSH authentication method (see <a href="../setup/setup-workbench.html">RStudio Workbench Setup</a>), copy the SSH URL (which should look like <code>git@github.com:&lt;OWNER&gt;/&lt;REPO&gt;.git</code>) to your clipboard.</p></li>
 </ul>
 </section>
 <section id="step-3-clone-the-new-github-repo-via-rstudio" class="level2">
@@ -280,7 +281,7 @@ If this didn’t work
 <ul>
 <li><em>Repository URL:</em> paste the URL of your new GitHub repository (see Step 2)</li>
 <li><em>Project directory name:</em> it should automatically populate, do not change it. If it does not automatically populate, type the same name you gave to your GitHub repository (e.g.&nbsp;<code>myrepo</code>)</li>
-<li><em>Create project as subdirectory of:</em> click on “Browse…” and decide where to store the local directory for the project. It is OK to leave this test directory under Home</li>
+<li><em>Create project as subdirectory of:</em> click on “Browse…” and decide where to store the local directory for the project. It is OK to leave this test directory under Home (no changes needed)</li>
 <li>Before proceeding, check the <em>Open in new session</em> box situated toward the bottom, as that’s what you’ll usually do in real life</li>
 <li>Finally, click <em>Create Project.</em> The first time you do it, you might get the following message: <em>“The authenticity of host ‘github.com (IP)’ can’t be established etc.”</em> If so:
 <ul>
@@ -292,7 +293,7 @@ it likely means Git is not configured correctly — go back and configure it.</l
 </ul></li>
 </ul>
 <p>Your Project has been created!</p>
-<p>Notice that your project in RStudio (e.g., Workbench) matches the one on GitHub (go to your GitHub page which should be open in your brownser and compare). The visual presentation may look different, but the files and their content should always be the same. A Project will now be:</p>
+<p>Look at your project in RStudio (e.g., Workbench) and the one on GitHub (go to your GitHub page which should already be open in your brownser and compare): the two should match! The visual presentation may look different, but the files and their content should always be the same. A Project will now be:</p>
 <ul>
 <li>a directory on your computer</li>
 <li>a Git repository, linked to a remote GitHub repository</li>
@@ -329,14 +330,14 @@ Tip
 <p>Do this every time you finish a chunk of work, probably many times during a work session.</p>
 </div>
 </div>
-<p>From RStudio, check file browser panel to find the <code>README.md</code> file of your project. Open and modify it by adding the following line (or any other line):</p>
+<p>From RStudio, check the file browser panel to find the <code>README.md</code> file of your project. Open and modify it by adding the following line (or any other line):</p>
 <pre><code>This is a line written from R.</code></pre>
 <p>Save your changes. Next, commit these changes to your local repo using RStudio:</p>
 <ul>
 <li>Open the <em>Git</em> tab in the upper right panel</li>
-<li>In the <em>Staged</em> little box, select all files you want to commit. To do this, check the boxes next to each file listed. The first time you commit, this will usually include several new files — go ahead and check all of them</li>
+<li>In the <em>Staged</em> little box, select all files you want to commit. To do this, check the boxes next to each file listed. The first time you commit, this will usually include several new files: check all of them</li>
 <li>Click <em>Commit</em></li>
-<li>A new window should open: in the <em>Commit message</em> box, enter a descriptive message. This should explain what you changed. For example in this case you could write something like: “Added a test line to README”</li>
+<li>A new window should open: in the <em>Commit message</em> box, enter a descriptive message. This should be short but explain what you changed. For example in this case you could write something like: “Added a test line to README”</li>
 <li>Click <em>Commit</em>, wait for it to finish, then click <em>Close</em></li>
 </ul>
 </section>
@@ -358,9 +359,10 @@ Tip
 <p>Now you have new work in your local Git repository, but the changes are not yet on GitHub:</p>
 <ul>
 <li>Go to the <em>Git</em> tab: you should see a message that says <em>“Your branch is ahead of origin/main by 1 commit”</em></li>
-<li>This means you need to push your changes to GitHub: click the green <em>Push</em> arrow under the <em>Git</em> tab
+<li>This means you need to push your recent changes to GitHub: click the green <em>Push</em> arrow under the <em>Git</em> tab
 <ul>
-<li><em>If this is your first time pushing to GitHub</em>, you may see a prompt to add your SSH key and/or enter your GitHub username and password. If prompted, go ahead and complete the steps. When done, open your GitHub repo in a browser to confirm your changes were pushed.</li>
+<li><em>If this is your first time pushing to GitHub</em>, you may see a prompt to add your SSH key and/or enter your GitHub username and password. If prompted, go ahead and complete the steps.</li>
+<li>When done, check your GitHub repo to confirm your changes were pushed there.</li>
 <li><em>If this step failed</em> (e.g., you’re unable to push), Git may not be properly configured, or you may have used the wrong authentication method (SSH or HTTPS). Check the <a href="../setup/setup-workbench.html">RStudio Workbench Setup</a> page to troubleshoot.</li>
 </ul></li>
 </ul>
@@ -414,9 +416,9 @@ Always Pull Before You Push
 </section>
 <section id="step-7-the-end-delete-this-test-repo" class="level2">
 <h2 class="anchored" data-anchor-id="step-7-the-end-delete-this-test-repo">Step 7 (The End): Delete this Test Repo</h2>
-<p>Once you’re done experimenting, delete the <code>myrepo</code> repository — this was just a test, and there’s no need to keep it. We need to remove it from <em>both</em> your computer (or Workbench) and GitHub:</p>
+<p>Once you’re done experimenting, delete the <code>myrepo</code> repository — this was just a test, and there’s no need to keep it. We need to remove it from <em>both</em> your computer (e.g., here Workbench) and GitHub:</p>
 <ul>
-<li><em>Delete the local repository</em>: find where you stored it on your computer (or Workbench) and delete the folder (click the red X labeled “Delete”);</li>
+<li><em>Delete the local repository</em>: find where you stored it on your computer ( e.g., here Workbench) and delete the folder (click the red X labeled “Delete”);</li>
 <li><em>Delete the repository from GitHub</em>:
 <ul>
 <li>Open the repository in your browser</li>
