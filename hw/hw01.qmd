@@ -9,7 +9,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # Overview
 
-**Due: Wednesday, July 2nd by 11:59 PM (Chicago Time)**
+**Due: Tuesday, October 7 by 11:59 PM (Chicago Time)**
 
 This first homework assignment has two main goals: to verify your computer setup and to practice basic R syntax, Markdown, and R Markdown.
 
@@ -22,7 +22,7 @@ This will work only if you have submitted your GitHub username (see Lecture 1) a
 
 **Accessing the repo:** 
 
-1. Go at [this link](https://classroom.github.com/a/KCzauQcd) to accept the invitation and create your private `hw01` repository on GitHub. Your repository will be named `hw01-<USERNAME>` and will be ready within a few seconds. If this does not work, see the note in red above.
+1. Go at [this link](https://classroom.github.com/a/FkiRz52I) to accept the invitation and create your private `hw01` repository on GitHub. Your repository will be named `hw01-<USERNAME>` and will be ready within a few seconds. If this does not work, see the note in red above.
 
 2. Once the repository has been created, click the link provided to access it.
 
@@ -36,10 +36,9 @@ This will work only if you have submitted your GitHub username (see Lecture 1) a
    - Paste the URL of your GitHub repository. To find the URL, go to your `hw01` repo on GitHub, click the green Code button, and copy the SSH or HTTPS link (use the method you configured during setup: Workbench users must select SSH).
    - The project name should auto-fill. If not, type `hw01-<USERNAME>` manually.
 
-3. Choose where to save the project directory locally.  
-   *Tip:* Use a dedicated folder such as `homeworks` to keep things organized and avoid moving folders after cloning them
+3. Choose where to save the project directory locally. *Tip:* Avoid moving folders after cloning them.  
 
-4. Check the box *"Open in new session"* (optional but recommended for keeping projects separate and organized)
+4. Check the box *"Open in new session"* (recommended for keeping projects separate and organized)
 
 5. Click *Create Project*. This will:
    - Create a new folder on your machine  
@@ -114,8 +113,8 @@ At the end of your README, add a short reflection that includes:
   *(Bullet points or a short narrative are both fine.)*
 - Your evaluation of the homework experience  
   *(E.g., something new you learned, what went well, what confused you, etc.)*
-- A list of resources you consulted  
-  *(Include links, tools, and names of any collaborators. If you used AI tools, briefly describe how.)*
+- A list of resources you consulted and an AI narrative if you used AI to debug (see Syllabus for details)  
+  *Include links, tools, names of any collaborators, and AI statement*
 
 
 ### Edit the `code.rmd` file
@@ -147,7 +146,7 @@ To submit your assignment on Canvas, follow these steps:
    - A knitted output file generated from `code.rmd` (this must be a `.md` document, not anything else)
 
 2. When you're ready to submit:
-   - Copy the URL of your GitHub repository. It will look something like: `https://github.com/csp-summer25/hw01-yourusername`
+   - Copy the URL of your GitHub repository. It will look something like: `https://github.com/css-fall25/hw01-yourusername`
    - Submit that URL on Canvas under HW01. Do not upload any files to Canvas. We only need the repository link.
 
 

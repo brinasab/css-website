@@ -12,8 +12,9 @@ format:
 
 Homework assignments (four in total) and the final project will be accessible from here once the assignment is released — check our [Course Schedule](../lectures/index.qmd) for release and due dates.
 
-<!--
 - [Homework 1](hw01.qmd)
+
+<!--
 - [Homework 2](hw02.qmd)
 - [Homework 3](hw03.qmd)
 -->
