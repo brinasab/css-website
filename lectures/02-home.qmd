@@ -38,4 +38,4 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Readings
 
-- [Happy Git and GitHub for the useR](https://happygitwithr.com/)
+- Chapter 1 of [Happy Git and GitHub for the useR](https://happygitwithr.com/big-picture)
