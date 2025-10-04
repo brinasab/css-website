@@ -22,14 +22,14 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Learning Objectives
 
+- Practice using `ggplot2` to explore (see Ch.10 below) and communicate data (see Ch.11 below) with graphs
 - Identify best graph types (e.g., bar chart vs. histogram) based on variable types (e.g., categorical vs. numeric)
 - Interpret what a graph shows about the data
-- Practice using `ggplot2` to explore (see readings Ch.9) and communicate data (see readings Ch.10) with graphs
 
 
 ## Readings
 
-- ["Chapter 10 Exploratory Data Analysis"](https://r4ds.hadley.nz/eda) from "R for Data Science" 2nd Edition
+- ["Chapter 10 Exploratory Data Analysis"](https://r4ds.hadley.nz/EDA.html) from "R for Data Science" 2nd Edition
 - ["Chapter 11 Communication"](https://r4ds.hadley.nz/communication.html) from "R for Data Science" 2nd Edition
 
 For additional resources and intro to `ggplot2` readings, see Lecture 3

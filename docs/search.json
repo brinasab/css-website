@@ -1607,7 +1607,7 @@
     "href": "lectures/04-home.html#learning-objectives",
     "title": "Lecture 4: Graphs for Data Analysis",
     "section": "Learning Objectives",
-    "text": "Learning Objectives\n\nIdentify best graph types (e.g., bar chart vs. histogram) based on variable types (e.g., categorical vs. numeric)\nInterpret what a graph shows about the data\nPractice using ggplot2 to explore (see readings Ch.9) and communicate data (see readings Ch.10) with graphs"
+    "text": "Learning Objectives\n\nPractice using ggplot2 to explore (see Ch.10 below) and communicate data (see Ch.11 below) with graphs\nIdentify best graph types (e.g., bar chart vs. histogram) based on variable types (e.g., categorical vs. numeric)\nInterpret what a graph shows about the data"
   },
   {
     "objectID": "lectures/04-home.html#readings",
