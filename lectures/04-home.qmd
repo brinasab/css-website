@@ -24,15 +24,20 @@ knitr::opts_chunk$set(echo = FALSE)
 
 - Identify best graph types (e.g., bar chart vs. histogram) based on variable types (e.g., categorical vs. numeric)
 - Interpret what a graph shows about the data
-- Practice using `ggplot2` and `dplyr`
+- Practice using `ggplot2` to explore (see readings Ch.9) and communicate data (see readings Ch.10) with graphs
 
 
 ## Readings
 
 - ["Chapter 10 Exploratory Data Analysis"](https://r4ds.hadley.nz/eda) from "R for Data Science" 2nd Edition
-- Cheat sheets and documentation for `ggplot2` and `dplyr` (from previous lectures)
+- ["Chapter 11 Communication"](https://r4ds.hadley.nz/communication.html) from "R for Data Science" 2nd Edition
+
+For additional resources and intro to `ggplot2` readings, see Lecture 3
+
+<!--
+  * Cheat sheets and documentation for `ggplot2` and `dplyr` (from previous lectures)
   * [ggplot2 Cheat Sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf)
   * [ggplot2 Official Documentation](https://ggplot2.tidyverse.org/index.html)
   * [dplyr Cheat Sheet](https://rstudio.github.io/cheatsheets/html/data-transformation.html)
   * [dplyr Official Documentation](https://dplyr.tidyverse.org/)
-
+-->

@@ -1586,7 +1586,7 @@
     "href": "lectures/05-home.html#readings",
     "title": "Lecture 5: Intro to dplyr, Pipes",
     "section": "Readings",
-    "text": "Readings\nTo be able to follow today’s lecture, you need to read this chapter:\n\n“Chapter 3 Data transformation” from “R for Data Science” 2nd Edition\n\nAdditional Resources:\n\ndplyr Cheat Sheet\ndplyr Official Documentation"
+    "text": "Readings\n\n“Chapter 3 Data transformation” from “R for Data Science” 2nd Edition\n\nAdditional Resources:\n\ndplyr Cheat Sheet\ndplyr Official Documentation"
   },
   {
     "objectID": "lectures/04-home.html",
@@ -1607,14 +1607,14 @@
     "href": "lectures/04-home.html#learning-objectives",
     "title": "Lecture 4: Graphs for Data Analysis",
     "section": "Learning Objectives",
-    "text": "Learning Objectives\n\nIdentify best graph types (e.g., bar chart vs. histogram) based on variable types (e.g., categorical vs. numeric)\nInterpret what a graph shows about the data\nPractice using ggplot2 and dplyr"
+    "text": "Learning Objectives\n\nIdentify best graph types (e.g., bar chart vs. histogram) based on variable types (e.g., categorical vs. numeric)\nInterpret what a graph shows about the data\nPractice using ggplot2 to explore (see readings Ch.9) and communicate data (see readings Ch.10) with graphs"
   },
   {
     "objectID": "lectures/04-home.html#readings",
     "href": "lectures/04-home.html#readings",
     "title": "Lecture 4: Graphs for Data Analysis",
     "section": "Readings",
-    "text": "Readings\n\n“Chapter 10 Exploratory Data Analysis” from “R for Data Science” 2nd Edition\nCheat sheets and documentation for ggplot2 and dplyr (from previous lectures)\n\nggplot2 Cheat Sheet\nggplot2 Official Documentation\ndplyr Cheat Sheet\ndplyr Official Documentation"
+    "text": "Readings\n\n“Chapter 10 Exploratory Data Analysis” from “R for Data Science” 2nd Edition\n“Chapter 11 Communication” from “R for Data Science” 2nd Edition\n\nFor additional resources and intro to ggplot2 readings, see Lecture 3"
   },
   {
     "objectID": "lectures/03-home.html",
@@ -1642,7 +1642,7 @@
     "href": "lectures/03-home.html#readings",
     "title": "Lecture 3: Intro to ggplot2, Coding Style",
     "section": "Readings",
-    "text": "Readings\nTo be able to follow today’s lecture, you need to read these chapters, especially Chapter 1:\n\nChapter 1 “Data Visualization” from “R for Data Science” 2nd Edition\nChapter 4 “Workflow: Code Style” from “R for Data Science” 2nd Edition\n\nAdditional Resources:\n\nggplot2 Cheat Sheet\nggplot2 Official Documentation\nggplot2: Elegant Graphics for Data Analysis, 2nd Edition by Hadley Wickham. Excellent resource for learning the intricacies of ggplot2\nR Graphics Cookbook, 2nd edition by Winston Chang. A practical guide with 150 examples to generate quality graphics based on the data you wish to present\n“The tidyverse style guide”"
+    "text": "Readings\n\nChapter 1 “Data Visualization” from “R for Data Science” 2nd Edition\nChapter 9 “Layers” from “R for Data Science” 2nd Edition\nChapter 4 “Workflow: Code Style” from “R for Data Science” 2nd Edition\n\nAdditional Resources:\n\nggplot2 Cheat Sheet\nggplot2 Official Documentation\nggplot2: Elegant Graphics for Data Analysis, 2nd Edition by Hadley Wickham. Excellent resource for learning the intricacies of ggplot2\nR Graphics Cookbook, 2nd edition by Winston Chang. A practical guide with 150 examples to generate quality graphics based on the data you wish to present\n“The tidyverse style guide”"
   },
   {
     "objectID": "lectures/02-home.html",
