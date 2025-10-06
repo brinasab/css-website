@@ -3,7 +3,7 @@ title: "Lecture 3: Intro to ggplot2, Coding Style"
 date: 2025-10-06
 summary: "Visualizing Data with ggplot2, Coding Style in R"
 url_slides: 03-slides.qmd
-url_code: css-materials/ggplot2-style
+url_code: css-materials/ggplot2
 page-layout: full
 draft: false
 ---
