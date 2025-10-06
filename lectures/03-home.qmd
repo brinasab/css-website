@@ -38,6 +38,7 @@ Additional Resources:
 
 * [ggplot2 Cheat Sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf)
 * [ggplot2 Official Documentation](https://ggplot2.tidyverse.org/index.html)
-* [ggplot2: Elegant Graphics for Data Analysis, 2nd Edition](https://ggplot2-book.org/) by Hadley Wickham. Excellent resource for learning the intricacies of `ggplot2`
-* [R Graphics Cookbook, 2nd edition](https://r-graphics.org/) by Winston Chang. A practical guide with 150 examples to generate quality graphics based on the data you wish to present
+* [ggplot2: Elegant Graphics for Data Analysis, 2nd Edition](https://ggplot2-book.org/) by Hadley Wickham, for more on `ggplot2`
+* [A Layered Grammar of Graphics](https://www.tandfonline.com/doi/pdf/10.1198/jcgs.2009.07098) by Hadley Wickham, for a theoretical introduction to the grammar of graphics
+* [R Graphics Cookbook, 2nd edition](https://r-graphics.org/) by Winston Chang, for practical guide with 150 examples to generate graphs
 * ["The `tidyverse` style guide"](https://style.tidyverse.org/index.html)
