@@ -130,7 +130,7 @@ Your task: edit the `code.rmd` file by making the following changes (all must be
 
 - Add *at least two R code chunks* with a short explanation in plain text (not as code comment):  
   - Your code can be simple (think at the examples from lecture 1), but it must run and produce the correct output 
-  - Your final knitted `.html` file should show both code and output
+  - Your final knitted ~~`.html`~~ `.md` file should show both code and output (we want the `md` as Github cannot read `html`, but if you submit both that's fine)
   - If your code generates plots (not required, but possible), make sure the output images are also pushed to GitHub
 
 
