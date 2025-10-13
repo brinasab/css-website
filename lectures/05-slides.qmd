@@ -666,6 +666,18 @@ avg_bill_high <- filter(by_species, mean(bill_length_mm, na.rm = TRUE) > 40)
 result <- summarize(avg_bill_high, 
                     avg_mass = mean(body_mass_g, na.rm = TRUE))
 ```
+---
+
+## In-class Code: Debugging Note
+
+Slide based on the code we debugged in class!
+
+The code `group_by(penguins, species == "Adelie")` runs, but gives unexpected results. Why? `group_by` expects a variable (column), not a logical condition. Writing `group_by(penguins, species == "Adelie")` creates a logical vector (TRUE/FALSE), and groups by these values. You could make it work by cleaning or reshaping the data afterward, but it’s not good practice.
+
+Therefore:
+
+- Use `group_by()` with **variable names** only (columns), not filtering conditions  
+- Use `filter()` with **logical conditions** to keep only selected rows
 
 
 # 4. Pipes %>% or |> {.slide .center .middle}

@@ -866,6 +866,17 @@ print(results)
 <span id="cb22-2"><a></a>avg_bill_high <span class="ot">&lt;-</span> <span class="fu">filter</span>(by_species, <span class="fu">mean</span>(bill_length_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">&gt;</span> <span class="dv">40</span>)</span>
 <span id="cb22-3"><a></a>result <span class="ot">&lt;-</span> <span class="fu">summarize</span>(avg_bill_high, </span>
 <span id="cb22-4"><a></a>                    <span class="at">avg_mass =</span> <span class="fu">mean</span>(body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="in-class-code-debugging-note" class="slide level2 center">
+<h2>In-class Code: Debugging Note</h2>
+<p>Slide based on the code we debugged in class!</p>
+<p>The code <code>group_by(penguins, species == "Adelie")</code> runs, but gives unexpected results. Why? <code>group_by</code> expects a variable (column), not a logical condition. Writing <code>group_by(penguins, species == "Adelie")</code> creates a logical vector (TRUE/FALSE), and groups by these values. You could make it work by cleaning or reshaping the data afterward, but it’s not good practice.</p>
+<p>Therefore:</p>
+<ul>
+<li>Use <code>group_by()</code> with <strong>variable names</strong> only (columns), not filtering conditions<br>
+</li>
+<li>Use <code>filter()</code> with <strong>logical conditions</strong> to keep only selected rows</li>
+</ul>
 </section></section>
 <section>
 <section id="pipes-or" class="title-slide slide level1 center middle">
