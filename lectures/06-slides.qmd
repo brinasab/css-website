@@ -1,6 +1,6 @@
 ---
 title: "Computing for the Social Sciences: Lecture 6"
-subtitle: "Topics: Deep Dive into dplyr, Factors in R"
+subtitle: "Topics: Deep Dive into dplyr & Factors in R"
 author: "Sabrina Nardin, Fall 2025"
 format:
   revealjs:

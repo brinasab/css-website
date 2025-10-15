@@ -16,7 +16,6 @@ format:
     center: true
 ---
 
-
 # Agenda {.center}
 
 ::: {.agenda-list}
