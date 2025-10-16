@@ -24,8 +24,14 @@ format:
 :::
 
 <span style="font-size: 0.8em; color: #666;">
+*Slides last updated on **October 15, 2025**. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.*
+</span>
+
+<!--
+<span style="font-size: 0.8em; color: #666;">
 *Slides last updated on **`r format(Sys.Date(), '%B %d, %Y')`**. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.*
 </span>
+-->
 
 <!-- 
 Changes needed: Add more formal factor explanation (check Fall24 slides) as I cut it for CSP Sum25. Add more dplyr examples here. Do live coding but make it interactive compared to Fall24. Take the in-class exercise from lecture 4: use task 2 to teach factors and task 4 for more dplyr (For Fall25: adjust CSP Sum25 lecture 4 slides accordingly and move that part here). 
@@ -87,7 +93,6 @@ glimpse(penguins)
 str(penguins)
 summary(penguins)
 ```
-
 
 ---
 
@@ -689,7 +694,7 @@ glimpse(scorecard)
 
 ## Example: Plot the total number of schools in the U.S. by school type
 
-This is the same question we did in class (see in-class tutorial, lecture 4)
+This is the same question we did in class (see in-class tutorial, lecture 4).
  
 Since `type` is a categorical varialbe, we use bar chart, which takes each category `"Public"`, `"Private nonprofit"`, `"Private for profit"` and automatically applies a frequency count to aggregate the data.
 
@@ -709,11 +714,11 @@ ggplot(scorecard, mapping = aes(x = type)) +
 ## Method 1: Reorder bars manually with *factor()*
 
 ```r
-scorecard <- scorecard |>
+s <- scorecard |>
   mutate(type = factor(type,
-                       levels = c("Public", "Private nonprofit", "Private for-profit")))
+                       levels = c("Private, nonprofit", "Public", "Private, for-profit")))
 
-ggplot(scorecard, aes(x = type)) +
+ggplot(s, aes(x = type)) +
   geom_bar()
 
 ```
@@ -725,15 +730,19 @@ Remember to check the column type (character or numeric) before transforming to 
 
 ## Method 2: Reorder the bars using tidyverse *fct_relevel()*
 
-[`fct_relevel()`](https://forcats.tidyverse.org/reference/fct_relevel.html): allows to reorder factor levels by hand
+[`fct_relevel()`](https://forcats.tidyverse.org/reference/fct_relevel.html): allows to reorder factor levels by hand; this function behave similarly to `factor()`
+
 ```r
-scorecard <- scorecard |> 
+scorecard |> 
   mutate(type = fct_relevel(type, 
-                           "Private, nonprofit", "Public", "Private, for-profit"))
-                                  
+                           "Private, nonprofit", "Public", "Private, for-profit")) |>
 ggplot(mapping = aes(x = type)) +
   geom_bar()
+
 ```
+
+Note: you can write code also by "piping" the results of the `dplyr` code into `ggplot2` code, as illustrated here. 
+
 ---
 
 ## Method 3: Reorder the bars using tidyverse *fct_infreq()*
@@ -741,10 +750,9 @@ ggplot(mapping = aes(x = type)) +
 [`fct_infreq()`](https://forcats.tidyverse.org/reference/fct_inorder.html) sorts bars automatically by how common each category is (most to least frequent)
 
 ```r
-scorecard <- scorecard |>
-  mutate(type = fct_infreq(type))
-
-ggplot(scorecard, aes(x = type)) +
+scorecard |>
+  mutate(type = fct_infreq(type)) |>
+ggplot(aes(x = type)) +
   geom_bar()
 ```
 

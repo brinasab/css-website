@@ -216,7 +216,12 @@ Sabrina Nardin, Fall 2025
 <li>Define and use Factors in R</li>
 </ol>
 </div>
-<p><span style="font-size: 0.8em; color: #666;"> <em>Slides last updated on <strong><code>r format(Sys.Date(), '%B %d, %Y')</code></strong>. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.</em> </span></p>
+<p><span style="font-size: 0.8em; color: #666;"> <em>Slides last updated on <strong>October 15, 2025</strong>. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.</em> </span></p>
+<!--
+<span style="font-size: 0.8em; color: #666;">
+*Slides last updated on **`r format(Sys.Date(), '%B %d, %Y')`**. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.*
+</span>
+-->
 <!-- 
 Changes needed: Add more formal factor explanation (check Fall24 slides) as I cut it for CSP Sum25. Add more dplyr examples here. Do live coding but make it interactive compared to Fall24. Take the in-class exercise from lecture 4: use task 2 to teach factors and task 4 for more dplyr (For Fall25: adjust CSP Sum25 lecture 4 slides accordingly and move that part here). 
 -->
@@ -840,7 +845,7 @@ Tip: to avoid problems, specify both `levels` and `labels` explicitly.
 </section>
 <section id="example-plot-the-total-number-of-schools-in-the-u.s.-by-school-type" class="slide level2 center">
 <h2>Example: Plot the total number of schools in the U.S. by school type</h2>
-<p>This is the same question we did in class (see in-class tutorial, lecture 4)</p>
+<p>This is the same question we did in class (see in-class tutorial, lecture 4).</p>
 <p>Since <code>type</code> is a categorical varialbe, we use bar chart, which takes each category <code>"Public"</code>, <code>"Private nonprofit"</code>, <code>"Private for profit"</code> and automatically applies a frequency count to aggregate the data.</p>
 <div class="sourceCode" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a><span class="fu">ggplot</span>(scorecard, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> type)) <span class="sc">+</span></span>
 <span id="cb25-2"><a></a>  <span class="fu">geom_bar</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -850,33 +855,32 @@ Tip: to avoid problems, specify both `levels` and `labels` explicitly.
 </section>
 <section id="method-1-reorder-bars-manually-with-factor" class="slide level2 center">
 <h2>Method 1: Reorder bars manually with <em>factor()</em></h2>
-<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>scorecard <span class="ot">&lt;-</span> scorecard <span class="sc">|&gt;</span></span>
+<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>s <span class="ot">&lt;-</span> scorecard <span class="sc">|&gt;</span></span>
 <span id="cb26-2"><a></a>  <span class="fu">mutate</span>(<span class="at">type =</span> <span class="fu">factor</span>(type,</span>
-<span id="cb26-3"><a></a>                       <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Public"</span>, <span class="st">"Private nonprofit"</span>, <span class="st">"Private for-profit"</span>)))</span>
+<span id="cb26-3"><a></a>                       <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Private, nonprofit"</span>, <span class="st">"Public"</span>, <span class="st">"Private, for-profit"</span>)))</span>
 <span id="cb26-4"><a></a></span>
-<span id="cb26-5"><a></a><span class="fu">ggplot</span>(scorecard, <span class="fu">aes</span>(<span class="at">x =</span> type)) <span class="sc">+</span></span>
+<span id="cb26-5"><a></a><span class="fu">ggplot</span>(s, <span class="fu">aes</span>(<span class="at">x =</span> type)) <span class="sc">+</span></span>
 <span id="cb26-6"><a></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This method gives you full control of the order by manually defining factor levels.</p>
 <p>Remember to check the column type (character or numeric) before transforming to factor. Use mutate since we are working on column of a dataframe (and not a standalone vector like in the previous examples).</p>
 </section>
 <section id="method-2-reorder-the-bars-using-tidyverse-fct_relevel" class="slide level2 center">
 <h2>Method 2: Reorder the bars using tidyverse <em>fct_relevel()</em></h2>
-<p><a href="https://forcats.tidyverse.org/reference/fct_relevel.html"><code>fct_relevel()</code></a>: allows to reorder factor levels by hand</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a>scorecard <span class="ot">&lt;-</span> scorecard <span class="sc">|&gt;</span> </span>
+<p><a href="https://forcats.tidyverse.org/reference/fct_relevel.html"><code>fct_relevel()</code></a>: allows to reorder factor levels by hand; this function behave similarly to <code>factor()</code></p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a>scorecard <span class="sc">|&gt;</span> </span>
 <span id="cb27-2"><a></a>  <span class="fu">mutate</span>(<span class="at">type =</span> <span class="fu">fct_relevel</span>(type, </span>
-<span id="cb27-3"><a></a>                           <span class="st">"Private, nonprofit"</span>, <span class="st">"Public"</span>, <span class="st">"Private, for-profit"</span>))</span>
-<span id="cb27-4"><a></a>                                  </span>
-<span id="cb27-5"><a></a><span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> type)) <span class="sc">+</span></span>
-<span id="cb27-6"><a></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb27-3"><a></a>                           <span class="st">"Private, nonprofit"</span>, <span class="st">"Public"</span>, <span class="st">"Private, for-profit"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb27-4"><a></a><span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> type)) <span class="sc">+</span></span>
+<span id="cb27-5"><a></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Note: you can write code also by “piping” the results of the <code>dplyr</code> code into <code>ggplot2</code> code, as illustrated here.</p>
 </section>
 <section id="method-3-reorder-the-bars-using-tidyverse-fct_infreq" class="slide level2 center">
 <h2>Method 3: Reorder the bars using tidyverse <em>fct_infreq()</em></h2>
 <p><a href="https://forcats.tidyverse.org/reference/fct_inorder.html"><code>fct_infreq()</code></a> sorts bars automatically by how common each category is (most to least frequent)</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a>scorecard <span class="ot">&lt;-</span> scorecard <span class="sc">|&gt;</span></span>
-<span id="cb28-2"><a></a>  <span class="fu">mutate</span>(<span class="at">type =</span> <span class="fu">fct_infreq</span>(type))</span>
-<span id="cb28-3"><a></a></span>
-<span id="cb28-4"><a></a><span class="fu">ggplot</span>(scorecard, <span class="fu">aes</span>(<span class="at">x =</span> type)) <span class="sc">+</span></span>
-<span id="cb28-5"><a></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a>scorecard <span class="sc">|&gt;</span></span>
+<span id="cb28-2"><a></a>  <span class="fu">mutate</span>(<span class="at">type =</span> <span class="fu">fct_infreq</span>(type)) <span class="sc">|&gt;</span></span>
+<span id="cb28-3"><a></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> type)) <span class="sc">+</span></span>
+<span id="cb28-4"><a></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="the-forcats-package" class="slide level2 center">
 <h2>The “forcats” Package</h2>

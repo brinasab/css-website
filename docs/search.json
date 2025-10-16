@@ -3028,28 +3028,28 @@
     "href": "lectures/06-slides.html#example-plot-the-total-number-of-schools-in-the-u.s.-by-school-type",
     "title": "Computing for the Social Sciences: Lecture 6",
     "section": "Example: Plot the total number of schools in the U.S. by school type",
-    "text": "Example: Plot the total number of schools in the U.S. by school type\nThis is the same question we did in class (see in-class tutorial, lecture 4)\nSince type is a categorical varialbe, we use bar chart, which takes each category \"Public\", \"Private nonprofit\", \"Private for profit\" and automatically applies a frequency count to aggregate the data.\nggplot(scorecard, mapping = aes(x = type)) +\n  geom_bar() \n\nOur goal: reorder the bars!"
+    "text": "Example: Plot the total number of schools in the U.S. by school type\nThis is the same question we did in class (see in-class tutorial, lecture 4).\nSince type is a categorical varialbe, we use bar chart, which takes each category \"Public\", \"Private nonprofit\", \"Private for profit\" and automatically applies a frequency count to aggregate the data.\nggplot(scorecard, mapping = aes(x = type)) +\n  geom_bar() \n\nOur goal: reorder the bars!"
   },
   {
     "objectID": "lectures/06-slides.html#method-1-reorder-bars-manually-with-factor",
     "href": "lectures/06-slides.html#method-1-reorder-bars-manually-with-factor",
     "title": "Computing for the Social Sciences: Lecture 6",
     "section": "Method 1: Reorder bars manually with factor()",
-    "text": "Method 1: Reorder bars manually with factor()\nscorecard &lt;- scorecard |&gt;\n  mutate(type = factor(type,\n                       levels = c(\"Public\", \"Private nonprofit\", \"Private for-profit\")))\n\nggplot(scorecard, aes(x = type)) +\n  geom_bar()\nThis method gives you full control of the order by manually defining factor levels.\nRemember to check the column type (character or numeric) before transforming to factor. Use mutate since we are working on column of a dataframe (and not a standalone vector like in the previous examples)."
+    "text": "Method 1: Reorder bars manually with factor()\ns &lt;- scorecard |&gt;\n  mutate(type = factor(type,\n                       levels = c(\"Private, nonprofit\", \"Public\", \"Private, for-profit\")))\n\nggplot(s, aes(x = type)) +\n  geom_bar()\nThis method gives you full control of the order by manually defining factor levels.\nRemember to check the column type (character or numeric) before transforming to factor. Use mutate since we are working on column of a dataframe (and not a standalone vector like in the previous examples)."
   },
   {
     "objectID": "lectures/06-slides.html#method-2-reorder-the-bars-using-tidyverse-fct_relevel",
     "href": "lectures/06-slides.html#method-2-reorder-the-bars-using-tidyverse-fct_relevel",
     "title": "Computing for the Social Sciences: Lecture 6",
     "section": "Method 2: Reorder the bars using tidyverse fct_relevel()",
-    "text": "Method 2: Reorder the bars using tidyverse fct_relevel()\nfct_relevel(): allows to reorder factor levels by hand\nscorecard &lt;- scorecard |&gt; \n  mutate(type = fct_relevel(type, \n                           \"Private, nonprofit\", \"Public\", \"Private, for-profit\"))\n                                  \nggplot(mapping = aes(x = type)) +\n  geom_bar()"
+    "text": "Method 2: Reorder the bars using tidyverse fct_relevel()\nfct_relevel(): allows to reorder factor levels by hand; this function behave similarly to factor()\nscorecard |&gt; \n  mutate(type = fct_relevel(type, \n                           \"Private, nonprofit\", \"Public\", \"Private, for-profit\")) |&gt;\nggplot(mapping = aes(x = type)) +\n  geom_bar()\nNote: you can write code also by “piping” the results of the dplyr code into ggplot2 code, as illustrated here."
   },
   {
     "objectID": "lectures/06-slides.html#method-3-reorder-the-bars-using-tidyverse-fct_infreq",
     "href": "lectures/06-slides.html#method-3-reorder-the-bars-using-tidyverse-fct_infreq",
     "title": "Computing for the Social Sciences: Lecture 6",
     "section": "Method 3: Reorder the bars using tidyverse fct_infreq()",
-    "text": "Method 3: Reorder the bars using tidyverse fct_infreq()\nfct_infreq() sorts bars automatically by how common each category is (most to least frequent)\nscorecard &lt;- scorecard |&gt;\n  mutate(type = fct_infreq(type))\n\nggplot(scorecard, aes(x = type)) +\n  geom_bar()"
+    "text": "Method 3: Reorder the bars using tidyverse fct_infreq()\nfct_infreq() sorts bars automatically by how common each category is (most to least frequent)\nscorecard |&gt;\n  mutate(type = fct_infreq(type)) |&gt;\nggplot(aes(x = type)) +\n  geom_bar()"
   },
   {
     "objectID": "lectures/06-slides.html#the-forcats-package",
