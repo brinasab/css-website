@@ -2846,7 +2846,7 @@
     "href": "lectures/06-slides.html#filter-extract-observations-operates-on-rows",
     "title": "Computing for the Social Sciences: Lecture 6",
     "section": "filter() extract observations, operates on rows",
-    "text": "filter() extract observations, operates on rows\n# check variable values\nlevels(penguins$species) \nunique(penguins$species)\ncount(penguins, species)\npenguins |&gt; count(penguins, species)\n\n# filter by island and species\nfilter(penguins, island == \"Biscoe\", species == \"Gentoo\")\nfilter(penguins, (island == \"Biscoe\" & species == \"Gentoo\"))\n\n# filter by multiple conditions\nfilter(penguins, species %in% c(\"Adelie\", \"Gentoo\"), island != \"Biscoe\")"
+    "text": "filter() extract observations, operates on rows\n# check variable values\nlevels(penguins$species) \nunique(penguins$species)\ncount(penguins, species)\npenguins |&gt; count(species)\n\n# filter by island and species\nfilter(penguins, island == \"Biscoe\", species == \"Gentoo\")\nfilter(penguins, (island == \"Biscoe\" & species == \"Gentoo\"))\n\n# filter by multiple conditions\nfilter(penguins, species %in% c(\"Adelie\", \"Gentoo\"), island != \"Biscoe\")"
   },
   {
     "objectID": "lectures/06-slides.html#select-plus-filter",

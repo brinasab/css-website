@@ -126,7 +126,7 @@ select(penguins, ends_with("mm"))
 levels(penguins$species) 
 unique(penguins$species)
 count(penguins, species)
-penguins |> count(penguins, species)
+penguins |> count(species)
 
 # filter by island and species
 filter(penguins, island == "Biscoe", species == "Gentoo")

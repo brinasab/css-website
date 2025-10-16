@@ -379,7 +379,7 @@ Data flows top → bottom just like in a pipeline: penguins |&gt; select() |&gt;
 <span id="cb4-2"><a></a><span class="fu">levels</span>(penguins<span class="sc">$</span>species) </span>
 <span id="cb4-3"><a></a><span class="fu">unique</span>(penguins<span class="sc">$</span>species)</span>
 <span id="cb4-4"><a></a><span class="fu">count</span>(penguins, species)</span>
-<span id="cb4-5"><a></a>penguins <span class="sc">|&gt;</span> <span class="fu">count</span>(penguins, species)</span>
+<span id="cb4-5"><a></a>penguins <span class="sc">|&gt;</span> <span class="fu">count</span>(species)</span>
 <span id="cb4-6"><a></a></span>
 <span id="cb4-7"><a></a><span class="co"># filter by island and species</span></span>
 <span id="cb4-8"><a></a><span class="fu">filter</span>(penguins, island <span class="sc">==</span> <span class="st">"Biscoe"</span>, species <span class="sc">==</span> <span class="st">"Gentoo"</span>)</span>
