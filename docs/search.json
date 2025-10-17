@@ -1453,84 +1453,84 @@
     "href": "lectures/09-home.html",
     "title": "Lecture 9: Exam 1; Strings and Regular Expressions",
     "section": "",
-    "text": "Date: October 27, 2025\nTopics: Exam 1; Strings and Regular Expressions\nSlides: View Slides\nCode: No in-class code to download"
+    "text": "Date: October 27, 2025\nTopics: Exam 1; Strings and Regular Expressions\nSlides: View Slides\nCode: usethis::use_course(\"css-materials/regular-expr\")"
   },
   {
     "objectID": "lectures/09-home.html#info-and-materials",
     "href": "lectures/09-home.html#info-and-materials",
     "title": "Lecture 9: Exam 1; Strings and Regular Expressions",
     "section": "",
-    "text": "Date: October 27, 2025\nTopics: Exam 1; Strings and Regular Expressions\nSlides: View Slides\nCode: No in-class code to download"
+    "text": "Date: October 27, 2025\nTopics: Exam 1; Strings and Regular Expressions\nSlides: View Slides\nCode: usethis::use_course(\"css-materials/regular-expr\")"
   },
   {
     "objectID": "lectures/09-home.html#learning-objectives",
     "href": "lectures/09-home.html#learning-objectives",
     "title": "Lecture 9: Exam 1; Strings and Regular Expressions",
     "section": "Learning Objectives",
-    "text": "Learning Objectives"
+    "text": "Learning Objectives\n\nDefine Strings, Regular Expressions, and their uses\nIntroduce stringr()\nPractice using Regular Expressions in R to extract info from strings"
   },
   {
     "objectID": "lectures/09-home.html#readings",
     "href": "lectures/09-home.html#readings",
     "title": "Lecture 9: Exam 1; Strings and Regular Expressions",
     "section": "Readings",
-    "text": "Readings"
+    "text": "Readings\n\nChapter 14 “Strings” in “R for Data Science” 2nd Edition (read it all, especially 14.4 “Extracting data from strings”)\nChapter 17 from R Programming for Data Science. Focus on the stringr() section — that’s all we cover in class, but the full chapter is a good reference if you want to explore more\nstringr() documentation and cheatsheet"
   },
   {
     "objectID": "lectures/08-home.html",
     "href": "lectures/08-home.html",
     "title": "Lecture 8: Tidydata, Lubridate",
     "section": "",
-    "text": "Date: October 22, 2025\nTopics: Intro to Tidydata and Lubridate\nSlides: View Slides\nCode: No in-class code to download"
+    "text": "Date: October 22, 2025\nTopics: Intro to Tidydata and Lubridate\nSlides: View Slides\nCode: usethis::use_course(\"css-materials/tidydata\")"
   },
   {
     "objectID": "lectures/08-home.html#info-and-materials",
     "href": "lectures/08-home.html#info-and-materials",
     "title": "Lecture 8: Tidydata, Lubridate",
     "section": "",
-    "text": "Date: October 22, 2025\nTopics: Intro to Tidydata and Lubridate\nSlides: View Slides\nCode: No in-class code to download"
+    "text": "Date: October 22, 2025\nTopics: Intro to Tidydata and Lubridate\nSlides: View Slides\nCode: usethis::use_course(\"css-materials/tidydata\")"
   },
   {
     "objectID": "lectures/08-home.html#learning-objectives",
     "href": "lectures/08-home.html#learning-objectives",
     "title": "Lecture 8: Tidydata, Lubridate",
     "section": "Learning Objectives",
-    "text": "Learning Objectives"
+    "text": "Learning Objectives\n\nDefine the concept of tidy data and its characteristics\nPractice tidying data with tidyr\nIntroduce lubridate to manipulate dates in R"
   },
   {
     "objectID": "lectures/08-home.html#readings",
     "href": "lectures/08-home.html#readings",
     "title": "Lecture 8: Tidydata, Lubridate",
     "section": "Readings",
-    "text": "Readings"
+    "text": "Readings\n\n“Chapter 5 Data tidying” from “R for Data Science” 2nd Edition\ntidyr Documentation\ntidyr Cheat Sheet"
   },
   {
     "objectID": "lectures/07-home.html",
     "href": "lectures/07-home.html",
-    "title": "Lecture 7: Data Cleaning",
+    "title": "Lecture 7: Data Cleaning, Importing Data, Relational Data",
     "section": "",
-    "text": "Date: October 20, 2025\nTopics: Data Cleaning, Importing Data, Relational Data\nSlides: View Slides\nCode: No in-class code to download"
+    "text": "Date: October 20, 2025\nTopics: Data Cleaning, Importing Data, Relational Data\nSlides: View Slides\nCode: usethis::use_course(\"css-materials/relational-data\")"
   },
   {
     "objectID": "lectures/07-home.html#info-and-materials",
     "href": "lectures/07-home.html#info-and-materials",
-    "title": "Lecture 7: Data Cleaning",
+    "title": "Lecture 7: Data Cleaning, Importing Data, Relational Data",
     "section": "",
-    "text": "Date: October 20, 2025\nTopics: Data Cleaning, Importing Data, Relational Data\nSlides: View Slides\nCode: No in-class code to download"
+    "text": "Date: October 20, 2025\nTopics: Data Cleaning, Importing Data, Relational Data\nSlides: View Slides\nCode: usethis::use_course(\"css-materials/relational-data\")"
   },
   {
     "objectID": "lectures/07-home.html#learning-objectives",
     "href": "lectures/07-home.html#learning-objectives",
-    "title": "Lecture 7: Data Cleaning",
+    "title": "Lecture 7: Data Cleaning, Importing Data, Relational Data",
     "section": "Learning Objectives",
-    "text": "Learning Objectives\n\nRename and recode variables using rename(), recode(), and case_when()\nIdentify syntactic vs. non-syntactic variable names and handle them correctly\nDetect, handle, and clean explicit missing data using common tools"
+    "text": "Learning Objectives\n\nRename and recode variables using rename(), recode(), and case_when()\nIdentify syntactic vs. non-syntactic variable names and handle them correctly\nDetect, handle, and clean explicit missing data using common tools\nManage relational data with dplyr (e.g., linking and merging related tables)"
   },
   {
     "objectID": "lectures/07-home.html#readings",
     "href": "lectures/07-home.html#readings",
-    "title": "Lecture 7: Data Cleaning",
+    "title": "Lecture 7: Data Cleaning, Importing Data, Relational Data",
     "section": "Readings",
-    "text": "Readings\nTBD"
+    "text": "Readings\n\nImporting data: “Chapter 7 Data import” from “R for Data Science” 2nd Edition and readr Documentation\nMissing data: “Chapter 18 Missing values” from “R for Data Science” 2nd Edition\nRelational data: “Chapter 19 Joins” from “R for Data Science” 2nd Edition"
   },
   {
     "objectID": "lectures/06-home.html",
