@@ -1523,7 +1523,7 @@
     "href": "lectures/07-home.html#learning-objectives",
     "title": "Lecture 7: Data Cleaning, Importing Data, Relational Data",
     "section": "Learning Objectives",
-    "text": "Learning Objectives\n\nRename and recode variables using rename(), recode(), and case_when()\nIdentify syntactic vs. non-syntactic variable names and handle them correctly\nDetect, handle, and clean explicit missing data using common tools\nManage relational data with dplyr (e.g., linking and merging related tables)"
+    "text": "Learning Objectives\n\nRename and recode variables using rename(), recode(), and case_when()\nIdentify syntactic vs. non-syntactic variable names and handle them correctly\nDetect, handle, and clean explicit missing data using common tools\nImporting and Exporting data in R\nManage relational data with dplyr (e.g., linking and merging related tables)"
   },
   {
     "objectID": "lectures/07-home.html#readings",
@@ -3146,8 +3146,8 @@
     "objectID": "lectures/08-slides.html#check-back-hereslides-will-be-posted-before-class",
     "href": "lectures/08-slides.html#check-back-hereslides-will-be-posted-before-class",
     "title": "Computing for the Social Sciences: Lecture 8",
-    "section": "Check back here—slides will be posted before class!",
-    "text": "Check back here—slides will be posted before class!"
+    "section": "",
+    "text": "Add slide with prep for exam tips 1. Review class materials: slides, in-class code, readings 2. Complete HW2 (no AI) 3. Review the in-class prep questions 4. Ask AI to generate more questions for you (but do it only after previous points, starting from this will backfire)"
   },
   {
     "objectID": "lectures/09-slides.html#check-back-hereslides-will-be-posted-before-class",
@@ -4681,5 +4681,12 @@
     "title": "Computing for the Social Sciences: Lecture 7",
     "section": "semi_join()",
     "text": "semi_join()\nKeeps all obs. in x that have a match in y. Only keeps columns from the first table you pass in the code (x).\n\n\n\n\n    \n\n\nsemi_join(x, y, by = \"key\")"
+  },
+  {
+    "objectID": "lectures/08-slides.html",
+    "href": "lectures/08-slides.html",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "",
+    "text": "Add slide with prep for exam tips 1. Review class materials: slides, in-class code, readings 2. Complete HW2 (no AI) 3. Review the in-class prep questions 4. Ask AI to generate more questions for you (but do it only after previous points, starting from this will backfire)"
   }
 ]

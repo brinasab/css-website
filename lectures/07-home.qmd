@@ -25,6 +25,7 @@ knitr::opts_chunk$set(echo = FALSE)
 - Rename and recode variables using `rename()`, `recode()`, and `case_when()`
 - Identify syntactic vs. non-syntactic variable names and handle them correctly
 - Detect, handle, and clean explicit missing data using common tools
+- Importing and Exporting data in R
 - Manage relational data with `dplyr` (e.g., linking and merging related tables)
 
 
