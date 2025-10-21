@@ -155,7 +155,7 @@ p <- penguins_raw %>%
 
 # compare
 penguins_raw %>% count(Sex)
-p %>% count(Sex)
+p %>% count(sex)
 
 ```
 

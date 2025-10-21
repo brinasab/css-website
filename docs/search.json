@@ -4288,7 +4288,7 @@
     "href": "lectures/07-slides.html#recoding-variables-method-1-with-mutate-recode",
     "title": "Computing for the Social Sciences: Lecture 7",
     "section": "Recoding Variables Method 1: with mutate + recode",
-    "text": "Recoding Variables Method 1: with mutate + recode\nTo change variable values (usually levels of categorical variables), we learn two methods. We take the variable Sex and turn MALE into 1, FEMALE into 0.\nMethod 1:\n# check before recoding\npenguins_raw %&gt;% count(Sex)\n\n# mutate + recode\np &lt;- penguins_raw %&gt;%\n  mutate(sex = recode(Sex, \"MALE\" = 1, \"FEMALE\" = 0))\n\n# compare\npenguins_raw %&gt;% count(Sex)\np %&gt;% count(Sex)"
+    "text": "Recoding Variables Method 1: with mutate + recode\nTo change variable values (usually levels of categorical variables), we learn two methods. We take the variable Sex and turn MALE into 1, FEMALE into 0.\nMethod 1:\n# check before recoding\npenguins_raw %&gt;% count(Sex)\n\n# mutate + recode\np &lt;- penguins_raw %&gt;%\n  mutate(sex = recode(Sex, \"MALE\" = 1, \"FEMALE\" = 0))\n\n# compare\npenguins_raw %&gt;% count(Sex)\np %&gt;% count(sex)"
   },
   {
     "objectID": "lectures/07-slides.html#recoding-variables-method-2-with-mutate-case_when",
