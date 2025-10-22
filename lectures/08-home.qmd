@@ -32,4 +32,4 @@ knitr::opts_chunk$set(echo = FALSE)
 * ["Chapter 5 Data tidying"](https://r4ds.hadley.nz/data-tidy) from "R for Data Science" 2nd Edition
 * [tidyr Documentation](https://tidyr.tidyverse.org/)
 * [tidyr Cheat Sheet](https://github.com/rstudio/cheatsheets/blob/main/tidyr.pdf)
-
+* ["Chapter 17 Dates and times"](https://r4ds.hadley.nz/datetimes.html) from "R for Data Science" 2nd Editi
