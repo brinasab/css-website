@@ -4968,5 +4968,96 @@
     "title": "Computing for the Social Sciences: Lecture 8",
     "section": "💻 Practice Tidying Data",
     "text": "💻 Practice Tidying Data\nDownload today’s in-class exercises from the website."
+  },
+  {
+    "objectID": "lectures/09-slides.html#exam-format",
+    "href": "lectures/09-slides.html#exam-format",
+    "title": "Computing for the Social Sciences: Lecture 9",
+    "section": "Exam Format",
+    "text": "Exam Format\n\nTotal 27 questions (15 points):\n\n23 multiple choice or matching questions: 0.5 points each\n2 write short code questions: 0.75 points each\n2 open questions (write code or pseudocode + explain): 1 point each\n\nTime: 60 minutes\n\nOnce you submit, you may not reopen the quiz or view questions\nIf you finish early, please stay quiet or leave the room. Do not open R, notes, or class materials while others are still working\nDuring the exam, you may use pen and paper to make notes or plan your answers.\nAfter everyone completed the exam, we start today’s lecture (~2:30 pm)\nRemember to sign the attendance sheet"
+  },
+  {
+    "objectID": "lectures/09-slides.html#exam-grades",
+    "href": "lectures/09-slides.html#exam-grades",
+    "title": "Computing for the Social Sciences: Lecture 9",
+    "section": "Exam Grades",
+    "text": "Exam Grades\n\nGrades will be posted within one week\nDo not discuss exam questions with others until grades are posted\nYou won’t see feedback or correct answers after submitting, but we are welcome, and encouraged, to revisit questions or ask for feedback during office hours or by appointment"
+  },
+  {
+    "objectID": "lectures/09-slides.html#introduction",
+    "href": "lectures/09-slides.html#introduction",
+    "title": "Computing for the Social Sciences: Lecture 9",
+    "section": "Introduction",
+    "text": "Introduction\nThese are strings:\nstring1 &lt;- \"This is a string\"\n\nstring2 &lt;- 'If I want to include a \"quote\" inside a string, I use single quotes'\nToday we focus on methods for manipulating strings: regular expressions!"
+  },
+  {
+    "objectID": "lectures/09-slides.html#string-and-character-vector",
+    "href": "lectures/09-slides.html#string-and-character-vector",
+    "title": "Computing for the Social Sciences: Lecture 9",
+    "section": "String and Character Vector",
+    "text": "String and Character Vector\nA string is a sequence of characters (a piece of text) enclosed in either double \" or single quotes '. Strings can include letters, numbers, symbols, and whitespace characters.\nstring &lt;- \"Ciao, my name is Sabrina and I am 99 years old!!\"\nclass(string)\nlength(string)"
+  },
+  {
+    "objectID": "lectures/09-slides.html#string-and-character-vector-1",
+    "href": "lectures/09-slides.html#string-and-character-vector-1",
+    "title": "Computing for the Social Sciences: Lecture 9",
+    "section": "String and Character Vector",
+    "text": "String and Character Vector\nA character vector is a collection of strings: each element of the vector is a string!\nchar_vect &lt;- c(\"Ciao come stai?\", \"Ciao\", \"Hello\", \"etc.\") \nclass(char_vect)\nlength(char_vect)\nThus single string, like in the previous examples, is also a character vector of length one.\nWe use character vectors when we need to handle multiple pieces of text together (e.g., when we handle multiple strings vs. only one)."
+  },
+  {
+    "objectID": "lectures/09-slides.html#regular-expressions-definitions-and-uses",
+    "href": "lectures/09-slides.html#regular-expressions-definitions-and-uses",
+    "title": "Computing for the Social Sciences: Lecture 9",
+    "section": "Regular Expressions: definitions and uses",
+    "text": "Regular Expressions: definitions and uses\nRegular expressions (“regex” or “regexes”) are strings containing normal characters and/or special meta-characters. They describe a specific pattern to match in a given text.\nMore formally, regex: * is a language on its own right * used for pattern matching * adopted by many programming languages, such as R, Python, and others!\nExample:\nemail_pattern &lt;- \"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,}\""
+  },
+  {
+    "objectID": "lectures/09-slides.html#regular-expressions-definitions-and-uses-1",
+    "href": "lectures/09-slides.html#regular-expressions-definitions-and-uses-1",
+    "title": "Computing for the Social Sciences: Lecture 9",
+    "section": "Regular Expressions: definitions and uses",
+    "text": "Regular Expressions: definitions and uses\nRegular expressions are powerful! They allow us to find patterns in any task that deals with text, such as NLP (Natural Language Processing) or data-cleaning tasks that involve text.\nFor example, you can use regular expressions to:\n\nExtract specific elements from texts (e.g., find words that include a given set of letters, find all past tenses in a text, etc.)\nPerform textual substitutions (e.g. find and replace HTML tags after you scraped a page)\nVerify text format (e.g. “Is this email/phone-number/address valid?”)"
+  },
+  {
+    "objectID": "lectures/09-slides.html#today-we-learn-about-the-package-stringr-and-regular-expressions-particularly-useful-for-those-of-you-who-plan-to-work-with-textual-data-in-this-course-and-beyond.",
+    "href": "lectures/09-slides.html#today-we-learn-about-the-package-stringr-and-regular-expressions-particularly-useful-for-those-of-you-who-plan-to-work-with-textual-data-in-this-course-and-beyond.",
+    "title": "Computing for the Social Sciences: Lecture 9",
+    "section": "Today we learn about the package stringr and regular expressions: particularly useful for those of you who plan to work with textual data in this course and beyond.",
+    "text": "Today we learn about the package stringr and regular expressions: particularly useful for those of you who plan to work with textual data in this course and beyond."
+  },
+  {
+    "objectID": "lectures/09-slides.html#regular-expression-with-stringr",
+    "href": "lectures/09-slides.html#regular-expression-with-stringr",
+    "title": "Computing for the Social Sciences: Lecture 9",
+    "section": "Regular Expression with stringr()",
+    "text": "Regular Expression with stringr()\nWhen you use regular expressions, most likely you will need to use your them together with one of the functions from the stringr() package.\nThis package includes several functions that let you: detect matches in a string, count the number of matches, extract them, replace them with other values, split a string based on a match, etc."
+  },
+  {
+    "objectID": "lectures/09-slides.html#the-stringr-package-in-r",
+    "href": "lectures/09-slides.html#the-stringr-package-in-r",
+    "title": "Computing for the Social Sciences: Lecture 9",
+    "section": "The stringr() package in R",
+    "text": "The stringr() package in R\nToday we learn about the package stringr and regular expressions!\nWhen you use regular expressions, most likely you will need to use your them together with one of the functions from the stringr() package.\nThis package includes several functions that let you: detect matches in a string, count the number of matches, extract them, replace them with other values, split a string based on a match, etc."
+  },
+  {
+    "objectID": "lectures/09-slides.html#resources",
+    "href": "lectures/09-slides.html#resources",
+    "title": "Computing for the Social Sciences: Lecture 9",
+    "section": "Resources",
+    "text": "Resources\n\nstringr() documentation and cheatsheet\nChapter 15 by Rochelle Terman, explains stringr() (using the R for Data Science textbook)\nRead Chapter 14 “Strings” in “R for Data Science” 2nd Edition (read it all, but especially 14.4 “Extracting data from strings”).\nRead Chapter 17 from R Programming for Data Science. This book covers the entire range of regular expressions packages and functions: you do not need to understand everything, focus on the big picture. In-class we talk about stringr()\nFor more in-depth info on regular expressions check this excellent tutorial"
+  },
+  {
+    "objectID": "lectures/09-slides.html#practice",
+    "href": "lectures/09-slides.html#practice",
+    "title": "Computing for the Social Sciences: Lecture 9",
+    "section": "💻 Practice",
+    "text": "💻 Practice\nDownload today’s class material from the website to learn more about regular expression and stringr()"
+  },
+  {
+    "objectID": "lectures/09-slides.html#the-stringr-package-in-r-1",
+    "href": "lectures/09-slides.html#the-stringr-package-in-r-1",
+    "title": "Computing for the Social Sciences: Lecture 9",
+    "section": "The stringr() package in R",
+    "text": "The stringr() package in R\nFundamental stringr() functions and their use:\n\nstr_view() return the first regex match\nstr_view_all() return all regex matches (deprecated in the last version of stringr)\nstr_detect(): detect matches in a string\nstr_count(): count the number of matches\nstr_extract() and str_extract_all(): extract matches\nstr_replace() and str_replace_all(): replace matches\nstr_split(): split a string based on a match"
   }
 ]
