@@ -25,7 +25,7 @@ knitr::opts_chunk$set(echo = FALSE)
 - Understand what Base R is, and how it differs from the Tidyverse
 - Identify R data types and structures  
 - Explore R vectors 
-- Subset data using Base R syntax (optional)
+- Subset data using Base R syntax
 
 
 ## Readings
