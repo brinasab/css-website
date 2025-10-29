@@ -5072,14 +5072,14 @@
     "href": "lectures/10-slides.html#base-r-vs.-the-tidyverse",
     "title": "Computing for the Social Sciences: Lecture 10",
     "section": "Base R vs. the Tidyverse",
-    "text": "Base R vs. the Tidyverse\n\n\n\nBase R\n\nDeveloped in the early 1990s as part of R’s core language\n\nIncludes built-in functions like mean(), length(), etc. and key programming tools like loops, etc.\nOffers more direct control, but code can be longer or harder to read\n\n\n\n\n  \n\n\nTidyverse\n\nFormally introduced after 2016 as a set of user-friendly packages\nIncludes packages like ggplot2, dplyr, forcats, tidyr, stringr, readr, lubridate etc.\nPrioritizes readability and consistency, making code cleaner and easier to read"
+    "text": "Base R vs. the Tidyverse\n\n\nBase R\n\nDeveloped in the early 1990s as part of R’s core language\n\nIncludes built-in functions like mean(), length(), etc. and key programming tools like loops, etc.\nOffers more direct control, but code can be longer or harder to read\n\n\n\n  \n\nTidyverse\n\nFormally introduced after 2016 as a set of user-friendly packages\nIncludes packages like ggplot2, dplyr, forcats, tidyr, stringr, readr, lubridate etc.\nPrioritizes readability and consistency, making code cleaner and easier to read"
   },
   {
     "objectID": "lectures/10-slides.html#how-base-r-and-the-tidyverse-work-together",
     "href": "lectures/10-slides.html#how-base-r-and-the-tidyverse-work-together",
     "title": "Computing for the Social Sciences: Lecture 10",
     "section": "How Base R and the Tidyverse Work Together",
-    "text": "How Base R and the Tidyverse Work Together\n\nThe tidyverse is built on base R — it doesn’t replace it\n\nYou can combine base R and tidyverse functions in your code\n\nWhy we learn both? You’ll often see both styles in real-world scripts and examples\n\n\n\n\n\n\n\n\nTip\n\n\n\nGoal: use the tidyverse (with some Base R) for most of your daily work, but understand enough Base R to follow and troubleshoot R code!"
+    "text": "How Base R and the Tidyverse Work Together\n\nThe tidyverse is built on base R — it doesn’t replace it\n\nYou can combine base R and tidyverse functions in your code\n\nWhy we learn both? You’ll often see both styles in real-world scripts and examples\n\n\n\n\n\n\n\n\nTip\n\n\nGoal: use the tidyverse (with some Base R) for most of your daily work, but understand enough Base R to follow and troubleshoot R code!"
   },
   {
     "objectID": "lectures/10-slides.html#r-data-types-and-data-structures-1",
@@ -5093,21 +5093,21 @@
     "href": "lectures/10-slides.html#r-data-types",
     "title": "Computing for the Social Sciences: Lecture 10",
     "section": "R Data Types",
-    "text": "R Data Types\n\nData Type: describes the kind of value you’re working with.\n\n\nR has the following main data types (for more see here):\n\nNumeric – numbers, either with or without decimals\n\nDouble with decimals (default): 3.14, 2.0\n\nInteger whole numbers: 2L, 100L\n\nCharacter – text or strings (always in quotes): \"hello\"\nLogical – TRUE or FALSE values: TRUE, FALSE\nFactor – categorical values with levels: \"low\", \"medium\""
+    "text": "R Data Types\nData Type: describes the kind of value you’re working with.\n\n\nR has the following main data types (for more see here):\n\nNumeric – numbers, either with or without decimals\n\nDouble with decimals (default): 3.14, 2.0\n\nInteger whole numbers: 2L, 100L\n\nCharacter – text or strings (always in quotes): \"hello\"\nLogical – TRUE or FALSE values: TRUE, FALSE\nFactor – categorical values with levels: \"low\", \"medium\""
   },
   {
     "objectID": "lectures/10-slides.html#r-data-structures",
     "href": "lectures/10-slides.html#r-data-structures",
     "title": "Computing for the Social Sciences: Lecture 10",
     "section": "R Data Structures",
-    "text": "R Data Structures\n\nData Structure: like a container that holds one or more values.\n\n\nR has the following main data structures (for more see here):\n\nVector – one-dimensional, all elements same type\nv &lt;- c(1, 2, 3)\nMatrix – two-dimensional, all elements same type\nm &lt;- matrix(1:6, nrow = 2)\nDataframe – two-dimensional, columns can have different types\ndf &lt;- data.frame(name = c(\"A\", \"B\"), age = c(25, 30))\nList – multi-dimensional, holds elements of any type, even mixed\nl &lt;- list(num = 1:3, name = c(\"Sabrina\", \"Laura\"))"
+    "text": "R Data Structures\nData Structure: like a container that holds one or more values.\n\n\nR has the following main data structures (for more see here):\n\nVector – one-dimensional, all elements same type\nv &lt;- c(1, 2, 3)\nMatrix – two-dimensional, all elements same type\nm &lt;- matrix(1:6, nrow = 2)\nDataframe – two-dimensional, columns can have different types\ndf &lt;- data.frame(name = c(\"A\", \"B\"), age = c(25, 30))\nList – multi-dimensional, holds elements of any type, even mixed\nl &lt;- list(num = 1:3, name = c(\"Sabrina\", \"Laura\"))"
   },
   {
     "objectID": "lectures/10-slides.html#how-data-types-and-data-structures-relate",
     "href": "lectures/10-slides.html#how-data-types-and-data-structures-relate",
     "title": "Computing for the Social Sciences: Lecture 10",
     "section": "How Data Types and Data Structures Relate",
-    "text": "How Data Types and Data Structures Relate\nEvery single element in R has a data type. That element is stored inside a larger data structure.\nExamples:\nx &lt;- c(1, 2, 3)      # a vector (structure) of three elements, all numeric values (type) \ny &lt;- list(\"a\", 5)    # a list (structure) of two elements, one character value and one numeric value (type)\n\n \n\n\n\n\n\n\nThe data structure you use affects what data types you can store:\n\n\n\nNot all data structures support every combination of data types. Some allow only one type, while others can store many types together."
+    "text": "How Data Types and Data Structures Relate\nEvery single element in R has a data type. That element is stored inside a larger data structure.\nExamples:\nx &lt;- c(1, 2, 3)      # a vector (structure) of three elements, all numeric values (type) \ny &lt;- list(\"a\", 5)    # a list (structure) of two elements, one character value and one numeric value (type)\n\n \n\n\n\n\n\n\n\nThe data structure you use affects what data types you can store:\n\n\nNot all data structures support every combination of data types. Some allow only one type, while others can store many types together."
   },
   {
     "objectID": "lectures/10-slides.html#how-data-types-and-data-structures-relate-1",
@@ -5128,14 +5128,14 @@
     "href": "lectures/10-slides.html#why-this-matters-understanding-when-to-use-each-data-structure",
     "title": "Computing for the Social Sciences: Lecture 10",
     "section": "Why This Matters: Understanding When to Use Each Data Structure",
-    "text": "Why This Matters: Understanding When to Use Each Data Structure\n\nData Frames first!\nSo far, we’ve been working mostly with data frames — technically with tibbles, the tidyverse version of them.\nData frames are the best structure for working with real-world tabular data in R, and you’ll keep using them throughout the course and beyond.\nStrengths of data frames:\n\nCan store columns of different data types (e.g., character, numeric, logical)\nWork easily with dplyr, ggplot2, and other tidyverse packages\nMake your data easier to manipulate, filter, summarize, and visualize"
+    "text": "Why This Matters: Understanding When to Use Each Data Structure\nData Frames first!\nSo far, we’ve been working mostly with data frames — technically with tibbles, the tidyverse version of them.\nData frames are the best structure for working with real-world tabular data in R, and you’ll keep using them throughout the course and beyond.\nStrengths of data frames:\n\nCan store columns of different data types (e.g., character, numeric, logical)\nWork easily with dplyr, ggplot2, and other tidyverse packages\nMake your data easier to manipulate, filter, summarize, and visualize"
   },
   {
     "objectID": "lectures/10-slides.html#why-this-matters-understanding-when-to-use-each-data-structure-1",
     "href": "lectures/10-slides.html#why-this-matters-understanding-when-to-use-each-data-structure-1",
     "title": "Computing for the Social Sciences: Lecture 10",
     "section": "Why This Matters: Understanding When to Use Each Data Structure",
-    "text": "Why This Matters: Understanding When to Use Each Data Structure\n\nBeyond Data Frames…\nBut it’s helpful to understand the full set of R data structures, because each has its own strengths:\n\nVectors: The most basic structure in R; all elements must be the same type.\nYou are analyzing survey responses and want to store all participants’ ages in a separate vector for further manipulation.\nMatrices: Two-dimensional, all elements must be the same type.\nYou have numeric data that you want to analyze using matrix algebra or linear models.\nLists: Flexible containers that can hold anything — even other lists.\nYou are analyzing data and want to save multiple outputs (model results, plot, etc.) all in the same data structure.\nData Frames: Two-dimensional, columns can have different types.\nYou are analyzing survey responses with dplyr, ggplot, or other tidyverse packages."
+    "text": "Why This Matters: Understanding When to Use Each Data Structure\nBeyond Data Frames…\nBut it’s helpful to understand the full set of R data structures, because each has its own strengths:\n\nVectors: The most basic structure in R; all elements must be the same type.\nYou are analyzing survey responses and want to store all participants’ ages in a separate vector for further manipulation.\nMatrices: Two-dimensional, all elements must be the same type.\nYou have numeric data that you want to analyze using matrix algebra or linear models.\nLists: Flexible containers that can hold anything — even other lists.\nYou are analyzing data and want to save multiple outputs (model results, plot, etc.) all in the same data structure.\nData Frames: Two-dimensional, columns can have different types.\nYou are analyzing survey responses with dplyr, ggplot, or other tidyverse packages."
   },
   {
     "objectID": "lectures/10-slides.html#example-of-filtering-rows-in-a-dataframe-using-logical-vectors",
@@ -5163,14 +5163,14 @@
     "href": "lectures/10-slides.html#vector-recycling-in-r",
     "title": "Computing for the Social Sciences: Lecture 10",
     "section": "Vector Recycling in R",
-    "text": "Vector Recycling in R\nLet’s see another example. We define two numeric vectors x1 and x2:\n# x1 is sequence of numbers from 1 to 2\nx1 &lt;- seq(from = 1, to = 2)\n\n# x2 is a sequence of numbers from 1 to 10\nx2 &lt;- seq(from = 1, to = 10)\n\n# what happens if we add them?\nx1 + x2\nWhat happens? The shorter vector x1 is duplicated five times in order to match the length of the longer vector x2. The same behavior happens for other operations like subtraction, multiplication, logical comparison, etc.\n\n\n\n\n\n\nWarning\n\n\n\nIf the shorter vector is not a multiple of the longer one, R will print a warning message!"
+    "text": "Vector Recycling in R\nLet’s see another example. We define two numeric vectors x1 and x2:\n# x1 is sequence of numbers from 1 to 2\nx1 &lt;- seq(from = 1, to = 2)\n\n# x2 is a sequence of numbers from 1 to 10\nx2 &lt;- seq(from = 1, to = 10)\n\n# what happens if we add them?\nx1 + x2\nWhat happens? The shorter vector x1 is duplicated five times in order to match the length of the longer vector x2. The same behavior happens for other operations like subtraction, multiplication, logical comparison, etc.\n\n\n\n\n\n\nWarning\n\n\nIf the shorter vector is not a multiple of the longer one, R will print a warning message!"
   },
   {
     "objectID": "lectures/10-slides.html#vector-recycling-in-r-1",
     "href": "lectures/10-slides.html#vector-recycling-in-r-1",
     "title": "Computing for the Social Sciences: Lecture 10",
     "section": "Vector Recycling in R",
-    "text": "Vector Recycling in R\n\n\n\n\n\n\nNote\n\n\n\nThis behavior is called Vector Recycling and happens automatically in R: When two vectors of different lengths are used in an operation, R repeats (recycles) the elements of the shorter vector to match the longer vector!\n\n\nWhy It Matters: Vector recycling can cause unexpected results. Check if recycling is what you want R to do — if not, adjust the vector lengths manually, like this:\nx1 &lt;- c(1, 2, rep(0, 7))\n\nx1 + x2"
+    "text": "Vector Recycling in R\n\n\n\n\n\n\nNote\n\n\nThis behavior is called Vector Recycling and happens automatically in R: When two vectors of different lengths are used in an operation, R repeats (recycles) the elements of the shorter vector to match the longer vector!\n\n\n\nWhy It Matters: Vector recycling can cause unexpected results. Check if recycling is what you want R to do — if not, adjust the vector lengths manually, like this:\nx1 &lt;- c(1, 2, rep(0, 7))\n\nx1 + x2"
   },
   {
     "objectID": "lectures/10-slides.html#subsetting-data-structures-in-r",
