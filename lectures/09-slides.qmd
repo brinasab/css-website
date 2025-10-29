@@ -24,6 +24,9 @@ format:
 2. Strings and Regular Expressions in R
 :::
 
+<span style="font-size: 0.8em; color: #666;">
+*Slides last updated on **October 27, 2025**. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.*
+</span>
 
 
 # 1. Exam 1 {.slide .center .middle}
@@ -54,7 +57,7 @@ format:
 
 - Grades will be posted within one week
 - Do not discuss exam questions with others until grades are posted
-- You won’t see feedback or correct answers after submitting, but we are welcome, and encouraged, to revisit questions or ask for feedback during office hours or by appointment
+- You won’t see feedback or correct answers after submitting, but we are welcome, and encouraged, to ask for feedback during office hours or by appointment
 
 
 # 2. Strings and Regular Expressions in R {.inverse .middle}
