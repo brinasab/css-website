@@ -62,7 +62,7 @@ Your repository includes specific and open-ended questions. Answer all of them.
 
 ::: {.callout-note}
 
-- The questions—especially the open-ended ones—are designed to help you think like a programmer and data analyst. They won’t walk you through every step but encourage you to apply what you’ve learned and work independently. Translating what a question asks into code by breaking it down in smaller pieces is one important learning goal of this exercise
+- The questions—especially the open-ended ones—are designed to help you think like a programmer and data analyst. They won’t walk you through every step but encourage you to apply what you’ve learned and work independently. Translating what a question asks into code by breaking it down in smaller pieces is one important learning goal of this course.
 
 - This homework is designed to be completed over multiple sessions—it will feel overwhelming otherwise. Start early, and remember to save, commit, and push your work regularly.
 
