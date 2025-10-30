@@ -202,8 +202,30 @@ ul.task-list li input[type="checkbox"] {
 <h1>Assignment Description</h1>
 <section id="the-u.s.-supreme-court-dataset" class="level3">
 <h3 class="anchored" data-anchor-id="the-u.s.-supreme-court-dataset">The U.S. Supreme Court dataset</h3>
-<p>For this assignment you will work with two large datasets from the U.S. Supreme Court.</p>
-<p>The <a href="http://scdb.wustl.edu/about.php">Supreme Court Database</a> contains information on every published decision of the U.S. Supreme Court since its creation in 1791. It is one of the most widely used databases in the study of judicial politics.</p>
+<p>For this assignment you will work with data from the U.S. Supreme Court. The <a href="http://scdb.wustl.edu/about.php">Supreme Court Database</a> contains information on every published decision of the U.S. Supreme Court since its creation in 1791. It is one of the most widely used databases in the study of judicial politics.</p>
+<p>In the <code>hw03</code> repository, you will find two data files: <code>scdb-case.csv</code> and <code>scdb-vote.csv</code>. These contain the exact same data you would obtain if you downloaded the files from the original website, but reformatted to be stored as <em>relational data</em> files. That is:</p>
+<ul>
+<li><code>scdb-case.csv</code> contains all <em>case-level</em> variables (one row for every case and one column for every variable)</li>
+<li><code>scdb-vote.csv</code> contains all <em>vote-level</em> variables (one row for every vote by a justice in every case and one column for every variable)</li>
+</ul>
+<p>The current data contain information on every case decided from the 1791-2020 terms. Terms run from October through June, so the 2020 term contains cases decided from October 2020 - June 2021. There are several variables to explore, and we encourage you to do so, but these are the main ones you will need to answer most prompts:</p>
+<ul>
+<li><code>caseIssuesId</code></li>
+<li><code>chief</code></li>
+<li><code>dateDecision</code></li>
+<li><code>decisionDirection</code></li>
+<li><code>decisionType</code></li>
+<li><code>declarationUncon</code></li>
+<li><code>direction</code></li>
+<li><code>issueArea</code></li>
+<li><code>justice</code></li>
+<li><code>justiceName</code></li>
+<li><code>majority</code></li>
+<li><code>majVotes</code></li>
+<li><code>minVotes</code></li>
+<li><code>term</code></li>
+</ul>
+<p>Read the <a href="http://scdb.wustl.edu/documentation.php">documentation</a> to see how these variables are coded and familiarize yourself with the data.</p>
 </section>
 <section id="answer-the-questions" class="level3">
 <h3 class="anchored" data-anchor-id="answer-the-questions">Answer the questions</h3>
@@ -238,8 +260,8 @@ Note
 <li><p>Before the deadline, push the final version of your work to your GitHub repository. <em>Tip:</em> don’t wait until the end to make your first commit—commit, stage, and push your work regularly as you go.</p>
 <p>Your GitHub repository should include (make sure to stage-commit-push all these files):</p>
 <ul>
-<li><code>court.Rmd</code>: main file you will work on</li>
-<li><code>court.md</code>: you will generate this file from the <code>.Rmd</code> by simply knitting it</li>
+<li><code>scotus.Rmd</code>: main file you will work on</li>
+<li><code>scotus.md</code>: you will generate this file from the <code>.Rmd</code> by simply knitting it</li>
 <li>the folder that contains all the graphs that you generated in your <code>.Rmd</code> (we need this to be able to see your graphs and grade your homework)</li>
 </ul></li>
 <li><p>When you’re ready to submit:</p>
@@ -251,8 +273,7 @@ Note
 </section>
 <section id="assessment" class="level1">
 <h1>Assessment</h1>
-<p>All homework assignments are evaluated using <a href="https://docs.google.com/spreadsheets/d/1RAgv09Wn62X7-xsSb5bGBmEqAMFKh_om/edit?usp=sharing&amp;ouid=112534119211880791899&amp;rtpof=true&amp;sd=true">this rubric</a>.</p>
-<p>Refer to it to assess your work before submitting. For more, see the <em>Assessment</em> section of the Syllabus.</p>
+<p>All homework assignments are evaluated using <a href="https://docs.google.com/spreadsheets/d/1RAgv09Wn62X7-xsSb5bGBmEqAMFKh_om/edit?usp=sharing&amp;ouid=112534119211880791899&amp;rtpof=true&amp;sd=true">this rubric</a>. Refer to it to assess your work before submitting. For more, see the <em>Assessment</em> section of the Syllabus.</p>
 
 
 </section>

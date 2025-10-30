@@ -51,9 +51,32 @@ See [Homework 1](hw01.qmd) for details. The workflow is the same for all assignm
 
 ### The U.S. Supreme Court dataset
 
-For this assignment you will work with two large datasets from the U.S. Supreme Court. 
+For this assignment you will work with data from the U.S. Supreme Court. The [Supreme Court Database](http://scdb.wustl.edu/about.php) contains information on every published decision of the U.S. Supreme Court since its creation in 1791. It is one of the most widely used databases in the study of judicial politics.
 
-The [Supreme Court Database](http://scdb.wustl.edu/about.php) contains information on every published decision of the U.S. Supreme Court since its creation in 1791. It is one of the most widely used databases in the study of judicial politics.
+In the `hw03` repository, you will find two data files: `scdb-case.csv`
+and `scdb-vote.csv`. These contain the exact same data you would obtain if you downloaded the files from the original website, but reformatted to be stored as *relational data* files. That is:
+
+- `scdb-case.csv` contains all *case-level* variables (one row for every case and one column for every variable)
+- `scdb-vote.csv` contains all *vote-level* variables (one row for every vote by a justice in every case and one column for every variable)
+
+The current data contain information on every case decided from the 1791-2020 terms. Terms run from October through June, so the 2020 term contains cases decided from October 2020 - June 2021. There are several variables to explore, and we encourage you to do so, but these are the main ones you will need to answer most prompts:
+
+* `caseIssuesId`
+* `chief`
+* `dateDecision`
+* `decisionDirection`
+* `decisionType`
+* `declarationUncon`
+* `direction`
+* `issueArea`
+* `justice`
+* `justiceName`
+* `majority`
+* `majVotes`
+* `minVotes`
+* `term`
+
+Read the [documentation](http://scdb.wustl.edu/documentation.php) to see how these variables are coded and familiarize yourself with the data.
 
 
 ### Answer the questions
@@ -82,8 +105,8 @@ To submit your assignment on Canvas, follow these steps:
 1. Before the deadline, push the final version of your work to your GitHub repository. *Tip:* don’t wait until the end to make your first commit—commit, stage, and push your work regularly as you go.
 
    Your GitHub repository should include (make sure to stage-commit-push all these files):
-   - `court.Rmd`: main file you will work on
-   - `court.md`: you will generate this file from the `.Rmd` by simply knitting it
+   - `scotus.Rmd`: main file you will work on
+   - `scotus.md`: you will generate this file from the `.Rmd` by simply knitting it
    - the folder that contains all the graphs that you generated in your `.Rmd` (we need this to be able to see your graphs and grade your homework)
 
 2. When you're ready to submit:
@@ -93,8 +116,6 @@ To submit your assignment on Canvas, follow these steps:
 
 # Assessment
 
-All homework assignments are evaluated using [this rubric](https://docs.google.com/spreadsheets/d/1RAgv09Wn62X7-xsSb5bGBmEqAMFKh_om/edit?usp=sharing&ouid=112534119211880791899&rtpof=true&sd=true). 
-
-Refer to it to assess your work before submitting. For more, see the *Assessment* section of the Syllabus.
+All homework assignments are evaluated using [this rubric](https://docs.google.com/spreadsheets/d/1RAgv09Wn62X7-xsSb5bGBmEqAMFKh_om/edit?usp=sharing&ouid=112534119211880791899&rtpof=true&sd=true). Refer to it to assess your work before submitting. For more, see the *Assessment* section of the Syllabus.
 
 
