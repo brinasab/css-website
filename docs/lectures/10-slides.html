@@ -757,7 +757,7 @@ filtered_p |> drop_na(body_mass_g)
 <span id="cb14-12"><a></a>my_list<span class="sc">$</span>b          <span class="co"># content of the second element, only works by name not by position; returns a vector</span></span>
 <span id="cb14-13"><a></a>my_list[[<span class="st">"c"</span>]]     <span class="co"># returns content of "c": TRUE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Remember: use <code>[ ]</code> to extract a sublist from the original list, and <code>[[ ]]</code> or <code>$</code> to extract actual elements.</p>
-<p>What do <code>my_list["b"][1]</code> and return <code>my_list["b"][2]</code>? Why?</p>
+<p>What do <code>my_list[["b"]][1]</code> and <code>my_list[[2]][1]</code> return? And what about <code>my_list[["b"]][3]</code> and why?</p>
 </section>
 <section id="subsetting-data-frames" class="slide level2 center">
 <h2>Subsetting Data Frames</h2>

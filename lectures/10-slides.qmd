@@ -601,7 +601,7 @@ my_list[["c"]]     # returns content of "c": TRUE
 
 Remember: use `[ ]` to extract a sublist from the original list, and `[[ ]]` or `$` to extract actual elements.
 
-What do `my_list["b"][1]` and return `my_list["b"][2]`? Why?
+What do `my_list[["b"]][1]` and `my_list[[2]][1]` return? And what about `my_list[["b"]][3]` and why?
 
 ---
 
