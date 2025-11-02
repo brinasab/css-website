@@ -1227,30 +1227,30 @@
   {
     "objectID": "lectures/17-home.html",
     "href": "lectures/17-home.html",
-    "title": "Lecture 17: Reproducible Workflow, Final Project Check-In",
+    "title": "Lecture 17: Reproducible Workflow",
     "section": "",
-    "text": "Date: December 1, 2025\nTopics: Reproducible Workflow, Final Project Check-In\nSlides: View Slides\nCode: No in-class code to download"
+    "text": "Date: December 1, 2025\nTopics: Reproducible Workflow\nSlides: View Slides\nCode: No in-class code to download"
   },
   {
     "objectID": "lectures/17-home.html#info-and-materials",
     "href": "lectures/17-home.html#info-and-materials",
-    "title": "Lecture 17: Reproducible Workflow, Final Project Check-In",
+    "title": "Lecture 17: Reproducible Workflow",
     "section": "",
-    "text": "Date: December 1, 2025\nTopics: Reproducible Workflow, Final Project Check-In\nSlides: View Slides\nCode: No in-class code to download"
+    "text": "Date: December 1, 2025\nTopics: Reproducible Workflow\nSlides: View Slides\nCode: No in-class code to download"
   },
   {
     "objectID": "lectures/17-home.html#learning-objectives",
     "href": "lectures/17-home.html#learning-objectives",
-    "title": "Lecture 17: Reproducible Workflow, Final Project Check-In",
+    "title": "Lecture 17: Reproducible Workflow",
     "section": "Learning Objectives",
-    "text": "Learning Objectives"
+    "text": "Learning Objectives\n\nDefine a project-oriented workflow in R and identify R startup procedures\nExpand current knowledge of R Markdown\nBasics of Git/GitHub via terminal/command line\nPrep for Exam 2"
   },
   {
     "objectID": "lectures/17-home.html#readings",
     "href": "lectures/17-home.html#readings",
-    "title": "Lecture 17: Reproducible Workflow, Final Project Check-In",
+    "title": "Lecture 17: Reproducible Workflow",
     "section": "Readings",
-    "text": "Readings"
+    "text": "Readings\nNot required before class, use them to clarify the lecture or support your work.\n\nGood Enough Practices in Scientific Computing\nChapters 1, 2, 3, 7 in What They Forgot to Teach You About R\nChapters 27 “R Markdown”, 28 “Graphics for communication”, and 29 “R Markdown formats” in R for Data Science 1st Edition\nArticle on Project-oriented workflow"
   },
   {
     "objectID": "lectures/16-home.html",
@@ -1271,14 +1271,14 @@
     "href": "lectures/16-home.html#learning-objectives",
     "title": "Lecture 16: Web-Scraping 2",
     "section": "Learning Objectives",
-    "text": "Learning Objectives"
+    "text": "Learning Objectives\n\nContinue the lecture on scraping: review and introduce new concepts"
   },
   {
     "objectID": "lectures/16-home.html#readings",
     "href": "lectures/16-home.html#readings",
     "title": "Lecture 16: Web-Scraping 2",
     "section": "Readings",
-    "text": "Readings"
+    "text": "Readings\n\nSee previous lecture"
   },
   {
     "objectID": "lectures/15-home.html",
@@ -1299,14 +1299,14 @@
     "href": "lectures/15-home.html#learning-objectives",
     "title": "Lecture 15: Web-Scraping 1",
     "section": "Learning Objectives",
-    "text": "Learning Objectives"
+    "text": "Learning Objectives\n\nUnderstand the difference between web-scraping and Application Program Interface (API)\nDefine HTML and CSS selectors\nIntroduce the rvest package for scraping in R\nDemonstrate how to extract information from HTML pages"
   },
   {
     "objectID": "lectures/15-home.html#readings",
     "href": "lectures/15-home.html#readings",
     "title": "Lecture 15: Web-Scraping 1",
     "section": "Readings",
-    "text": "Readings"
+    "text": "Readings\nNot required before class, use them to clarify lectures or support your work.\nGeneral Introductions:\n\nChapter 1 and 4 in Web Scraping with R\nrvest documentation\nhttr documentation\nWeb Scraping using R Cheat Sheet\n\nScraping workflow:\n\nWeb scraping with R by William Marble\nWeb scraping using R by Alex Bradley and Richard J. E. James"
   },
   {
     "objectID": "lectures/14-home.html",
@@ -1327,14 +1327,14 @@
     "href": "lectures/14-home.html#learning-objectives",
     "title": "Lecture 14: Functions 2, Debugging",
     "section": "Learning Objectives",
-    "text": "Learning Objectives"
+    "text": "Learning Objectives\n\nReview and continue the lecture on Functions\n\nPractice debugging code\n\nDistinguish between errors, warnings, and messages"
   },
   {
     "objectID": "lectures/14-home.html#readings",
     "href": "lectures/14-home.html#readings",
     "title": "Lecture 14: Functions 2, Debugging",
     "section": "Readings",
-    "text": "Readings"
+    "text": "Readings\nFunctions:\n\nSee the previous lecture for the reading on Functions\n\nOptional readings on debugging:\n\n“Debugging R code” in What They Forgot to Teach You About R\n21.6 Dealing with failure in R for Data Science\nHow to read an R help page"
   },
   {
     "objectID": "lectures/13-home.html",
@@ -1355,14 +1355,14 @@
     "href": "lectures/13-home.html#learning-objectives",
     "title": "Lecture 13: Functions 1",
     "section": "Learning Objectives",
-    "text": "Learning Objectives"
+    "text": "Learning Objectives\n\nDefine functions and their purposes\n\nUnderstand the difference between built-in and user-written functions\n\nLearn the syntax of user-written functions\n\nPractice writing your own functions in R"
   },
   {
     "objectID": "lectures/13-home.html#readings",
     "href": "lectures/13-home.html#readings",
     "title": "Lecture 13: Functions 1",
     "section": "Readings",
-    "text": "Readings"
+    "text": "Readings\n\nChapter 15 “Functions” in “R for Data Science” 2nd Edition"
   },
   {
     "objectID": "lectures/12-home.html",
@@ -1474,7 +1474,7 @@
     "href": "lectures/09-home.html#readings",
     "title": "Lecture 9: Exam 1; Strings and Regular Expressions",
     "section": "Readings",
-    "text": "Readings\n\nChapter 14 “Strings” in “R for Data Science” 2nd Edition (read it all, especially 14.4 “Extracting data from strings”)\nChapter 17 from R Programming for Data Science. Focus on the stringr() section — that’s all we cover in class, but the full chapter is a good reference if you want to explore more\nstringr() documentation and cheatsheet"
+    "text": "Readings\n\nChapter 14 “Strings” in “R for Data Science” 2nd Edition (especially 14.4 “Extracting data from strings”)\nChapter 17 from R Programming for Data Science. Focus on the stringr() section — that’s all we cover in class, but the full chapter is a good reference if you want to explore more\nstringr() documentation and cheatsheet"
   },
   {
     "objectID": "lectures/08-home.html",

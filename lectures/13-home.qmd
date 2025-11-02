@@ -19,9 +19,15 @@ knitr::opts_chunk$set(echo = FALSE)
 * **Slides**: [View Slides]({{< meta url_slides >}})
 * **Code**: No in-class code to download
 
+<!-- `usethis::use_course("css-materials/functions")` -->
 
 ## Learning Objectives
 
+* Define functions and their purposes  
+* Understand the difference between built-in and user-written functions  
+* Learn the syntax of user-written functions  
+* Practice writing your own functions in R
 
 ## Readings
 
+* [Chapter 15 "Functions"](https://r4ds.hadley.nz/functions) in "R for Data Science" 2nd Edition

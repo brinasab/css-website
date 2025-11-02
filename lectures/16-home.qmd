@@ -19,8 +19,16 @@ knitr::opts_chunk$set(echo = FALSE)
 * **Slides**: [View Slides]({{< meta url_slides >}})
 * **Code**: No in-class code to download
 
+<!-- `usethis::use_course("css-materials/getting-data-from-web-part2")` -->
 
 ## Learning Objectives
 
+* Continue the lecture on scraping: review and introduce new concepts
+
+<!-- TO EVALUATE FALL 2025:
+* Introduce "rectangling" in R (e.g., unnesting nested lists) -->
+
 
 ## Readings
+
+* See previous lecture
