@@ -22,9 +22,16 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Learning Objectives
 
+Housekeeping and updates on:
+
+- Mid Course Survey Feedback and Changes
+- Exams and Assignment 3
+
+Control Structures Learning Objectives:
+
 - Define what control structures are and why they matter
 - Introduce one type of control structure: conditional statements
-- Practice using conditional statements in R
+
 
 
 ## Readings

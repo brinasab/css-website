@@ -1306,7 +1306,7 @@
     "href": "lectures/15-home.html#readings",
     "title": "Lecture 15: Web-Scraping 1",
     "section": "Readings",
-    "text": "Readings\nNot required before class, use them to clarify lectures or support your work.\nGeneral Introductions:\n\nChapter 1 and 4 in Web Scraping with R\nrvest documentation\nhttr documentation\nWeb Scraping using R Cheat Sheet\n\nScraping workflow:\n\nWeb scraping with R by William Marble\nWeb scraping using R by Alex Bradley and Richard J. E. James"
+    "text": "Readings\nNot required before class, use them to clarify the lectures on web-scraping or support your work.\nGeneral Introductions:\n\nChapter 1 and 4 in Web Scraping with R\nrvest documentation\nhttr documentation\nWeb Scraping using R Cheat Sheet\n\nScraping workflow:\n\nWeb scraping with R by William Marble\nWeb scraping using R by Alex Bradley and Richard J. E. James"
   },
   {
     "objectID": "lectures/14-home.html",
@@ -1411,7 +1411,7 @@
     "href": "lectures/11-home.html#learning-objectives",
     "title": "Lecture 11: Control Flow 1",
     "section": "Learning Objectives",
-    "text": "Learning Objectives\n\nDefine what control structures are and why they matter\nIntroduce one type of control structure: conditional statements\nPractice using conditional statements in R"
+    "text": "Learning Objectives\nHousekeeping and updates on:\n\nMid Course Survey Feedback and Changes\nExams and Assignment 3\n\nControl Structures Learning Objectives:\n\nDefine what control structures are and why they matter\nIntroduce one type of control structure: conditional statements"
   },
   {
     "objectID": "lectures/11-home.html#readings",
