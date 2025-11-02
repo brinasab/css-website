@@ -62,7 +62,7 @@ lec <- tibble::tribble(
   "2025-11-17", "Lecture 15: Web-Scraping 1",                                    "15-home.qmd",
   "2025-11-19", "Lecture 16: Web-Scraping 2",                                    "16-home.qmd",
   "2025-11-20", "Homework 4 Due",                                                "",
-  "2025-12-01", "Lecture 17: Reproducible Workflow; Final Project Check-In",     "17-home.qmd",
+  "2025-12-01", "Lecture 17: Reproducible Workflow",                             "17-home.qmd",
   "2025-12-03", "Lecture 18: Final Project Check-In",                            "18-home.qmd",
   "2025-12-03", "In-Class Exam 2",                                               "",
   "2025-12-07", "Final Project Due",                                             "",

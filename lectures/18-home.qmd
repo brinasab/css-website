@@ -20,7 +20,8 @@ knitr::opts_chunk$set(echo = FALSE)
 * **Code**: No in-class code to download
 
 
-## Learning Objectives
+## Content
 
+* Final Exam 2
+* Final Project Check-Ins
 
-## Readings

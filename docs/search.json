@@ -1243,7 +1243,7 @@
     "href": "lectures/17-home.html#learning-objectives",
     "title": "Lecture 17: Reproducible Workflow",
     "section": "Learning Objectives",
-    "text": "Learning Objectives\n\nDefine a project-oriented workflow in R and identify R startup procedures\nExpand current knowledge of R Markdown\nBasics of Git/GitHub via terminal/command line\nPrep for Exam 2"
+    "text": "Learning Objectives\n\nDefine a project-oriented workflow in R and identify R startup procedures\nExpand current knowledge of R Markdown\nBasics of Git/GitHub via terminal/command line"
   },
   {
     "objectID": "lectures/17-home.html#readings",
@@ -4148,7 +4148,7 @@
     "href": "lectures/index.html",
     "title": "Computing for the Social Sciences",
     "section": "",
-    "text": "Course Schedule Fall 2025\n\n\n\n\n\n\n\n\n\nWeek\nDate\nLecture\nAssessment\n\n\n\n\nWeek 1\nMon, Sep 29, 2025\nLecture 1: Course Logistics; R and Markdown\n\n\n\n\nWed, Oct 01, 2025\nLecture 2: Git & GitHub with R Studio\nHomework 1 Released\n\n\nWeek 2\nMon, Oct 06, 2025\nLecture 3: Intro to `ggplot2`; Coding Style\n\n\n\n\nTue, Oct 07, 2025\n\nHomework 1 Due\n\n\n\nWed, Oct 08, 2025\nLecture 4: Graphs for Data Analysis\n\n\n\nWeek 3\nMon, Oct 13, 2025\nLecture 5: Intro to `dplyr`; Pipes\n\n\n\n\nWed, Oct 15, 2025\nLecture 6: More `dplyr`; Factors\nHomework 2 Released\n\n\nWeek 4\nMon, Oct 20, 2025\nLecture 7: Data Cleaning, Importing Data; Relational Data\n\n\n\n\nWed, Oct 22, 2025\nLecture 8: Tidydata with `tidyr`; Intro to `lubridate`\n\n\n\n\nThu, Oct 23, 2025\n\nHomework 2 Due\n\n\nWeek 5\nMon, Oct 27, 2025\nLecture 9: Regular Expressions with `stringr`\nIn-Class Exam 1\n\n\n\nWed, Oct 29, 2025\nLecture 10: Data Structures and Base R\nHomework 3 Released\n\n\nWeek 6\nMon, Nov 03, 2025\nLecture 11: Control Flow 1 — Conditionals\n\n\n\n\nWed, Nov 05, 2025\nLecture 12: Control Flow 2 — Loops\n\n\n\n\nThu, Nov 06, 2025\n\nHomework 3 Due\n\n\nWeek 7\nMon, Nov 10, 2025\nLecture 13: Functions 1\n\n\n\n\nWed, Nov 12, 2025\nLecture 14: Functions 2; Debugging\nHomework 4 Released\n\n\nWeek 8\nMon, Nov 17, 2025\nLecture 15: Web-Scraping 1\n\n\n\n\nWed, Nov 19, 2025\nLecture 16: Web-Scraping 2\n\n\n\n\nThu, Nov 20, 2025\n\nHomework 4 Due\n\n\nWeek 9\nMon, Dec 01, 2025\nLecture 17: Reproducible Workflow; Final Project Check-In\n\n\n\n\nWed, Dec 03, 2025\nLecture 18: Final Project Check-In\nIn-Class Exam 2\n\n\n\nSun, Dec 07, 2025\n\nFinal Project Due\n\n\n\n\n\nNote: No lecture the week of Nov 24, 2025 (Thanksgiving Break). Download the Schedule in Excel"
+    "text": "Course Schedule Fall 2025\n\n\n\n\n\n\n\n\n\nWeek\nDate\nLecture\nAssessment\n\n\n\n\nWeek 1\nMon, Sep 29, 2025\nLecture 1: Course Logistics; R and Markdown\n\n\n\n\nWed, Oct 01, 2025\nLecture 2: Git & GitHub with R Studio\nHomework 1 Released\n\n\nWeek 2\nMon, Oct 06, 2025\nLecture 3: Intro to `ggplot2`; Coding Style\n\n\n\n\nTue, Oct 07, 2025\n\nHomework 1 Due\n\n\n\nWed, Oct 08, 2025\nLecture 4: Graphs for Data Analysis\n\n\n\nWeek 3\nMon, Oct 13, 2025\nLecture 5: Intro to `dplyr`; Pipes\n\n\n\n\nWed, Oct 15, 2025\nLecture 6: More `dplyr`; Factors\nHomework 2 Released\n\n\nWeek 4\nMon, Oct 20, 2025\nLecture 7: Data Cleaning, Importing Data; Relational Data\n\n\n\n\nWed, Oct 22, 2025\nLecture 8: Tidydata with `tidyr`; Intro to `lubridate`\n\n\n\n\nThu, Oct 23, 2025\n\nHomework 2 Due\n\n\nWeek 5\nMon, Oct 27, 2025\nLecture 9: Regular Expressions with `stringr`\nIn-Class Exam 1\n\n\n\nWed, Oct 29, 2025\nLecture 10: Data Structures and Base R\nHomework 3 Released\n\n\nWeek 6\nMon, Nov 03, 2025\nLecture 11: Control Flow 1 — Conditionals\n\n\n\n\nWed, Nov 05, 2025\nLecture 12: Control Flow 2 — Loops\n\n\n\n\nThu, Nov 06, 2025\n\nHomework 3 Due\n\n\nWeek 7\nMon, Nov 10, 2025\nLecture 13: Functions 1\n\n\n\n\nWed, Nov 12, 2025\nLecture 14: Functions 2; Debugging\nHomework 4 Released\n\n\nWeek 8\nMon, Nov 17, 2025\nLecture 15: Web-Scraping 1\n\n\n\n\nWed, Nov 19, 2025\nLecture 16: Web-Scraping 2\n\n\n\n\nThu, Nov 20, 2025\n\nHomework 4 Due\n\n\nWeek 9\nMon, Dec 01, 2025\nLecture 17: Reproducible Workflow\n\n\n\n\nWed, Dec 03, 2025\nLecture 18: Final Project Check-In\nIn-Class Exam 2\n\n\n\nSun, Dec 07, 2025\n\nFinal Project Due\n\n\n\n\n\nNote: No lecture the week of Nov 24, 2025 (Thanksgiving Break). Download the Schedule in Excel"
   },
   {
     "objectID": "setup/setup-test.html",
@@ -5283,5 +5283,12 @@
     "title": "Computing for the Social Sciences: Lecture 10",
     "section": "",
     "text": "Base R & the Tidyverse\nR Data Types and Data Structures\nA Closer Look at Vectors\nSubset Data Structures with Base R\n\n\n Slides last updated on October 29, 2025. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos."
+  },
+  {
+    "objectID": "lectures/18-home.html#content",
+    "href": "lectures/18-home.html#content",
+    "title": "Lecture 18: Exam 2; Final Project Check-In",
+    "section": "Content",
+    "text": "Content\n\nFinal Exam 2\nFinal Project Check-Ins"
   }
 ]
