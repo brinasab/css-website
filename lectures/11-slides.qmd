@@ -25,19 +25,43 @@ format:
 :::
 
 <span style="font-size: 0.8em; color: #666;">
-*Slides last updated on **November 3, 2025**. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.*
+*Slides last updated on **November 4, 2025**. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.*
 </span>
 
-
 <!--
-```{r, echo=FALSE, results='asis'}
-cat('<span style="font-size: 0.8em; color: #666;">These slides were last updated on', format(Sys.Date(), '%B %d, %Y'), '</span>')
-```
-
 <span style="font-size: 0.8em; color: #666;">
 *These slides were last updated on **`r format(Sys.Date(), '%B %d, %Y')`***
 </span>
 -->
+
+<!--
+Tips for Family Program Class
+
+Prep
+- Print warm up (25 copies?)
+- Bring papers and markers 
+
+Intro
+- Start by introducing yourself
+- Instructor in MACSS Program, which is about
+- This is a lecture from a class called "CSS" 
+- Targets mix of undergraduate, PhD and MA students
+- They typically enroll because...
+- Most students are beginners
+- Show website, schedule, etc.
+
+Start lecture, show slides, say
+- By the time they arrive to this lecture they have learned...
+- We run this class and every class interacively (students bring their laptop and have access to R and code with me or do exercises diretly on R) -- we adjust this for today!
+- I am going to make you work a bit to give you a flavor of what classes look like, but also sollicit questions on anything unclear as I tell my students no stupid questions at all
+
+Remember
+- For each slide, check what audience might not know
+- All weird R signs 
+- dplyr syntax at point 4
+- Explain workbench (R interface) as soon as you log int
+-->
+
 
 # 1. Overview of Control Structures {.slide .center .middle}
 
@@ -83,7 +107,7 @@ Repeat actions: the code runs certain lines multiple times when needed
 
 ## Conditional Statements
 
-**Conditional statements are like logical tests that let our code make decisions: the code checks conditions, evaluates them, and chooses what to do**
+**Conditional statements translate into programming language our “if this, then that” logic**: the code checks conditions, evaluates them, and acts accordingly.
 
 1. Single test with `if... else`
 
@@ -91,7 +115,7 @@ Repeat actions: the code runs certain lines multiple times when needed
 
 3. Nested tests by placing one `if` inside another
 
-4. Vectorized tests with `ifelse()` to apply a condition to each element of a vector (not technically a conditional statement like the previous three, more on this when we get there!)
+4. Vectorized tests with `ifelse()` to apply a condition to each element of a vector (not technically a conditional statement like the previous three, but more on this when we get there!)
 
 
 <!--
@@ -107,15 +131,15 @@ Repeat actions: the code runs certain lines multiple times when needed
 
 ## 💻 Practice
 
-1. Download today's class materials from the course website.
+1. Download today's class materials from the course website
 
-2. Open the file called `if-else-warm-up.R`.
+2. Open the file called `if-else-warm-up.R`
 
 3. Before running the code: look over the syntax and try to predict what the code will output
 
-4. Run the code and compare it to your prediction.
+4. Run the code and compare it to your prediction
 
-5. Share one question about this code on [Ed Discussion](https://edstem.org/us/courses/86758/discussion)
+5. Share your questions about this code on [Ed Discussion](https://edstem.org/us/courses/86758/discussion)
 
 ---
 
@@ -171,16 +195,17 @@ Another example: What's the output of this code?
 
 ```{r, echo = TRUE, results = "hide"}
 movie_rating <- c(4.5, 4.2, 5.0, 3.8, 2.9, 1.7)
-movie_avg_rating <- mean(movie_rating)
 
-if (movie_avg_rating >= 4) {
+movie_rating_avg <- mean(movie_rating)
+
+if (movie_rating_avg >= 4) {
   print("This movie is great!")
 } else {
   print("Not a favorite.")
 }
 ```
 
-Note the `if... else` evaluates only one single element (here a single number: the mean of `movie_rating`)
+Note conditional statements evaluate only one single element (in this example the mean of the vector movie_rating)
 
 <!--
 wont work to evaluate each element of the vector, you ll have to put it into a loop, or use a logical vector first and replace
@@ -190,7 +215,7 @@ wont work to evaluate each element of the vector, you ll have to put it into a l
 
 ## 2. Multiple tests with "if...", "else if...", "else"
 
-Use `if...else if...else` when your code needs to test **multiple conditions** and take different actions depending on which condition is `TRUE`. We do this by adding one or more **`else if`** statement(s) between the initial `if` and the final `else`
+Use `if...else if...else` when your code needs to test **multiple conditions** and take different actions depending on which condition is `TRUE`. To do so, ddd one or more **`else if`** statement(s) between the initial `if` and the final `else`
 
 Syntax:
 ```r
@@ -219,15 +244,6 @@ if (x > 0) {
 
 ---
 
-## Note: with conditional statements sequence matters!
-
-Conditional statements are evaluated **in order** so the sequence of your code matters:
-
-- R checks each condition **one by one**, from top to bottom  
-- As soon as it finds a condition that is `TRUE`, it **runs that block** and **skips the rest**
-
----
-
 ## 2. Multiple tests with "if...", "else if...", "else"
 
 Another example with multiple `else if` statements:
@@ -251,17 +267,28 @@ print(weather)
 
 ---
 
+## Note: with conditional statements sequence matters!
+
+::: {.callout-warning title="Order matters"}
+Conditional statements are evaluated in order, so the sequence of your code matters:  
+
+- R checks each condition one by one, from top to bottom  
+- R stops checking once it finds a condition that is `TRUE`: it runs that block and skips the rest
+- As a rule of thumb: order your conditions from most specific to most general, ending with a default case `else`
+:::
+
+
+---
+
 ### 💻 Practice 1
 
 What happens if the conditions are out of order? 
 
-Copy the code below in your console and move the line `temperature >= 10` before the line `temperature >= 20`. Then run the code with a temperature of 25 as input. What do you notice?
+Copy the code below in your console and move the line `temperature >= 10` before the line `temperature >= 20`. Leave the input temperature set as 25. What do you notice?
 
 ```r
-# Enter a temperature when prompted
-temperature <- as.integer(readline(prompt = "Enter today's temperature in Celsius: "))
+temperature <- 25
 
-# Determine the variable weather based on temperature
 if (temperature >= 30) {
   weather <- "Hot"
 } else if (temperature >= 20) {
@@ -274,7 +301,7 @@ if (temperature >= 30) {
 print(weather)
 ```
 
-Once done, [share your code here](https://codeshare.io/G8nxLD){target="_blank"}. If you have questions post on [Ed Discussion](https://edstem.org/us/courses/86758/discussion) or ask us directly!
+Once done, [share your code here](https://codeshare.io/G8nxLD){target="_blank"}. Questions? post on [Ed Discussion](https://edstem.org/us/courses/86758/discussion) or ask us directly!
  
 <!--
 ```r
@@ -299,13 +326,11 @@ If temperature is 25, R hits temperature >= 10 first (which is TRUE) and never r
 
 ### 💻 Practice 2
 
-Copy the code below into your console and add another `else if` statement that checks whether the temperature is between 0 (inclusive) and 10 (exclusive). If that condition is true, set weather to "Cold" (so the “Cold” range is 0–9°C).
+Copy the code below into your console and add another `else if` statement that checks whether the temperature is between 0 (inclusive) and 10 (exclusive). If that condition is true, set weather to "Cold" (so the “Cold” range is 0–9°C). Leave the input temperature set as 4.
 
 ```r
-# Enter a temperature when prompted
-temperature <- as.integer(readline(prompt = "Enter today's temperature in Celsius: "))
+temperature <- 4
 
-# Determine the variable weather based on temperature
 if (temperature >= 30) {
   weather <- "Hot"
 } else if (temperature >= 20) {
@@ -318,7 +343,7 @@ if (temperature >= 30) {
 print(weather)
 ```
 
-Once done, [share your code here](https://codeshare.io/G8nxLD){target="_blank"}. If you have questions post on [Ed Discussion](https://edstem.org/us/courses/86758/discussion) or ask us directly!
+Once done, [share your code here](https://codeshare.io/G8nxLD){target="_blank"}. Questions? post on [Ed Discussion](https://edstem.org/us/courses/86758/discussion) or ask us directly!
  
 <!--
 ```r
@@ -363,19 +388,20 @@ HERE YOU WON'T NOTICE IT THOUGH, BUT  USING OR IS STILL LOGICALLY INCORRECT
 When do we use `&` (and) versus `|` (or) in conditional statements? Try these two examples, what do you notice and why?
 
 ```{r, echo = TRUE, results = "hide"}
+# Set temperature (25°C, which equals 77°F)
 temperature <- 25
 
-# example 1
+# Example 1
 if (temperature >= 0 & temperature < 10) {
   weather <- "Cold"
 } else {
-  weather <- "Something else"
+  weather <- "Warm"
 }
 print(weather)
 
-# example 2
+# Example 2
 if (temperature >= 0 | temperature < 10) {
-  weather <- "Cold"
+  weather <- "Warm"
 } else {
   weather <- "Something else"
 }
@@ -459,13 +485,13 @@ if (x > 0) {
 
 ## 4. Vectorized tests with ifelse() 
 
-Our final case for today is `ifelse()`: it look like a conditional statement, but it's actually a function that applies a condition to **each element of a vector**. 
+Our final case for today is `ifelse()`: it looks like a conditional statement, but it's actually a function that applies a condition to **each element of a vector**. 
 
 Syntax:
 ```r
 ifelse (condition to be evaluated,
-    action performed when condition is TRUE,
-    action performed when condition is FALSE)
+        action performed when condition is TRUE,
+        action performed when condition is FALSE)
 ```
 
 Example:
@@ -496,11 +522,13 @@ ifelse(numbers %% 2 == 1,
 
 <br>
 
-#### How `ifelse()` works:
+::: {.callout-note title="How ifelse() works"}
 
-- If the input of `ifelse()` is a **vector**, the output is also a **vector**: `ifelse()` evaluates **each element of the vector**, applying the specified action for each element.
+- If the input of ifelse() is a vector, the output is also a vector: **ifelse() evaluates each element of the vector** and applies the corresponding action
 
-- This is possible because **`ifelse()` supports vectorized operations**: operations directly applied on entire vectors, rather than looping through individual elements one-by-one.
+- This works because **ifelse() supports vectorized operations**: operations directly applied on entire vectors, rather than looping through individual elements one-by-one
+
+:::
 
 <!--
 How can we rewrite the same code using the standard `if-else` statement?
@@ -550,17 +578,22 @@ Examples:
 ```r
 x <- c(5, 10, 15)
 
-# if / else: works for a single value only
-if (x > 10) "High" else "Low"
+# Using if / else: works only with a single value
+if (x > 10) {
+  "High"
+} else {
+  "Low"
+}
 
-# ifelse(): works element-wise (vectorized)
+# Using ifelse(): works element-wise (vectorized)
 ifelse(x > 10, "High", "Low")
 ```
+
 ---
 
 ## 4. Vectorized tests with ifelse() 
 
-For this reason, `ifelse()` is often used to make changes to columns in a data frame. For example, what is the output of this code?
+For this reason, `ifelse()` is often used to make changes in a data frame. Example: what is the output of this code?
 
 ```{r, echo = TRUE, results = "hide"}
 library(tidyverse)
@@ -667,8 +700,7 @@ qualify %>%
 <br>
 
 ::: {.callout-tip title="Tip"}
-
-If you have multiple conditions (more than two): use separate `mutate()` + `ifelse()` steps (like on this slide) rather than nesting them (like in the previous slide).
+When you have 2+ conditions: use separate `mutate()` + `ifelse()` steps (as shown here), instead of nesting.
 :::
 
 
@@ -698,18 +730,29 @@ Use `case_when()` when:
 
 ## 4. Vectorized tests with ifelse() 
 
-People often use `ifelse()` to recode variables in a dataframe. It works when the recoding can be done with a single `ifelse()`, as shown in this example. Though I recommend using `case_when()` for recoding variables (cleaner, more beginner friendly), as we learned in the recording variables module.
+People often use `ifelse()` to recode variables in a dataframe. 
 
-Example: the variable `decisionDirection` takes four values (1 conservative, 2 liberal, 3 other, and NA). Recode it to take three values (0 conservative, 1 liberal, and NA for both NA and other)
+For example, the variable `decisionDirection` takes four values: 1 = Conservative, 2 = Liberal, 3 = Other, and NA.  
+Recode it to three values: 0 = Conservative, 1 = Liberal, and NA for both NA and Other.  
 
 ```r
-data %>%
+data |>
   mutate(decisionDirection = ifelse(
-    decisionDirection == 3, # condition to be evaluated
-    NA,                     # if true, do NA
+    decisionDirection == 3, # condition to evaluate
+    NA,                     # if true, set to NA
     decisionDirection - 1   # if false, subtract one to value
     ))
 ```
+
+<br>
+
+::: {.callout-tip title="Tip"}
+Tip: Prefer `case_when()` over `ifelse()` for recoding variables (see the recoding class): it is easier to read and scale. 
+:::
+
+</br>
+
+
 
 <!--
 More on this:
@@ -741,7 +784,7 @@ More practice exercises in today's class materials (downloaded from the website)
 - Control structures let us change the flow of execution in our code  
 - We focused on conditional statements: how to make decisions using `if`, `else`, and `else if`
 - We practiced different types of conditionals: single test, multiple tests, and nested tests  
-- We learned vectorized tests with the function `ifelse()` and how this differs from standard conditional statements
+- Run vectorized tests with the function `ifelse()` and how this differs from standard conditional statements
 
 
 ---

@@ -5310,14 +5310,14 @@
     "href": "lectures/11-slides.html#conditional-statements-1",
     "title": "Computing for the Social Sciences: Lecture 11",
     "section": "Conditional Statements",
-    "text": "Conditional Statements\nConditional statements are like logical tests that let our code make decisions: the code checks conditions, evaluates them, and chooses what to do\n\nSingle test with if... else\nMultiple tests with if... else if... else\nNested tests by placing one if inside another\nVectorized tests with ifelse() to apply a condition to each element of a vector (not technically a conditional statement like the previous three, more on this when we get there!)"
+    "text": "Conditional Statements\nConditional statements translate into programming language our “if this, then that” logic: the code checks conditions, evaluates them, and acts accordingly.\n\nSingle test with if... else\nMultiple tests with if... else if... else\nNested tests by placing one if inside another\nVectorized tests with ifelse() to apply a condition to each element of a vector (not technically a conditional statement like the previous three, but more on this when we get there!)"
   },
   {
     "objectID": "lectures/11-slides.html#practice",
     "href": "lectures/11-slides.html#practice",
     "title": "Computing for the Social Sciences: Lecture 11",
     "section": "💻 Practice",
-    "text": "💻 Practice\n\nDownload today’s class materials from the course website.\nOpen the file called if-else-warm-up.R.\nBefore running the code: look over the syntax and try to predict what the code will output\nRun the code and compare it to your prediction.\nShare one question about this code on Ed Discussion"
+    "text": "💻 Practice\n\nDownload today’s class materials from the course website\nOpen the file called if-else-warm-up.R\nBefore running the code: look over the syntax and try to predict what the code will output\nRun the code and compare it to your prediction\nShare your questions about this code on Ed Discussion"
   },
   {
     "objectID": "lectures/11-slides.html#single-test-with-if-else",
@@ -5338,21 +5338,21 @@
     "href": "lectures/11-slides.html#single-test-with-if-else-2",
     "title": "Computing for the Social Sciences: Lecture 11",
     "section": "1. Single test with “if… else”",
-    "text": "1. Single test with “if… else”\nAnother example: What’s the output of this code?\n\nmovie_rating &lt;- c(4.5, 4.2, 5.0, 3.8, 2.9, 1.7)\nmovie_avg_rating &lt;- mean(movie_rating)\n\nif (movie_avg_rating &gt;= 4) {\n  print(\"This movie is great!\")\n} else {\n  print(\"Not a favorite.\")\n}\n\nNote the if... else evaluates only one single element (here a single number: the mean of movie_rating)"
+    "text": "1. Single test with “if… else”\nAnother example: What’s the output of this code?\n\nmovie_rating &lt;- c(4.5, 4.2, 5.0, 3.8, 2.9, 1.7)\n\nmovie_rating_avg &lt;- mean(movie_rating)\n\nif (movie_rating_avg &gt;= 4) {\n  print(\"This movie is great!\")\n} else {\n  print(\"Not a favorite.\")\n}\n\nNote conditional statements evaluate only one single element (in this example the mean of the vector movie_rating)"
   },
   {
     "objectID": "lectures/11-slides.html#multiple-tests-with-if-else-if-else",
     "href": "lectures/11-slides.html#multiple-tests-with-if-else-if-else",
     "title": "Computing for the Social Sciences: Lecture 11",
     "section": "2. Multiple tests with “if…”, “else if…”, “else”",
-    "text": "2. Multiple tests with “if…”, “else if…”, “else”\nUse if...else if...else when your code needs to test multiple conditions and take different actions depending on which condition is TRUE. We do this by adding one or more else if statement(s) between the initial if and the final else\nSyntax:\nif (condition1) {\n    action1   # action performed when condition 1 is TRUE\n} else if (condition2) {\n    action2   # action performed when condition 2 is TRUE\n} else {\n    action3   # action performed when conditions 1 and 2 are FALSE\n}\nExample:\n\nx &lt;- 0\n\nif (x &gt; 0) {\n  print(\"x is positive\")\n} else if (x &lt; 0) {\n  print(\"x is negative\")\n} else {\n  print(\"x is zero\")\n}"
+    "text": "2. Multiple tests with “if…”, “else if…”, “else”\nUse if...else if...else when your code needs to test multiple conditions and take different actions depending on which condition is TRUE. To do so, ddd one or more else if statement(s) between the initial if and the final else\nSyntax:\nif (condition1) {\n    action1   # action performed when condition 1 is TRUE\n} else if (condition2) {\n    action2   # action performed when condition 2 is TRUE\n} else {\n    action3   # action performed when conditions 1 and 2 are FALSE\n}\nExample:\n\nx &lt;- 0\n\nif (x &gt; 0) {\n  print(\"x is positive\")\n} else if (x &lt; 0) {\n  print(\"x is negative\")\n} else {\n  print(\"x is zero\")\n}"
   },
   {
     "objectID": "lectures/11-slides.html#note-with-conditional-statements-sequence-matters",
     "href": "lectures/11-slides.html#note-with-conditional-statements-sequence-matters",
     "title": "Computing for the Social Sciences: Lecture 11",
     "section": "Note: with conditional statements sequence matters!",
-    "text": "Note: with conditional statements sequence matters!\nConditional statements are evaluated in order so the sequence of your code matters:\n\nR checks each condition one by one, from top to bottom\n\nAs soon as it finds a condition that is TRUE, it runs that block and skips the rest"
+    "text": "Note: with conditional statements sequence matters!\n\n\n\n\n\n\n\nOrder matters\n\n\nConditional statements are evaluated in order, so the sequence of your code matters:\n\nR checks each condition one by one, from top to bottom\n\nR stops checking once it finds a condition that is TRUE: it runs that block and skips the rest\nAs a rule of thumb: order your conditions from most specific to most general, ending with a default case else"
   },
   {
     "objectID": "lectures/11-slides.html#multiple-tests-with-if-else-if-else-1",
@@ -5380,28 +5380,28 @@
     "href": "lectures/11-slides.html#vectorized-tests-with-ifelse",
     "title": "Computing for the Social Sciences: Lecture 11",
     "section": "4. Vectorized tests with ifelse()",
-    "text": "4. Vectorized tests with ifelse()\nOur final case for today is ifelse(): it look like a conditional statement, but it’s actually a function that applies a condition to each element of a vector.\nSyntax:\nifelse (condition to be evaluated,\n    action performed when condition is TRUE,\n    action performed when condition is FALSE)\nExample:\n\nifelse(sqrt(16) &gt; 3, \n       sqrt(16),\n       0)"
+    "text": "4. Vectorized tests with ifelse()\nOur final case for today is ifelse(): it looks like a conditional statement, but it’s actually a function that applies a condition to each element of a vector.\nSyntax:\nifelse (condition to be evaluated,\n        action performed when condition is TRUE,\n        action performed when condition is FALSE)\nExample:\n\nifelse(sqrt(16) &gt; 3, \n       sqrt(16),\n       0)"
   },
   {
     "objectID": "lectures/11-slides.html#vectorized-tests-with-ifelse-1",
     "href": "lectures/11-slides.html#vectorized-tests-with-ifelse-1",
     "title": "Computing for the Social Sciences: Lecture 11",
     "section": "4. Vectorized tests with ifelse()",
-    "text": "4. Vectorized tests with ifelse()\nAnother example, this time with a vector as input. What is the output of this code?\n\nnumbers &lt;- c(10, 6, 7)\nifelse(numbers %% 2 == 1, \n       \"odd\",\n       \"even\")\n\n\nHow ifelse() works:\n\nIf the input of ifelse() is a vector, the output is also a vector: ifelse() evaluates each element of the vector, applying the specified action for each element.\nThis is possible because ifelse() supports vectorized operations: operations directly applied on entire vectors, rather than looping through individual elements one-by-one."
+    "text": "4. Vectorized tests with ifelse()\nAnother example, this time with a vector as input. What is the output of this code?\n\nnumbers &lt;- c(10, 6, 7)\nifelse(numbers %% 2 == 1, \n       \"odd\",\n       \"even\")\n\n\n\n\n\n\n\n\n\nHow ifelse() works\n\n\n\nIf the input of ifelse() is a vector, the output is also a vector: ifelse() evaluates each element of the vector and applies the corresponding action\nThis works because ifelse() supports vectorized operations: operations directly applied on entire vectors, rather than looping through individual elements one-by-one"
   },
   {
     "objectID": "lectures/11-slides.html#vectorized-tests-with-ifelse-2",
     "href": "lectures/11-slides.html#vectorized-tests-with-ifelse-2",
     "title": "Computing for the Social Sciences: Lecture 11",
     "section": "4. Vectorized tests with ifelse()",
-    "text": "4. Vectorized tests with ifelse()\n\n\nRegular if… else statements\n\nCan only test one value at a time\nThink of them as asking one yes/no question to one person at a time\n\n\nifelse()\n\nCan test a whole vector at once\nThink of it as asking the same question to everyone in a group at once\n\n\nExamples:\nx &lt;- c(5, 10, 15)\n\n# if / else: works for a single value only\nif (x &gt; 10) \"High\" else \"Low\"\n\n# ifelse(): works element-wise (vectorized)\nifelse(x &gt; 10, \"High\", \"Low\")"
+    "text": "4. Vectorized tests with ifelse()\n\n\nRegular if… else statements\n\nCan only test one value at a time\nThink of them as asking one yes/no question to one person at a time\n\n\nifelse()\n\nCan test a whole vector at once\nThink of it as asking the same question to everyone in a group at once\n\n\nExamples:\nx &lt;- c(5, 10, 15)\n\n# Using if / else: works only with a single value\nif (x &gt; 10) {\n  \"High\"\n} else {\n  \"Low\"\n}\n\n# Using ifelse(): works element-wise (vectorized)\nifelse(x &gt; 10, \"High\", \"Low\")"
   },
   {
     "objectID": "lectures/11-slides.html#vectorized-tests-with-ifelse-3",
     "href": "lectures/11-slides.html#vectorized-tests-with-ifelse-3",
     "title": "Computing for the Social Sciences: Lecture 11",
     "section": "4. Vectorized tests with ifelse()",
-    "text": "4. Vectorized tests with ifelse()\nFor this reason, ifelse() is often used to make changes to columns in a data frame. For example, what is the output of this code?\n\nlibrary(tidyverse)\n\nqualify &lt;- tibble(\"Athlet\" = c(\"Noah\", \"Julio\", \"Nick\", \"Maria\"), \n                  \"Scores\" = c(32, 37, 28, 30))\n\n# using base R \nifelse(qualify$Scores &gt; 30, \n       \"Admitted\", \n       \"Rejected\")\n\n# same using dplyr\nqualify %&gt;%\n  mutate(status = ifelse(Scores &gt; 30,\n                       \"Admitted\",\n                       \"Rejected\"))"
+    "text": "4. Vectorized tests with ifelse()\nFor this reason, ifelse() is often used to make changes in a data frame. Example: what is the output of this code?\n\nlibrary(tidyverse)\n\nqualify &lt;- tibble(\"Athlet\" = c(\"Noah\", \"Julio\", \"Nick\", \"Maria\"), \n                  \"Scores\" = c(32, 37, 28, 30))\n\n# using base R \nifelse(qualify$Scores &gt; 30, \n       \"Admitted\", \n       \"Rejected\")\n\n# same using dplyr\nqualify %&gt;%\n  mutate(status = ifelse(Scores &gt; 30,\n                       \"Admitted\",\n                       \"Rejected\"))"
   },
   {
     "objectID": "lectures/11-slides.html#vectorized-tests-with-ifelse-4",
@@ -5415,14 +5415,14 @@
     "href": "lectures/11-slides.html#vectorized-tests-with-ifelse-5",
     "title": "Computing for the Social Sciences: Lecture 11",
     "section": "4. Vectorized tests with ifelse()",
-    "text": "4. Vectorized tests with ifelse()\nNested ifelse() statements work, but they make the code harder to read.\nCompare the previous example with this version that avoids nesting:\n\nqualify &lt;- tibble(\"Athlet\" = c(\"Noah\", \"Julio\", \"Nick\", \"Maria\"), \n                  \"Scores\" = c(32, 37, 28, 30))\n\nqualify %&gt;%\n  mutate(Status = \"Rejected\") %&gt;%                                  # Start with a default label\n  mutate(Status = ifelse(Scores &gt;= 30, \"Waitlisted\", Status)) %&gt;%  # Update if the condition is met\n  mutate(Status = ifelse(Scores &gt; 35, \"Admitted\", Status))         # Update again if the higher condition met\n\n\n\n\n\n\n\n\n\n\nTip\n\n\nIf you have multiple conditions (more than two): use separate mutate() + ifelse() steps (like on this slide) rather than nesting them (like in the previous slide)."
+    "text": "4. Vectorized tests with ifelse()\nNested ifelse() statements work, but they make the code harder to read.\nCompare the previous example with this version that avoids nesting:\n\nqualify &lt;- tibble(\"Athlet\" = c(\"Noah\", \"Julio\", \"Nick\", \"Maria\"), \n                  \"Scores\" = c(32, 37, 28, 30))\n\nqualify %&gt;%\n  mutate(Status = \"Rejected\") %&gt;%                                  # Start with a default label\n  mutate(Status = ifelse(Scores &gt;= 30, \"Waitlisted\", Status)) %&gt;%  # Update if the condition is met\n  mutate(Status = ifelse(Scores &gt; 35, \"Admitted\", Status))         # Update again if the higher condition met\n\n\n\n\n\n\n\n\n\n\nTip\n\n\nWhen you have 2+ conditions: use separate mutate() + ifelse() steps (as shown here), instead of nesting."
   },
   {
     "objectID": "lectures/11-slides.html#vectorized-tests-with-ifelse-6",
     "href": "lectures/11-slides.html#vectorized-tests-with-ifelse-6",
     "title": "Computing for the Social Sciences: Lecture 11",
     "section": "4. Vectorized tests with ifelse()",
-    "text": "4. Vectorized tests with ifelse()\nPeople often use ifelse() to recode variables in a dataframe. It works when the recoding can be done with a single ifelse(), as shown in this example. Though I recommend using case_when() for recoding variables (cleaner, more beginner friendly), as we learned in the recording variables module.\nExample: the variable decisionDirection takes four values (1 conservative, 2 liberal, 3 other, and NA). Recode it to take three values (0 conservative, 1 liberal, and NA for both NA and other)\ndata %&gt;%\n  mutate(decisionDirection = ifelse(\n    decisionDirection == 3, # condition to be evaluated\n    NA,                     # if true, do NA\n    decisionDirection - 1   # if false, subtract one to value\n    ))"
+    "text": "4. Vectorized tests with ifelse()\nPeople often use ifelse() to recode variables in a dataframe.\nFor example, the variable decisionDirection takes four values: 1 = Conservative, 2 = Liberal, 3 = Other, and NA.\nRecode it to three values: 0 = Conservative, 1 = Liberal, and NA for both NA and Other.\ndata |&gt;\n  mutate(decisionDirection = ifelse(\n    decisionDirection == 3, # condition to evaluate\n    NA,                     # if true, set to NA\n    decisionDirection - 1   # if false, subtract one to value\n    ))\n\n\n\n\n\n\n\n\nTip\n\n\nTip: Prefer case_when() over ifelse() for recoding variables (see the recoding class): it is easier to read and scale."
   },
   {
     "objectID": "lectures/11-slides.html#vectorized-tests-with-ifelse-7",
@@ -5443,7 +5443,7 @@
     "href": "lectures/11-slides.html#recap-what-we-learned-today",
     "title": "Computing for the Social Sciences: Lecture 11",
     "section": "Recap: What We Learned Today",
-    "text": "Recap: What We Learned Today\n\nControl structures let us change the flow of execution in our code\n\nWe focused on conditional statements: how to make decisions using if, else, and else if\nWe practiced different types of conditionals: single test, multiple tests, and nested tests\n\nWe learned vectorized tests with the function ifelse() and how this differs from standard conditional statements"
+    "text": "Recap: What We Learned Today\n\nControl structures let us change the flow of execution in our code\n\nWe focused on conditional statements: how to make decisions using if, else, and else if\nWe practiced different types of conditionals: single test, multiple tests, and nested tests\n\nRun vectorized tests with the function ifelse() and how this differs from standard conditional statements"
   },
   {
     "objectID": "lectures/11-slides.html#to-print-these-slides-as-pdf",

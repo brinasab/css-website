@@ -216,13 +216,38 @@ Sabrina Nardin, Fall 2025
 <li>Conditional Statements</li>
 </ol>
 </div>
-<p><span style="font-size: 0.8em; color: #666;"> <em>Slides last updated on <strong>November 3, 2025</strong>. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.</em> </span></p>
+<p><span style="font-size: 0.8em; color: #666;"> <em>Slides last updated on <strong>November 4, 2025</strong>. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.</em> </span></p>
 <!--
-<span style="font-size: 0.8em; color: #666;">These slides were last updated on November 03, 2025 </span>
-
 <span style="font-size: 0.8em; color: #666;">
-*These slides were last updated on **November 03, 2025***
+*These slides were last updated on **November 04, 2025***
 </span>
+-->
+<!--
+Tips for Family Program Class
+
+Prep
+- Print warm up (25 copies?)
+- Bring papers and markers 
+
+Intro
+- Start by introducing yourself
+- Instructor in MACSS Program, which is about
+- This is a lecture from a class called "CSS" 
+- Targets mix of undergraduate, PhD and MA students
+- They typically enroll because...
+- Most students are beginners
+- Show website, schedule, etc.
+
+Start lecture, show slides, say
+- By the time they arrive to this lecture they have learned...
+- We run this class and every class interacively (students bring their laptop and have access to R and code with me or do exercises diretly on R) -- we adjust this for today!
+- I am going to make you work a bit to give you a flavor of what classes look like, but also sollicit questions on anything unclear as I tell my students no stupid questions at all
+
+Remember
+- For each slide, check what audience might not know
+- All weird R signs 
+- dplyr syntax at point 4
+- Explain workbench (R interface) as soon as you log int
 -->
 </section>
 
@@ -275,12 +300,12 @@ Repeat actions: the code runs certain lines multiple times when needed
 </section>
 <section id="conditional-statements-1" class="slide level2 center">
 <h2>Conditional Statements</h2>
-<p><strong>Conditional statements are like logical tests that let our code make decisions: the code checks conditions, evaluates them, and chooses what to do</strong></p>
+<p><strong>Conditional statements translate into programming language our “if this, then that” logic</strong>: the code checks conditions, evaluates them, and acts accordingly.</p>
 <ol type="1">
 <li><p>Single test with <code>if... else</code></p></li>
 <li><p>Multiple tests with <code>if... else if... else</code></p></li>
 <li><p>Nested tests by placing one <code>if</code> inside another</p></li>
-<li><p>Vectorized tests with <code>ifelse()</code> to apply a condition to each element of a vector (not technically a conditional statement like the previous three, more on this when we get there!)</p></li>
+<li><p>Vectorized tests with <code>ifelse()</code> to apply a condition to each element of a vector (not technically a conditional statement like the previous three, but more on this when we get there!)</p></li>
 </ol>
 <!--
 ## Loops
@@ -294,11 +319,11 @@ Repeat actions: the code runs certain lines multiple times when needed
 <section id="practice" class="slide level2 center">
 <h2>💻 Practice</h2>
 <ol type="1">
-<li><p>Download today’s class materials from the course website.</p></li>
-<li><p>Open the file called <code>if-else-warm-up.R</code>.</p></li>
+<li><p>Download today’s class materials from the course website</p></li>
+<li><p>Open the file called <code>if-else-warm-up.R</code></p></li>
 <li><p>Before running the code: look over the syntax and try to predict what the code will output</p></li>
-<li><p>Run the code and compare it to your prediction.</p></li>
-<li><p>Share one question about this code on <a href="https://edstem.org/us/courses/86758/discussion">Ed Discussion</a></p></li>
+<li><p>Run the code and compare it to your prediction</p></li>
+<li><p>Share your questions about this code on <a href="https://edstem.org/us/courses/86758/discussion">Ed Discussion</a></p></li>
 </ol>
 </section>
 <section id="single-test-with-if-else" class="slide level2 center">
@@ -349,22 +374,23 @@ Repeat actions: the code runs certain lines multiple times when needed
 <p>Another example: What’s the output of this code?</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>movie_rating <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">4.5</span>, <span class="fl">4.2</span>, <span class="fl">5.0</span>, <span class="fl">3.8</span>, <span class="fl">2.9</span>, <span class="fl">1.7</span>)</span>
-<span id="cb4-2"><a></a>movie_avg_rating <span class="ot">&lt;-</span> <span class="fu">mean</span>(movie_rating)</span>
-<span id="cb4-3"><a></a></span>
-<span id="cb4-4"><a></a><span class="cf">if</span> (movie_avg_rating <span class="sc">&gt;=</span> <span class="dv">4</span>) {</span>
-<span id="cb4-5"><a></a>  <span class="fu">print</span>(<span class="st">"This movie is great!"</span>)</span>
-<span id="cb4-6"><a></a>} <span class="cf">else</span> {</span>
-<span id="cb4-7"><a></a>  <span class="fu">print</span>(<span class="st">"Not a favorite."</span>)</span>
-<span id="cb4-8"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-2"><a></a></span>
+<span id="cb4-3"><a></a>movie_rating_avg <span class="ot">&lt;-</span> <span class="fu">mean</span>(movie_rating)</span>
+<span id="cb4-4"><a></a></span>
+<span id="cb4-5"><a></a><span class="cf">if</span> (movie_rating_avg <span class="sc">&gt;=</span> <span class="dv">4</span>) {</span>
+<span id="cb4-6"><a></a>  <span class="fu">print</span>(<span class="st">"This movie is great!"</span>)</span>
+<span id="cb4-7"><a></a>} <span class="cf">else</span> {</span>
+<span id="cb4-8"><a></a>  <span class="fu">print</span>(<span class="st">"Not a favorite."</span>)</span>
+<span id="cb4-9"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Note the <code>if... else</code> evaluates only one single element (here a single number: the mean of <code>movie_rating</code>)</p>
+<p>Note conditional statements evaluate only one single element (in this example the mean of the vector movie_rating)</p>
 <!--
 wont work to evaluate each element of the vector, you ll have to put it into a loop, or use a logical vector first and replace
 -->
 </section>
 <section id="multiple-tests-with-if-else-if-else" class="slide level2 center">
 <h2>2. Multiple tests with “if…”, “else if…”, “else”</h2>
-<p>Use <code>if...else if...else</code> when your code needs to test <strong>multiple conditions</strong> and take different actions depending on which condition is <code>TRUE</code>. We do this by adding one or more <strong><code>else if</code></strong> statement(s) between the initial <code>if</code> and the final <code>else</code></p>
+<p>Use <code>if...else if...else</code> when your code needs to test <strong>multiple conditions</strong> and take different actions depending on which condition is <code>TRUE</code>. To do so, ddd one or more <strong><code>else if</code></strong> statement(s) between the initial <code>if</code> and the final <code>else</code></p>
 <p>Syntax:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="cf">if</span> (condition1) {</span>
 <span id="cb5-2"><a></a>    action1   <span class="co"># action performed when condition 1 is TRUE</span></span>
@@ -386,15 +412,6 @@ wont work to evaluate each element of the vector, you ll have to put it into a l
 <span id="cb6-9"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="note-with-conditional-statements-sequence-matters" class="slide level2 center">
-<h2>Note: with conditional statements sequence matters!</h2>
-<p>Conditional statements are evaluated <strong>in order</strong> so the sequence of your code matters:</p>
-<ul>
-<li>R checks each condition <strong>one by one</strong>, from top to bottom<br>
-</li>
-<li>As soon as it finds a condition that is <code>TRUE</code>, it <strong>runs that block</strong> and <strong>skips the rest</strong></li>
-</ul>
-</section>
 <section id="multiple-tests-with-if-else-if-else-1" class="slide level2 center">
 <h2>2. Multiple tests with “if…”, “else if…”, “else”</h2>
 <p>Another example with multiple <code>else if</code> statements:</p>
@@ -413,26 +430,48 @@ wont work to evaluate each element of the vector, you ll have to put it into a l
 <span id="cb7-13"><a></a>}</span>
 <span id="cb7-14"><a></a><span class="fu">print</span>(weather)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
+<section id="note-with-conditional-statements-sequence-matters" class="slide level2 center">
+<h2>Note: with conditional statements sequence matters!</h2>
+<div title="Order matters">
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Order matters</strong></p>
+</div>
+<div class="callout-content">
+<p>Conditional statements are evaluated in order, so the sequence of your code matters:</p>
+<ul>
+<li>R checks each condition one by one, from top to bottom<br>
+</li>
+<li>R stops checking once it finds a condition that is <code>TRUE</code>: it runs that block and skips the rest</li>
+<li>As a rule of thumb: order your conditions from most specific to most general, ending with a default case <code>else</code></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
 <section class="slide level2 center">
 
 <h3 id="practice-1">💻 Practice 1</h3>
 <p>What happens if the conditions are out of order?</p>
-<p>Copy the code below in your console and move the line <code>temperature &gt;= 10</code> before the line <code>temperature &gt;= 20</code>. Then run the code with a temperature of 25 as input. What do you notice?</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="co"># Enter a temperature when prompted</span></span>
-<span id="cb8-2"><a></a>temperature <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(<span class="fu">readline</span>(<span class="at">prompt =</span> <span class="st">"Enter today's temperature in Celsius: "</span>))</span>
-<span id="cb8-3"><a></a></span>
-<span id="cb8-4"><a></a><span class="co"># Determine the variable weather based on temperature</span></span>
-<span id="cb8-5"><a></a><span class="cf">if</span> (temperature <span class="sc">&gt;=</span> <span class="dv">30</span>) {</span>
-<span id="cb8-6"><a></a>  weather <span class="ot">&lt;-</span> <span class="st">"Hot"</span></span>
-<span id="cb8-7"><a></a>} <span class="cf">else</span> <span class="cf">if</span> (temperature <span class="sc">&gt;=</span> <span class="dv">20</span>) {</span>
-<span id="cb8-8"><a></a>  weather <span class="ot">&lt;-</span> <span class="st">"Cool"</span></span>
-<span id="cb8-9"><a></a>} <span class="cf">else</span> <span class="cf">if</span> (temperature <span class="sc">&gt;=</span> <span class="dv">10</span>) {</span>
-<span id="cb8-10"><a></a>  weather <span class="ot">&lt;-</span> <span class="st">"Breezy"</span></span>
-<span id="cb8-11"><a></a>} <span class="cf">else</span> {</span>
-<span id="cb8-12"><a></a>  weather <span class="ot">&lt;-</span> <span class="st">"Freezing"</span></span>
-<span id="cb8-13"><a></a>}</span>
-<span id="cb8-14"><a></a><span class="fu">print</span>(weather)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Once done, <a href="https://codeshare.io/G8nxLD" target="_blank">share your code here</a>. If you have questions post on <a href="https://edstem.org/us/courses/86758/discussion">Ed Discussion</a> or ask us directly!</p>
+<p>Copy the code below in your console and move the line <code>temperature &gt;= 10</code> before the line <code>temperature &gt;= 20</code>. Leave the input temperature set as 25. What do you notice?</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>temperature <span class="ot">&lt;-</span> <span class="dv">25</span></span>
+<span id="cb8-2"><a></a></span>
+<span id="cb8-3"><a></a><span class="cf">if</span> (temperature <span class="sc">&gt;=</span> <span class="dv">30</span>) {</span>
+<span id="cb8-4"><a></a>  weather <span class="ot">&lt;-</span> <span class="st">"Hot"</span></span>
+<span id="cb8-5"><a></a>} <span class="cf">else</span> <span class="cf">if</span> (temperature <span class="sc">&gt;=</span> <span class="dv">20</span>) {</span>
+<span id="cb8-6"><a></a>  weather <span class="ot">&lt;-</span> <span class="st">"Cool"</span></span>
+<span id="cb8-7"><a></a>} <span class="cf">else</span> <span class="cf">if</span> (temperature <span class="sc">&gt;=</span> <span class="dv">10</span>) {</span>
+<span id="cb8-8"><a></a>  weather <span class="ot">&lt;-</span> <span class="st">"Breezy"</span></span>
+<span id="cb8-9"><a></a>} <span class="cf">else</span> {</span>
+<span id="cb8-10"><a></a>  weather <span class="ot">&lt;-</span> <span class="st">"Freezing"</span></span>
+<span id="cb8-11"><a></a>}</span>
+<span id="cb8-12"><a></a><span class="fu">print</span>(weather)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Once done, <a href="https://codeshare.io/G8nxLD" target="_blank">share your code here</a>. Questions? post on <a href="https://edstem.org/us/courses/86758/discussion">Ed Discussion</a> or ask us directly!</p>
 <!--
 ```r
 temperature <- as.integer(readline(prompt = "Enter today's temperature in Celsius: "))
@@ -455,22 +494,20 @@ If temperature is 25, R hits temperature >= 10 first (which is TRUE) and never r
 <section class="slide level2 center">
 
 <h3 id="practice-2">💻 Practice 2</h3>
-<p>Copy the code below into your console and add another <code>else if</code> statement that checks whether the temperature is between 0 (inclusive) and 10 (exclusive). If that condition is true, set weather to “Cold” (so the “Cold” range is 0–9°C).</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="co"># Enter a temperature when prompted</span></span>
-<span id="cb9-2"><a></a>temperature <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(<span class="fu">readline</span>(<span class="at">prompt =</span> <span class="st">"Enter today's temperature in Celsius: "</span>))</span>
-<span id="cb9-3"><a></a></span>
-<span id="cb9-4"><a></a><span class="co"># Determine the variable weather based on temperature</span></span>
-<span id="cb9-5"><a></a><span class="cf">if</span> (temperature <span class="sc">&gt;=</span> <span class="dv">30</span>) {</span>
-<span id="cb9-6"><a></a>  weather <span class="ot">&lt;-</span> <span class="st">"Hot"</span></span>
-<span id="cb9-7"><a></a>} <span class="cf">else</span> <span class="cf">if</span> (temperature <span class="sc">&gt;=</span> <span class="dv">20</span>) {</span>
-<span id="cb9-8"><a></a>  weather <span class="ot">&lt;-</span> <span class="st">"Cool"</span></span>
-<span id="cb9-9"><a></a>} <span class="cf">else</span> <span class="cf">if</span> (temperature <span class="sc">&gt;=</span> <span class="dv">10</span>) {</span>
-<span id="cb9-10"><a></a>  weather <span class="ot">&lt;-</span> <span class="st">"Breezy"</span></span>
-<span id="cb9-11"><a></a>} <span class="cf">else</span> {</span>
-<span id="cb9-12"><a></a>  weather <span class="ot">&lt;-</span> <span class="st">"Freezing"</span></span>
-<span id="cb9-13"><a></a>}</span>
-<span id="cb9-14"><a></a><span class="fu">print</span>(weather)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Once done, <a href="https://codeshare.io/G8nxLD" target="_blank">share your code here</a>. If you have questions post on <a href="https://edstem.org/us/courses/86758/discussion">Ed Discussion</a> or ask us directly!</p>
+<p>Copy the code below into your console and add another <code>else if</code> statement that checks whether the temperature is between 0 (inclusive) and 10 (exclusive). If that condition is true, set weather to “Cold” (so the “Cold” range is 0–9°C). Leave the input temperature set as 4.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>temperature <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb9-2"><a></a></span>
+<span id="cb9-3"><a></a><span class="cf">if</span> (temperature <span class="sc">&gt;=</span> <span class="dv">30</span>) {</span>
+<span id="cb9-4"><a></a>  weather <span class="ot">&lt;-</span> <span class="st">"Hot"</span></span>
+<span id="cb9-5"><a></a>} <span class="cf">else</span> <span class="cf">if</span> (temperature <span class="sc">&gt;=</span> <span class="dv">20</span>) {</span>
+<span id="cb9-6"><a></a>  weather <span class="ot">&lt;-</span> <span class="st">"Cool"</span></span>
+<span id="cb9-7"><a></a>} <span class="cf">else</span> <span class="cf">if</span> (temperature <span class="sc">&gt;=</span> <span class="dv">10</span>) {</span>
+<span id="cb9-8"><a></a>  weather <span class="ot">&lt;-</span> <span class="st">"Breezy"</span></span>
+<span id="cb9-9"><a></a>} <span class="cf">else</span> {</span>
+<span id="cb9-10"><a></a>  weather <span class="ot">&lt;-</span> <span class="st">"Freezing"</span></span>
+<span id="cb9-11"><a></a>}</span>
+<span id="cb9-12"><a></a><span class="fu">print</span>(weather)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Once done, <a href="https://codeshare.io/G8nxLD" target="_blank">share your code here</a>. Questions? post on <a href="https://edstem.org/us/courses/86758/discussion">Ed Discussion</a> or ask us directly!</p>
 <!--
 ```r
 # Take user input
@@ -512,23 +549,24 @@ HERE YOU WON'T NOTICE IT THOUGH, BUT  USING OR IS STILL LOGICALLY INCORRECT
 <h3 id="practice-3">💻 Practice 3</h3>
 <p>When do we use <code>&amp;</code> (and) versus <code>|</code> (or) in conditional statements? Try these two examples, what do you notice and why?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>temperature <span class="ot">&lt;-</span> <span class="dv">25</span></span>
-<span id="cb10-2"><a></a></span>
-<span id="cb10-3"><a></a><span class="co"># example 1</span></span>
-<span id="cb10-4"><a></a><span class="cf">if</span> (temperature <span class="sc">&gt;=</span> <span class="dv">0</span> <span class="sc">&amp;</span> temperature <span class="sc">&lt;</span> <span class="dv">10</span>) {</span>
-<span id="cb10-5"><a></a>  weather <span class="ot">&lt;-</span> <span class="st">"Cold"</span></span>
-<span id="cb10-6"><a></a>} <span class="cf">else</span> {</span>
-<span id="cb10-7"><a></a>  weather <span class="ot">&lt;-</span> <span class="st">"Something else"</span></span>
-<span id="cb10-8"><a></a>}</span>
-<span id="cb10-9"><a></a><span class="fu">print</span>(weather)</span>
-<span id="cb10-10"><a></a></span>
-<span id="cb10-11"><a></a><span class="co"># example 2</span></span>
-<span id="cb10-12"><a></a><span class="cf">if</span> (temperature <span class="sc">&gt;=</span> <span class="dv">0</span> <span class="sc">|</span> temperature <span class="sc">&lt;</span> <span class="dv">10</span>) {</span>
-<span id="cb10-13"><a></a>  weather <span class="ot">&lt;-</span> <span class="st">"Cold"</span></span>
-<span id="cb10-14"><a></a>} <span class="cf">else</span> {</span>
-<span id="cb10-15"><a></a>  weather <span class="ot">&lt;-</span> <span class="st">"Something else"</span></span>
-<span id="cb10-16"><a></a>}</span>
-<span id="cb10-17"><a></a><span class="fu">print</span>(weather)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="co"># Set temperature (25°C, which equals 77°F)</span></span>
+<span id="cb10-2"><a></a>temperature <span class="ot">&lt;-</span> <span class="dv">25</span></span>
+<span id="cb10-3"><a></a></span>
+<span id="cb10-4"><a></a><span class="co"># Example 1</span></span>
+<span id="cb10-5"><a></a><span class="cf">if</span> (temperature <span class="sc">&gt;=</span> <span class="dv">0</span> <span class="sc">&amp;</span> temperature <span class="sc">&lt;</span> <span class="dv">10</span>) {</span>
+<span id="cb10-6"><a></a>  weather <span class="ot">&lt;-</span> <span class="st">"Cold"</span></span>
+<span id="cb10-7"><a></a>} <span class="cf">else</span> {</span>
+<span id="cb10-8"><a></a>  weather <span class="ot">&lt;-</span> <span class="st">"Warm"</span></span>
+<span id="cb10-9"><a></a>}</span>
+<span id="cb10-10"><a></a><span class="fu">print</span>(weather)</span>
+<span id="cb10-11"><a></a></span>
+<span id="cb10-12"><a></a><span class="co"># Example 2</span></span>
+<span id="cb10-13"><a></a><span class="cf">if</span> (temperature <span class="sc">&gt;=</span> <span class="dv">0</span> <span class="sc">|</span> temperature <span class="sc">&lt;</span> <span class="dv">10</span>) {</span>
+<span id="cb10-14"><a></a>  weather <span class="ot">&lt;-</span> <span class="st">"Warm"</span></span>
+<span id="cb10-15"><a></a>} <span class="cf">else</span> {</span>
+<span id="cb10-16"><a></a>  weather <span class="ot">&lt;-</span> <span class="st">"Something else"</span></span>
+<span id="cb10-17"><a></a>}</span>
+<span id="cb10-18"><a></a><span class="fu">print</span>(weather)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <!--
 Use AND (&) when both conditions must be TRUE (here, >= 0 and < 10) at the same time for the code inside the {} runs
@@ -595,11 +633,11 @@ So this condition is TOO BROAD would always be true, because every number is eit
 </section>
 <section id="vectorized-tests-with-ifelse" class="slide level2 center">
 <h2>4. Vectorized tests with ifelse()</h2>
-<p>Our final case for today is <code>ifelse()</code>: it look like a conditional statement, but it’s actually a function that applies a condition to <strong>each element of a vector</strong>.</p>
+<p>Our final case for today is <code>ifelse()</code>: it looks like a conditional statement, but it’s actually a function that applies a condition to <strong>each element of a vector</strong>.</p>
 <p>Syntax:</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="fu">ifelse</span> (condition to be evaluated,</span>
-<span id="cb13-2"><a></a>    action performed when condition is <span class="cn">TRUE</span>,</span>
-<span id="cb13-3"><a></a>    action performed when condition is <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-2"><a></a>        action performed when condition is <span class="cn">TRUE</span>,</span>
+<span id="cb13-3"><a></a>        action performed when condition is <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Example:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">ifelse</span>(<span class="fu">sqrt</span>(<span class="dv">16</span>) <span class="sc">&gt;</span> <span class="dv">3</span>, </span>
@@ -622,11 +660,24 @@ ifelse(): simpler and more suited for simple assignments or to transform variabl
 <span id="cb15-4"><a></a>       <span class="st">"even"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
-<h4 id="how-ifelse-works">How <code>ifelse()</code> works:</h4>
+<div title="How ifelse() works">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>How ifelse() works</strong></p>
+</div>
+<div class="callout-content">
 <ul>
-<li><p>If the input of <code>ifelse()</code> is a <strong>vector</strong>, the output is also a <strong>vector</strong>: <code>ifelse()</code> evaluates <strong>each element of the vector</strong>, applying the specified action for each element.</p></li>
-<li><p>This is possible because <strong><code>ifelse()</code> supports vectorized operations</strong>: operations directly applied on entire vectors, rather than looping through individual elements one-by-one.</p></li>
+<li><p>If the input of ifelse() is a vector, the output is also a vector: <strong>ifelse() evaluates each element of the vector</strong> and applies the corresponding action</p></li>
+<li><p>This works because <strong>ifelse() supports vectorized operations</strong>: operations directly applied on entire vectors, rather than looping through individual elements one-by-one</p></li>
 </ul>
+</div>
+</div>
+</div>
+</div>
 <!--
 How can we rewrite the same code using the standard `if-else` statement?
 
@@ -672,15 +723,19 @@ else
 <p>Examples:</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>)</span>
 <span id="cb16-2"><a></a></span>
-<span id="cb16-3"><a></a><span class="co"># if / else: works for a single value only</span></span>
-<span id="cb16-4"><a></a><span class="cf">if</span> (x <span class="sc">&gt;</span> <span class="dv">10</span>) <span class="st">"High"</span> <span class="cf">else</span> <span class="st">"Low"</span></span>
-<span id="cb16-5"><a></a></span>
-<span id="cb16-6"><a></a><span class="co"># ifelse(): works element-wise (vectorized)</span></span>
-<span id="cb16-7"><a></a><span class="fu">ifelse</span>(x <span class="sc">&gt;</span> <span class="dv">10</span>, <span class="st">"High"</span>, <span class="st">"Low"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb16-3"><a></a><span class="co"># Using if / else: works only with a single value</span></span>
+<span id="cb16-4"><a></a><span class="cf">if</span> (x <span class="sc">&gt;</span> <span class="dv">10</span>) {</span>
+<span id="cb16-5"><a></a>  <span class="st">"High"</span></span>
+<span id="cb16-6"><a></a>} <span class="cf">else</span> {</span>
+<span id="cb16-7"><a></a>  <span class="st">"Low"</span></span>
+<span id="cb16-8"><a></a>}</span>
+<span id="cb16-9"><a></a></span>
+<span id="cb16-10"><a></a><span class="co"># Using ifelse(): works element-wise (vectorized)</span></span>
+<span id="cb16-11"><a></a><span class="fu">ifelse</span>(x <span class="sc">&gt;</span> <span class="dv">10</span>, <span class="st">"High"</span>, <span class="st">"Low"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="vectorized-tests-with-ifelse-3" class="slide level2 center">
 <h2>4. Vectorized tests with ifelse()</h2>
-<p>For this reason, <code>ifelse()</code> is often used to make changes to columns in a data frame. For example, what is the output of this code?</p>
+<p>For this reason, <code>ifelse()</code> is often used to make changes in a data frame. Example: what is the output of this code?</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb17-2"><a></a></span>
@@ -779,7 +834,7 @@ qualify %>%
 <p><strong>Tip</strong></p>
 </div>
 <div class="callout-content">
-<p>If you have multiple conditions (more than two): use separate <code>mutate()</code> + <code>ifelse()</code> steps (like on this slide) rather than nesting them (like in the previous slide).</p>
+<p>When you have 2+ conditions: use separate <code>mutate()</code> + <code>ifelse()</code> steps (as shown here), instead of nesting.</p>
 </div>
 </div>
 </div>
@@ -807,14 +862,32 @@ Use `case_when()` when:
 </section>
 <section id="vectorized-tests-with-ifelse-6" class="slide level2 center">
 <h2>4. Vectorized tests with ifelse()</h2>
-<p>People often use <code>ifelse()</code> to recode variables in a dataframe. It works when the recoding can be done with a single <code>ifelse()</code>, as shown in this example. Though I recommend using <code>case_when()</code> for recoding variables (cleaner, more beginner friendly), as we learned in the recording variables module.</p>
-<p>Example: the variable <code>decisionDirection</code> takes four values (1 conservative, 2 liberal, 3 other, and NA). Recode it to take three values (0 conservative, 1 liberal, and NA for both NA and other)</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>data <span class="sc">%&gt;%</span></span>
+<p>People often use <code>ifelse()</code> to recode variables in a dataframe.</p>
+<p>For example, the variable <code>decisionDirection</code> takes four values: 1 = Conservative, 2 = Liberal, 3 = Other, and NA.<br>
+Recode it to three values: 0 = Conservative, 1 = Liberal, and NA for both NA and Other.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>data <span class="sc">|&gt;</span></span>
 <span id="cb20-2"><a></a>  <span class="fu">mutate</span>(<span class="at">decisionDirection =</span> <span class="fu">ifelse</span>(</span>
-<span id="cb20-3"><a></a>    decisionDirection <span class="sc">==</span> <span class="dv">3</span>, <span class="co"># condition to be evaluated</span></span>
-<span id="cb20-4"><a></a>    <span class="cn">NA</span>,                     <span class="co"># if true, do NA</span></span>
+<span id="cb20-3"><a></a>    decisionDirection <span class="sc">==</span> <span class="dv">3</span>, <span class="co"># condition to evaluate</span></span>
+<span id="cb20-4"><a></a>    <span class="cn">NA</span>,                     <span class="co"># if true, set to NA</span></span>
 <span id="cb20-5"><a></a>    decisionDirection <span class="sc">-</span> <span class="dv">1</span>   <span class="co"># if false, subtract one to value</span></span>
 <span id="cb20-6"><a></a>    ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><br></p>
+<div title="Tip">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>Tip: Prefer <code>case_when()</code> over <code>ifelse()</code> for recoding variables (see the recoding class): it is easier to read and scale.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
 <!--
 More on this:
 https://docs.ycrc.yale.edu/r-novice-gapminder/07-control-flow/
@@ -840,7 +913,7 @@ https://www.r-bloggers.com/2020/02/if-else-and-ifelse/
 <li>We focused on conditional statements: how to make decisions using <code>if</code>, <code>else</code>, and <code>else if</code></li>
 <li>We practiced different types of conditionals: single test, multiple tests, and nested tests<br>
 </li>
-<li>We learned vectorized tests with the function <code>ifelse()</code> and how this differs from standard conditional statements</li>
+<li>Run vectorized tests with the function <code>ifelse()</code> and how this differs from standard conditional statements</li>
 </ul>
 </section>
 <section id="to-print-these-slides-as-pdf" class="slide level2 center">
