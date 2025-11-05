@@ -292,8 +292,9 @@ for (i in c(1,2,3)) {
   print(i)
   for (j in c("cat", "dog", "squirrel", "rabbit")) {
     print(j)
-     for (x in c(10:11))
+     for (x in c(10:11)) {
         print(x)
+     }
   }
 }
 -->
@@ -502,7 +503,7 @@ To see why, we need to understand the difference between looping over elements v
 <span id="cb11-11"><a></a>  <span class="fu">print</span>(x[i])     <span class="co"># value at that index</span></span>
 <span id="cb11-12"><a></a>}</span>
 <span id="cb11-13"><a></a></span>
-<span id="cb11-14"><a></a><span class="co"># Same as Version B just another common method</span></span>
+<span id="cb11-14"><a></a><span class="co"># Same as Version B just using seq_along (recommended)</span></span>
 <span id="cb11-15"><a></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">6</span>)</span>
 <span id="cb11-16"><a></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(x)) {</span>
 <span id="cb11-17"><a></a>  <span class="fu">print</span>(i)</span>
@@ -570,12 +571,26 @@ To see why, we need to understand the difference between looping over elements v
 </section>
 <section id="best-practice-loop-over-indexes" class="slide level2 center">
 <h2>Best Practice: Loop Over Indexes</h2>
-<p>Loop over indexes, like <code>i in 1:length(x)</code> or <code>seq_along(x)</code>, instead of elements/values. Advantages:</p>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>Loop over indexes (preferably using <code>for (i in seq_along(x)</code>) instead of looping over elements/values.</p>
+<p>Advantages of looping over indexes:</p>
 <ul>
-<li>You can modify, save, or assign values by position (e.g., <code>output[i] &lt;- ...</code>)</li>
-<li>You ensure your loop works regardless of the values in the vector (e.g., if values repeat or are not valid indices)</li>
-<li>You have you full control over both: the position <code>i</code> and the value at that position <code>x[i]</code></li>
+<li>You can modify, save, or assign values by position (e.g., <code>output[i] &lt;- ...</code>) without writing extra code</li>
+<li>Your loop works regardless of the values in the vector <code>x</code></li>
+<li>You have full control over both: the position <code>i</code> and the value at that position <code>x[i]</code></li>
+<li>Looping over indexes followw R best practices</li>
 </ul>
+</div>
+</div>
+</div>
 </section>
 <section id="practice-fix-the-bug-in-this-for-loop" class="slide level2 center">
 <h2>💻 Practice: Fix the Bug in this For Loop</h2>
@@ -615,12 +630,40 @@ output
 ```
 :::
 
--->
-<!--
 
-## 💻 Practice
 
-You run a store and want to keep track of how many items were sold each day: you sold 5 items in day 1, 3 items on day 2, and 7 items on day 3
+::: {.cell}
+::: {.cell-output .cell-output-stdout}
+
+```
+[1] "Current i is: 10"
+[1] "Current sum is: 10"
+[1] 10
+[1] "Current i is: 2"
+[1] "Current sum is: 12"
+[1] 12
+[1] "Current i is: 100"
+[1] "Current sum is: 112"
+[1] 112
+```
+
+
+:::
+
+::: {.cell-output .cell-output-stdout}
+
+```
+[1]  10  12 112
+```
+
+
+:::
+:::
+
+
+## 💻 More Practice
+
+You run a store and want to keep track of how many items were sold each day: you sold 5 items in day 1, 3 items on day 2, and 7 items on day 3. 
 
 ```r
 daily_sales <- c(5, 3, 7)
@@ -631,7 +674,7 @@ Your Task:
 - Use a for loop to go through each day’s sales 
 - For each day, print something like: "Day 2 - Items sold: 3" (the message should change accordingly)
 - Create an object called `total` to store a running total of all sales
-- Create an object called `ouput` to store the total after each day (e.g. `output[2]` should store the total sales after day 2)
+- Create an object called `output` to store the total after each day (e.g. `output[2]` should store the total sales after day 2)
 
 <!--
 daily_sales <- c(5, 3, 7)
@@ -663,15 +706,19 @@ for (i in seq_along(daily_sales)) {
 <span id="cb16-4"><a></a>} <span class="cf">else</span> {</span>
 <span id="cb16-5"><a></a>  <span class="fu">print</span>(<span class="st">"even"</span>)</span>
 <span id="cb16-6"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>But now we know that we can fix it with a for loop!</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>numbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">6</span>, <span class="dv">7</span>)</span>
+<p>But now we know how to fix that error: with a for loop! This way, the <code>if-else</code> runs one element at a time:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>numbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">6</span>, <span class="dv">7</span>)</span>
 <span id="cb17-2"><a></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(numbers)) {</span>
-<span id="cb17-3"><a></a>  <span class="cf">if</span> (numbers[i] <span class="sc">%%</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">1</span>) {</span>
-<span id="cb17-4"><a></a>    <span class="fu">print</span>(<span class="st">"odd"</span>)</span>
-<span id="cb17-5"><a></a>  } <span class="cf">else</span> {</span>
-<span id="cb17-6"><a></a>    <span class="fu">print</span>(<span class="st">"even"</span>)</span>
-<span id="cb17-7"><a></a>  }</span>
-<span id="cb17-8"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-3"><a></a>  <span class="co">#print(i)</span></span>
+<span id="cb17-4"><a></a>  <span class="co">#print(numbers[i])</span></span>
+<span id="cb17-5"><a></a>  <span class="cf">if</span> (numbers[i] <span class="sc">%%</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">1</span>) {</span>
+<span id="cb17-6"><a></a>    <span class="fu">print</span>(<span class="st">"odd"</span>)</span>
+<span id="cb17-7"><a></a>  } <span class="cf">else</span> {</span>
+<span id="cb17-8"><a></a>    <span class="fu">print</span>(<span class="st">"even"</span>)</span>
+<span id="cb17-9"><a></a>  }</span>
+<span id="cb17-10"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section></section>
 <section>
 <section id="using-for-loops-with-dataframes" class="title-slide slide level1 center middle">

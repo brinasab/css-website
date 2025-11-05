@@ -118,8 +118,9 @@ for (i in c(1,2,3)) {
   print(i)
   for (j in c("cat", "dog", "squirrel", "rabbit")) {
     print(j)
-     for (x in c(10:11))
+     for (x in c(10:11)) {
         print(x)
+     }
   }
 }
 -->
@@ -355,7 +356,7 @@ for (i in 1:length(x)) {
   print(x[i])     # value at that index
 }
 
-# Same as Version B just another common method
+# Same as Version B just using seq_along (recommended)
 x <- c(1, 4, 6)
 for (i in seq_along(x)) {
   print(i)
@@ -432,11 +433,18 @@ output
 
 ## Best Practice: Loop Over Indexes
 
-Loop over indexes, like `i in 1:length(x)` or `seq_along(x)`, instead of elements/values. Advantages:
+::: {.callout-tip}
 
-- You can modify, save, or assign values by position (e.g., `output[i] <- ...`)
-- You ensure your loop works regardless of the values in the vector (e.g., if values repeat or are not valid indices)
-- You have you full control over both: the position `i` and the value at that position `x[i]`
+Loop over indexes (preferably using `for (i in seq_along(x)`) instead of looping over elements/values. 
+
+Advantages of looping over indexes:
+
+- You can modify, save, or assign values by position  (e.g., `output[i] <- ...`) without writing extra code
+- Your loop works regardless of the values in the vector  `x`
+- You have full control over both: the position `i` and the value at that position `x[i]`
+- Looping over indexes followw R best practices
+
+:::
 
 ---
 
@@ -480,13 +488,30 @@ for (i in seq_along(tomatoes)) {
 output
 
 ```
--->
 
-<!--
+```{r}
+# another student solutions form fall 25
+# works but more complicated as it forces to use a count
 
-## 💻 Practice
+tomatoes <- c(10, 2, 100) 
+s <- 0
+output <- vector(mode = "integer", length = length(tomatoes))
+count <- 1
 
-You run a store and want to keep track of how many items were sold each day: you sold 5 items in day 1, 3 items on day 2, and 7 items on day 3
+for (i in tomatoes) {
+  print(paste("Current i is:", i))
+  s <- s + i
+  print(paste("Current sum is:", s))
+  output[count] <- s
+  print(output[count])
+  count <- count + 1
+}
+output
+```
+
+## 💻 More Practice
+
+You run a store and want to keep track of how many items were sold each day: you sold 5 items in day 1, 3 items on day 2, and 7 items on day 3. 
 
 ```r
 daily_sales <- c(5, 3, 7)
@@ -497,7 +522,7 @@ Your Task:
 - Use a for loop to go through each day’s sales 
 - For each day, print something like: "Day 2 - Items sold: 3" (the message should change accordingly)
 - Create an object called `total` to store a running total of all sales
-- Create an object called `ouput` to store the total after each day (e.g. `output[2]` should store the total sales after day 2)
+- Create an object called `output` to store the total after each day (e.g. `output[2]` should store the total sales after day 2)
 
 <!--
 daily_sales <- c(5, 3, 7)
@@ -526,7 +551,6 @@ ifelse(numbers %% 2 == 1,
 ```
 
 We can try to rewrite it using `if-else` statement, but we will get an error (recall why?):
-
 ```r
 numbers <- c(10, 6, 7)
 if (numbers %% 2 == 1) { 
@@ -536,11 +560,12 @@ if (numbers %% 2 == 1) {
 }
 ```
 
-But now we know that we can fix it with a for loop!
-
-```r
+But now we know how to fix that error: with a for loop! This way, the `if-else` runs one element at a time:
+```{r, echo = TRUE, results = "hide"}
 numbers <- c(10, 6, 7)
 for (i in 1:length(numbers)) {
+  #print(i)
+  #print(numbers[i])
   if (numbers[i] %% 2 == 1) {
     print("odd")
   } else {
