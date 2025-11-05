@@ -56,7 +56,7 @@ lec <- tibble::tribble(
   "2025-11-03", "Lecture 11: Control Flow 1 — Conditionals",                     "11-home.qmd",
   "2025-11-05", "Lecture 12: Control Flow 2 — Loops",                            "12-home.qmd",
   "2025-11-06", "Homework 3 Due",                                                "",
-  "2025-11-10", "Lecture 13: Functions 1",                                       "13-home.qmd",
+  "2025-11-10", "Lecture 13: Control Flow 2 — Loops; Functions 1",              "13-home.qmd",
   "2025-11-12", "Lecture 14: Functions 2; Debugging",                            "14-home.qmd",
   "2025-11-12", "Homework 4 Released",                                           "",
   "2025-11-17", "Lecture 15: Web-Scraping 1",                                    "15-home.qmd",
