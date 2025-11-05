@@ -1,5 +1,5 @@
 ---
-title: "Lecture 13: Functions 1"
+title: "Lecture 13: Control Flow 2 (cont.); Functions 1"
 date: 2025-11-10
 summary: "Functions 1"
 url_slides: 13-slides.qmd
@@ -22,6 +22,11 @@ knitr::opts_chunk$set(echo = FALSE)
 <!-- `usethis::use_course("css-materials/functions")` -->
 
 ## Learning Objectives
+
+<!-- ADD THESE FROM LAST TIME
+- Identify and apply alternatives to for loops in R, such as `map()`, `across()`, and `apply()`
+- Understand when and how to use while loops for condition-based iteration
+-->
 
 * Define functions and their purposes  
 * Understand the difference between built-in and user-written functions  
