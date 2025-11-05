@@ -23,8 +23,9 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Learning Objectives
 
-**Loops:**
+**Loops (cont. from last lecture):**
 
+- Using for loops within a data frame 
 - Identify and apply alternatives to for loops in R, such as `map()`, `across()`, and `apply()`
 - Introduce while loops
 

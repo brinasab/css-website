@@ -1355,7 +1355,7 @@
     "href": "lectures/13-home.html#learning-objectives",
     "title": "Lecture 13: Control Flow 2 (cont.); Functions 1",
     "section": "Learning Objectives",
-    "text": "Learning Objectives\nLoops:\n\nIdentify and apply alternatives to for loops in R, such as map(), across(), and apply()\nIntroduce while loops\n\nFunctions:\n\nDefine functions and their purposes\n\nUnderstand the difference between built-in and user-written functions\n\nLearn the syntax of user-written functions"
+    "text": "Learning Objectives\nLoops (cont. from last lecture):\n\nUsing for loops within a data frame\nIdentify and apply alternatives to for loops in R, such as map(), across(), and apply()\nIntroduce while loops\n\nFunctions:\n\nDefine functions and their purposes\n\nUnderstand the difference between built-in and user-written functions\n\nLearn the syntax of user-written functions"
   },
   {
     "objectID": "lectures/13-home.html#readings",
