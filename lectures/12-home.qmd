@@ -25,8 +25,7 @@ knitr::opts_chunk$set(echo = FALSE)
 - Understand how for loops work
 - Learn how to track and save results during a loop (e.g., running totals)
 - Recognize the difference between looping over indexes and over elements
-- Identify and apply alternatives to for loops in R, such as `map()`, `across()`, and `apply()`
-- Understand when and how to use while loops for condition-based iteration
+- Observe how we can use for loop with if-else statements and within dataframes
 
 
 ## Readings
