@@ -23,15 +23,17 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Learning Objectives
 
-<!-- ADD THESE FROM LAST TIME
-- Identify and apply alternatives to for loops in R, such as `map()`, `across()`, and `apply()`
-- Understand when and how to use while loops for condition-based iteration
--->
+**Control Flow 2 — Loops:**
 
-* Define functions and their purposes  
-* Understand the difference between built-in and user-written functions  
-* Learn the syntax of user-written functions  
-* Practice writing your own functions in R
+- Identify and apply alternatives to for loops in R, such as `map()`, `across()`, and `apply()`
+- Introduce while loops
+
+**Functions 1:**  
+
+- Define functions and their purposes  
+- Understand the difference between built-in and user-written functions  
+- Learn the syntax of user-written functions  
+
 
 ## Readings
 

@@ -1,6 +1,6 @@
 ---
 title: "Computing for the Social Sciences: Lecture 13"
-subtitle: "Topics: Functions 1"
+subtitle: "Topics: Control Flow 2 (cont.); Functions 1"
 author: "Sabrina Nardin, Fall 2025"
 format:
   revealjs:
