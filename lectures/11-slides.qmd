@@ -59,7 +59,7 @@ Remember
 - For each slide, check what audience might not know
 - All weird R signs 
 - dplyr syntax at point 4
-- Explain workbench (R interface) as soon as you log int
+- Explain workbench (R interface) as soon as you log into it
 -->
 
 
