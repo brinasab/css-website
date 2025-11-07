@@ -401,9 +401,9 @@ print(weather)
 
 # Example 2
 if (temperature >= 0 | temperature < 10) {
-  weather <- "Warm"
+  weather <- "Cold"
 } else {
-  weather <- "Something else"
+  weather <- "Warm"
 }
 print(weather)
 ```
