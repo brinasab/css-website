@@ -1341,14 +1341,14 @@
     "href": "lectures/13-home.html",
     "title": "Lecture 13: Control Flow 2 (cont.); Functions 1",
     "section": "",
-    "text": "Date: November 10, 2025\nTopics: Finish Loops; Introduce Functions\nSlides: View Slides\nCode: No in-class code to download"
+    "text": "Date: November 10, 2025\nTopics: Finish Loops; Introduce Functions\nSlides: View Slides\nCode: usethis::use_course(\"css-materials/functions\")"
   },
   {
     "objectID": "lectures/13-home.html#info-and-materials",
     "href": "lectures/13-home.html#info-and-materials",
     "title": "Lecture 13: Control Flow 2 (cont.); Functions 1",
     "section": "",
-    "text": "Date: November 10, 2025\nTopics: Finish Loops; Introduce Functions\nSlides: View Slides\nCode: No in-class code to download"
+    "text": "Date: November 10, 2025\nTopics: Finish Loops; Introduce Functions\nSlides: View Slides\nCode: usethis::use_course(\"css-materials/functions\")"
   },
   {
     "objectID": "lectures/13-home.html#learning-objectives",
@@ -5632,21 +5632,21 @@
     "href": "lectures/13-slides.html#automate-the-same-task-with-a-loop",
     "title": "Computing for the Social Sciences: Lecture 13",
     "section": "Automate the same task with a loop",
-    "text": "Automate the same task with a loop\nFirst, initialize an empty vector to store the results.\nSecond, use a for loop to calculate the mean of each (numeric) column of this penguins dataframe.\nLet’s run this code:\n\noutput &lt;- vector(mode = \"double\", length = ncol(penguins))\n\nfor (i in seq_along(penguins)) {\n  #print(i)\n  #print(penguins[i])\n  output[i] &lt;- mean(penguins[[i]], na.rm = TRUE)\n}\n\noutput"
+    "text": "Automate the same task with a loop\nFirst, initialize an empty vector to store the results.\nSecond, use a for loop to calculate the mean of each (numeric) column of this penguins dataframe.\nLet’s run this code:\n\noutput &lt;- vector(mode = \"double\", length = ncol(penguins))\n\nfor (i in seq_along(penguins)) {\n  output[i] &lt;- mean(penguins[[i]], na.rm = TRUE)\n}\n\noutput"
   },
   {
     "objectID": "lectures/13-slides.html#why-we-even-learn-loops-in-r",
     "href": "lectures/13-slides.html#why-we-even-learn-loops-in-r",
     "title": "Computing for the Social Sciences: Lecture 13",
     "section": "Why We Even Learn Loops in R?",
-    "text": "Why We Even Learn Loops in R?\nR is a vectorized language, so many tasks can and should be done without writing a for loop.\nStill, understanding loops is important:\n\nto build foundational logic and control flow skills\nfor non-vectorized tasks, like row-by-row operations\nto debug more complex workflows"
+    "text": "Why We Even Learn Loops in R?\nR is a vectorized language, meaning it’s able to apply operations to entire vectors in one go.\nThis also implies that many tasks in R can and should be done without writing a for loop.\nStill, understanding loops is important:\n\nto build logic and control flow skills\nfor non-vectorized tasks, like row-by-row operations\nto debug more complex workflows"
   },
   {
     "objectID": "lectures/13-slides.html#three-main-alternatives-to-for-loops-in-r",
     "href": "lectures/13-slides.html#three-main-alternatives-to-for-loops-in-r",
     "title": "Computing for the Social Sciences: Lecture 13",
     "section": "Three Main Alternatives to For Loops in R",
-    "text": "Three Main Alternatives to For Loops in R\nWhen working with dataframes, R provides the following alternatives that are often better than writing a for loop:\n\n\n\nFunction Family\nPackage\nBest Used For\nDocs / Link\n\n\n\n\nmap_*()\npurrr\nApplying functions to elements of lists or columns\nmap docs\n\n\nacross()\ndplyr\nApplying the same function to multiple columns inside mutate() or summarize()\nacross docs\n\n\n*apply()\nbase R\nRow/column-wise operations on matrices or data frames\napply docs\n\n\n\nThe asterisk * is a placeholder for a family of related functions (e.g., map_dbl(), map_chr(), sapply(), etc.)"
+    "text": "Three Main Alternatives to For Loops in R\nWhen working with dataframes, R provides the following alternatives to for loop:\n\n\n\nFunction Family\nPackage\nBest Used For\nDocs\n\n\n\n\nmap_*()\npurrr\nApplying functions to elements of lists or columns\nmap docs\n\n\nacross()\ndplyr\nApplying the same function to multiple columns inside mutate() or summarize()\nacross docs\n\n\n*apply()\nbase R\nRow/column-wise operations on matrices or data frames\napply docs\n\n\n\n\nThe asterisk * is a placeholder for a family of related functions (e.g., map_dbl(), map_chr(), sapply(), etc.)"
   },
   {
     "objectID": "lectures/13-slides.html#option-1-replacing-for-loops-with-map-functions-in-the-tidyverse",
@@ -5773,5 +5773,271 @@
     "title": "Computing for the Social Sciences: Lecture 13",
     "section": "To print these slides as pdf",
     "text": "To print these slides as pdf\nClick on the icon bottom-right corner &gt; Tools &gt; PDF Export Mode &gt; Print as a Pdf"
+  },
+  {
+    "objectID": "lectures/13-slides.html#option-1-replacing-for-loops-with-map-functions",
+    "href": "lectures/13-slides.html#option-1-replacing-for-loops-with-map-functions",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "Option 1: Replacing for loops with map() functions",
+    "text": "Option 1: Replacing for loops with map() functions\n\nThe so-called “map functions” come from the purr package in R: https://purrr.tidyverse.org/reference/map.html\nThere are several map_*() functions each creates a different type of output (this is the same idea as in the for loop when we specify the mode of our output vector):\n\nmap() makes a list\nmap_lgl() makes a logical vector\nmap_int() makes an integer vector\nmap_dbl() makes a double vector\nmap_chr() makes a character vector\n\nLet’s see a few examples using the penguins data."
+  },
+  {
+    "objectID": "lectures/13-slides.html#option-1-replacing-for-loops-with-map-functions-1",
+    "href": "lectures/13-slides.html#option-1-replacing-for-loops-with-map-functions-1",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "Option 1: Replacing for loops with map() functions",
+    "text": "Option 1: Replacing for loops with map() functions\nPick the appropriate map() function (there are several!) and specify at least two main arguments:\n\nwhat you are iterating over\nwhat you are calculating\n\n\npenguins %&gt;% \n  select(where(is.numeric)) %&gt;%\n  map_dbl(mean, na.rm = TRUE)"
+  },
+  {
+    "objectID": "lectures/13-slides.html#option-2-replacing-for-loops-with-across",
+    "href": "lectures/13-slides.html#option-2-replacing-for-loops-with-across",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "Option 2: Replacing for loops with across()",
+    "text": "Option 2: Replacing for loops with across()\nAnother option to replace a for loop is the across() function from dplyr\nWhat it does: applies the same operation (e.g., mean) to multiple columns at once\nBest use: since it comes from dplyr, it works seamlessly inside dplyr verbs like mutate() and summarize() which these are its favorite verbs to work with!"
+  },
+  {
+    "objectID": "lectures/13-slides.html#option-2-replacing-for-loops-with-across-1",
+    "href": "lectures/13-slides.html#option-2-replacing-for-loops-with-across-1",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "Option 2: Replacing for loops with across()",
+    "text": "Option 2: Replacing for loops with across()\nWe looked at this example earlier (which calculates the mean of several columns in a data frame) and we rewrote it using a for loop.\n\npenguins %&gt;% summarize(avg_bill_length = mean(bill_length_mm, na.rm = TRUE))\npenguins %&gt;% summarize(avg_bill_depth = mean(bill_depth_mm, na.rm = TRUE))\npenguins %&gt;% summarize(avg_flipper_length = mean(flipper_length_mm, na.rm = TRUE))\npenguins %&gt;% summarize(avg_body_mass = mean(body_mass_g, na.rm = TRUE))\n\nNow we rewrite it again but this time using across()"
+  },
+  {
+    "objectID": "lectures/13-slides.html#option-2-replacing-for-loops-with-across-2",
+    "href": "lectures/13-slides.html#option-2-replacing-for-loops-with-across-2",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "Option 2: Replacing for loops with across()",
+    "text": "Option 2: Replacing for loops with across()\nRewrite previous example using across():\n\npenguins %&gt;% \n  summarize(\n    across(\n      .cols = where(is.numeric),           # select columns by type\n      .fns = ~ mean(.x, na.rm = TRUE)))    # apply mean, skipping NA\n\n\nThe function across() has two main arguments:\n\n.cols: the columns to operate on. You can select them by position, name, or type - in this example, by type using where(is.numeric)\n.fns: the function, or list of functions, to apply to each column (in this example, we use mean() and .x is a placeholder for the current column being processed)\n\nYou can omit .cols and .fns if you pass the arguments in the correct order."
+  },
+  {
+    "objectID": "lectures/13-slides.html#option-2-replacing-for-loops-with-across-3",
+    "href": "lectures/13-slides.html#option-2-replacing-for-loops-with-across-3",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "Option 2: Replacing for loops with across()",
+    "text": "Option 2: Replacing for loops with across()\nAdd names to the newly computed means:\n\npenguins %&gt;% \n  summarize(\n    across(\n      .cols = where(is.numeric),                   \n      .fns = ~ mean(.x, na.rm = TRUE),             \n      .names = \"avg_{.col}\"                   \n    )\n  )\n\n\nWhat does \\\"avg_{.col}\\\" mean?\n\n\"avg_\" is a literal prefix that will be added to each new column name.\n\n{.col} is a placeholder that will be replaced with the original column name.\n\nSo if you’re applying mean() to a column named bill_length_mm, the result will be named avg_bill_length_mm"
+  },
+  {
+    "objectID": "lectures/13-slides.html#option-3-replacing-for-loops-with-apply-functions",
+    "href": "lectures/13-slides.html#option-3-replacing-for-loops-with-apply-functions",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "Option 3: Replacing for loops with apply() functions",
+    "text": "Option 3: Replacing for loops with apply() functions\nFinally, a third option to replace a for loop in R is using one of the apply() functions from base R\nWhat it does: applies the same operation (e.g., mean) to multiple columns at once\nBest use: when working outside tidyverse verbs (this is from base R!) and can be applied across rows or columns (most common)"
+  },
+  {
+    "objectID": "lectures/13-slides.html#option-3-replacing-for-loops-with-apply-functions-1",
+    "href": "lectures/13-slides.html#option-3-replacing-for-loops-with-apply-functions-1",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "Option 3: Replacing for loops with apply() functions",
+    "text": "Option 3: Replacing for loops with apply() functions\nWe looked at this example earlier (which calculates the mean of several columns in a data frame) and rewrote it using a for loop. Now we rewrite it again but this time using apply():\n\npenguins %&gt;% summarize(avg_bill_length = mean(bill_length_mm, na.rm = TRUE))\npenguins %&gt;% summarize(avg_bill_depth = mean(bill_depth_mm, na.rm = TRUE))\npenguins %&gt;% summarize(avg_flipper_length = mean(flipper_length_mm, na.rm = TRUE))\npenguins %&gt;% summarize(avg_body_mass = mean(body_mass_g, na.rm = TRUE))"
+  },
+  {
+    "objectID": "lectures/13-slides.html#option-3-replacing-for-loops-with-apply-functions-2",
+    "href": "lectures/13-slides.html#option-3-replacing-for-loops-with-apply-functions-2",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "Option 3: Replacing for loops with apply() functions",
+    "text": "Option 3: Replacing for loops with apply() functions\nRewrite previous example using apply():\n\n# manually select only numeric column using base R syntax\npenguins_numeric &lt;- penguins[ , c(\"bill_length_mm\", \"bill_depth_mm\", \n                                  \"flipper_length_mm\", \"body_mass_g\")]\n\n# apply mean to these columns\napply(penguins_numeric, 2, mean, na.rm = TRUE)  \n\nNote the 2 stays for MARGIN = 2 (apply on the columns). If you write 1 it means rows.\nType ?apply in your Console for more info."
+  },
+  {
+    "objectID": "lectures/13-slides.html#option-3-replacing-for-loops-with-apply-functions-3",
+    "href": "lectures/13-slides.html#option-3-replacing-for-loops-with-apply-functions-3",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "Option 3: Replacing for loops with apply() functions",
+    "text": "Option 3: Replacing for loops with apply() functions\nThe apply() family refers to several related functions you can use:\n\n\n\n\n\n\n\n\n\n\nFunction\nUse Case\nInput Type\nOutput Type\nWhy Use It\n\n\n\n\napply()\nApply a function across rows or columns\nMatrix, data frame\nVector or matrix\nFor row/column-wise operations\n\n\nlapply()\nApply a function to each element\nList, data frame\nList\nKeeps outputs as list (safe, flexible)\n\n\nsapply()\nLike lapply() but simplifies output\nList, data frame\nVector or matrix\nShorter output, easier to read\n\n\nvapply()\nLike sapply(), but requires output type\nList, data frame\nVector or matrix\nSafer than sapply() (explicit type checking)\n\n\ntapply()\nApply a function to vector values by group\nVector + Factor(s)\nVector\nFor group-wise summaries (e.g., mean by sex)\n\n\n\n\nYou don’t need to memorize each one — but remember there are multiple apply() options. Look them up and pick the one that fits your task!"
+  },
+  {
+    "objectID": "lectures/13-slides.html#option-3-replacing-for-loops-with-apply-functions-4",
+    "href": "lectures/13-slides.html#option-3-replacing-for-loops-with-apply-functions-4",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "Option 3: Replacing for loops with apply() functions",
+    "text": "Option 3: Replacing for loops with apply() functions\n\n# Use numeric columns from penguins dataset\nnum_data &lt;- penguins[ , 3:6]\n\n# apply(): function across columns (MARGIN = 2)\napply(num_data, 2, mean, na.rm = TRUE)\n\n# lapply(): list output\nlapply(num_data, mean, na.rm = TRUE)\n\n# sapply(): simplified vector output\nsapply(num_data, mean, na.rm = TRUE)\n\n# vapply(): safe version of sapply()\nvapply(num_data, mean, na.rm = TRUE, FUN.VALUE = numeric(1))\n\n\n\n\n\n\n\nTips for the apply() Family\n\n\n\napply() works best with matrix-like structures\n\nlapply() is list-safe, but sapply() is more concise\n\nvapply() avoids surprises by enforcing output type (here returns a single numeric value)"
+  },
+  {
+    "objectID": "lectures/13-slides.html#unpack-the-previous-loop",
+    "href": "lectures/13-slides.html#unpack-the-previous-loop",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "Unpack the previous loop",
+    "text": "Unpack the previous loop\noutput[i]: assigns the computed value into the i-th slot of the preallocated vector that stores the output\npenguins[[i]]: extracts the i-th column as a vector\n- [[ ]] returns the column itself (vector)\n- [ ] returns a one-column data frame/tibble—not what mean() expects\n\nis.vector(penguins[[1]])   # TRUE (the raw vector)\nis.data.frame(penguins[1]) # TRUE (a 1-col tibble/data frame)\n\nmean(penguins[[1]], na.rm = TRUE)  # works, correct type (vector)\nmean(penguins[1], na.rm = TRUE)    # error, wrong type (1-col tibble)"
+  },
+  {
+    "objectID": "lectures/13-slides.html#section",
+    "href": "lectures/13-slides.html#section",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "",
+    "text": "Review Lecture 10 and data structures quiz!"
+  },
+  {
+    "objectID": "lectures/13-slides.html#unpacking-the-previous-loop",
+    "href": "lectures/13-slides.html#unpacking-the-previous-loop",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "Unpacking the previous loop",
+    "text": "Unpacking the previous loop\n\noutput is a vector where we store the results of the loop.\nSo output[i] assigns the computed value into the i-th position of that vector.\nTo access elements of a vector, we only need single square brackets output[i].\npenguins is a dataframe (tibble).\nTo access a dataframe column as a vector, use double brackets. So penguins[[i]] extracts the i-th column of the dataframe, and turns it into a vector. This gives the numeric vector that mean() needs.\n\nRememeber, with dataframes single and double square brackets return different data structures: - [[ ]] returns the column itself (vector)\n- [ ] returns a one-column data frame/tibble, which is not what mean() expects\n\nis.vector(penguins[[1]])   # TRUE (the raw vector)\nis.data.frame(penguins[1]) # TRUE (a 1-col tibble/data frame)\n\nmean(penguins[[1]], na.rm = TRUE)  # works, correct type (vector)\nmean(penguins[1], na.rm = TRUE)    # error, wrong type (1-col tibble)"
+  },
+  {
+    "objectID": "lectures/13-slides.html#unpacking-the-previous-loop-why-outputi-and-penguinsi",
+    "href": "lectures/13-slides.html#unpacking-the-previous-loop-why-outputi-and-penguinsi",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "Unpacking the previous loop: why output[i] and penguins[[i]]?",
+    "text": "Unpacking the previous loop: why output[i] and penguins[[i]]?\noutput is a vector where we store the results of the loop:\n\nTo access elements of a vector, we only need single square brackets [].\n\nSo output[i] assigns the computed value into the i-th position of that vector.\n\n\npenguins is a dataframe or tibble:\n\nBut mean() needs a numeric vector\nTo access a dataframe column as a vector, we need double brackets [[]].\n\nSo penguins[[i]] extracts the i-th column of the dataframe, and turns it into a vector.\n\n \n\nis.vector(penguins[[1]])   # TRUE (the raw vector)\nis.data.frame(penguins[1]) # TRUE (a 1-col tibble/data frame)\n\nmean(penguins[[1]], na.rm = TRUE)  # works, correct type (vector)\nmean(penguins[1], na.rm = TRUE)    # error, wrong type (1-col tibble)"
+  },
+  {
+    "objectID": "lectures/13-slides.html#unpacking-the-previous-loop-why-outputi-and-penguinsi-1",
+    "href": "lectures/13-slides.html#unpacking-the-previous-loop-why-outputi-and-penguinsi-1",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "Unpacking the previous loop: why output[i] and penguins[[i]]?",
+    "text": "Unpacking the previous loop: why output[i] and penguins[[i]]?\nRememeber, with dataframes single and double square brackets return different data structures:\n\n[[ ]] returns the column itself (vector)\n\n[ ] returns a one-column data frame/tibble, which is not what mean() expects\n\nWith vector, they both return the same, so can be used interchagably, but it’s good practice to use only []\nReview Lecture 10 and data structures quiz for details!"
+  },
+  {
+    "objectID": "lectures/13-slides.html#why-outputi-and-penguinsi",
+    "href": "lectures/13-slides.html#why-outputi-and-penguinsi",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "Why output[i] and penguins[[i]]?",
+    "text": "Why output[i] and penguins[[i]]?\n\noutput &lt;- vector(mode = \"double\", length = ncol(penguins))\n\nfor (i in seq_along(penguins)) {\n  output[i] &lt;- mean(penguins[[i]], na.rm = TRUE)\n}\n\noutput\n\n\noutput is a vector where we store the results of the loop:\n\nTo access elements of a vector, we only need single square brackets [].\n\nSo output[i] assigns the computed value into the i-th position of that vector.\n\npenguins is a dataframe or tibble:\n\nBut mean() needs a numeric vector\nTo access a dataframe column as a vector, we need double brackets [[]].\n\nSo penguins[[i]] extracts the i-th column of the dataframe, and turns it into a vector."
+  },
+  {
+    "objectID": "lectures/13-slides.html#why-outputi-and-penguinsi-1",
+    "href": "lectures/13-slides.html#why-outputi-and-penguinsi-1",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "Why output[i] and penguins[[i]]?",
+    "text": "Why output[i] and penguins[[i]]?\n\nis.vector(penguins[[1]])   # TRUE (the raw vector)\nis.data.frame(penguins[1]) # TRUE (a 1-col tibble/data frame)\n\nmean(penguins[[1]], na.rm = TRUE)  # works, correct type (vector)\nmean(penguins[1], na.rm = TRUE)    # error, wrong type (1-col tibble)\n\n\n\n\n\n\n\n\nImportant\n\n\nWith data frames: [[ ]] returns the column itself as a vector, while [ ] returns a one-column data frame or tibble\nWith vectors: [] and [[ ]] behave the same, but it’s still good practice to consistently use [] when subsetting vectors and [[ ]] when extracting columns from data frames.\nReview Lecture 10 and the Data Structures quiz for details."
+  },
+  {
+    "objectID": "lectures/13-slides.html#from-using-to-writing-functions",
+    "href": "lectures/13-slides.html#from-using-to-writing-functions",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "From using to writing functions",
+    "text": "From using to writing functions\nToday we learn the following concepts:\n\nUsing existing functions\nWriting your own function\nThe return statement\nstop()"
+  },
+  {
+    "objectID": "lectures/13-slides.html#using-existing-functions",
+    "href": "lectures/13-slides.html#using-existing-functions",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "Using existing functions",
+    "text": "Using existing functions\nFunctions are all over R! We have been using functions from day 1 of this course. For example:\n\na &lt;- c(1:5)\na\n\nsum(a)\nmean(a)"
+  },
+  {
+    "objectID": "lectures/13-slides.html#what-is-a-function",
+    "href": "lectures/13-slides.html#what-is-a-function",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "What is a function?",
+    "text": "What is a function?\nA function:\n\nis a block of code that accomplishes a task\nhas a name that typically describes the task, like sum() or mean()\ntakes one or more inputs (e.g., arguments), processes it, and returns one or more outputs"
+  },
+  {
+    "objectID": "lectures/13-slides.html#using-existing-functions-1",
+    "href": "lectures/13-slides.html#using-existing-functions-1",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "Using existing functions",
+    "text": "Using existing functions\nTo use a function, we need to know its arguments.\nIn the console, type help() with the function’s name in parenthesis to learn more about a function behavior and its arguments:\nhelp(sum)\nhelp(mean)\n\nSome functions come from base R, like sum() or mean()\nOther functions belong to specific packages, like summarize() or mutate()"
+  },
+  {
+    "objectID": "lectures/13-slides.html#writing-custom-functions",
+    "href": "lectures/13-slides.html#writing-custom-functions",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "Writing custom functions",
+    "text": "Writing custom functions\nBut besides using functions created by others, we can also write our own functions!\nTo do that we need the following:\n\nname: something that describes the task that the function performs\narguments (input): at least one data structure (e.g., vector, etc.)\nbody: self-contained lines of code that manipulate the input, defining what the function does\nreturn (output): statement that returns the result of the function’s calculations\n\nSyntax:\nname &lt;- function(arg1, arg2, ...) { \n    result &lt;- body with code that does things using arg1, arg2, etc.\n    return(result)\n    }"
+  },
+  {
+    "objectID": "lectures/13-slides.html#writing-custom-functions-1",
+    "href": "lectures/13-slides.html#writing-custom-functions-1",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "Writing custom functions",
+    "text": "Writing custom functions\nFor example, rather than using the built-in sum() function, we could write our own sum function to calculate the sum of the elements of a numeric vector.\nSyntax:\nname &lt;- function(arg1, arg2, ...) { \n    result &lt;- body with code that does things using arg1, arg2, etc.\n    return(result)\n    }\nOur own sum function:\nmy_sum &lt;- function(vector) {\n  total &lt;- 0\n  for (i in seq_along(vector)) {\n    total &lt;- total + vector[i]\n  }\n  return(total)\n}\n\nx &lt;- c(2,1,5,2)\nmy_sum(x)\nLet’s unpack this code in Workbench…"
+  },
+  {
+    "objectID": "lectures/13-slides.html#writing-custom-functions-2",
+    "href": "lectures/13-slides.html#writing-custom-functions-2",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "Writing custom functions",
+    "text": "Writing custom functions\nTo use a function, we need to call it with specific values.\nOur custom function my_sum() takes one argument, vector. When we call the function, this will be a specific vector, such as x, y, etc.\nx &lt;- c(2,1,5,2)\nmy_sum(vector = x)\n\ny &lt;- c(4,3,7)\nmy_sum(y)"
+  },
+  {
+    "objectID": "lectures/13-slides.html#advantages-of-writing-custom-functions",
+    "href": "lectures/13-slides.html#advantages-of-writing-custom-functions",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "Advantages of writing custom functions",
+    "text": "Advantages of writing custom functions\nWe use the sum example to illustrate how user-written functions work, but typically if there is already a built-in function in R that does what you need, just use it!\nInstead write your own function when…\n\nthere is no a built-in function\nyou want to reduce repetitive code and chances for mistakes\nyou want to reuse code\nyou want organize code (e.g., one function imports the data, another cleans the data, etc.)"
+  },
+  {
+    "objectID": "lectures/13-slides.html#things-to-remember-when-writing-functions-variables-scope",
+    "href": "lectures/13-slides.html#things-to-remember-when-writing-functions-variables-scope",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "Things to remember when writing functions: variables scope",
+    "text": "Things to remember when writing functions: variables scope\nVariables defined inside a function are not available outside it. Their scope lies within and is limited to the function itself:\n\n\n[1] 10\n\n\nError: object 'total' not found"
+  },
+  {
+    "objectID": "lectures/13-slides.html#practice-writing-functions",
+    "href": "lectures/13-slides.html#practice-writing-functions",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "💻 Practice writing functions",
+    "text": "💻 Practice writing functions\nDownload today’s class materials from the website."
+  },
+  {
+    "objectID": "lectures/13-slides.html#lets-learn-a-few-more-concepts",
+    "href": "lectures/13-slides.html#lets-learn-a-few-more-concepts",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "Let’s learn a few more concepts",
+    "text": "Let’s learn a few more concepts\nOther important concepts related to functions:\n\nThe return statement\nstop()\nAnonymous functions"
+  },
+  {
+    "objectID": "lectures/13-slides.html#the-return-statements",
+    "href": "lectures/13-slides.html#the-return-statements",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "The return statement(s)",
+    "text": "The return statement(s)\nIf you do not write a return statement, your output will be the last statement in your code:\nmy_sum &lt;- function(vector) {\n  total &lt;- 0\n  for (i in seq_along(vector)) {\n    total &lt;- total + vector[i]\n  }\n  total\n}\n\nx &lt;- c(2,1,5,2)\nmy_sum(x)\nThis works, but it’s bettre to use return statements for code clarity and readability. Remember that any code after return will be ignored Let’s see an example…"
+  },
+  {
+    "objectID": "lectures/13-slides.html#write-multiple-return-statements",
+    "href": "lectures/13-slides.html#write-multiple-return-statements",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "Write multiple return statements",
+    "text": "Write multiple return statements\nWriting multiple return statements with if-else:\ncheck_number &lt;- function(x) {\n  if (x &gt; 0) {\n    return(\"positive\")\n    }\n  else if (x &lt; 0) {\n    return(\"negative\")\n    }\n  else {\n    return(\"zero\")\n    }\n}\ncheck_number(1)\nIf x &gt; 0, the function returns “positive” without evaluating rest of the body."
+  },
+  {
+    "objectID": "lectures/13-slides.html#write-one-return-statement-with-multiple-outputs",
+    "href": "lectures/13-slides.html#write-one-return-statement-with-multiple-outputs",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "Write one return statement with multiple outputs",
+    "text": "Write one return statement with multiple outputs\nSometimes you want to return multiple objects and collect them into a list or a vector:\nmy_sum &lt;- function(vector) {\n  total &lt;- 0\n  for (i in seq_along(vector)) {\n    total &lt;- total + vector[i]\n  }\n  return(list(total, i))\n}\n\nx &lt;- c(2,1,5,2)\ny &lt;- my_sum(x)\nQuestions:\n\nCan we return a vector rather than list here? How?\nWhy a list would generally be a better choice when your function returns multiple objects?"
+  },
+  {
+    "objectID": "lectures/13-slides.html#using-stop-when-writing-a-function",
+    "href": "lectures/13-slides.html#using-stop-when-writing-a-function",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "Using stop() when writing a function",
+    "text": "Using stop() when writing a function\nDefine a function celsius_to_fahr() that converts temperatures from Celsius to Fahrenheit using the formula fahrenheit = (celsius * 9/5) + 32\ncelsius_to_fahr &lt;- function(celsius) {\n  fahr &lt;- (celsius * 9/5) + 32\n  return(fahr)\n}\n\ncelsius_to_fahr(0)\ncelsius_to_fahr(-20)"
+  },
+  {
+    "objectID": "lectures/13-slides.html#anonymous-functions",
+    "href": "lectures/13-slides.html#anonymous-functions",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "Anonymous functions",
+    "text": "Anonymous functions\n\nAnonymous functions are functions without a name.\nWhen to use anonymous functions?\n\nwhen the function is short and you need it only once\nwhen you use it in conjunction with other functions, such as those from the apply() family\n\nIn all other cases: do not use them, write the function explicitly instead!"
+  },
+  {
+    "objectID": "lectures/13-slides.html#practice-using-these-functions",
+    "href": "lectures/13-slides.html#practice-using-these-functions",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "💻 Practice using these functions",
+    "text": "💻 Practice using these functions\nDownload today’s class materials"
+  },
+  {
+    "objectID": "lectures/13-slides.html#tips-for-writing-functions-name",
+    "href": "lectures/13-slides.html#tips-for-writing-functions-name",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "Tips for writing functions: name",
+    "text": "Tips for writing functions: name\nUse unique names:\n\nif your function name matches the name of an existing R function, your function will replace the existing function for your current session (e.g., write my_sum, do not re-write sum)\nunless there is a specific reason (e.g. learning purposes, etc.), do not create a new function like my_sum() when R already has a built-in sum() function you can use\n\nUse informative names:\n\nthe name should suggest what the function does\nit should be short\navoid reserved words like if, else, for, function, etc. To see the full list of reserved words type help(reserved) in the Console"
+  },
+  {
+    "objectID": "lectures/13-slides.html#tips-for-writing-functions-variables-scope",
+    "href": "lectures/13-slides.html#tips-for-writing-functions-variables-scope",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "Tips for writing functions: variables scope",
+    "text": "Tips for writing functions: variables scope\nVariables defined inside a function are not available outside it. Their scope lies within and is limited to the function itself. Check this out:\nmy_sum &lt;- function(vector) {\n  total &lt;- 0\n  for (i in seq_along(vector)) {\n    total &lt;- total + vector[i]\n  }\n  return(total)\n}\n\nx &lt;- c(2,1,5,2)\nmy_sum(x)\ntotal"
+  },
+  {
+    "objectID": "lectures/13-slides.html#using-stop-when-writing-a-function-1",
+    "href": "lectures/13-slides.html#using-stop-when-writing-a-function-1",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "Using stop() when writing a function",
+    "text": "Using stop() when writing a function\nTo ensure this function works properly, the argument must be numeric. Otherwise, the conversion between the two temperature scales will not work.\nSolution: use if-else to verify if the provided argument is numeric; if not, use stop() to raise an error and stop the function execution\ncelsius_to_fahr &lt;- function(celsius) {\n  if (!is.numeric(celsius)) {\n    stop(\"error: input must be a number, try again\")\n  } else {\n    fahr &lt;- (celsius * 9/5) + 32\n    return(fahr) \n  }\n}\n\ncelsius_to_fahr(\"zero\")\nWhy using stop() and not print()?"
   }
 ]

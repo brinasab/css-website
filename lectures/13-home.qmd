@@ -3,7 +3,7 @@ title: "Lecture 13: Control Flow 2 (cont.); Functions 1"
 date: 2025-11-10
 summary: "Finish Loops; Introduce Functions"
 url_slides: 13-slides.qmd
-#url_code: css-materials/functions
+url_code: css-materials/functions
 page-layout: full
 draft: false
 ---
@@ -17,7 +17,7 @@ knitr::opts_chunk$set(echo = FALSE)
 * **Date**: {{< meta date >}}
 * **Topics**: {{< meta summary >}}
 * **Slides**: [View Slides]({{< meta url_slides >}})
-* **Code**: No in-class code to download
+* **Code**: `usethis::use_course("{{< meta url_code >}}")`
 
 <!-- `usethis::use_course("css-materials/functions")` -->
 
