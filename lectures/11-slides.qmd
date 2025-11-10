@@ -25,7 +25,7 @@ format:
 :::
 
 <span style="font-size: 0.8em; color: #666;">
-*Slides last updated on **November 4, 2025**. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.*
+*Slides last updated on **November 7, 2025**. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.*
 </span>
 
 <!--
@@ -454,7 +454,7 @@ What output do you expect if `x <- -6` and if `x <- 0`?
 
 ---
 
-## 3. Nested tests by placing one if inside another
+## 3. Nested tests by placing one "if" inside another
 
 Same example, but this checks also the condition `x <- 0`
 

@@ -5372,8 +5372,8 @@
     "objectID": "lectures/11-slides.html#nested-tests-by-placing-one-if-inside-another-1",
     "href": "lectures/11-slides.html#nested-tests-by-placing-one-if-inside-another-1",
     "title": "Computing for the Social Sciences: Lecture 11",
-    "section": "3. Nested tests by placing one if inside another",
-    "text": "3. Nested tests by placing one if inside another\nSame example, but this checks also the condition x &lt;- 0\n\nx &lt;- 0\n\nif (x &gt; 0) {\n  # Case 1: x is positive\n  if (x %% 2 == 0) {\n    print(\"x is a positive even number\")\n  } else {\n    print(\"x is a positive odd number\")\n  }\n} else if (x &lt; 0) {\n  # Case 2: x is negative\n  if (x %% 2 == 0) {\n    print(\"x is a negative even number\")\n  } else {\n    print(\"x is a negative odd number\")\n  }\n} else {\n  # Case 3: x is exactly zero\n  print(\"x is zero\")\n}"
+    "section": "3. Nested tests by placing one “if” inside another",
+    "text": "3. Nested tests by placing one “if” inside another\nSame example, but this checks also the condition x &lt;- 0\n\nx &lt;- 0\n\nif (x &gt; 0) {\n  # Case 1: x is positive\n  if (x %% 2 == 0) {\n    print(\"x is a positive even number\")\n  } else {\n    print(\"x is a positive odd number\")\n  }\n} else if (x &lt; 0) {\n  # Case 2: x is negative\n  if (x %% 2 == 0) {\n    print(\"x is a negative even number\")\n  } else {\n    print(\"x is a negative odd number\")\n  }\n} else {\n  # Case 3: x is exactly zero\n  print(\"x is zero\")\n}"
   },
   {
     "objectID": "lectures/11-slides.html#vectorized-tests-with-ifelse",
@@ -5612,5 +5612,166 @@
     "title": "Computing for the Social Sciences: Lecture 12",
     "section": "Automate the same task with a loop",
     "text": "Automate the same task with a loop\nFirst, initialize an empty vector to store the results.\nSecond, use a for loop to calculate the mean of each (numeric) column of this penguins dataframe.\nLet’s run this code:\n\noutput &lt;- vector(mode = \"double\", length = ncol(penguins))\n\nfor (i in seq_along(penguins)) {\n  #print(i)\n  #print(penguins[i])\n  output[i] &lt;- mean(penguins[[i]], na.rm = TRUE)\n}\n\noutput"
+  },
+  {
+    "objectID": "lectures/13-slides.html#same-task-with-and-without-a-for-loop",
+    "href": "lectures/13-slides.html#same-task-with-and-without-a-for-loop",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "Same Task With and Without a For Loop",
+    "text": "Same Task With and Without a For Loop\n\nlibrary(tidyverse)\nlibrary(palmerpenguins)\ndata(penguins)\n\n\n\nRows: 344\nColumns: 8\n$ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel…\n$ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen, Torgersen, Torgerse…\n$ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, …\n$ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, …\n$ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186…\n$ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, …\n$ sex               &lt;fct&gt; male, female, female, NA, female, male, female, male…\n$ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007…\n\n\n\nTask: Calculate the mean value of several columns in this data"
+  },
+  {
+    "objectID": "lectures/13-slides.html#calculate-the-mean-value-of-several-columns-without-a-loop",
+    "href": "lectures/13-slides.html#calculate-the-mean-value-of-several-columns-without-a-loop",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "Calculate the mean value of several columns without a loop",
+    "text": "Calculate the mean value of several columns without a loop\nWe can take the mean() function, and apply it to each column:\n\npenguins %&gt;% summarize(avg_bill_length = mean(bill_length_mm, na.rm = TRUE))\npenguins %&gt;% summarize(avg_bill_depth = mean(bill_depth_mm, na.rm = TRUE))\npenguins %&gt;% summarize(avg_flipper_length = mean(flipper_length_mm, na.rm = TRUE))\npenguins %&gt;% summarize(avg_body_mass = mean(body_mass_g, na.rm = TRUE))\n\n\nThis works, but requires a lot of copy/paste! How can we do the same thing with a for loop?"
+  },
+  {
+    "objectID": "lectures/13-slides.html#automate-the-same-task-with-a-loop",
+    "href": "lectures/13-slides.html#automate-the-same-task-with-a-loop",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "Automate the same task with a loop",
+    "text": "Automate the same task with a loop\nFirst, initialize an empty vector to store the results.\nSecond, use a for loop to calculate the mean of each (numeric) column of this penguins dataframe.\nLet’s run this code:\n\noutput &lt;- vector(mode = \"double\", length = ncol(penguins))\n\nfor (i in seq_along(penguins)) {\n  #print(i)\n  #print(penguins[i])\n  output[i] &lt;- mean(penguins[[i]], na.rm = TRUE)\n}\n\noutput"
+  },
+  {
+    "objectID": "lectures/13-slides.html#why-we-even-learn-loops-in-r",
+    "href": "lectures/13-slides.html#why-we-even-learn-loops-in-r",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "Why We Even Learn Loops in R?",
+    "text": "Why We Even Learn Loops in R?\nR is a vectorized language, so many tasks can and should be done without writing a for loop.\nStill, understanding loops is important:\n\nto build foundational logic and control flow skills\nfor non-vectorized tasks, like row-by-row operations\nto debug more complex workflows"
+  },
+  {
+    "objectID": "lectures/13-slides.html#three-main-alternatives-to-for-loops-in-r",
+    "href": "lectures/13-slides.html#three-main-alternatives-to-for-loops-in-r",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "Three Main Alternatives to For Loops in R",
+    "text": "Three Main Alternatives to For Loops in R\nWhen working with dataframes, R provides the following alternatives that are often better than writing a for loop:\n\n\n\nFunction Family\nPackage\nBest Used For\nDocs / Link\n\n\n\n\nmap_*()\npurrr\nApplying functions to elements of lists or columns\nmap docs\n\n\nacross()\ndplyr\nApplying the same function to multiple columns inside mutate() or summarize()\nacross docs\n\n\n*apply()\nbase R\nRow/column-wise operations on matrices or data frames\napply docs\n\n\n\nThe asterisk * is a placeholder for a family of related functions (e.g., map_dbl(), map_chr(), sapply(), etc.)"
+  },
+  {
+    "objectID": "lectures/13-slides.html#option-1-replacing-for-loops-with-map-functions-in-the-tidyverse",
+    "href": "lectures/13-slides.html#option-1-replacing-for-loops-with-map-functions-in-the-tidyverse",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "Option 1: Replacing for loops with “map()” functions in the tidyverse",
+    "text": "Option 1: Replacing for loops with “map()” functions in the tidyverse\n\nThe so-called “map functions” come from the purr package in R: https://purrr.tidyverse.org/reference/map.html\nThere are several map_*() functions each creates a different type of output (this is the same idea as in the for loop when we specify the mode of our output vector):\n\nmap() makes a list\nmap_lgl() makes a logical vector\nmap_int() makes an integer vector\nmap_dbl() makes a double vector\nmap_chr() makes a character vector\n\nLet’s see a few examples using the penguins data."
+  },
+  {
+    "objectID": "lectures/13-slides.html#option-1-replacing-for-loops-with-map-functions-in-the-tidyverse-1",
+    "href": "lectures/13-slides.html#option-1-replacing-for-loops-with-map-functions-in-the-tidyverse-1",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "Option 1: Replacing for loops with “map()” functions in the tidyverse",
+    "text": "Option 1: Replacing for loops with “map()” functions in the tidyverse\nPick the appropriate map() function (there are several!) and specify at least two main arguments:\n\nwhat you are iterating over\nwhat you are calculating\n\n\npenguins %&gt;% \n  select(where(is.numeric)) %&gt;%\n  map_dbl(mean, na.rm = TRUE)"
+  },
+  {
+    "objectID": "lectures/13-slides.html#option-2-replacing-for-loops-with-across-in-the-tidyverse",
+    "href": "lectures/13-slides.html#option-2-replacing-for-loops-with-across-in-the-tidyverse",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "Option 2: Replacing for loops with “across()” in the tidyverse",
+    "text": "Option 2: Replacing for loops with “across()” in the tidyverse\nAnother popular option to replace a for loop is the across() function from dplyr\nWhat it does: applies the same operation (e.g., mean) to multiple columns at once\nBest use: since it comes from dplyr, it works seamlessly inside dplyr verbs like mutate() and summarize() (these are its favorite verbs to work with!)"
+  },
+  {
+    "objectID": "lectures/13-slides.html#option-2-replacing-for-loops-with-across-in-the-tidyverse-1",
+    "href": "lectures/13-slides.html#option-2-replacing-for-loops-with-across-in-the-tidyverse-1",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "Option 2: Replacing for loops with “across()” in the tidyverse",
+    "text": "Option 2: Replacing for loops with “across()” in the tidyverse\nWe looked at this example earlier (which calculates the mean of several columns in a data frame) and rewrote it using a for loop. Now we rewrite it again but this time using across():\n\npenguins %&gt;% summarize(avg_bill_length = mean(bill_length_mm, na.rm = TRUE))\npenguins %&gt;% summarize(avg_bill_depth = mean(bill_depth_mm, na.rm = TRUE))\npenguins %&gt;% summarize(avg_flipper_length = mean(flipper_length_mm, na.rm = TRUE))\npenguins %&gt;% summarize(avg_body_mass = mean(body_mass_g, na.rm = TRUE))"
+  },
+  {
+    "objectID": "lectures/13-slides.html#option-2-replacing-for-loops-with-across-in-the-tidyverse-2",
+    "href": "lectures/13-slides.html#option-2-replacing-for-loops-with-across-in-the-tidyverse-2",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "Option 2: Replacing for loops with “across()” in the tidyverse",
+    "text": "Option 2: Replacing for loops with “across()” in the tidyverse\nRewrite previous example using across():\n\npenguins %&gt;% \n  summarize(\n    across(\n      .cols = where(is.numeric),           # select columns by type\n      .fns = ~ mean(.x, na.rm = TRUE)))   # apply mean, skipping NA\n\nThe function across() has two main arguments:\n\n.cols: the columns to operate on. You can select them by position, name, or type (in this example, by type using where(is.numeric)).\n.fns: the function, or list of functions, to apply to each column (in this example, we use mean() and .x is a placeholder for the current column being processed)\n\nYou can omit .cols and .fns if you pass the arguments in the correct order."
+  },
+  {
+    "objectID": "lectures/13-slides.html#option-2-replacing-for-loops-with-across-in-the-tidyverse-3",
+    "href": "lectures/13-slides.html#option-2-replacing-for-loops-with-across-in-the-tidyverse-3",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "Option 2: Replacing for loops with “across()” in the tidyverse",
+    "text": "Option 2: Replacing for loops with “across()” in the tidyverse\nAdd names to the newly computed means:\n\npenguins %&gt;% \n  summarize(\n    across(\n      .cols = where(is.numeric),                   \n      .fns = ~ mean(.x, na.rm = TRUE),             \n      .names = \"avg_{.col}\"                   \n    )\n  )\n\n\n\n\n\n\n\n\nWhat does \"avg_{.col}\" mean?\n\n\n\n\"avg_\" is a literal prefix that will be added to each new column name.\n\n{.col} is a placeholder that will be replaced with the original column name.\n\nSo if you’re applying mean() to a column named bill_length_mm, the result will be named avg_bill_length_mm"
+  },
+  {
+    "objectID": "lectures/13-slides.html#option-3-replacing-for-loops-with-apply-functions-in-base-r",
+    "href": "lectures/13-slides.html#option-3-replacing-for-loops-with-apply-functions-in-base-r",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "Option 3: Replacing for loops with “apply()” functions in base R",
+    "text": "Option 3: Replacing for loops with “apply()” functions in base R\nFinally, a third option to replace a for loop in R is using one of the apply() functions from base R\nWhat it does: applies the same operation (e.g., mean) to multiple columns at once\nBest use: when working outside tidyverse verbs (this is from base R!) and can be applied across rows or columns (most common)"
+  },
+  {
+    "objectID": "lectures/13-slides.html#option-3-replacing-for-loops-with-apply-functions-in-base-r-1",
+    "href": "lectures/13-slides.html#option-3-replacing-for-loops-with-apply-functions-in-base-r-1",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "Option 3: Replacing for loops with “apply()” functions in base R",
+    "text": "Option 3: Replacing for loops with “apply()” functions in base R\nWe looked at this example earlier (which calculates the mean of several columns in a data frame) and rewrote it using a for loop. Now we rewrite it again but this time using apply():\n\npenguins %&gt;% summarize(avg_bill_length = mean(bill_length_mm, na.rm = TRUE))\npenguins %&gt;% summarize(avg_bill_depth = mean(bill_depth_mm, na.rm = TRUE))\npenguins %&gt;% summarize(avg_flipper_length = mean(flipper_length_mm, na.rm = TRUE))\npenguins %&gt;% summarize(avg_body_mass = mean(body_mass_g, na.rm = TRUE))"
+  },
+  {
+    "objectID": "lectures/13-slides.html#option-3-replacing-for-loops-with-apply-functions-in-base-r-2",
+    "href": "lectures/13-slides.html#option-3-replacing-for-loops-with-apply-functions-in-base-r-2",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "Option 3: Replacing for loops with “apply()” functions in base R",
+    "text": "Option 3: Replacing for loops with “apply()” functions in base R\nRewrite previous example using apply():\n\n# manually select only numeric column using base R syntax\npenguins_numeric &lt;- penguins[ , c(\"bill_length_mm\", \"bill_depth_mm\", \n                                  \"flipper_length_mm\", \"body_mass_g\")]\n\n# apply mean to these columns\napply(penguins_numeric, 2, mean, na.rm = TRUE)  \n\nNote the 2 stays for MARGIN = 2 (apply on the columns). If you write 1 it means rows. Type ?apply in your Console for more info."
+  },
+  {
+    "objectID": "lectures/13-slides.html#option-3-replacing-for-loops-with-apply-functions-in-base-r-3",
+    "href": "lectures/13-slides.html#option-3-replacing-for-loops-with-apply-functions-in-base-r-3",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "Option 3: Replacing for loops with “apply()” functions in base R",
+    "text": "Option 3: Replacing for loops with “apply()” functions in base R\nThe apply() is a family meaning there are several similar apply function you can use:\n\n\n\n\n\n\n\n\n\n\nFunction\nUse Case\nInput Type\nOutput Type\nWhy Use It\n\n\n\n\napply()\nApply a function to rows or columns\nMatrix, data frame\nVector or matrix\nFor row/column-wise operations\n\n\nlapply()\nApply a function to each element\nList, data frame\nList\nKeeps outputs as list (safe, flexible)\n\n\nsapply()\nLike lapply() but simplifies output\nList, data frame\nVector or matrix\nShorter output, easier to read\n\n\nvapply()\nLike sapply(), but type-safe\nList, data frame\nVector or matrix\nSafer than sapply()—explicit type check"
+  },
+  {
+    "objectID": "lectures/13-slides.html#option-3-replacing-for-loops-with-apply-functions-in-base-r-4",
+    "href": "lectures/13-slides.html#option-3-replacing-for-loops-with-apply-functions-in-base-r-4",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "Option 3: Replacing for loops with “apply()” functions in base R",
+    "text": "Option 3: Replacing for loops with “apply()” functions in base R\n\n# Use numeric columns from penguins dataset\nnum_data &lt;- penguins[ , 3:6]\n\n# apply(): function across columns (MARGIN = 2)\napply(num_data, 2, mean, na.rm = TRUE)\n\n# lapply(): list output\nlapply(num_data, mean, na.rm = TRUE)\n\n# sapply(): simplified vector output\nsapply(num_data, mean, na.rm = TRUE)\n\n# vapply(): safe version of sapply()\nvapply(num_data, mean, na.rm = TRUE, FUN.VALUE = numeric(1))\n\n\napply() works best with matrix-like structures\nlapply() is list-safe; sapply() is more concise\nvapply() avoids surprises by enforcing output type (here: return a single numeric value)"
+  },
+  {
+    "objectID": "lectures/13-slides.html#definition-of-while-loops",
+    "href": "lectures/13-slides.html#definition-of-while-loops",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "Definition of While Loops",
+    "text": "Definition of While Loops\nWe focused on “for loops” because they are the most common, but R, and many other programming languages, also supports “while loops”\nHow while loops works:\n\nEvaluate a condition\nIf the condition is TRUE, run the loop body\nStart over: re-evaluate the condition\nRepeat until the condition is FALSE (then the while loop is over)"
+  },
+  {
+    "objectID": "lectures/13-slides.html#while-loop-syntax",
+    "href": "lectures/13-slides.html#while-loop-syntax",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "While Loop Syntax",
+    "text": "While Loop Syntax\nSyntax:\nwhile (condition to be evaluated) {\n  statement(s)\n}\nExample:\ncounter &lt;- 1\n\nwhile(counter &lt;= 4) {\n  print(counter)\n  counter &lt;- counter + 1\n}"
+  },
+  {
+    "objectID": "lectures/13-slides.html#while-loop-examples",
+    "href": "lectures/13-slides.html#while-loop-examples",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "While Loop Examples",
+    "text": "While Loop Examples\nTake the previous code, but this time print counter also at the end:\ncounter &lt;- 1\n\nwhile(counter &lt;= 3) {\n  print(counter)\n  counter &lt;- counter + 1\n  print(counter)\n}\nWhy are the results different from the previous code?"
+  },
+  {
+    "objectID": "lectures/13-slides.html#while-loop-examples-1",
+    "href": "lectures/13-slides.html#while-loop-examples-1",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "While Loop Examples",
+    "text": "While Loop Examples\nTake the previous code, but this time we do not increment our counter variable.\ncounter &lt;- 1\nwhile(counter &lt; 3){\n  print(counter)\n}\nWhat is the output of this code?"
+  },
+  {
+    "objectID": "lectures/13-slides.html#while-loop-examples-2",
+    "href": "lectures/13-slides.html#while-loop-examples-2",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "While Loop Examples",
+    "text": "While Loop Examples\nWhat is the output of this code?\ncounter &lt;- 1\nwhile(counter &lt; 4){\n  print(counter)\n  multiply &lt;- counter * 100\n  print(multiply)\n  counter &lt;- counter + 1\n  print(counter)\n}"
+  },
+  {
+    "objectID": "lectures/13-slides.html#while-loop-uses",
+    "href": "lectures/13-slides.html#while-loop-uses",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "While Loop Uses",
+    "text": "While Loop Uses\nWhile Loops are useful when you don’t know in advance how many times to iterate — you want the loop to continue until a condition is met.\nExample use cases:\n\nKeep looping until you get three heads in a row from random coin flips\n\nKeep accepting user input until you reach a target number of responses\n\nWhile loops require a “count variable” to be set outside the loop.\nWhile loops are important but less common than for loops especially for the types of tasks we do in this course. For this reason, we don’t cover them in-depth."
+  },
+  {
+    "objectID": "lectures/13-slides.html#to-print-these-slides-as-pdf",
+    "href": "lectures/13-slides.html#to-print-these-slides-as-pdf",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "To print these slides as pdf",
+    "text": "To print these slides as pdf\nClick on the icon bottom-right corner &gt; Tools &gt; PDF Export Mode &gt; Print as a Pdf"
   }
 ]
