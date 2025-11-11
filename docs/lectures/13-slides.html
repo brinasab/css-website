@@ -931,7 +931,7 @@ Note:
 <span id="cb23-8"><a></a></span>
 <span id="cb23-9"><a></a>total</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Then wrap it into a function and test again with different inputs:</p>
+<p>Then wrap the code into a function and test it again with different inputs:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a>my_sum <span class="ot">&lt;-</span> <span class="cf">function</span>(vector) {</span>
 <span id="cb24-2"><a></a>  total <span class="ot">&lt;-</span> <span class="dv">0</span></span>
@@ -954,11 +954,13 @@ SEE code lecture13_functions.Rmd -->
 <h2>Writing custom functions</h2>
 <p>To use a function, we need to <strong>call it</strong> with specific values.</p>
 <p>Our custom function <code>my_sum()</code> takes one argument, <code>vector</code>. When we call the function, this will be a specific vector, such as <code>x</code>, <code>y</code>, etc.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">2</span>)</span>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">2</span>)</span>
 <span id="cb25-2"><a></a><span class="fu">my_sum</span>(<span class="at">vector =</span> x)</span>
 <span id="cb25-3"><a></a></span>
 <span id="cb25-4"><a></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">7</span>)</span>
 <span id="cb25-5"><a></a><span class="fu">my_sum</span>(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="advantages-of-writing-custom-functions" class="slide level2 center">
 <h2>Advantages of writing custom functions</h2>
@@ -975,20 +977,21 @@ SEE code lecture13_functions.Rmd -->
 <h2>Tips for writing functions: name</h2>
 <p>Use <strong>unique names</strong>:</p>
 <ul>
-<li>if your function name matches the name of an existing R function, your function will replace the existing function for your current session (e.g., write <code>my_sum</code>, do not re-write <code>sum</code>)</li>
-<li>unless there is a specific reason (e.g.&nbsp;learning purposes, etc.), do not create a new function like <code>my_sum()</code> when R already has a built-in <code>sum()</code> function you can use</li>
+<li>If your function name matches the name of an existing R function, your function will replace the existing function for your current session (e.g., write <code>my_sum</code>, do not re-write <code>sum</code>)</li>
+<li>Unless there is a specific reason (e.g.&nbsp;learning purposes, etc.), do not create a new function like <code>my_sum()</code> when R already has a built-in <code>sum()</code> function you can use</li>
 </ul>
 <p>Use <strong>informative names</strong>:</p>
 <ul>
-<li>the name should suggest what the function does</li>
-<li>it should be short</li>
-<li>avoid reserved words like <code>if</code>, <code>else</code>, <code>for</code>, <code>function</code>, etc. To see the full list of reserved words type <code>help(reserved)</code> in the Console</li>
+<li>The name should suggest what the function does</li>
+<li>It should be short</li>
+<li>Avoid reserved words like <code>if</code>, <code>else</code>, <code>for</code>, <code>function</code>, etc. To see the full list: type <code>help(reserved)</code> in the Console</li>
 </ul>
 </section>
 <section id="tips-for-writing-functions-variables-scope" class="slide level2 center">
 <h2>Tips for writing functions: variables scope</h2>
 <p>Variables defined inside a function are <strong>not available outside it.</strong> Their scope lies within and is limited to the function itself. Check this out:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>my_sum <span class="ot">&lt;-</span> <span class="cf">function</span>(vector) {</span>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>my_sum <span class="ot">&lt;-</span> <span class="cf">function</span>(vector) {</span>
 <span id="cb26-2"><a></a>  total <span class="ot">&lt;-</span> <span class="dv">0</span></span>
 <span id="cb26-3"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(vector)) {</span>
 <span id="cb26-4"><a></a>    total <span class="ot">&lt;-</span> total <span class="sc">+</span> vector[i]</span>
@@ -999,11 +1002,13 @@ SEE code lecture13_functions.Rmd -->
 <span id="cb26-9"><a></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">2</span>)</span>
 <span id="cb26-10"><a></a><span class="fu">my_sum</span>(x)</span>
 <span id="cb26-11"><a></a>total</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="the-return-statements" class="slide level2 center">
 <h2>The return statement(s)</h2>
 <p>If you do not write a <code>return</code> statement, your output will be the last statement in your code:</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a>my_sum <span class="ot">&lt;-</span> <span class="cf">function</span>(vector) {</span>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a>my_sum <span class="ot">&lt;-</span> <span class="cf">function</span>(vector) {</span>
 <span id="cb27-2"><a></a>  total <span class="ot">&lt;-</span> <span class="dv">0</span></span>
 <span id="cb27-3"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(vector)) {</span>
 <span id="cb27-4"><a></a>    total <span class="ot">&lt;-</span> total <span class="sc">+</span> vector[i]</span>
@@ -1013,71 +1018,96 @@ SEE code lecture13_functions.Rmd -->
 <span id="cb27-8"><a></a></span>
 <span id="cb27-9"><a></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">2</span>)</span>
 <span id="cb27-10"><a></a><span class="fu">my_sum</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This works, but it’s bettre to use <code>return</code> statements for code clarity and readability. <strong>Remember that any code after <code>return</code> will be ignored</strong> Let’s see an example…</p>
+</div>
+<p>This works, but it’s better to use <code>return</code> statements for code clarity and readability. <strong>Remember that any code after <code>return</code> will be ignored!</strong> Let’s see a couple of examples…</p>
 </section>
-<section id="write-multiple-return-statements" class="slide level2 center">
-<h2>Write multiple return statements</h2>
-<p>Writing multiple return statements with <code>if-else</code>:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a>check_number <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb28-2"><a></a>  <span class="cf">if</span> (x <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
-<span id="cb28-3"><a></a>    <span class="fu">return</span>(<span class="st">"positive"</span>)</span>
-<span id="cb28-4"><a></a>    }</span>
-<span id="cb28-5"><a></a>  <span class="cf">else</span> <span class="cf">if</span> (x <span class="sc">&lt;</span> <span class="dv">0</span>) {</span>
-<span id="cb28-6"><a></a>    <span class="fu">return</span>(<span class="st">"negative"</span>)</span>
-<span id="cb28-7"><a></a>    }</span>
-<span id="cb28-8"><a></a>  <span class="cf">else</span> {</span>
-<span id="cb28-9"><a></a>    <span class="fu">return</span>(<span class="st">"zero"</span>)</span>
-<span id="cb28-10"><a></a>    }</span>
-<span id="cb28-11"><a></a>}</span>
-<span id="cb28-12"><a></a><span class="fu">check_number</span>(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>If x &gt; 0, the function returns “positive” without evaluating rest of the body.</p>
+<section id="write-multiple-return-statements-example-1" class="slide level2 center">
+<h2>Write multiple return statements: Example 1</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a>describe_number <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb28-2"><a></a>  <span class="cf">if</span> (x <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb28-3"><a></a>    <span class="fu">return</span>(<span class="st">"x is zero (special case!)"</span>)</span>
+<span id="cb28-4"><a></a>  }</span>
+<span id="cb28-5"><a></a>  <span class="cf">if</span> (x <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb28-6"><a></a>    <span class="fu">return</span>(<span class="st">"x is positive"</span>)</span>
+<span id="cb28-7"><a></a>  } <span class="cf">else</span> {</span>
+<span id="cb28-8"><a></a>    <span class="fu">return</span>(<span class="st">"x is negative"</span>)</span>
+<span id="cb28-9"><a></a>  }</span>
+<span id="cb28-10"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="write-multiple-return-statements-example-2" class="slide level2 center">
+<h2>Write multiple return statements: Example 2</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a>my_sum <span class="ot">&lt;-</span> <span class="cf">function</span>(vector) {</span>
+<span id="cb29-2"><a></a>  </span>
+<span id="cb29-3"><a></a>  <span class="co"># check 1: input must not be missing</span></span>
+<span id="cb29-4"><a></a>  <span class="cf">if</span> (<span class="fu">missing</span>(vector)) {</span>
+<span id="cb29-5"><a></a>    <span class="fu">return</span>(<span class="st">"Error: you must provide a vector"</span>)</span>
+<span id="cb29-6"><a></a>  }</span>
+<span id="cb29-7"><a></a>  </span>
+<span id="cb29-8"><a></a>  <span class="co"># check 2: input must be numeric</span></span>
+<span id="cb29-9"><a></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.numeric</span>(vector)) {</span>
+<span id="cb29-10"><a></a>    <span class="fu">return</span>(<span class="st">"Error: input must be a numeric vector"</span>)</span>
+<span id="cb29-11"><a></a>  }</span>
+<span id="cb29-12"><a></a>  </span>
+<span id="cb29-13"><a></a>  <span class="co"># compute the sum</span></span>
+<span id="cb29-14"><a></a>  total <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb29-15"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(vector)) {</span>
+<span id="cb29-16"><a></a>    total <span class="ot">&lt;-</span> total <span class="sc">+</span> vector[i]</span>
+<span id="cb29-17"><a></a>  }</span>
+<span id="cb29-18"><a></a>  <span class="fu">return</span>(total)</span>
+<span id="cb29-19"><a></a>}</span>
+<span id="cb29-20"><a></a></span>
+<span id="cb29-21"><a></a><span class="co"># examples</span></span>
+<span id="cb29-22"><a></a><span class="fu">my_sum</span>(<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">2</span>))</span>
+<span id="cb29-23"><a></a><span class="fu">my_sum</span>(<span class="fu">c</span>(<span class="st">"one"</span>, <span class="dv">2</span>, <span class="dv">3</span>))</span>
+<span id="cb29-24"><a></a><span class="fu">my_sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Questions:</strong> Why we do not write the “else” in this example? Can you do the same with the previous one?</p>
 </section>
 <section id="write-one-return-statement-with-multiple-outputs" class="slide level2 center">
 <h2>Write one return statement with multiple outputs</h2>
 <p>Sometimes you want to return multiple objects and collect them into a list or a vector:</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a>my_sum <span class="ot">&lt;-</span> <span class="cf">function</span>(vector) {</span>
-<span id="cb29-2"><a></a>  total <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb29-3"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(vector)) {</span>
-<span id="cb29-4"><a></a>    total <span class="ot">&lt;-</span> total <span class="sc">+</span> vector[i]</span>
-<span id="cb29-5"><a></a>  }</span>
-<span id="cb29-6"><a></a>  <span class="fu">return</span>(<span class="fu">list</span>(total, i))</span>
-<span id="cb29-7"><a></a>}</span>
-<span id="cb29-8"><a></a></span>
-<span id="cb29-9"><a></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">2</span>)</span>
-<span id="cb29-10"><a></a>y <span class="ot">&lt;-</span> <span class="fu">my_sum</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Questions:</p>
-<ul>
-<li>Can we return a vector rather than list here? How?</li>
-<li>Why a list would generally be a better choice when your function returns multiple objects?</li>
-</ul>
+<div class="sourceCode" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a>my_sum <span class="ot">&lt;-</span> <span class="cf">function</span>(vector) {</span>
+<span id="cb30-2"><a></a>  total <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb30-3"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(vector)) {</span>
+<span id="cb30-4"><a></a>    total <span class="ot">&lt;-</span> total <span class="sc">+</span> vector[i]</span>
+<span id="cb30-5"><a></a>  }</span>
+<span id="cb30-6"><a></a>  <span class="fu">return</span>(<span class="fu">list</span>(total, i))</span>
+<span id="cb30-7"><a></a>}</span>
+<span id="cb30-8"><a></a></span>
+<span id="cb30-9"><a></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">2</span>)</span>
+<span id="cb30-10"><a></a>y <span class="ot">&lt;-</span> <span class="fu">my_sum</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Questions:</strong> Can we return a vector rather than list here? How? Why a list would generally be a better choice when your function returns multiple objects?</p>
 <!-- stop here change to vector with c() and return different elements with y[1] and y[2] change back to list and return different elements again -->
 </section>
 <section id="using-stop-when-writing-a-function" class="slide level2 center">
 <h2>Using stop() when writing a function</h2>
 <p>Define a function <code>celsius_to_fahr()</code> that converts temperatures from Celsius to Fahrenheit using the formula <code>fahrenheit = (celsius * 9/5) + 32</code></p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a>celsius_to_fahr <span class="ot">&lt;-</span> <span class="cf">function</span>(celsius) {</span>
-<span id="cb30-2"><a></a>  fahr <span class="ot">&lt;-</span> (celsius <span class="sc">*</span> <span class="dv">9</span><span class="sc">/</span><span class="dv">5</span>) <span class="sc">+</span> <span class="dv">32</span></span>
-<span id="cb30-3"><a></a>  <span class="fu">return</span>(fahr)</span>
-<span id="cb30-4"><a></a>}</span>
-<span id="cb30-5"><a></a></span>
-<span id="cb30-6"><a></a><span class="fu">celsius_to_fahr</span>(<span class="dv">0</span>)</span>
-<span id="cb30-7"><a></a><span class="fu">celsius_to_fahr</span>(<span class="sc">-</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a>celsius_to_fahr <span class="ot">&lt;-</span> <span class="cf">function</span>(celsius) {</span>
+<span id="cb31-2"><a></a>  fahr <span class="ot">&lt;-</span> (celsius <span class="sc">*</span> <span class="dv">9</span><span class="sc">/</span><span class="dv">5</span>) <span class="sc">+</span> <span class="dv">32</span></span>
+<span id="cb31-3"><a></a>  <span class="fu">return</span>(fahr)</span>
+<span id="cb31-4"><a></a>}</span>
+<span id="cb31-5"><a></a></span>
+<span id="cb31-6"><a></a><span class="fu">celsius_to_fahr</span>(<span class="dv">0</span>)</span>
+<span id="cb31-7"><a></a><span class="fu">celsius_to_fahr</span>(<span class="sc">-</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="using-stop-when-writing-a-function-1" class="slide level2 center">
 <h2>Using stop() when writing a function</h2>
 <p>To ensure this function works properly, the argument must be numeric. Otherwise, the conversion between the two temperature scales will not work.</p>
 <p>Solution: use <code>if-else</code> to verify if the provided argument is numeric; if not, use <code>stop()</code> to raise an error and stop the function execution</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a>celsius_to_fahr <span class="ot">&lt;-</span> <span class="cf">function</span>(celsius) {</span>
-<span id="cb31-2"><a></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.numeric</span>(celsius)) {</span>
-<span id="cb31-3"><a></a>    <span class="fu">stop</span>(<span class="st">"error: input must be a number, try again"</span>)</span>
-<span id="cb31-4"><a></a>  } <span class="cf">else</span> {</span>
-<span id="cb31-5"><a></a>    fahr <span class="ot">&lt;-</span> (celsius <span class="sc">*</span> <span class="dv">9</span><span class="sc">/</span><span class="dv">5</span>) <span class="sc">+</span> <span class="dv">32</span></span>
-<span id="cb31-6"><a></a>    <span class="fu">return</span>(fahr) </span>
-<span id="cb31-7"><a></a>  }</span>
-<span id="cb31-8"><a></a>}</span>
-<span id="cb31-9"><a></a></span>
-<span id="cb31-10"><a></a><span class="fu">celsius_to_fahr</span>(<span class="st">"zero"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Why using stop() and not print()?</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a>celsius_to_fahr <span class="ot">&lt;-</span> <span class="cf">function</span>(celsius) {</span>
+<span id="cb32-2"><a></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.numeric</span>(celsius)) {</span>
+<span id="cb32-3"><a></a>    <span class="fu">stop</span>(<span class="st">"error: input must be a number, try again"</span>)</span>
+<span id="cb32-4"><a></a>  } <span class="cf">else</span> {</span>
+<span id="cb32-5"><a></a>    fahr <span class="ot">&lt;-</span> (celsius <span class="sc">*</span> <span class="dv">9</span><span class="sc">/</span><span class="dv">5</span>) <span class="sc">+</span> <span class="dv">32</span></span>
+<span id="cb32-6"><a></a>    <span class="fu">return</span>(fahr) </span>
+<span id="cb32-7"><a></a>  }</span>
+<span id="cb32-8"><a></a>}</span>
+<span id="cb32-9"><a></a></span>
+<span id="cb32-10"><a></a><span class="fu">celsius_to_fahr</span>(<span class="st">"zero"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Questions:</strong> What is the difference between stop and return? What happens if you rewrite Example 2 (slide 45) using stop instead than return?</p>
 <!-- 
 `stop():` interrupts the execution of the function and throw an error message when a condition is not met 
 

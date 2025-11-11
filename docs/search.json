@@ -5947,7 +5947,7 @@
     "href": "lectures/13-slides.html#writing-custom-functions-2",
     "title": "Computing for the Social Sciences: Lecture 13",
     "section": "Writing custom functions",
-    "text": "Writing custom functions\nTip! Write and test the code outside a function to make sure it works, like this:\n\nx &lt;- c(2,1,5,2)\n\ntotal &lt;- 0  # start with zero, we'll add elements to this\n\nfor (i in seq_along(x)) {\n  total &lt;- total + x[i]  # add the i-th value of x to total\n}\n\ntotal\n\nThen wrap it into a function and test again with different inputs:\n\nmy_sum &lt;- function(vector) {\n  total &lt;- 0\n  for (i in seq_along(vector)) {\n    total &lt;- total + vector[i]\n  }\n  return(total)\n}\n\nx &lt;- c(2, 1, 5, 2)\nmy_sum(vector = x)\n\ny &lt;- c(4,4)\nmy_sum(y)"
+    "text": "Writing custom functions\nTip! Write and test the code outside a function to make sure it works, like this:\n\nx &lt;- c(2,1,5,2)\n\ntotal &lt;- 0  # start with zero, we'll add elements to this\n\nfor (i in seq_along(x)) {\n  total &lt;- total + x[i]  # add the i-th value of x to total\n}\n\ntotal\n\nThen wrap the code into a function and test it again with different inputs:\n\nmy_sum &lt;- function(vector) {\n  total &lt;- 0\n  for (i in seq_along(vector)) {\n    total &lt;- total + vector[i]\n  }\n  return(total)\n}\n\nx &lt;- c(2, 1, 5, 2)\nmy_sum(vector = x)\n\ny &lt;- c(4,4)\nmy_sum(y)"
   },
   {
     "objectID": "lectures/13-slides.html#advantages-of-writing-custom-functions",
@@ -5982,21 +5982,21 @@
     "href": "lectures/13-slides.html#the-return-statements",
     "title": "Computing for the Social Sciences: Lecture 13",
     "section": "The return statement(s)",
-    "text": "The return statement(s)\nIf you do not write a return statement, your output will be the last statement in your code:\nmy_sum &lt;- function(vector) {\n  total &lt;- 0\n  for (i in seq_along(vector)) {\n    total &lt;- total + vector[i]\n  }\n  total\n}\n\nx &lt;- c(2,1,5,2)\nmy_sum(x)\nThis works, but it’s bettre to use return statements for code clarity and readability. Remember that any code after return will be ignored Let’s see an example…"
+    "text": "The return statement(s)\nIf you do not write a return statement, your output will be the last statement in your code:\n\nmy_sum &lt;- function(vector) {\n  total &lt;- 0\n  for (i in seq_along(vector)) {\n    total &lt;- total + vector[i]\n  }\n  total\n}\n\nx &lt;- c(2,1,5,2)\nmy_sum(x)\n\nThis works, but it’s better to use return statements for code clarity and readability. Remember that any code after return will be ignored! Let’s see a couple of examples…"
   },
   {
     "objectID": "lectures/13-slides.html#write-multiple-return-statements",
     "href": "lectures/13-slides.html#write-multiple-return-statements",
     "title": "Computing for the Social Sciences: Lecture 13",
     "section": "Write multiple return statements",
-    "text": "Write multiple return statements\nWriting multiple return statements with if-else:\ncheck_number &lt;- function(x) {\n  if (x &gt; 0) {\n    return(\"positive\")\n    }\n  else if (x &lt; 0) {\n    return(\"negative\")\n    }\n  else {\n    return(\"zero\")\n    }\n}\ncheck_number(1)\nIf x &gt; 0, the function returns “positive” without evaluating rest of the body."
+    "text": "Write multiple return statements\nExample 1"
   },
   {
     "objectID": "lectures/13-slides.html#write-one-return-statement-with-multiple-outputs",
     "href": "lectures/13-slides.html#write-one-return-statement-with-multiple-outputs",
     "title": "Computing for the Social Sciences: Lecture 13",
     "section": "Write one return statement with multiple outputs",
-    "text": "Write one return statement with multiple outputs\nSometimes you want to return multiple objects and collect them into a list or a vector:\nmy_sum &lt;- function(vector) {\n  total &lt;- 0\n  for (i in seq_along(vector)) {\n    total &lt;- total + vector[i]\n  }\n  return(list(total, i))\n}\n\nx &lt;- c(2,1,5,2)\ny &lt;- my_sum(x)\nQuestions:\n\nCan we return a vector rather than list here? How?\nWhy a list would generally be a better choice when your function returns multiple objects?"
+    "text": "Write one return statement with multiple outputs\nSometimes you want to return multiple objects and collect them into a list or a vector:\nmy_sum &lt;- function(vector) {\n  total &lt;- 0\n  for (i in seq_along(vector)) {\n    total &lt;- total + vector[i]\n  }\n  return(list(total, i))\n}\n\nx &lt;- c(2,1,5,2)\ny &lt;- my_sum(x)\nQuestions: Can we return a vector rather than list here? How? Why a list would generally be a better choice when your function returns multiple objects?"
   },
   {
     "objectID": "lectures/13-slides.html#using-stop-when-writing-a-function",
@@ -6024,21 +6024,21 @@
     "href": "lectures/13-slides.html#tips-for-writing-functions-name",
     "title": "Computing for the Social Sciences: Lecture 13",
     "section": "Tips for writing functions: name",
-    "text": "Tips for writing functions: name\nUse unique names:\n\nif your function name matches the name of an existing R function, your function will replace the existing function for your current session (e.g., write my_sum, do not re-write sum)\nunless there is a specific reason (e.g. learning purposes, etc.), do not create a new function like my_sum() when R already has a built-in sum() function you can use\n\nUse informative names:\n\nthe name should suggest what the function does\nit should be short\navoid reserved words like if, else, for, function, etc. To see the full list of reserved words type help(reserved) in the Console"
+    "text": "Tips for writing functions: name\nUse unique names:\n\nIf your function name matches the name of an existing R function, your function will replace the existing function for your current session (e.g., write my_sum, do not re-write sum)\nUnless there is a specific reason (e.g. learning purposes, etc.), do not create a new function like my_sum() when R already has a built-in sum() function you can use\n\nUse informative names:\n\nThe name should suggest what the function does\nIt should be short\nAvoid reserved words like if, else, for, function, etc. To see the full list: type help(reserved) in the Console"
   },
   {
     "objectID": "lectures/13-slides.html#tips-for-writing-functions-variables-scope",
     "href": "lectures/13-slides.html#tips-for-writing-functions-variables-scope",
     "title": "Computing for the Social Sciences: Lecture 13",
     "section": "Tips for writing functions: variables scope",
-    "text": "Tips for writing functions: variables scope\nVariables defined inside a function are not available outside it. Their scope lies within and is limited to the function itself. Check this out:\nmy_sum &lt;- function(vector) {\n  total &lt;- 0\n  for (i in seq_along(vector)) {\n    total &lt;- total + vector[i]\n  }\n  return(total)\n}\n\nx &lt;- c(2,1,5,2)\nmy_sum(x)\ntotal"
+    "text": "Tips for writing functions: variables scope\nVariables defined inside a function are not available outside it. Their scope lies within and is limited to the function itself. Check this out:\n\nmy_sum &lt;- function(vector) {\n  total &lt;- 0\n  for (i in seq_along(vector)) {\n    total &lt;- total + vector[i]\n  }\n  return(total)\n}\n\nx &lt;- c(2,1,5,2)\nmy_sum(x)\ntotal"
   },
   {
     "objectID": "lectures/13-slides.html#using-stop-when-writing-a-function-1",
     "href": "lectures/13-slides.html#using-stop-when-writing-a-function-1",
     "title": "Computing for the Social Sciences: Lecture 13",
     "section": "Using stop() when writing a function",
-    "text": "Using stop() when writing a function\nTo ensure this function works properly, the argument must be numeric. Otherwise, the conversion between the two temperature scales will not work.\nSolution: use if-else to verify if the provided argument is numeric; if not, use stop() to raise an error and stop the function execution\ncelsius_to_fahr &lt;- function(celsius) {\n  if (!is.numeric(celsius)) {\n    stop(\"error: input must be a number, try again\")\n  } else {\n    fahr &lt;- (celsius * 9/5) + 32\n    return(fahr) \n  }\n}\n\ncelsius_to_fahr(\"zero\")\nWhy using stop() and not print()?"
+    "text": "Using stop() when writing a function\nTo ensure this function works properly, the argument must be numeric. Otherwise, the conversion between the two temperature scales will not work.\nSolution: use if-else to verify if the provided argument is numeric; if not, use stop() to raise an error and stop the function execution\ncelsius_to_fahr &lt;- function(celsius) {\n  if (!is.numeric(celsius)) {\n    stop(\"error: input must be a number, try again\")\n  } else {\n    fahr &lt;- (celsius * 9/5) + 32\n    return(fahr) \n  }\n}\n\ncelsius_to_fahr(\"zero\")\nQuestions: What is the difference between stop and return? What happens if you rewrite Example 2 (slide 45) using stop instead than return?"
   },
   {
     "objectID": "lectures/13-slides.html#practice",
@@ -6059,6 +6059,27 @@
     "href": "lectures/13-slides.html#writing-custom-functions-3",
     "title": "Computing for the Social Sciences: Lecture 13",
     "section": "Writing custom functions",
-    "text": "Writing custom functions\nTo use a function, we need to call it with specific values.\nOur custom function my_sum() takes one argument, vector. When we call the function, this will be a specific vector, such as x, y, etc.\nx &lt;- c(2,1,5,2)\nmy_sum(vector = x)\n\ny &lt;- c(4,3,7)\nmy_sum(y)"
+    "text": "Writing custom functions\nTo use a function, we need to call it with specific values.\nOur custom function my_sum() takes one argument, vector. When we call the function, this will be a specific vector, such as x, y, etc.\n\nx &lt;- c(2,1,5,2)\nmy_sum(vector = x)\n\ny &lt;- c(4,3,7)\nmy_sum(y)"
+  },
+  {
+    "objectID": "lectures/13-slides.html#write-multiple-return-statements-1",
+    "href": "lectures/13-slides.html#write-multiple-return-statements-1",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "Write multiple return statements",
+    "text": "Write multiple return statements\nExample 2\n\nmy_sum &lt;- function(vector) {\n  \n  # check 1: input must not be missing\n  if (missing(vector)) {\n    return(\"Error: you must provide a vector\")\n  }\n  \n  # check 2: input must be numeric\n  if (!is.numeric(vector)) {\n    return(\"Error: input must be a numeric vector\")\n  }\n  \n  # compute the sum\n  total &lt;- 0\n  for (i in seq_along(vector)) {\n    total &lt;- total + vector[i]\n  }\n  return(total)\n}\n\n# examples\nmy_sum(c(2, 1, 5, 2))\nmy_sum(c(\"one\", 2, 3))\nmy_sum()\n\nWhy we do not write the “else” here? Note you can rewrite with or without the else both examples."
+  },
+  {
+    "objectID": "lectures/13-slides.html#write-multiple-return-statements-example-1",
+    "href": "lectures/13-slides.html#write-multiple-return-statements-example-1",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "Write multiple return statements: Example 1",
+    "text": "Write multiple return statements: Example 1\n\ndescribe_number &lt;- function(x) {\n  if (x == 0) {\n    return(\"x is zero (special case!)\")\n  }\n  if (x &gt; 0) {\n    return(\"x is positive\")\n  } else {\n    return(\"x is negative\")\n  }\n}"
+  },
+  {
+    "objectID": "lectures/13-slides.html#write-multiple-return-statements-example-2",
+    "href": "lectures/13-slides.html#write-multiple-return-statements-example-2",
+    "title": "Computing for the Social Sciences: Lecture 13",
+    "section": "Write multiple return statements: Example 2",
+    "text": "Write multiple return statements: Example 2\n\nmy_sum &lt;- function(vector) {\n  \n  # check 1: input must not be missing\n  if (missing(vector)) {\n    return(\"Error: you must provide a vector\")\n  }\n  \n  # check 2: input must be numeric\n  if (!is.numeric(vector)) {\n    return(\"Error: input must be a numeric vector\")\n  }\n  \n  # compute the sum\n  total &lt;- 0\n  for (i in seq_along(vector)) {\n    total &lt;- total + vector[i]\n  }\n  return(total)\n}\n\n# examples\nmy_sum(c(2, 1, 5, 2))\nmy_sum(c(\"one\", 2, 3))\nmy_sum()\n\nQuestions: Why we do not write the “else” in this example? Can you do the same with the previous one?"
   }
 ]

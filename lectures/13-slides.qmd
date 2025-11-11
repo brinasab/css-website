@@ -734,8 +734,10 @@ for (i in seq_along(x)) {
 total
 ```
 
-Then wrap it into a function and test again with different inputs:
+Then wrap the code into a function and test it again with different inputs:
+
 ```{r, echo = TRUE, results = "hide"}
+
 my_sum <- function(vector) {
   total <- 0
   for (i in seq_along(vector)) {
@@ -764,7 +766,8 @@ To use a function, we need to **call it** with specific values.
 
 Our custom function `my_sum()` takes one argument, `vector`. When we call the function, this will be a specific vector, such as `x`, `y`, etc. 
 
-```r
+```{r, echo = TRUE, results = "hide"}
+
 x <- c(2,1,5,2)
 my_sum(vector = x)
 
@@ -794,14 +797,14 @@ We use the sum example to illustrate how user-written functions work, but typica
 
 Use **unique names**:
 
-* if your function name matches the name of an existing R function, your function will replace the existing function for your current session (e.g., write `my_sum`, do not re-write `sum`)
-* unless there is a specific reason (e.g. learning purposes, etc.), do not create a new function like `my_sum()` when R already has a built-in `sum()` function you can use
+* If your function name matches the name of an existing R function, your function will replace the existing function for your current session (e.g., write `my_sum`, do not re-write `sum`)
+* Unless there is a specific reason (e.g. learning purposes, etc.), do not create a new function like `my_sum()` when R already has a built-in `sum()` function you can use
 
 Use **informative names**: 
 
-* the name should suggest what the function does 
-* it should be short
-* avoid reserved words like `if`, `else`, `for`, `function`, etc. To see the full list of reserved words type `help(reserved)` in the Console
+* The name should suggest what the function does 
+* It should be short
+* Avoid reserved words like `if`, `else`, `for`, `function`, etc. To see the full list: type `help(reserved)` in the Console
 
 ---
 
@@ -809,7 +812,8 @@ Use **informative names**:
 
 Variables defined inside a function are **not available outside it.** Their scope lies within and is limited to the function itself. Check this out:
 
-```r
+```{r, echo = TRUE, results = "hide"}
+
 my_sum <- function(vector) {
   total <- 0
   for (i in seq_along(vector)) {
@@ -829,7 +833,8 @@ total
 
 If you do not write a `return` statement, your output will be the last statement in your code:
 
-```r
+```{r, echo = TRUE, results = "hide"}
+
 my_sum <- function(vector) {
   total <- 0
   for (i in seq_along(vector)) {
@@ -843,30 +848,59 @@ my_sum(x)
 
 ```
 
-This works, but it's bettre to use `return` statements for code clarity and readability. **Remember that any code after `return` will be ignored** Let's see an example...
+This works, but it's better to use `return` statements for code clarity and readability. **Remember that any code after `return` will be ignored!** Let's see a couple of examples...
 
 ---
 
-## Write multiple return statements
+## Write multiple return statements: Example 1
 
-Writing multiple return statements with `if-else`:
+```{r, echo = TRUE, results = "hide"}
 
-```r
-check_number <- function(x) {
+describe_number <- function(x) {
+  if (x == 0) {
+    return("x is zero (special case!)")
+  }
   if (x > 0) {
-    return("positive")
-    }
-  else if (x < 0) {
-    return("negative")
-    }
-  else {
-    return("zero")
-    }
+    return("x is positive")
+  } else {
+    return("x is negative")
+  }
 }
-check_number(1)
+
 ```
 
-If x > 0, the function returns "positive" without evaluating rest of the body.
+---
+
+## Write multiple return statements: Example 2
+
+```{r, echo = TRUE, results = "hide"}
+my_sum <- function(vector) {
+  
+  # check 1: input must not be missing
+  if (missing(vector)) {
+    return("Error: you must provide a vector")
+  }
+  
+  # check 2: input must be numeric
+  if (!is.numeric(vector)) {
+    return("Error: input must be a numeric vector")
+  }
+  
+  # compute the sum
+  total <- 0
+  for (i in seq_along(vector)) {
+    total <- total + vector[i]
+  }
+  return(total)
+}
+
+# examples
+my_sum(c(2, 1, 5, 2))
+my_sum(c("one", 2, 3))
+my_sum()
+```
+
+**Questions:** Why we do not write the "else" in this example? Can you do the same with the previous one?
 
 ---
 
@@ -888,10 +922,7 @@ y <- my_sum(x)
 
 ```
 
-Questions:
-
-- Can we return a vector rather than list here? How? 
-- Why a list would generally be a better choice when your function returns multiple objects?
+**Questions:** Can we return a vector rather than list here? How? Why a list would generally be a better choice when your function returns multiple objects?
 
 <!-- stop here change to vector with c() and return different elements with y[1] and y[2] change back to list and return different elements again -->
 
@@ -932,7 +963,7 @@ celsius_to_fahr <- function(celsius) {
 celsius_to_fahr("zero")
 ```
 
-Why using stop() and not print()? 
+**Questions:** What is the difference between stop and return? What happens if you rewrite Example 2 (slide 45) using stop instead than return? 
 
 <!-- 
 `stop():` interrupts the execution of the function and throw an error message when a condition is not met 
