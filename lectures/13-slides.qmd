@@ -27,7 +27,7 @@ format:
 :::
 
 <span style="font-size: 0.8em; color: #666;">
-*Slides last updated on **November 10, 2025**. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.*
+*Slides last updated on **November 11, 2025**. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.*
 </span>
 
 # 1. Using For Loops with Dataframes {.slide .center .middle}
@@ -115,44 +115,66 @@ for (i in seq_along(penguins)) {
 output
 ```
 
-<br>
+::: {.callout}
 
-#### `output` is a vector where we store the results of the loop:    
-- To access elements of a vector, we only need single square brackets `[]`.  
-- So `output[i]` assigns the computed value into the *i-th position* of that vector.  
+**`output` is a vector where we store the loop results:**
 
-#### `penguins` is a dataframe or tibble:    
-- But `mean()` needs a numeric vector
-- To access a dataframe column as a vector, we need double brackets `[[]]`.  
-- So `penguins[[i]]` extracts the *i-th column* of the dataframe, and turns it into a vector. 
+- To access elements of a vector, use single square brackets `[]` 
+- So `output[i]` assigns the computed value into the *i-th position* of that vector 
 
-</br>
+**`penguins` is a dataframe (or tibble):**
+
+- But `mean()` needs a numeric vector  
+- To access a dataframe column *as a vector*, use double brackets `[[]]`  
+- So `penguins[[i]]` gets the *i-th column* of the dataframe, and turns it into a vector 
+
+:::
+
 
 ---
 
 ## Why output[i] and penguins[[i]]?
 
 ```{r echo=TRUE, results="hide"}
-is.vector(penguins[[1]])   # TRUE (the raw vector)
-is.data.frame(penguins[1]) # TRUE (a 1-col tibble/data frame)
+is.vector(penguins[[3]])           # TRUE (the raw vector)
+is.data.frame(penguins[3])         # TRUE (a 1-col tibble/data frame)
 
-mean(penguins[[1]], na.rm = TRUE)  # works, correct type (vector)
-mean(penguins[1], na.rm = TRUE)    # error, wrong type (1-col tibble)
+mean(penguins[[3]], na.rm = TRUE)  # works, correct type (vector)
+mean(penguins[3], na.rm = TRUE)    # error, wrong type (1-col tibble)
 ```
 
 <br>
 
-::: callout-important 
+::: callout 
 
 **With data frames:** `[[ ]]` returns the column itself as a vector, while `[ ]` returns a one-column data frame or tibble
 
-**With vectors:** `[]` and `[[ ]]` behave the same, but it's still good practice to consistently use `[]` when subsetting vectors and `[[ ]]` when extracting columns from data frames.
+**With vectors:** `[]` and `[[ ]]` behave the same, but is good practice to consistently use `[]` when subsetting vectors 
 
 *Review Lecture 10 and the Data Structures quiz for details.*
 
 :::
 
 </br>
+
+---
+
+## 💻 Practice Subsetting Data frames 
+
+### Answer these questions:
+
+1. What does `is.vector(penguins[["bill_len"]])` return, and why are there quotation marks around the column name? And what does `penguins[["bill_len"]]` return? 
+
+2. Write code to access the fourth column of the penguins dataset in four ways:
+
+    - By column name, returned as a vector
+    - By index, returned as a vector
+    - By column name, returned as a dataframe
+    - By index, returned as a dataframe
+
+For each object, check its data structure using  `is.vector()` or `is.data.frame()` (which return true or false) or `str()` which provides an overview of the object. 
+
+3. What does `is.vector(penguins[[1]])` return and why the output is not what we expect? What about `is.data.frame(penguins[1])`?
 
 # 2. Alternatives to For Loops in R {.slide .center .middle}
 
@@ -475,7 +497,7 @@ vapply(num_data, mean, na.rm = TRUE, FUN.VALUE = numeric(1))
 #### Tips for the `apply()` Family
 
 - `apply()` works best with **matrix-like** structures  
-- `lapply()` is **list-safe**, but `sapply()` is more **concise**  
+- `lapply()` is **list-safe**, but `sapply()` is more **concise** 
 - `vapply()` avoids surprises by **enforcing output type** (here returns a single numeric value)
 
 :::
@@ -652,7 +674,7 @@ Other functions belong to specific packages, like `summarize()` or `mutate()`
 
 ## Writing custom functions
 
-But besides **using** functions created by others, we can also **write our own functions!**
+Other than **using** functions created by others, we can also **write our own functions!**
 
 To do that we need the following:
 
@@ -678,17 +700,8 @@ Note:
 
 ## Writing custom functions
 
-For example, rather than using the built-in `sum()` function, we could **write our own sum function** to calculate the sum of the elements of a numeric vector.
+For example, rather than using the built-in `sum()` function, we could **write our own sum function** to calculate the sum of the elements of a numeric vector, like this:
 
-Syntax:
-```r
-name <- function(arg1, arg2, ...) { 
-    result <- body with code that does things using arg1, arg2, etc.
-    return(result)
-    }
-```
-
-Our own sum function: 
 ```r
 my_sum <- function(vector) {
   total <- 0
@@ -703,6 +716,42 @@ my_sum(x)
 ```
 
 Let's unpack this code in Workbench...
+
+---
+
+## Writing custom functions
+
+**Tip!** Write and test the code outside a function to make sure it works, like this:
+```{r, echo = TRUE, results = "hide"}
+x <- c(2,1,5,2)
+
+total <- 0  # start with zero, we'll add elements to this
+
+for (i in seq_along(x)) {
+  total <- total + x[i]  # add the i-th value of x to total
+}
+
+total
+```
+
+Then wrap it into a function and test again with different inputs:
+```{r, echo = TRUE, results = "hide"}
+my_sum <- function(vector) {
+  total <- 0
+  for (i in seq_along(vector)) {
+    total <- total + vector[i]
+  }
+  return(total)
+}
+
+x <- c(2, 1, 5, 2)
+my_sum(vector = x)
+
+y <- c(4,4)
+my_sum(y)
+```
+
+
 
 <!-- LET'S STOP A SECOND AN UNPACK THIS CODE! DO THIS ON WORKBENCH 
 SEE code lecture13_functions.Rmd -->
@@ -848,7 +897,7 @@ Questions:
 
 ---
 
-## Using `stop()` when writing a function
+## Using stop() when writing a function
 
 Define a function `celsius_to_fahr()` that converts temperatures from Celsius to Fahrenheit using the formula `fahrenheit = (celsius * 9/5) + 32`
 
@@ -864,7 +913,7 @@ celsius_to_fahr(-20)
 
 ---
 
-## Using `stop()` when writing a function
+## Using stop() when writing a function
 
 To ensure this function works properly, the argument must be numeric. Otherwise, the conversion between the two temperature scales will not work.
 
