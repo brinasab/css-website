@@ -6081,5 +6081,180 @@
     "title": "Computing for the Social Sciences: Lecture 13",
     "section": "Write multiple return statements: Example 2",
     "text": "Write multiple return statements: Example 2\n\nmy_sum &lt;- function(vector) {\n  \n  # check 1: input must not be missing\n  if (missing(vector)) {\n    return(\"Error: you must provide a vector\")\n  }\n  \n  # check 2: input must be numeric\n  if (!is.numeric(vector)) {\n    return(\"Error: input must be a numeric vector\")\n  }\n  \n  # compute the sum\n  total &lt;- 0\n  for (i in seq_along(vector)) {\n    total &lt;- total + vector[i]\n  }\n  return(total)\n}\n\n# examples\nmy_sum(c(2, 1, 5, 2))\nmy_sum(c(\"one\", 2, 3))\nmy_sum()\n\nQuestions: Why we do not write the “else” in this example? Can you do the same with the previous one?"
+  },
+  {
+    "objectID": "lectures/14-slides.html#from-using-to-writing-functions",
+    "href": "lectures/14-slides.html#from-using-to-writing-functions",
+    "title": "Computing for the Social Sciences: Lecture 14",
+    "section": "From using to writing functions",
+    "text": "From using to writing functions\nLast lecture we learned the following concepts:\n\nUsing existing functions\nWriting your own function\nThe return statement\nstop()\n\nToday we add:\n\nAnonymous functions\nDocumenting your function\nWriting functions with dplyr and ggplot"
+  },
+  {
+    "objectID": "lectures/14-slides.html#anonymous-functions",
+    "href": "lectures/14-slides.html#anonymous-functions",
+    "title": "Computing for the Social Sciences: Lecture 14",
+    "section": "Anonymous Functions",
+    "text": "Anonymous Functions\nAnonymous functions are functions without a name\nWhen to use them:\n\nWhen the function is very short and you need it only once\nWhen another function (like those in the apply() family) expects another function as input\n\nWhenever you can: write the function explicitly instead!"
+  },
+  {
+    "objectID": "lectures/14-slides.html#anonymous-functions-with-a-number-as-input",
+    "href": "lectures/14-slides.html#anonymous-functions-with-a-number-as-input",
+    "title": "Computing for the Social Sciences: Lecture 14",
+    "section": "Anonymous Functions with a number as input",
+    "text": "Anonymous Functions with a number as input\nImagine we have the following function:\n\nadd &lt;- function(x) {\n  return(x + 3) }\nadd(2)\n\nRe-write it as an anonymous function. Note: one line, no name, and call it with ():\n\n(function(x) {x + 3}) (2)\n\nOften anonymous functions are written without the {}, like this:\n\n(function(x) x + 3) (2)"
+  },
+  {
+    "objectID": "lectures/14-slides.html#anonymous-functions-with-a-vector-as-input",
+    "href": "lectures/14-slides.html#anonymous-functions-with-a-vector-as-input",
+    "title": "Computing for the Social Sciences: Lecture 14",
+    "section": "Anonymous Functions with a vector as input",
+    "text": "Anonymous Functions with a vector as input\nSame function as before but here we pass a vector as input rather than a single number:\n\nadd &lt;- function(x) {\n  return(x + 3) }\nadd(c(1,2,3))\n\nTo rewrite it as anonymous function, the following two codes won’t work because the vector isn’t passed correctly:\n(function(x) x + 1) (1,2,3)\n(function(x) x + 1) c(1, 2, 3)\nInstead, either of these works correctly, since the entire vector is passed as a single argument:\n\n(function(x) x + 1) (c(1, 2, 3))\n(function(x) x + 1) (1:3)"
+  },
+  {
+    "objectID": "lectures/14-slides.html#anonymous-functions-with-sapply-and-lapply",
+    "href": "lectures/14-slides.html#anonymous-functions-with-sapply-and-lapply",
+    "title": "Computing for the Social Sciences: Lecture 14",
+    "section": "Anonymous Functions with sapply() and lapply()",
+    "text": "Anonymous Functions with sapply() and lapply()\nYou can also rewrite the previous code using sapply() or lapply(). Remember them from last time? They can be used to avoid writing for loops in R.\nBoth belong to the apply() family and have the same basic structure:\nlapply(X, FUN)\nsapply(X, FUN)\n\nX is a vector or list (the input)\nFUN is a function to apply to each element of X\n\nThey both loop through the elements of X, apply FUN to each element…"
+  },
+  {
+    "objectID": "lectures/14-slides.html#anonymous-functions-with-sapply-and-lapply-1",
+    "href": "lectures/14-slides.html#anonymous-functions-with-sapply-and-lapply-1",
+    "title": "Computing for the Social Sciences: Lecture 14",
+    "section": "Anonymous Functions with sapply() and lapply()",
+    "text": "Anonymous Functions with sapply() and lapply()\n…But then differ in how they return the result:\n\nlapply means “list apply”, always returns the output as a list\nsapply() means “simplify apply”, returns a simplified version of the list (usually a vector, sometimes a matrix)\n\n\n# previous anonymous function\n(function(x) x + 1) (c(1, 2, 3))\n\n# re-written with sapply\nsapply(c(1,2,3), function(x) x + 1)\n\n# re-written with lapply\nlapply(c(1,2,3), function(x) x + 1)\n\nTip: Using sapply() is more common because it returns a vector, which is easier to work with that a list!"
+  },
+  {
+    "objectID": "lectures/14-slides.html#anonymous-functions-the-purrr-way",
+    "href": "lectures/14-slides.html#anonymous-functions-the-purrr-way",
+    "title": "Computing for the Social Sciences: Lecture 14",
+    "section": "Anonymous Functions the purrr way",
+    "text": "Anonymous Functions the purrr way\nThe purrr package (remember the map(), map_dbl(), etc. functions from last lecture? they come from this same package!) provides another way to write anonymous functions.\nSame function as before that adds 1 to each element of thhe input:\n\nadd &lt;- function(x) {\n  x + 1\n}\nadd(c(1,2,3))\n\nRewrite it as anonymous function in purrr in two ways:\n\nlibrary(purrr)\nmap_dbl(c(1, 2, 3), function(x) x + 1)\nmap_dbl(c(1,2,3), ~.x + 1)\n\nTip: map() has several versions like map_dbl(), map_chr(), and map_df() which let you control the output type directly, no guessing like with sapply()."
+  },
+  {
+    "objectID": "lectures/14-slides.html#practice-writing-functions",
+    "href": "lectures/14-slides.html#practice-writing-functions",
+    "title": "Computing for the Social Sciences: Lecture 14",
+    "section": "💻 Practice writing functions",
+    "text": "💻 Practice writing functions\nDownload last class materials from the website. Complete question 3\nLast class we did question 1, 2, and 4. Now: question 3 on anonymous functions!"
+  },
+  {
+    "objectID": "lectures/14-slides.html#practice-writing-functions-1",
+    "href": "lectures/14-slides.html#practice-writing-functions-1",
+    "title": "Computing for the Social Sciences: Lecture 14",
+    "section": "💻 Practice writing functions",
+    "text": "💻 Practice writing functions\nDownload last class materials from the website. Complete question 7"
+  },
+  {
+    "objectID": "lectures/14-slides.html#to-print-these-slides-as-pdf",
+    "href": "lectures/14-slides.html#to-print-these-slides-as-pdf",
+    "title": "Computing for the Social Sciences: Lecture 14",
+    "section": "To print these slides as pdf",
+    "text": "To print these slides as pdf\nClick on the icon bottom-right corner &gt; Tools &gt; PDF Export Mode &gt; Print as a Pdf"
+  },
+  {
+    "objectID": "lectures/14-slides.html#functions-should-be-well-documented-how",
+    "href": "lectures/14-slides.html#functions-should-be-well-documented-how",
+    "title": "Computing for the Social Sciences: Lecture 14",
+    "section": "Functions should be well-documented! How?",
+    "text": "Functions should be well-documented! How?\nEach function should include the following:\n\na one-sentence description of the function summarizing what it does\nall function’s arguments, denoted as Args:, with their data types\na description of the return value, denoted by Returns:\n\nDo not use AI do generate your documentation: it tends to overly complicate things, and is not good"
+  },
+  {
+    "objectID": "lectures/14-slides.html#codying-style-document-your-function",
+    "href": "lectures/14-slides.html#codying-style-document-your-function",
+    "title": "Computing for the Social Sciences: Lecture 14",
+    "section": "Codying style: document your function",
+    "text": "Codying style: document your function\n\nmy_sum &lt;- function(vector) {\n  \n  # Calculates the sum of all numbers in a numeric vector using a `for` loop.\n  # Args:\n  #   vector (num): a numeric vector whose elements will be summed\n  # Returns:\n  #  value (num): single numeric value.\n  # Example use:\n  #   x &lt;- c(3, 1, 4)\n  #   my_sum(x)\n    \n  total &lt;- 0\n  for (i in seq_along(vector)) {\n    total &lt;- total + vector[i]\n  }\n  total\n}"
+  },
+  {
+    "objectID": "lectures/14-slides.html#functions-and",
+    "href": "lectures/14-slides.html#functions-and",
+    "title": "Computing for the Social Sciences: Lecture 14",
+    "section": "Functions and {{ }}",
+    "text": "Functions and {{ }}\nYou can write custom functions and use them together with dplyr or ggplot functions!\nYou need the following:\n\nsyntax to write a custom function\nspecial operators that allows R to evaluate your custom functions correctly:\n\nbang-bang !! with enquo() (this is the old method)\ncurly-curly or embracing { } (this replaced the former method!)\n\n\nCheck out Chapter 25 of our book for details https://r4ds.hadley.nz/functions.html"
+  },
+  {
+    "objectID": "lectures/14-slides.html#functions-and-1",
+    "href": "lectures/14-slides.html#functions-and-1",
+    "title": "Computing for the Social Sciences: Lecture 14",
+    "section": "Functions and {{ }}",
+    "text": "Functions and {{ }}\nExample: create a data frame of age and height of 5 individuals:\n\nlibrary(dplyr)\n\ndf &lt;- tibble(age = c(10, 12, 13, 14, 10), \n             height = c(110, 140, 155, 170, 130))\ndf\n\n# A tibble: 5 × 2\n    age height\n  &lt;dbl&gt;  &lt;dbl&gt;\n1    10    110\n2    12    140\n3    13    155\n4    14    170\n5    10    130"
+  },
+  {
+    "objectID": "lectures/14-slides.html#functions-and-2",
+    "href": "lectures/14-slides.html#functions-and-2",
+    "title": "Computing for the Social Sciences: Lecture 14",
+    "section": "Functions and {{ }}",
+    "text": "Functions and {{ }}\nUse summarize() from dplyr to compute the mean and standard deviation on the column age of this data frame:\n\ndf %&gt;%\n  summarize(mean_age = mean(age),\n            sd_age = sd(age))\n\n# A tibble: 1 × 2\n  mean_age sd_age\n     &lt;dbl&gt;  &lt;dbl&gt;\n1     11.8   1.79"
+  },
+  {
+    "objectID": "lectures/14-slides.html#functions-and-3",
+    "href": "lectures/14-slides.html#functions-and-3",
+    "title": "Computing for the Social Sciences: Lecture 14",
+    "section": "Functions and {{ }}",
+    "text": "Functions and {{ }}\nRewrite the previous code using a function and the curly-curly operator (embracing):\n\ncustom_summary &lt;- function(data, col) {\n  data %&gt;%\n    summarize(mean_value = mean({{ col }}),\n              sd_value = sd({{ col }}))\n}\n\ncustom_summary(df, age)\n\n# A tibble: 1 × 2\n  mean_value sd_value\n       &lt;dbl&gt;    &lt;dbl&gt;\n1       11.8     1.79\n\n\nThe { } operator tells dplyr not to treat “col” as the literal variable name, but instead to look inside it for the variable we actually need (here “age”)"
+  },
+  {
+    "objectID": "lectures/14-slides.html#functions-and-4",
+    "href": "lectures/14-slides.html#functions-and-4",
+    "title": "Computing for the Social Sciences: Lecture 14",
+    "section": "Functions and {{ }}",
+    "text": "Functions and {{ }}\nEmbracing a variable means to wrap it in braces so var becomes { var } when using functions dplyr or ggplot code.\nIt tells dplyr to use the value stored inside the argument, not the argument as the literal variable name\nFrom the book: “one way to remember what’s happening is to think of { } as looking down a tunnel — { var } will make a dplyr function look inside of var rather than looking for a variable called var”"
+  },
+  {
+    "objectID": "lectures/14-slides.html#functions-and-5",
+    "href": "lectures/14-slides.html#functions-and-5",
+    "title": "Computing for the Social Sciences: Lecture 14",
+    "section": "Functions and {{ }}",
+    "text": "Functions and {{ }}\nRewrite it with multiple columns as arguments:\n\ncustom_summary &lt;- function(data, col1, col2) {\n  results &lt;- list(\n    summarise(data, \n              mean_value = mean({{ col1 }}),\n              sd_value = sd({{ col1 }})),\n    summarise(data, \n              mean_value = mean({{ col2 }}),\n              sd_value = sd({{ col2 }}))\n  )\n  # Combine output into a single data frame\n  bind_rows(results)\n}\ncustom_summary(df, age, height)\n\n# A tibble: 2 × 2\n  mean_value sd_value\n       &lt;dbl&gt;    &lt;dbl&gt;\n1       11.8     1.79\n2      141      23.0"
+  },
+  {
+    "objectID": "lectures/14-slides.html#functions-and-6",
+    "href": "lectures/14-slides.html#functions-and-6",
+    "title": "Computing for the Social Sciences: Lecture 14",
+    "section": "Functions and {{ }}",
+    "text": "Functions and {{ }}\nWhen do you need to embrace when writing a function?\nIn all cases of tidy evaluation. Two main subtypes (see Chapter 25 for details):\n\nData Masking: in functions such as arrange(), filter(), summarize() often when you need to pass a variable name; includes also aes() from gglot2\nTidy Selection: in functions such as select(), relocate(), rename() that select variables"
+  },
+  {
+    "objectID": "lectures/14-slides.html#example-from-googles-r-style-guide-here",
+    "href": "lectures/14-slides.html#example-from-googles-r-style-guide-here",
+    "title": "Computing for the Social Sciences: Lecture 14",
+    "section": "Example from Google’s R Style Guide here:",
+    "text": "Example from Google’s R Style Guide here:\n\nCalculateSampleCovariance &lt;- function(x, y, verbose = TRUE) {\n\n  # Computes the sample covariance between two vectors.\n  # Args:\n  #   x: One of two vectors whose sample covariance is to be calculated.\n  #   y: The other vector. x and y must have the same length, greater than one,\n  #      with no missing values.\n  #   verbose: If TRUE, prints sample covariance; if not, not. Default is TRUE.\n  # Returns:\n  #   The sample covariance between x and y.\n  \n  n &lt;- length(x)\n  if (n &lt;= 1 || n != length(y)) {\n    stop(\"Arguments x and y have invalid lengths: \",\n         length(x), \" and \", length(y), \".\") }\n  if (TRUE %in% is.na(x) || TRUE %in% is.na(y)) {\n    stop(\" Arguments x and y must not have missing values.\") }\n  covariance &lt;- var(x, y)\n  if (verbose)\n    cat(\"Covariance = \", round(covariance, 4), \".\\n\", sep = \"\")\n  return(covariance)\n}"
+  },
+  {
+    "objectID": "lectures/14-slides.html#bugs",
+    "href": "lectures/14-slides.html#bugs",
+    "title": "Computing for the Social Sciences: Lecture 14",
+    "section": "Bugs",
+    "text": "Bugs\nA bug is an error or flaw in a computer program that causes it to stop or to behave in unintended ways (e.g., produce an incorrect result).\nWhen we talk about bugs, we refer to two main types:\n\nsyntactic bugs (such as typos)\nbugs resulting from a misunderstanding of R’s rules\n\nWe all encounter both types of bugs. Fixing the latter requires time and experience, but we can address syntactic bugs faster by improving our coding style!"
+  },
+  {
+    "objectID": "lectures/14-slides.html#practice-finding-bugs-in-code",
+    "href": "lectures/14-slides.html#practice-finding-bugs-in-code",
+    "title": "Computing for the Social Sciences: Lecture 14",
+    "section": "💻 Practice finding bugs in code",
+    "text": "💻 Practice finding bugs in code\nDownload today’s class materials from the website."
+  },
+  {
+    "objectID": "lectures/14-slides.html#defensive-programming",
+    "href": "lectures/14-slides.html#defensive-programming",
+    "title": "Computing for the Social Sciences: Lecture 14",
+    "section": "Defensive Programming",
+    "text": "Defensive Programming\nDefensive Programming means preventing bugs from occurring in the first place!\nThis involves:\n1. Coding Style\n2. Condition handling"
+  },
+  {
+    "objectID": "lectures/14-slides.html#defensive-programming-with-coding-style",
+    "href": "lectures/14-slides.html#defensive-programming-with-coding-style",
+    "title": "Computing for the Social Sciences: Lecture 14",
+    "section": "1. Defensive Programming with Coding Style",
+    "text": "1. Defensive Programming with Coding Style"
+  },
+  {
+    "objectID": "lectures/14-slides.html#defensive-programming-with-condition-handling",
+    "href": "lectures/14-slides.html#defensive-programming-with-condition-handling",
+    "title": "Computing for the Social Sciences: Lecture 14",
+    "section": "2. Defensive Programming with Condition Handling",
+    "text": "2. Defensive Programming with Condition Handling"
   }
 ]
