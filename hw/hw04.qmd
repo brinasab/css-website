@@ -11,7 +11,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 **Due: ~~Thursday, November 20~~ Friday, November 21 by 11:59 PM (Chicago Time)**
 
-In this last assignment, you will practice the programming techniques from Lectures 10–14 and review core tools from earlier in the course. Part 1 includes guided exercises with a built-in dataset, while Part 2 focuses on a more realistic setting using a real social science dataset.
+In this last assignment, you will practice the programming techniques from Lectures 10–14 and review core tools from earlier in the course. Part 1 includes guided exercises with a built-in dataset. Part 2 applies and extends those skills in a more realistic social science setting, where you work with many raw CSV files and assemble them into a usable dataset.
 
 
 # Accessing and Cloning Your `hw04` Repository
