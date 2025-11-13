@@ -11,14 +11,14 @@ knitr::opts_chunk$set(echo = FALSE)
 
 **Due: ~~Thursday, November 20~~ Friday, November 21 by 11:59 PM (Chicago Time)**
 
-In this last assignment, you will practice the programming techniques from Lectures 10–14 and review core tools from earlier in the course. Part 1 includes guided exercises with a built-in dataset, while Part 2 focuses on a more realistic setting using a real social science dataset
+In this last assignment, you will practice the programming techniques from Lectures 10–14 and review core tools from earlier in the course. Part 1 includes guided exercises with a built-in dataset, while Part 2 focuses on a more realistic setting using a real social science dataset.
 
 
 # Accessing and Cloning Your `hw04` Repository
 
 **Accessing the repo:** 
 
-1. Go at [this link]() to accept the invitation and create your private `hw04` repository on GitHub. Your repository will be named `hw04-<USERNAME>` and will be ready within a few seconds. 
+1. Go at [this link](https://classroom.github.com/a/sG7VKBdb) to accept the invitation and create your private `hw04` repository on GitHub. Your repository will be named `hw04-<USERNAME>` and will be ready within a few seconds. 
 
 2. Once the repository has been created, click the link provided to access it.
 
