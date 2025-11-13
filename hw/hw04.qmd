@@ -18,7 +18,7 @@ In this last assignment, you will practice the programming techniques from Lectu
 
 **Accessing the repo:** 
 
-1. Go at [this link](https://classroom.github.com/a/JAgJxWZS) to accept the invitation and create your private `hw04` repository on GitHub. Your repository will be named `hw04-<USERNAME>` and will be ready within a few seconds. 
+1. Go at [this link]() to accept the invitation and create your private `hw04` repository on GitHub. Your repository will be named `hw04-<USERNAME>` and will be ready within a few seconds. 
 
 2. Once the repository has been created, click the link provided to access it.
 
