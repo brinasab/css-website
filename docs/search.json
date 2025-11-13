@@ -6108,7 +6108,7 @@
     "href": "lectures/14-slides.html#anonymous-functions-with-a-vector-as-input",
     "title": "Computing for the Social Sciences: Lecture 14",
     "section": "Anonymous Functions with a vector as input",
-    "text": "Anonymous Functions with a vector as input\nSame function as before but here we pass a vector as input rather than a single number:\n\nadd &lt;- function(x) {\n  return(x + 3) }\nadd(c(1,2,3))\n\nTo rewrite it as anonymous function, the following two codes won’t work because the vector isn’t passed correctly:\n(function(x) x + 1) (1,2,3)\n(function(x) x + 1) c(1, 2, 3)\nInstead, either of these works correctly, since the entire vector is passed as a single argument:\n\n(function(x) x + 1) (c(1, 2, 3))\n(function(x) x + 1) (1:3)"
+    "text": "Anonymous Functions with a vector as input\nSame function as before but here we pass a vector as input rather than a single number:\n\nadd &lt;- function(x) {\n  return(x + 3) }\nadd(c(1,2,3))\n\nTo rewrite it as anonymous function, the following two codes won’t work because the vector isn’t passed correctly:\n(function(x) x + 3) (1,2,3)\n(function(x) x + 3) c(1, 2, 3)\nInstead, either of these works correctly, since the entire vector is passed as a single argument:\n\n(function(x) x + 3) (c(1, 2, 3))\n(function(x) x + 3) (1:3)"
   },
   {
     "objectID": "lectures/14-slides.html#anonymous-functions-with-sapply-and-lapply",
@@ -6219,8 +6219,8 @@
     "objectID": "lectures/14-slides.html#example-from-googles-r-style-guide-here",
     "href": "lectures/14-slides.html#example-from-googles-r-style-guide-here",
     "title": "Computing for the Social Sciences: Lecture 14",
-    "section": "Example from Google’s R Style Guide here:",
-    "text": "Example from Google’s R Style Guide here:\n\nCalculateSampleCovariance &lt;- function(x, y, verbose = TRUE) {\n\n  # Computes the sample covariance between two vectors.\n  # Args:\n  #   x: One of two vectors whose sample covariance is to be calculated.\n  #   y: The other vector. x and y must have the same length, greater than one,\n  #      with no missing values.\n  #   verbose: If TRUE, prints sample covariance; if not, not. Default is TRUE.\n  # Returns:\n  #   The sample covariance between x and y.\n  \n  n &lt;- length(x)\n  if (n &lt;= 1 || n != length(y)) {\n    stop(\"Arguments x and y have invalid lengths: \",\n         length(x), \" and \", length(y), \".\") }\n  if (TRUE %in% is.na(x) || TRUE %in% is.na(y)) {\n    stop(\" Arguments x and y must not have missing values.\") }\n  covariance &lt;- var(x, y)\n  if (verbose)\n    cat(\"Covariance = \", round(covariance, 4), \".\\n\", sep = \"\")\n  return(covariance)\n}"
+    "section": "Example from Google’s R Style Guide here",
+    "text": "Example from Google’s R Style Guide here\n\nCalculateSampleCovariance &lt;- function(x, y, verbose = TRUE) {\n\n  # Computes the sample covariance between two vectors.\n  # Args:\n  #   x: One of two vectors whose sample covariance is to be calculated.\n  #   y: The other vector. x and y must have the same length, greater than one,\n  #      with no missing values.\n  #   verbose: If TRUE, prints sample covariance; if not, not. Default is TRUE.\n  # Returns:\n  #   The sample covariance between x and y.\n  \n  n &lt;- length(x)\n  if (n &lt;= 1 || n != length(y)) {\n    stop(\"Arguments x and y have invalid lengths: \",\n         length(x), \" and \", length(y), \".\") }\n  if (TRUE %in% is.na(x) || TRUE %in% is.na(y)) {\n    stop(\" Arguments x and y must not have missing values.\") }\n  covariance &lt;- var(x, y)\n  if (verbose)\n    cat(\"Covariance = \", round(covariance, 4), \".\\n\", sep = \"\")\n  return(covariance)\n}"
   },
   {
     "objectID": "lectures/14-slides.html#bugs",

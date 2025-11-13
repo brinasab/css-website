@@ -297,12 +297,12 @@ see http://adv-r.had.co.nz/Functional-programming.html#anonymous-functions
 <span id="cb4-3"><a></a><span class="fu">add</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>To rewrite it as anonymous function, the following two codes <strong>won’t work</strong> because the vector isn’t passed correctly:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>(<span class="cf">function</span>(x) x <span class="sc">+</span> <span class="dv">1</span>) (<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)</span>
-<span id="cb5-2"><a></a>(<span class="cf">function</span>(x) x <span class="sc">+</span> <span class="dv">1</span>) <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>(<span class="cf">function</span>(x) x <span class="sc">+</span> <span class="dv">3</span>) (<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)</span>
+<span id="cb5-2"><a></a>(<span class="cf">function</span>(x) x <span class="sc">+</span> <span class="dv">3</span>) <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Instead, <strong>either of these works correctly</strong>, since the entire vector is passed as a single argument:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>(<span class="cf">function</span>(x) x <span class="sc">+</span> <span class="dv">1</span>) (<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>))</span>
-<span id="cb6-2"><a></a>(<span class="cf">function</span>(x) x <span class="sc">+</span> <span class="dv">1</span>) (<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>(<span class="cf">function</span>(x) x <span class="sc">+</span> <span class="dv">3</span>) (<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>))</span>
+<span id="cb6-2"><a></a>(<span class="cf">function</span>(x) x <span class="sc">+</span> <span class="dv">3</span>) (<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <!--
 So the problem isn’t that anonymous functions can’t handle multiple values — they can!
@@ -396,7 +396,7 @@ The issue is the comma-separated syntax, which in R means multiple arguments, no
 </div>
 </section>
 <section id="example-from-googles-r-style-guide-here" class="slide level2 center">
-<h2>Example from Google’s R Style Guide <a href="https://web.stanford.edu/class/cs109l/unrestricted/resources/google-style.html#:~:text=Function%20Documentation,-Functions%20should%20contain&amp;text=These%20comments%20should%20consist%20of,value%2C%20denoted%20by%20Returns%3A%20.">here</a>:</h2>
+<h2>Example from Google’s R Style Guide <a href="https://web.stanford.edu/class/cs109l/unrestricted/resources/google-style.html#:~:text=Function%20Documentation,-Functions%20should%20contain&amp;text=These%20comments%20should%20consist%20of,value%2C%20denoted%20by%20Returns%3A%20.">here</a></h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>CalculateSampleCovariance <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y, <span class="at">verbose =</span> <span class="cn">TRUE</span>) {</span>
 <span id="cb12-2"><a></a></span>

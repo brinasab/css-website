@@ -107,14 +107,14 @@ add(c(1,2,3))
 
 To rewrite it as anonymous function, the following two codes **won't work** because the vector isn't passed correctly:
 ```r
-(function(x) x + 1) (1,2,3)
-(function(x) x + 1) c(1, 2, 3)
+(function(x) x + 3) (1,2,3)
+(function(x) x + 3) c(1, 2, 3)
 ```
 
 Instead, **either of these works correctly**, since the entire vector is passed as a single argument:
 ```{r echo = TRUE, results = "hide"}
-(function(x) x + 1) (c(1, 2, 3))
-(function(x) x + 1) (1:3)
+(function(x) x + 3) (c(1, 2, 3))
+(function(x) x + 3) (1:3)
 ```
 
 <!--
@@ -232,7 +232,7 @@ my_sum <- function(vector) {
 
 ---
 
-## Example from Google's R Style Guide [here](https://web.stanford.edu/class/cs109l/unrestricted/resources/google-style.html#:~:text=Function%20Documentation,-Functions%20should%20contain&text=These%20comments%20should%20consist%20of,value%2C%20denoted%20by%20Returns%3A%20.):
+## Example from Google's R Style Guide [here](https://web.stanford.edu/class/cs109l/unrestricted/resources/google-style.html#:~:text=Function%20Documentation,-Functions%20should%20contain&text=These%20comments%20should%20consist%20of,value%2C%20denoted%20by%20Returns%3A%20.)
 
 ```{r echo = TRUE, results = "hide"}
 
