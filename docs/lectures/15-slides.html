@@ -406,7 +406,7 @@ Sabrina Nardin, Fall 2025
 </section>
 <section id="our-goal-for-today" class="slide level2 center">
 <h2>Our Goal for Today</h2>
-<p><strong>I mentioned that we’ll need a bit of theory for web scraping—how the web works, how websites are built, some HTML, and the main rvest functions—but before we get into that, let’s be clear about what we want to achive…</strong></p>
+<p><strong>I mentioned that we’ll need a bit of theory for web scraping—how the web works, how websites are built, some HTML, and the main rvest functions—but before we get into that, let’s be clear about what we want to do…</strong></p>
 <div class="callout callout-important callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -761,7 +761,7 @@ Find the elements to use to extract:
 </section>
 <section id="main-functions-in-rvest-2" class="slide level2 center">
 <h2>Main functions in rvest</h2>
-<p><strong><code>html_elements()</code> finds elements that match a CSS selector or XPath expression.</strong></p>
+<p><strong><code>html_elements()</code> finds all elements in a HTML document that match a CSS selector or XPath expression.</strong></p>
 <p>Use when you expect multiple matches. Here each section corresponds to a different film:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>films <span class="ot">&lt;-</span> starwars <span class="sc">|&gt;</span> <span class="fu">html_elements</span>(<span class="st">"section"</span>)</span>
 <span id="cb8-2"><a></a>films</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

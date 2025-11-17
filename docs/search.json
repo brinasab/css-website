@@ -6353,7 +6353,7 @@
     "href": "lectures/15-slides.html#our-goal-for-today",
     "title": "Computing for the Social Sciences: Lecture 15",
     "section": "Our Goal for Today",
-    "text": "Our Goal for Today\nI mentioned that we’ll need a bit of theory for web scraping—how the web works, how websites are built, some HTML, and the main rvest functions—but before we get into that, let’s be clear about what we want to achive…\n\n\n\n\n\n\nGoal for Today\n\n\nScrape a U.S. Presidential statement from the American Presidency Project. Specifically: speaker name, date, title, full text of the statement\nhttps://www.presidency.ucsb.edu/documents/special-message-the-congress-relative-space-science-and-exploration"
+    "text": "Our Goal for Today\nI mentioned that we’ll need a bit of theory for web scraping—how the web works, how websites are built, some HTML, and the main rvest functions—but before we get into that, let’s be clear about what we want to do…\n\n\n\n\n\n\nGoal for Today\n\n\nScrape a U.S. Presidential statement from the American Presidency Project. Specifically: speaker name, date, title, full text of the statement\nhttps://www.presidency.ucsb.edu/documents/special-message-the-congress-relative-space-science-and-exploration"
   },
   {
     "objectID": "lectures/15-slides.html#how-the-web-works",
@@ -6563,7 +6563,7 @@
     "href": "lectures/15-slides.html#main-functions-in-rvest-2",
     "title": "Computing for the Social Sciences: Lecture 15",
     "section": "Main functions in rvest",
-    "text": "Main functions in rvest\nhtml_elements() finds elements that match a CSS selector or XPath expression.\nUse when you expect multiple matches. Here each section corresponds to a different film:\nfilms &lt;- starwars |&gt; html_elements(\"section\")\nfilms"
+    "text": "Main functions in rvest\nhtml_elements() finds all elements in a HTML document that match a CSS selector or XPath expression.\nUse when you expect multiple matches. Here each section corresponds to a different film:\nfilms &lt;- starwars |&gt; html_elements(\"section\")\nfilms"
   },
   {
     "objectID": "lectures/15-slides.html#main-functions-in-rvest-3",

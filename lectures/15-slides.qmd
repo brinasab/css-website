@@ -181,7 +181,7 @@ If an API exists, ideally with an R wrapper, use it instead of scraping HTML.
 
 ## Our Goal for Today
 
-**I mentioned that we’ll need a bit of theory for web scraping—how the web works, how websites are built, some HTML, and the main rvest functions—but before we get into that, let’s be clear about what we want to achive…**
+**I mentioned that we’ll need a bit of theory for web scraping—how the web works, how websites are built, some HTML, and the main rvest functions—but before we get into that, let’s be clear about what we want to do…**
 
 ::: {.callout-important}
 # Goal for Today
@@ -560,7 +560,7 @@ starwars |> as.character() |> cat()
 
 ## Main functions in rvest
 
-**`html_elements()` finds elements that match a CSS selector or XPath expression.** 
+**`html_elements()` finds all elements in a HTML document that match a CSS selector or XPath expression.** 
 
 Use when you expect multiple matches. Here each section corresponds to a different film:
 
