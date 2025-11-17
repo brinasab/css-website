@@ -3,7 +3,7 @@ title: "Lecture 16: Web-Scraping 2"
 date: 2025-11-19
 summary: "Web-Scraping 2"
 url_slides: 16-slides.qmd
-#url_code: css-materials/scraping-2
+url_code: css-materials/scraping
 page-layout: full
 draft: false
 ---
@@ -17,13 +17,15 @@ knitr::opts_chunk$set(echo = FALSE)
 * **Date**: {{< meta date >}}
 * **Topics**: {{< meta summary >}}
 * **Slides**: [View Slides]({{< meta url_slides >}})
-* **Code**: No in-class code to download
+* **Code**: `usethis::use_course("{{< meta url_code >}}")`
 
 <!-- `usethis::use_course("css-materials/getting-data-from-web-part2")` -->
 
 ## Learning Objectives
 
-* Continue the lecture on scraping: review and introduce new concepts
+* Continue the lecture on scraping
+* **Before Class:** Install the SelectorGadget as instructed in [last class slides](https://brinasab.github.io/css-website/lectures/15-slides.html#/selectorgadget)
+
 
 <!-- TO EVALUATE FALL 2025:
 * Introduce "rectangling" in R (e.g., unnesting nested lists) -->
