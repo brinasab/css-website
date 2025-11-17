@@ -1257,21 +1257,21 @@
     "href": "lectures/16-home.html",
     "title": "Lecture 16: Web-Scraping 2",
     "section": "",
-    "text": "Date: November 19, 2025\nTopics: Web-Scraping 2\nSlides: View Slides\nCode: No in-class code to download"
+    "text": "Date: November 19, 2025\nTopics: Web-Scraping 2\nSlides: View Slides\nCode: usethis::use_course(\"css-materials/scraping\")"
   },
   {
     "objectID": "lectures/16-home.html#info-and-materials",
     "href": "lectures/16-home.html#info-and-materials",
     "title": "Lecture 16: Web-Scraping 2",
     "section": "",
-    "text": "Date: November 19, 2025\nTopics: Web-Scraping 2\nSlides: View Slides\nCode: No in-class code to download"
+    "text": "Date: November 19, 2025\nTopics: Web-Scraping 2\nSlides: View Slides\nCode: usethis::use_course(\"css-materials/scraping\")"
   },
   {
     "objectID": "lectures/16-home.html#learning-objectives",
     "href": "lectures/16-home.html#learning-objectives",
     "title": "Lecture 16: Web-Scraping 2",
     "section": "Learning Objectives",
-    "text": "Learning Objectives\n\nContinue the lecture on scraping: review and introduce new concepts"
+    "text": "Learning Objectives\n\nContinue the lecture on scraping\nBefore Class: Install the SelectorGadget as instructed in last class slides"
   },
   {
     "objectID": "lectures/16-home.html#readings",
@@ -6353,7 +6353,7 @@
     "href": "lectures/15-slides.html#our-goal-for-today",
     "title": "Computing for the Social Sciences: Lecture 15",
     "section": "Our Goal for Today",
-    "text": "Our Goal for Today\nI mentioned that we’ll need a bit of theory for web scraping—how the web works, how websites are built, some HTML, and the main rvest functions—but before we get into that, let’s be clear about what we want to do today…\n\n\n\n\n\n\nGoal for Today\n\n\nScrape a U.S. Presidential statement from the American Presidency Project. Specifically: speaker name, date, title, full text of the statement\nhttps://www.presidency.ucsb.edu/documents/special-message-the-congress-relative-space-science-and-exploration"
+    "text": "Our Goal for Today\nI mentioned that we’ll need a bit of theory for web scraping—how the web works, how websites are built, some HTML, and the main rvest functions—but before we get into that, let’s be clear about what we want to achive…\n\n\n\n\n\n\nGoal for Today\n\n\nScrape a U.S. Presidential statement from the American Presidency Project. Specifically: speaker name, date, title, full text of the statement\nhttps://www.presidency.ucsb.edu/documents/special-message-the-congress-relative-space-science-and-exploration"
   },
   {
     "objectID": "lectures/15-slides.html#how-the-web-works",
@@ -6395,7 +6395,7 @@
     "href": "lectures/15-slides.html#using-a-web-api-application-programming-interface",
     "title": "Computing for the Social Sciences: Lecture 15",
     "section": "Using a Web API (Application Programming Interface)",
-    "text": "Using a Web API (Application Programming Interface)\n\n\n\nWhat this means: You request structured data from a website through a dedicated interface.\n\n\n\n\n\n\nHow it works:\n- The website provides a URL-based system where you ask for data. - You receive a clean, structured format (usually JSON).\n- You must follow the API’s rules: parameters, keys, rate limits, etc.\n\n\n\n\n\n\nGood beginner projects:\n- OMDb API (Open Movie Database) — used in today’s reading\n- NYTimes API (articles, comments)\n- Census Bureau API (with tidycensus R wrapper package)"
+    "text": "Using a Web API (Application Programming Interface)\n\n\n\nWhat this means: You request structured data from a website through a dedicated interface.\n\n\n\n\n\n\nHow it works:\n- The website provides a URL-based system where you ask for data.\n- You receive a clean, structured format (usually JSON).\n- You must follow the API’s rules: parameters, keys, rate limits, etc.\n\n\n\n\n\n\nGood beginner projects:\n- OMDb API (Open Movie Database) — used in today’s reading\n- NYTimes API (articles, comments)\n- Census Bureau API (with tidycensus R wrapper package)"
   },
   {
     "objectID": "lectures/15-slides.html#whats-behind-a-website-1",
@@ -6437,7 +6437,7 @@
     "href": "lectures/15-slides.html#html-tags-example",
     "title": "Computing for the Social Sciences: Lecture 15",
     "section": "HTML Tags: Example",
-    "text": "HTML Tags: Example\n&lt;html&gt;\n  &lt;head&gt;\n    &lt;title&gt;Title&lt;/title&gt;\n    &lt;a href=\"http://github.com\"&gt;GitHub&lt;/a&gt;\n    &lt;script src=\"https://c.js\"&gt;&lt;/script&gt;\n  &lt;/head&gt;\n  &lt;body&gt;\n    &lt;div&gt;\n      &lt;p&gt;Click &lt;b&gt;here&lt;/b&gt; now.&lt;/p&gt;\n      &lt;span&gt;Frozen&lt;/span&gt;\n    &lt;/div&gt;\n    &lt;table style=\"width:100%\"&gt;\n      &lt;tr&gt;\n        &lt;td&gt;Kristen&lt;/td&gt;\n        &lt;td&gt;Bell&lt;/td&gt;\n      &lt;/tr&gt;\n    &lt;/table&gt;\n  &lt;img src=\"http://ia.media-imdb.com/images.png\"/&gt;\n  &lt;/body&gt;\n&lt;/html&gt;\n💻 Practice: Find the text content Frozen and the GitHub link and the text content GitHub"
+    "text": "HTML Tags: Example\n# example of html code (this is not R code, won't run in R)\n&lt;html&gt;\n  &lt;head&gt;\n    &lt;title&gt;Title&lt;/title&gt;\n    &lt;a href=\"http://github.com\"&gt;GitHub&lt;/a&gt;\n    &lt;script src=\"https://c.js\"&gt;&lt;/script&gt;\n  &lt;/head&gt;\n  &lt;body&gt;\n    &lt;div&gt;\n      &lt;p&gt;Click &lt;b&gt;here&lt;/b&gt; now.&lt;/p&gt;\n      &lt;span&gt;Frozen&lt;/span&gt;\n    &lt;/div&gt;\n    &lt;table style=\"width:100%\"&gt;\n      &lt;tr&gt;\n        &lt;td&gt;Kristen&lt;/td&gt;\n        &lt;td&gt;Bell&lt;/td&gt;\n      &lt;/tr&gt;\n    &lt;/table&gt;\n  &lt;img src=\"http://ia.media-imdb.com/images.png\"/&gt;\n  &lt;/body&gt;\n&lt;/html&gt;\n💻 Practice: Find the text content Frozen and the GitHub link and the text content GitHub"
   },
   {
     "objectID": "lectures/15-slides.html#html-tags-example-1",
@@ -6542,7 +6542,7 @@
     "href": "lectures/15-slides.html#scrape-u.s.-presidential-statements",
     "title": "Computing for the Social Sciences: Lecture 15",
     "section": "Scrape U.S. Presidential Statements",
-    "text": "Scrape U.S. Presidential Statements\nlibrary(tidyverse)\nlibrary(rvest)\n\nscrape_doc &lt;- function(url) {\n  # Scrapes data from presidential pages pausing between requests\n  # Args:\n    # url (string): one presidential page \n  # Returns:\n    # tibble: a tibble with the date, speaker, title, full text from input url\n\n  # get HTML page\n  url_contents &lt;- read_html(x = url)\n  Sys.sleep(2)\n  \n  # extract elements\n  date &lt;- html_elements(x = url_contents, css = \".date-display-single\") %&gt;%\n    html_text2() %&gt;% mdy()\n\n  name &lt;- html_elements(x = url_contents, css = \".diet-title a\") %&gt;%\n    html_text2()\n  \n  title &lt;- html_elements(x = url_contents, css = \"h1\") %&gt;%\n    html_text2()\n  \n  text &lt;- html_elements(x = url_contents, css = \"div.field-docs-content\") %&gt;%\n    html_text2()\n  \n  # store in a data frame and return it\n  url_data &lt;- tibble(\n    date = date,\n    name = name,\n    title = title,\n    text = text\n  )\n  \n  return(url_data)\n}"
+    "text": "Scrape U.S. Presidential Statements\nlibrary(tidyverse)\nlibrary(lubridate)\nlibrary(rvest)\n\nscrape_doc &lt;- function(url) {\n  # Scrapes data from presidential pages pausing between requests\n  # Args:\n    # url (string): one presidential page \n  # Returns:\n    # tibble: a tibble with the date, speaker, title, full text from input url\n\n  # get HTML page\n  Sys.sleep(2)\n  url_contents &lt;- read_html(x = url)\n\n  # extract elements\n  date &lt;- html_elements(x = url_contents, css = \".date-display-single\") %&gt;%\n    html_text2() %&gt;% mdy()\n\n  name &lt;- html_elements(x = url_contents, css = \".diet-title a\") %&gt;%\n    html_text2()\n  \n  title &lt;- html_elements(x = url_contents, css = \"h1\") %&gt;%\n    html_text2()\n  \n  text &lt;- html_elements(x = url_contents, css = \"div.field-docs-content\") %&gt;%\n    html_text2()\n  \n  # store in a data frame and return it\n  url_data &lt;- tibble(\n    date = date,\n    name = name,\n    title = title,\n    text = text\n  )\n  \n  return(url_data)\n}"
   },
   {
     "objectID": "lectures/15-slides.html#main-functions-in-rvest",
@@ -6556,7 +6556,7 @@
     "href": "lectures/15-slides.html#main-functions-in-rvest-1",
     "title": "Computing for the Social Sciences: Lecture 15",
     "section": "Main functions in rvest",
-    "text": "Main functions in rvest\nThe following slides and code are from the documentation: https://rvest.tidyverse.org/index.html#usage\nread_html() reads an html page into R:\nlibrary(rvesr)\nstarwars &lt;- read_html(\"https://rvest.tidyverse.org/articles/starwars.html\")\nstarwars |&gt; as.character() |&gt; cat()"
+    "text": "Main functions in rvest\nThe following slides and code are from the documentation: https://rvest.tidyverse.org/index.html#usage\nread_html() reads an html page into R:\nlibrary(rvest)\nstarwars &lt;- read_html(\"https://rvest.tidyverse.org/articles/starwars.html\")\nstarwars |&gt; as.character() |&gt; cat()"
   },
   {
     "objectID": "lectures/15-slides.html#main-functions-in-rvest-2",

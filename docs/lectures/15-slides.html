@@ -330,7 +330,8 @@ Sabrina Nardin, Fall 2025
 <div class="callout-body">
 <div class="callout-content">
 <p><strong>How it works:</strong><br>
-- The website provides a URL-based system where you ask for data. - You receive a clean, structured format (usually JSON).<br>
+- The website provides a URL-based system where you ask for data.<br>
+- You receive a clean, structured format (usually JSON).<br>
 - You must follow the API’s rules: parameters, keys, rate limits, etc.</p>
 </div>
 </div>
@@ -405,7 +406,7 @@ Sabrina Nardin, Fall 2025
 </section>
 <section id="our-goal-for-today" class="slide level2 center">
 <h2>Our Goal for Today</h2>
-<p><strong>I mentioned that we’ll need a bit of theory for web scraping—how the web works, how websites are built, some HTML, and the main rvest functions—but before we get into that, let’s be clear about what we want to do today…</strong></p>
+<p><strong>I mentioned that we’ll need a bit of theory for web scraping—how the web works, how websites are built, some HTML, and the main rvest functions—but before we get into that, let’s be clear about what we want to achive…</strong></p>
 <div class="callout callout-important callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -424,42 +425,43 @@ Sabrina Nardin, Fall 2025
 <section id="scrape-u.s.-presidential-statements" class="slide level2 center">
 <h2>Scrape U.S. Presidential Statements</h2>
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a></a><span class="fu">library</span>(rvest)</span>
-<span id="cb1-3"><a></a></span>
-<span id="cb1-4"><a></a>scrape_doc <span class="ot">&lt;-</span> <span class="cf">function</span>(url) {</span>
-<span id="cb1-5"><a></a>  <span class="co"># Scrapes data from presidential pages pausing between requests</span></span>
-<span id="cb1-6"><a></a>  <span class="co"># Args:</span></span>
-<span id="cb1-7"><a></a>    <span class="co"># url (string): one presidential page </span></span>
-<span id="cb1-8"><a></a>  <span class="co"># Returns:</span></span>
-<span id="cb1-9"><a></a>    <span class="co"># tibble: a tibble with the date, speaker, title, full text from input url</span></span>
-<span id="cb1-10"><a></a></span>
-<span id="cb1-11"><a></a>  <span class="co"># get HTML page</span></span>
-<span id="cb1-12"><a></a>  url_contents <span class="ot">&lt;-</span> <span class="fu">read_html</span>(<span class="at">x =</span> url)</span>
+<span id="cb1-2"><a></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb1-3"><a></a><span class="fu">library</span>(rvest)</span>
+<span id="cb1-4"><a></a></span>
+<span id="cb1-5"><a></a>scrape_doc <span class="ot">&lt;-</span> <span class="cf">function</span>(url) {</span>
+<span id="cb1-6"><a></a>  <span class="co"># Scrapes data from presidential pages pausing between requests</span></span>
+<span id="cb1-7"><a></a>  <span class="co"># Args:</span></span>
+<span id="cb1-8"><a></a>    <span class="co"># url (string): one presidential page </span></span>
+<span id="cb1-9"><a></a>  <span class="co"># Returns:</span></span>
+<span id="cb1-10"><a></a>    <span class="co"># tibble: a tibble with the date, speaker, title, full text from input url</span></span>
+<span id="cb1-11"><a></a></span>
+<span id="cb1-12"><a></a>  <span class="co"># get HTML page</span></span>
 <span id="cb1-13"><a></a>  <span class="fu">Sys.sleep</span>(<span class="dv">2</span>)</span>
-<span id="cb1-14"><a></a>  </span>
-<span id="cb1-15"><a></a>  <span class="co"># extract elements</span></span>
-<span id="cb1-16"><a></a>  date <span class="ot">&lt;-</span> <span class="fu">html_elements</span>(<span class="at">x =</span> url_contents, <span class="at">css =</span> <span class="st">".date-display-single"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb1-17"><a></a>    <span class="fu">html_text2</span>() <span class="sc">%&gt;%</span> <span class="fu">mdy</span>()</span>
-<span id="cb1-18"><a></a></span>
-<span id="cb1-19"><a></a>  name <span class="ot">&lt;-</span> <span class="fu">html_elements</span>(<span class="at">x =</span> url_contents, <span class="at">css =</span> <span class="st">".diet-title a"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb1-20"><a></a>    <span class="fu">html_text2</span>()</span>
-<span id="cb1-21"><a></a>  </span>
-<span id="cb1-22"><a></a>  title <span class="ot">&lt;-</span> <span class="fu">html_elements</span>(<span class="at">x =</span> url_contents, <span class="at">css =</span> <span class="st">"h1"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb1-23"><a></a>    <span class="fu">html_text2</span>()</span>
-<span id="cb1-24"><a></a>  </span>
-<span id="cb1-25"><a></a>  text <span class="ot">&lt;-</span> <span class="fu">html_elements</span>(<span class="at">x =</span> url_contents, <span class="at">css =</span> <span class="st">"div.field-docs-content"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb1-26"><a></a>    <span class="fu">html_text2</span>()</span>
-<span id="cb1-27"><a></a>  </span>
-<span id="cb1-28"><a></a>  <span class="co"># store in a data frame and return it</span></span>
-<span id="cb1-29"><a></a>  url_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb1-30"><a></a>    <span class="at">date =</span> date,</span>
-<span id="cb1-31"><a></a>    <span class="at">name =</span> name,</span>
-<span id="cb1-32"><a></a>    <span class="at">title =</span> title,</span>
-<span id="cb1-33"><a></a>    <span class="at">text =</span> text</span>
-<span id="cb1-34"><a></a>  )</span>
-<span id="cb1-35"><a></a>  </span>
-<span id="cb1-36"><a></a>  <span class="fu">return</span>(url_data)</span>
-<span id="cb1-37"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-14"><a></a>  url_contents <span class="ot">&lt;-</span> <span class="fu">read_html</span>(<span class="at">x =</span> url)</span>
+<span id="cb1-15"><a></a></span>
+<span id="cb1-16"><a></a>  <span class="co"># extract elements</span></span>
+<span id="cb1-17"><a></a>  date <span class="ot">&lt;-</span> <span class="fu">html_elements</span>(<span class="at">x =</span> url_contents, <span class="at">css =</span> <span class="st">".date-display-single"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-18"><a></a>    <span class="fu">html_text2</span>() <span class="sc">%&gt;%</span> <span class="fu">mdy</span>()</span>
+<span id="cb1-19"><a></a></span>
+<span id="cb1-20"><a></a>  name <span class="ot">&lt;-</span> <span class="fu">html_elements</span>(<span class="at">x =</span> url_contents, <span class="at">css =</span> <span class="st">".diet-title a"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-21"><a></a>    <span class="fu">html_text2</span>()</span>
+<span id="cb1-22"><a></a>  </span>
+<span id="cb1-23"><a></a>  title <span class="ot">&lt;-</span> <span class="fu">html_elements</span>(<span class="at">x =</span> url_contents, <span class="at">css =</span> <span class="st">"h1"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-24"><a></a>    <span class="fu">html_text2</span>()</span>
+<span id="cb1-25"><a></a>  </span>
+<span id="cb1-26"><a></a>  text <span class="ot">&lt;-</span> <span class="fu">html_elements</span>(<span class="at">x =</span> url_contents, <span class="at">css =</span> <span class="st">"div.field-docs-content"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-27"><a></a>    <span class="fu">html_text2</span>()</span>
+<span id="cb1-28"><a></a>  </span>
+<span id="cb1-29"><a></a>  <span class="co"># store in a data frame and return it</span></span>
+<span id="cb1-30"><a></a>  url_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb1-31"><a></a>    <span class="at">date =</span> date,</span>
+<span id="cb1-32"><a></a>    <span class="at">name =</span> name,</span>
+<span id="cb1-33"><a></a>    <span class="at">title =</span> title,</span>
+<span id="cb1-34"><a></a>    <span class="at">text =</span> text</span>
+<span id="cb1-35"><a></a>  )</span>
+<span id="cb1-36"><a></a>  </span>
+<span id="cb1-37"><a></a>  <span class="fu">return</span>(url_data)</span>
+<span id="cb1-38"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section></section>
 <section>
 <section id="two-key-concepts" class="title-slide slide level1 center middle">
@@ -624,26 +626,27 @@ https://plsc-31101.github.io/course/collecting-data-from-the-web.html#webscrapin
 </section>
 <section id="html-tags-example" class="slide level2 center">
 <h2>HTML Tags: Example</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource html number-lines code-with-copy"><code class="sourceCode html"><span id="cb3-1"><a></a><span class="dt">&lt;</span><span class="kw">html</span><span class="dt">&gt;</span></span>
-<span id="cb3-2"><a></a>  <span class="dt">&lt;</span><span class="kw">head</span><span class="dt">&gt;</span></span>
-<span id="cb3-3"><a></a>    <span class="dt">&lt;</span><span class="kw">title</span><span class="dt">&gt;</span>Title<span class="dt">&lt;/</span><span class="kw">title</span><span class="dt">&gt;</span></span>
-<span id="cb3-4"><a></a>    <span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"http://github.com"</span><span class="dt">&gt;</span>GitHub<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span>
-<span id="cb3-5"><a></a>    <span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> src</span><span class="op">=</span><span class="st">"https://c.js"</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span>
-<span id="cb3-6"><a></a>  <span class="dt">&lt;/</span><span class="kw">head</span><span class="dt">&gt;</span></span>
-<span id="cb3-7"><a></a>  <span class="dt">&lt;</span><span class="kw">body</span><span class="dt">&gt;</span></span>
-<span id="cb3-8"><a></a>    <span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb3-9"><a></a>      <span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>Click <span class="dt">&lt;</span><span class="kw">b</span><span class="dt">&gt;</span>here<span class="dt">&lt;/</span><span class="kw">b</span><span class="dt">&gt;</span> now.<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
-<span id="cb3-10"><a></a>      <span class="dt">&lt;</span><span class="kw">span</span><span class="dt">&gt;</span>Frozen<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
-<span id="cb3-11"><a></a>    <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb3-12"><a></a>    <span class="dt">&lt;</span><span class="kw">table</span><span class="ot"> style</span><span class="op">=</span><span class="st">"width:100%"</span><span class="dt">&gt;</span></span>
-<span id="cb3-13"><a></a>      <span class="dt">&lt;</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
-<span id="cb3-14"><a></a>        <span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>Kristen<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
-<span id="cb3-15"><a></a>        <span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>Bell<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
-<span id="cb3-16"><a></a>      <span class="dt">&lt;/</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
-<span id="cb3-17"><a></a>    <span class="dt">&lt;/</span><span class="kw">table</span><span class="dt">&gt;</span></span>
-<span id="cb3-18"><a></a>  <span class="dt">&lt;</span><span class="kw">img</span><span class="ot"> src</span><span class="op">=</span><span class="st">"http://ia.media-imdb.com/images.png"</span><span class="dt">/&gt;</span></span>
-<span id="cb3-19"><a></a>  <span class="dt">&lt;/</span><span class="kw">body</span><span class="dt">&gt;</span></span>
-<span id="cb3-20"><a></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource html number-lines code-with-copy"><code class="sourceCode html"><span id="cb3-1"><a></a># example of html code (this is not R code, won't run in R)</span>
+<span id="cb3-2"><a></a><span class="dt">&lt;</span><span class="kw">html</span><span class="dt">&gt;</span></span>
+<span id="cb3-3"><a></a>  <span class="dt">&lt;</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb3-4"><a></a>    <span class="dt">&lt;</span><span class="kw">title</span><span class="dt">&gt;</span>Title<span class="dt">&lt;/</span><span class="kw">title</span><span class="dt">&gt;</span></span>
+<span id="cb3-5"><a></a>    <span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"http://github.com"</span><span class="dt">&gt;</span>GitHub<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span>
+<span id="cb3-6"><a></a>    <span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> src</span><span class="op">=</span><span class="st">"https://c.js"</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span>
+<span id="cb3-7"><a></a>  <span class="dt">&lt;/</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb3-8"><a></a>  <span class="dt">&lt;</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb3-9"><a></a>    <span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb3-10"><a></a>      <span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>Click <span class="dt">&lt;</span><span class="kw">b</span><span class="dt">&gt;</span>here<span class="dt">&lt;/</span><span class="kw">b</span><span class="dt">&gt;</span> now.<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb3-11"><a></a>      <span class="dt">&lt;</span><span class="kw">span</span><span class="dt">&gt;</span>Frozen<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
+<span id="cb3-12"><a></a>    <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb3-13"><a></a>    <span class="dt">&lt;</span><span class="kw">table</span><span class="ot"> style</span><span class="op">=</span><span class="st">"width:100%"</span><span class="dt">&gt;</span></span>
+<span id="cb3-14"><a></a>      <span class="dt">&lt;</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
+<span id="cb3-15"><a></a>        <span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>Kristen<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb3-16"><a></a>        <span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>Bell<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb3-17"><a></a>      <span class="dt">&lt;/</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
+<span id="cb3-18"><a></a>    <span class="dt">&lt;/</span><span class="kw">table</span><span class="dt">&gt;</span></span>
+<span id="cb3-19"><a></a>  <span class="dt">&lt;</span><span class="kw">img</span><span class="ot"> src</span><span class="op">=</span><span class="st">"http://ia.media-imdb.com/images.png"</span><span class="dt">/&gt;</span></span>
+<span id="cb3-20"><a></a>  <span class="dt">&lt;/</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb3-21"><a></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>💻 Practice: Find the text content <code>Frozen</code> and the GitHub link and the text content <code>GitHub</code></strong></p>
 </section>
 <section id="html-tags-example-1" class="slide level2 center">
@@ -752,7 +755,7 @@ Find the elements to use to extract:
 <h2>Main functions in rvest</h2>
 <p>The following slides and code are from the documentation: <a href="https://rvest.tidyverse.org/index.html#usage" class="uri">https://rvest.tidyverse.org/index.html#usage</a></p>
 <p><strong><code>read_html()</code> reads an html page into R:</strong></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">library</span>(rvesr)</span>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">library</span>(rvest)</span>
 <span id="cb7-2"><a></a>starwars <span class="ot">&lt;-</span> <span class="fu">read_html</span>(<span class="st">"https://rvest.tidyverse.org/articles/starwars.html"</span>)</span>
 <span id="cb7-3"><a></a>starwars <span class="sc">|&gt;</span> <span class="fu">as.character</span>() <span class="sc">|&gt;</span> <span class="fu">cat</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>

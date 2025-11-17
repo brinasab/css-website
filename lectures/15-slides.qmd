@@ -122,7 +122,7 @@ Request data from a website indirectly,
 
 ::: {.callout}
 **How it works:**  
-- The website provides a URL-based system where you ask for data.
+- The website provides a URL-based system where you ask for data.  
 - You receive a clean, structured format (usually JSON).  
 - You must follow the API’s rules: parameters, keys, rate limits, etc.
 :::
@@ -181,7 +181,7 @@ If an API exists, ideally with an R wrapper, use it instead of scraping HTML.
 
 ## Our Goal for Today
 
-**I mentioned that we’ll need a bit of theory for web scraping—how the web works, how websites are built, some HTML, and the main rvest functions—but before we get into that, let’s be clear about what we want to do today…**
+**I mentioned that we’ll need a bit of theory for web scraping—how the web works, how websites are built, some HTML, and the main rvest functions—but before we get into that, let’s be clear about what we want to achive…**
 
 ::: {.callout-important}
 # Goal for Today
@@ -197,6 +197,7 @@ Scrape a U.S. Presidential statement from the American Presidency Project. Speci
 
 ```r
 library(tidyverse)
+library(lubridate)
 library(rvest)
 
 scrape_doc <- function(url) {
@@ -207,9 +208,9 @@ scrape_doc <- function(url) {
     # tibble: a tibble with the date, speaker, title, full text from input url
 
   # get HTML page
-  url_contents <- read_html(x = url)
   Sys.sleep(2)
-  
+  url_contents <- read_html(x = url)
+
   # extract elements
   date <- html_elements(x = url_contents, css = ".date-display-single") %>%
     html_text2() %>% mdy()
@@ -390,6 +391,7 @@ https://plsc-31101.github.io/course/collecting-data-from-the-web.html#webscrapin
 ## HTML Tags: Example
 
 ```html
+# example of html code (this is not R code, won't run in R)
 <html>
   <head>
     <title>Title</title>
@@ -549,7 +551,7 @@ The following slides and code are from the documentation: <https://rvest.tidyver
 **`read_html()` reads an html page into R:**
 
 ```r
-library(rvesr)
+library(rvest)
 starwars <- read_html("https://rvest.tidyverse.org/articles/starwars.html")
 starwars |> as.character() |> cat()
 
