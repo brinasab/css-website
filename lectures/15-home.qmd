@@ -17,7 +17,7 @@ knitr::opts_chunk$set(echo = FALSE)
 * **Date**: {{< meta date >}}
 * **Topics**: {{< meta summary >}}
 * **Slides**: [View Slides]({{< meta url_slides >}})
-* **Code**: No in-class code to download
+* **Code**: No code
 
 <!--`usethis::use_course("css-materials/getting-data-from-the-web-scraping")` -->
 
@@ -26,7 +26,7 @@ knitr::opts_chunk$set(echo = FALSE)
 * Understand the difference between web-scraping and Application Program Interface (API)
 * Define HTML and CSS selectors
 * Introduce the `rvest` package for scraping in R
-* Demonstrate how to extract information from HTML pages
+* Practice using `rvest` to extract data from HTML pages
 
 
 ## Readings

@@ -1285,21 +1285,21 @@
     "href": "lectures/15-home.html",
     "title": "Lecture 15: Web-Scraping 1",
     "section": "",
-    "text": "Date: November 17, 2025\nTopics: Web-Scraping 1\nSlides: View Slides\nCode: No in-class code to download"
+    "text": "Date: November 17, 2025\nTopics: Web-Scraping 1\nSlides: View Slides\nCode: No code"
   },
   {
     "objectID": "lectures/15-home.html#info-and-materials",
     "href": "lectures/15-home.html#info-and-materials",
     "title": "Lecture 15: Web-Scraping 1",
     "section": "",
-    "text": "Date: November 17, 2025\nTopics: Web-Scraping 1\nSlides: View Slides\nCode: No in-class code to download"
+    "text": "Date: November 17, 2025\nTopics: Web-Scraping 1\nSlides: View Slides\nCode: No code"
   },
   {
     "objectID": "lectures/15-home.html#learning-objectives",
     "href": "lectures/15-home.html#learning-objectives",
     "title": "Lecture 15: Web-Scraping 1",
     "section": "Learning Objectives",
-    "text": "Learning Objectives\n\nUnderstand the difference between web-scraping and Application Program Interface (API)\nDefine HTML and CSS selectors\nIntroduce the rvest package for scraping in R\nDemonstrate how to extract information from HTML pages"
+    "text": "Learning Objectives\n\nUnderstand the difference between web-scraping and Application Program Interface (API)\nDefine HTML and CSS selectors\nIntroduce the rvest package for scraping in R\nPractice using rvest to extract data from HTML pages"
   },
   {
     "objectID": "lectures/15-home.html#readings",
@@ -6263,5 +6263,348 @@
     "title": "HW04: Programming Skills",
     "section": "",
     "text": "Overview\nDue: Thursday, November 20 Friday, November 21 by 11:59 PM (Chicago Time)\nIn this last assignment, you will practice the programming techniques from Lectures 10–14 and review core tools from earlier in the course. Part 1 includes guided exercises with a built-in dataset. Part 2 applies and extends those skills in a more realistic social science setting, where you work with many raw CSV files and assemble them into a usable dataset.\n\n\nAccessing and Cloning Your hw04 Repository\nAccessing the repo:\n\nGo at this link to accept the invitation and create your private hw04 repository on GitHub. Your repository will be named hw04-&lt;USERNAME&gt; and will be ready within a few seconds.\nOnce the repository has been created, click the link provided to access it.\n\nCloning the repo into your Workbench:\n\nLog into Workbench and start a new project:\nFile &gt; New Project &gt; Version Control &gt; Git\nIn the Repository URL field:\n\nPaste the URL of your GitHub repository. To find the URL, go to your hw03 repo on GitHub, click the green Code button, and copy the SSH or HTTPS link (use the method you configured during setup: Workbench users must select SSH).\nThe project name should auto-fill. If not, type hw04-&lt;USERNAME&gt; manually.\n\nChoose where to save the project directory locally. Tip: Avoid moving folders after cloning them.\nCheck the box “Open in new session” (recommended for keeping projects separate and organized)\nClick Create Project. This will:\n\nCreate a new folder on your machine\n\nInitialize a Git repository linked to GitHub\n\nOpen an RStudio Project in a new session\n\n\n\n\nGeneral Homework Workflow\nSee Homework 1 for details. The workflow is the same for all assignments (e.g., accept the repo, edit the files, save, then Pull – Stage – Commit – Push).\n\n\nAssignment Description\nThis homework assignment has two parts, each with its own Rmd file:\nPART 1: Practice programming in R by applying the techniques we covered in this module (Lectures 10–14) through guided exercises using a built-in dataset. Use the file hw4_part1.Rmd\nPART 2: Practice programming in R and review previous content (tidyr, dplyr, ggplot2, etc.) using a real, complex social science dataset. Use the file hw4_part2.Rmd\n\n\n\n\n\n\nNote\n\n\n\n\nThe questions—especially the open-ended ones—are designed to help you think like a programmer and data analyst. They won’t walk you through every step but encourage you to apply what you’ve learned and work independently. Translating what a question asks into code by breaking it down in smaller pieces is one important learning goal of this course.\nThis homework is designed to be completed over multiple sessions—it will feel overwhelming otherwise. Start early, and remember to save, commit, and push your work regularly.\nDo not use AI tools to generate R code from scratch or to think for you; that defeats the purpose of the assignment and violates our class policy on plagiarism. You may use AI to debug (after trying on your own) or look up how functions work (check course materials first). Only submit code you fully understand. Reach out if you have questions, we are here to help!\n\n\n\n\n\nFormatting Guide\nSee Homework 2 for details. The formatting expectations are the same for all assignments.\n\n\nSubmit the Assignment\nTo submit your assignment on Canvas, follow these steps:\n\nBefore the deadline, push the final version of your work to your GitHub repository. Tip: don’t wait until the end to make your first commit—commit, stage, and push your work regularly as you go.\nYour GitHub repository should include (make sure to stage-commit-push all these files):\n\nhw4_part1.Rmd and hw4_part2.Rmd main files you will work on\nhw4_part1.md and hw4_part2.md: you will generate these file from the .Rmd by simply knitting each of them\nthe folder that contains all the graphs that you generated in your .Rmd (we need this to be able to see your graphs and grade your homework)\n\nWhen you’re ready to submit:\n\nCopy the URL of your GitHub repository. It will look something like: https://github.com/css-fall25/hw04-yourusername\nSubmit that URL on Canvas under HW03. Do not upload any files to Canvas. We only need the repository link.\n\n\n\n\nAssessment\nAll homework assignments are evaluated using this rubric. Refer to it to assess your work before submitting. For more, see the Assessment section of the Syllabus."
+  },
+  {
+    "objectID": "lectures/15-slides.html#what-is-web-scraping-1",
+    "href": "lectures/15-slides.html#what-is-web-scraping-1",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "What is Web Scraping?",
+    "text": "What is Web Scraping?\n\n\n\nWeb Scraping: using code to automatically collect information from websites.\n\n\n\n\nIf you’ve ever copied and pasted data from a webpage, you’ve done the same task as a scraper — just manually and on a tiny scale\nWeb scraping automates and scales up,\nso code does the collecting instead of you\nWith a few R functions from rvest and a bit of HTML knowledge, we can grab text, tables, links, and other content from a webpage at scale"
+  },
+  {
+    "objectID": "lectures/15-slides.html#web-scraping-examples",
+    "href": "lectures/15-slides.html#web-scraping-examples",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "Web Scraping Examples",
+    "text": "Web Scraping Examples\n\nCompany info (names, emails, phone numbers)\nProduct details (prices, descriptions)\n\nReal estate listings (listings, rentals info)\n\nGovernment data (press releases, bills, reports)\n\nNews articles\n\nOnline archives (historical docs, speeches)\nWikipedia pages\n\nForums (Reddit, StackOverflow)\n\nOnline reviews (Yelp, Google)\n\nMarketplaces (Craigslist, FB Marketplace)\n\nSocial media but harder today!"
+  },
+  {
+    "objectID": "lectures/15-slides.html#why-we-are-learning-web-scraping-in-this-course",
+    "href": "lectures/15-slides.html#why-we-are-learning-web-scraping-in-this-course",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "Why We are Learning Web Scraping in this Course",
+    "text": "Why We are Learning Web Scraping in this Course\n\nShort applied module to show what R can do beyond charts and data wrangling.\nPractical data collection skill you can use in projects. A lot of social science data is on the web, not in ready-made CSVs; scraping is especially great for text data."
+  },
+  {
+    "objectID": "lectures/15-slides.html#two-ways-to-scrape-data-from-the-web-directly-or-via-api",
+    "href": "lectures/15-slides.html#two-ways-to-scrape-data-from-the-web-directly-or-via-api",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "Two ways to scrape data from the web: directly or via API",
+    "text": "Two ways to scrape data from the web: directly or via API\n1. Directly Scraping a Website\n2. Using a Web API (Application Programming Interface)"
+  },
+  {
+    "objectID": "lectures/15-slides.html#directly-scraping-a-website-1",
+    "href": "lectures/15-slides.html#directly-scraping-a-website-1",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "Directly Scraping a Website",
+    "text": "Directly Scraping a Website\n\n\n\nWhat this means: You read the HTML code behind a website and extract the pieces of information you need.\n\n\n\n\n\n\nHow it works:\n- Websites are built using HTML, CSS, and sometimes JavaScript.\n- R via rvest can download a webpage, and let you extract elements like titles, tables, links, paragraphs, etc.\n- You can scrape almost anything that is publicly available.\n\n\n\n\n\n\nGood beginner projects:\n- Wikipedia pages\n- Government websites (press releases, data tables, reports)\n- News articles"
+  },
+  {
+    "objectID": "lectures/15-slides.html#using-a-web-api-application-programming-interface-1",
+    "href": "lectures/15-slides.html#using-a-web-api-application-programming-interface-1",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "Using a Web API (Application Programming Interface)",
+    "text": "Using a Web API (Application Programming Interface)\nWhat this means: You request structured data from a website through a dedicated interface.\nHow it works:\n- The website provides a URL-based system where you ask for data.\n- You receive a clean, structured format (usually JSON).\n- You must follow the API’s rules: parameters, keys, rate limits, etc.\nGood beginner examples:\n- OMDb API (Open Movie Database) — used in today’s reading\n- NYTimes API (articles, comments)\n- Census Bureau API (with tidycensus R wrapper package)\nWhen to use APIs:\n- When the website offers one\n- When there is a R wrapper for that API"
+  },
+  {
+    "objectID": "lectures/15-slides.html#direct-scraping-vs.-using-an-api-pros-and-cons",
+    "href": "lectures/15-slides.html#direct-scraping-vs.-using-an-api-pros-and-cons",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "Direct Scraping vs. Using an API: Pros and Cons",
+    "text": "Direct Scraping vs. Using an API: Pros and Cons\nDirectly Scraping the Website\nPros\n\nWorks even when no API is available\n\nVery flexible: you can extract almost anything shown on the page\nGreat for text, tables, lists, articles, and public documents\n\nCons\n\nHTML structure of webpages is often messy and inconsistent\n\nHTML structure can change, breaking your code\n\nJavaScript-heavy pages require extra tools"
+  },
+  {
+    "objectID": "lectures/15-slides.html#direct-scraping-vs.-using-an-api-pros-and-cons-1",
+    "href": "lectures/15-slides.html#direct-scraping-vs.-using-an-api-pros-and-cons-1",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "Direct Scraping vs. Using an API : Pros and Cons",
+    "text": "Direct Scraping vs. Using an API : Pros and Cons\nUsing a Web API\nPros\n\nData is clean, structured, predictable (usually JSON)\n\nDocumentation tells you exactly what you can request\n\nMore stable and less fragile than scraping HTML\n\nCons\n\nOnly works if a website provides an API\n\nYou must follow the API’s rules (rate limits, keys, parameters)\n\nAPI may not include everything shown on the webpage\n\n\n\n\n\n\n\nTip\n\n\nIf an API exists, ideally with an R wrapper, use it instead of scraping HTML."
+  },
+  {
+    "objectID": "lectures/15-slides.html#what-is-web-scraping-2",
+    "href": "lectures/15-slides.html#what-is-web-scraping-2",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "What is Web Scraping?",
+    "text": "What is Web Scraping?\nWeb scraping is using code to automatically collect information from websites.\n\nIf you’ve ever copied and pasted text from a webpage,\nyou’ve done the same task as a scraper — just manually and on a tiny scale.\nWeb scraping automates and scales up that process,\nso code does the collecting instead of you.\nWith a few R functions (e.g., from {rvest}) and a bit of HTML knowledge, we can:\n\ngrab text, tables, links, and other content from a webpage\n\nturn them into datasets we can analyze in R\n\n\n{.incremental}"
+  },
+  {
+    "objectID": "lectures/15-slides.html#web-scraping-examples-1",
+    "href": "lectures/15-slides.html#web-scraping-examples-1",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "Web Scraping Examples",
+    "text": "Web Scraping Examples\n\nCompany info (names, emails, phone numbers)\nProduct details (prices, descriptions)\n\nReal estate listings (rentals, for-sale info)\n\nGovernment data (press releases, bills, reports)\n\nNews articles\n\nOnline archives (historical docs, speeches)\nWikipedia pages\n\nForums (Reddit, StackOverflow)\n\nOnline reviews (Yelp, Google)\n\nMarketplaces (Craigslist, FB Marketplace)\n\nSocial media (comments, likes — harder"
+  },
+  {
+    "objectID": "lectures/15-slides.html#how-the-web-work",
+    "href": "lectures/15-slides.html#how-the-web-work",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "3.1 How the Web Work",
+    "text": "3.1 How the Web Work"
+  },
+  {
+    "objectID": "lectures/15-slides.html#what-is-web-scraping",
+    "href": "lectures/15-slides.html#what-is-web-scraping",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "What is Web Scraping?",
+    "text": "What is Web Scraping?\n\n\n\nWeb Scraping: using code to automatically collect information from websites.\n\n\n\n\nIf you’ve ever copied and pasted data from a webpage, you’ve done the same task as a scraper, just manually and on a tiny scale. Web scraping automates and scales up, so code does the collecting instead of you\nWith a few R functions from rvest and some HTML knowledge, you can grab text, tables, links, and other content from a webpage at scale"
+  },
+  {
+    "objectID": "lectures/15-slides.html#our-goal-for-today",
+    "href": "lectures/15-slides.html#our-goal-for-today",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "Our Goal for Today",
+    "text": "Our Goal for Today\nI mentioned that we’ll need a bit of theory for web scraping—how the web works, how websites are built, some HTML, and the main rvest functions—but before we get into that, let’s be clear about what we want to do today…\n\n\n\n\n\n\nGoal for Today\n\n\nScrape a U.S. Presidential statement from the American Presidency Project. Specifically: speaker name, date, title, full text of the statement\nhttps://www.presidency.ucsb.edu/documents/special-message-the-congress-relative-space-science-and-exploration"
+  },
+  {
+    "objectID": "lectures/15-slides.html#how-the-web-works",
+    "href": "lectures/15-slides.html#how-the-web-works",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "3.1 How the Web Works",
+    "text": "3.1 How the Web Works\nComputers communicate on the web by sending and receiving data requests (GET) and data responses (POST). Every computer has an address that other computers can refer to.\nWhen you click on a webpage, your web browser (e.g., Chrome, Safari) sends a data request to the web server of that page (a database where all the info about that page are stored) and receives a response.\n\nImage Source at this link"
+  },
+  {
+    "objectID": "lectures/15-slides.html#whats-behind-a-website",
+    "href": "lectures/15-slides.html#whats-behind-a-website",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "3.2 What’s Behind a Website",
+    "text": "3.2 What’s Behind a Website\nA website is made of the following elements:\n\nHTML HyperText Markup Language, is the core element of a website. HTML uses tags to organize the webpage (i.e., creates paragraphs, inserts hyperlinks, etc.), but when the page is displayed the markup language is hidden\nCSS Cascading Style Sheets: improves the look of the page\nJavascript: adds interactive elements to the page (you need “dynamic web scraping” techniques to scrape JS code, not covered in this course)\nOther stuff such as images, hyperlinks, videos or multimedia"
+  },
+  {
+    "objectID": "lectures/15-slides.html#how-the-web-works-1",
+    "href": "lectures/15-slides.html#how-the-web-works-1",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "3.1 How the Web Works",
+    "text": "3.1 How the Web Works\nNavigating the web basically means sending requests to different servers and receiving back various files, mainly written in HTML and other languages.\nFor example, if you type https://macss.uchicago.edu/current-student-resources into your web browser and hit enter, these steps occur behind the scenes:\n\nyour web browser (Chrome, Safari, etc.) translates what you typed into a HTTP request. That request tells the web server that stores all macss info that you want to access the specific piece of info stored at /current-student-resources\nthe web server that hosts macss receives your request and sends back to your web browser a response code (200 for yes, etc.) and the response content (files written in HTML)\nyour browser transforms the response content into a nice visual display that might include texts, graphics, hyperlinks, etc.\n\nWhen we scrape data, we use R packages that perform these steps for us (via APIs or without)!"
+  },
+  {
+    "objectID": "lectures/15-slides.html#ways-to-scrape-data-from-the-web-directly-or-via-api",
+    "href": "lectures/15-slides.html#ways-to-scrape-data-from-the-web-directly-or-via-api",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "Ways to scrape data from the web: directly or via API",
+    "text": "Ways to scrape data from the web: directly or via API\nDirectly Scraping a Website:\nRequest data from a website directly, by reading its HTML code and extract the pieces you need (text, tables, links, etc.)\nUsing a Web API (Application Programming Interface):\nRequest data from a website indirectly, by interacting through a dedicated interface that the website provides."
+  },
+  {
+    "objectID": "lectures/15-slides.html#directly-scraping-a-website",
+    "href": "lectures/15-slides.html#directly-scraping-a-website",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "Directly Scraping a Website",
+    "text": "Directly Scraping a Website\n\n\n\nWhat this means: You read the HTML code behind a website and extract the pieces of information you need.\n\n\n\n\n\n\nHow it works:\n- Websites are built using HTML, CSS, and sometimes JavaScript.\n- R via rvest can download a webpage, and let you extract elements like titles, tables, links, paragraphs, etc.\n- You can scrape almost anything that is publicly available.\n\n\n\n\n\n\nGood beginner examples:\n- Wikipedia pages\n- Government websites (press releases, data tables, reports)\n- News articles"
+  },
+  {
+    "objectID": "lectures/15-slides.html#using-a-web-api-application-programming-interface",
+    "href": "lectures/15-slides.html#using-a-web-api-application-programming-interface",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "Using a Web API (Application Programming Interface)",
+    "text": "Using a Web API (Application Programming Interface)\n\n\n\nWhat this means: You request structured data from a website through a dedicated interface.\n\n\n\n\n\n\nHow it works:\n- The website provides a URL-based system where you ask for data. - You receive a clean, structured format (usually JSON).\n- You must follow the API’s rules: parameters, keys, rate limits, etc.\n\n\n\n\n\n\nGood beginner projects:\n- OMDb API (Open Movie Database) — used in today’s reading\n- NYTimes API (articles, comments)\n- Census Bureau API (with tidycensus R wrapper package)"
+  },
+  {
+    "objectID": "lectures/15-slides.html#whats-behind-a-website-1",
+    "href": "lectures/15-slides.html#whats-behind-a-website-1",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "3.2 What’s Behind a Website",
+    "text": "3.2 What’s Behind a Website\n\n\n\n\n\n\nImportant\n\n\nWhen scraping a website directly: knowing how read the HTML (and CSS) language, is fundamental\nWhen using an API and/or an API wrapper: less important, but still useful."
+  },
+  {
+    "objectID": "lectures/15-slides.html#two-ways-to-scrape-data-from-the-web",
+    "href": "lectures/15-slides.html#two-ways-to-scrape-data-from-the-web",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "Two Ways to Scrape Data from the Web",
+    "text": "Two Ways to Scrape Data from the Web\n\n\nDirectly Scraping a Website\nRequest data from a website directly,\nby reading its HTML and extract the information you need (text, tables, links, etc.)\n\nUsing an API\nRequest data from a website indirectly,\nby interacting with a dedicated interface that the website provides."
+  },
+  {
+    "objectID": "lectures/15-slides.html#two-ways-to-scrape-data-from-the-web-1",
+    "href": "lectures/15-slides.html#two-ways-to-scrape-data-from-the-web-1",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "Two Ways to Scrape Data from the Web",
+    "text": "Two Ways to Scrape Data from the Web\nDirectly Scraping a Website: Request data from a website directly,\nby reading its HTML code and extract the pieces you need (text, tables, links, etc.)\nUsing an API (Application Programming Interface): Request data from a website indirectly,\nby interacting through a dedicated interface that the website provides."
+  },
+  {
+    "objectID": "lectures/15-slides.html#html-hypertext-markup-language",
+    "href": "lectures/15-slides.html#html-hypertext-markup-language",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "HTML: HyperText Markup Language",
+    "text": "HTML: HyperText Markup Language\n\nImportant for web scraping: makes the “skeleton” or structure of a website\nMade of tags\nLooks messy, but follows a hierarchical tree-like structure of tags within tags\n\nStandard HTML syntax:\n   &lt;html&gt;\n     &lt;head&gt;\n        &lt;title&gt;general info about the page&lt;/title&gt;\n     &lt;/head&gt;\n     &lt;body&gt;\n       &lt;p&gt;a paragraph with some text about the page&lt;/p&gt;\n       &lt;p&gt;another paragraph with more text&lt;/p&gt;\n       &lt;p&gt;ciao&lt;/p&gt;\n     &lt;/body&gt;\n   &lt;/html&gt;"
+  },
+  {
+    "objectID": "lectures/15-slides.html#html-tags",
+    "href": "lectures/15-slides.html#html-tags",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "HTML Tags",
+    "text": "HTML Tags\n\nHTML tags are organized in a tree-like structure and are nested\nHTML tags go in pairs one on each end of the content that they display. For example: &lt;p&gt;ciao&lt;/p&gt; only the word “ciao” shows up on the webpage, the / signals the end of the tag\nHTML tags can have attributes which provide additional info about the tag. For example: &lt;p&gt;ciao id='first'&lt;/p&gt;\n\n&lt;p&gt; is the tag\n&lt;id&gt; is the attribute\ntwo key attributes to remember for scraping: id and class; they are used by CSS elements to control the visual appearance of the page"
+  },
+  {
+    "objectID": "lectures/15-slides.html#html-tags-example",
+    "href": "lectures/15-slides.html#html-tags-example",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "HTML Tags: Example",
+    "text": "HTML Tags: Example\n&lt;html&gt;\n  &lt;head&gt;\n    &lt;title&gt;Title&lt;/title&gt;\n    &lt;a href=\"http://github.com\"&gt;GitHub&lt;/a&gt;\n    &lt;script src=\"https://c.js\"&gt;&lt;/script&gt;\n  &lt;/head&gt;\n  &lt;body&gt;\n    &lt;div&gt;\n      &lt;p&gt;Click &lt;b&gt;here&lt;/b&gt; now.&lt;/p&gt;\n      &lt;span&gt;Frozen&lt;/span&gt;\n    &lt;/div&gt;\n    &lt;table style=\"width:100%\"&gt;\n      &lt;tr&gt;\n        &lt;td&gt;Kristen&lt;/td&gt;\n        &lt;td&gt;Bell&lt;/td&gt;\n      &lt;/tr&gt;\n    &lt;/table&gt;\n  &lt;img src=\"http://ia.media-imdb.com/images.png\"/&gt;\n  &lt;/body&gt;\n&lt;/html&gt;\n💻 Practice: Find the text content Frozen and the GitHub link and the text content GitHub"
+  },
+  {
+    "objectID": "lectures/15-slides.html#html-tags-example-1",
+    "href": "lectures/15-slides.html#html-tags-example-1",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "HTML Tags: Example",
+    "text": "HTML Tags: Example\nFind the text content Frozen\n&lt;span&gt;Frozen&lt;/span&gt;\n\n&lt;span&gt;&lt;/span&gt; - tag name\nFrozen - content embedded in the tag as text"
+  },
+  {
+    "objectID": "lectures/15-slides.html#html-tags-example-2",
+    "href": "lectures/15-slides.html#html-tags-example-2",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "HTML Tags: Example",
+    "text": "HTML Tags: Example\nFind the GitHub link and text GitHub embedded within it\n&lt;a href=\"http://github.com\"&gt;GitHub&lt;/a&gt;\n\n&lt;a&gt;&lt;/a&gt; - tag name\nhref - tag attribute (argument)\n\"http://github.com\" - tag attribute (value)\nGitHub - content as text"
+  },
+  {
+    "objectID": "lectures/15-slides.html#css-cascading-style-sheet",
+    "href": "lectures/15-slides.html#css-cascading-style-sheet",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "CSS: Cascading Style Sheet",
+    "text": "CSS: Cascading Style Sheet\nOften a website has HTML tags with attributes + CSS elements. This is an example of CSS code:\nspan {\n  color: #ffffff; }\nMost websites use HTML tags with class and id attributes to provide “hooks” for CSS so the CSS “knows” where to apply CSS stylistic elements. In the example above, the span HTML tag can be styled using CSS color\nSee https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/class"
+  },
+  {
+    "objectID": "lectures/15-slides.html#css-cascading-style-sheet-1",
+    "href": "lectures/15-slides.html#css-cascading-style-sheet-1",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "CSS: Cascading Style Sheet",
+    "text": "CSS: Cascading Style Sheet\nMost websites use HTML tags with class and id attributes to provide “hooks” for CSS. This way the CSS “knows” where to apply CSS stylistic elements.\nExample: https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/class"
+  },
+  {
+    "objectID": "lectures/15-slides.html#the-rvest-package",
+    "href": "lectures/15-slides.html#the-rvest-package",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "# 4. The rvest Package",
+    "text": "# 4. The rvest Package"
+  },
+  {
+    "objectID": "lectures/15-slides.html#using-rvest",
+    "href": "lectures/15-slides.html#using-rvest",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "Using rvest",
+    "text": "Using rvest\nRvest documentation: https://rvest.tidyverse.org/\n\nRead and save in an object the HTML source code of a webpage\nFind the specific HTLM and CSS elements from a webpage (using HTML tags or attributes, and using CSS selectors)"
+  },
+  {
+    "objectID": "lectures/15-slides.html#main-rvest-functions",
+    "href": "lectures/15-slides.html#main-rvest-functions",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "Main rvest functions",
+    "text": "Main rvest functions\nhtml_table() extracts tabular data and converts it directly to a dataframe!\nhtml &lt;- read_html(\"https://en.wikipedia.org/w/index.php?title=The_Lego_Movie&oldid=998422565\")\n\nhtml |&gt; \n  html_element(\".tracklist\") |&gt; \n  html_table()\nNote: some data cleaning is needed (to be expected with scraping)"
+  },
+  {
+    "objectID": "lectures/15-slides.html#main-rvest-functions-1",
+    "href": "lectures/15-slides.html#main-rvest-functions-1",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "Main rvest functions",
+    "text": "Main rvest functions\nThe following slides and code are from the documentation: https://rvest.tidyverse.org/index.html#usage\nread_html() reads an html page into R:\nlibrary(rvesr)\nstarwars &lt;- read_html(\"https://rvest.tidyverse.org/articles/starwars.html\")"
+  },
+  {
+    "objectID": "lectures/15-slides.html#main-rvest-functions-2",
+    "href": "lectures/15-slides.html#main-rvest-functions-2",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "Main rvest functions",
+    "text": "Main rvest functions\nhtml_elements() finds elements that match a CSS selector or XPath expression. Here each section corresponds to a different film:\nfilms &lt;- starwars |&gt; html_elements(\"section\")\nfilms\nhtml_element() finds one specific element per film. Here we are using &lt;h2&gt;:\ntitle &lt;- films |&gt; \n  html_element(\"h2\") |&gt; \n  html_text2()\ntitle"
+  },
+  {
+    "objectID": "lectures/15-slides.html#main-rvest-functions-3",
+    "href": "lectures/15-slides.html#main-rvest-functions-3",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "Main rvest functions",
+    "text": "Main rvest functions\nhtml_text2() extracts text embedded within tags. Building on the code in the previous slide, here we can use it to get only the text as tring:\ntitle &lt;- films |&gt; \n  html_element(\"h2\") |&gt; \n  html_text2()\ntitle\nhtml_attr() gets data out of attributes. It always returns a string so we convert it to an integer using a readr::parse_integer().\nepisode &lt;- films |&gt; \n  html_element(\"h2\") |&gt; \n  html_attr(\"data-id\") |&gt; \n  readr::parse_integer()\nepisode"
+  },
+  {
+    "objectID": "lectures/15-slides.html#main-rvest-functions-4",
+    "href": "lectures/15-slides.html#main-rvest-functions-4",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "Main rvest functions",
+    "text": "Main rvest functions\n`html_table() extracts tabular data and converts it directly to a dataframe!\nhtml &lt;- read_html(\"https://en.wikipedia.org/w/index.php?title=The_Lego_Movie&oldid=998422565\")\n\nhtml |&gt; \n  html_element(\".tracklist\") |&gt; \n  html_table()"
+  },
+  {
+    "objectID": "lectures/15-slides.html#practice-all-of-this-in-r-with-rvest",
+    "href": "lectures/15-slides.html#practice-all-of-this-in-r-with-rvest",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "Practice all of this in R with rvest",
+    "text": "Practice all of this in R with rvest\nWe scrape this U.S. Presidential statements page: https://www.presidency.ucsb.edu/documents/special-message-the-congress-relative-space-science-and-exploration\nThrough this example, we learn the following: * use rvest functions to collect name, date, title, and text from that page * test two methods to identify tags: examining the webpage directly, and using tools that assist us (e.g., SelectorGadget) * write a function to scale up our scraper to handle multiple pages"
+  },
+  {
+    "objectID": "lectures/15-slides.html#selectorgadget",
+    "href": "lectures/15-slides.html#selectorgadget",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "SelectorGadget",
+    "text": "SelectorGadget\nFollow these steps to install and use the SelectorGadget…\n\nGo to https://selectorgadget.com/ to install and watch a short video on how to use it\nOnce installed drag the SelectorGadget link into your web browser’s bar\nNavigate to a webpage and open the SelectorGadget bookmark\nGo to https://rvest.tidyverse.org/articles/selectorgadget.html#use for step-by-step instructions on how to use it"
+  },
+  {
+    "objectID": "lectures/15-slides.html#practice-download-todays-class-materials-to-follow-along",
+    "href": "lectures/15-slides.html#practice-download-todays-class-materials-to-follow-along",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "💻 Practice: Download today’s class materials to follow along!",
+    "text": "💻 Practice: Download today’s class materials to follow along!"
+  },
+  {
+    "objectID": "lectures/15-slides.html#scrape-u.s.-presidential-statements",
+    "href": "lectures/15-slides.html#scrape-u.s.-presidential-statements",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "Scrape U.S. Presidential Statements",
+    "text": "Scrape U.S. Presidential Statements\nlibrary(tidyverse)\nlibrary(rvest)\n\nscrape_doc &lt;- function(url) {\n  # Scrapes data from presidential pages pausing between requests\n  # Args:\n    # url (string): one presidential page \n  # Returns:\n    # tibble: a tibble with the date, speaker, title, full text from input url\n\n  # get HTML page\n  url_contents &lt;- read_html(x = url)\n  Sys.sleep(2)\n  \n  # extract elements\n  date &lt;- html_elements(x = url_contents, css = \".date-display-single\") %&gt;%\n    html_text2() %&gt;% mdy()\n\n  name &lt;- html_elements(x = url_contents, css = \".diet-title a\") %&gt;%\n    html_text2()\n  \n  title &lt;- html_elements(x = url_contents, css = \"h1\") %&gt;%\n    html_text2()\n  \n  text &lt;- html_elements(x = url_contents, css = \"div.field-docs-content\") %&gt;%\n    html_text2()\n  \n  # store in a data frame and return it\n  url_data &lt;- tibble(\n    date = date,\n    name = name,\n    title = title,\n    text = text\n  )\n  \n  return(url_data)\n}"
+  },
+  {
+    "objectID": "lectures/15-slides.html#main-functions-in-rvest",
+    "href": "lectures/15-slides.html#main-functions-in-rvest",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "Main functions in rvest",
+    "text": "Main functions in rvest\n\nread_html()\nhtml_elements()\nhtml_element()\nhtml_text2()\nhtml_attr()\nhtml_table()\n\n💻 Practice\n\nOpen the documentation https://rvest.tidyverse.org/index.html#usage and explore what each function does.\nRun the example code in your own R session, try modifying it, and note what changes.\nBring at least one question to discuss after experimenting."
+  },
+  {
+    "objectID": "lectures/15-slides.html#main-functions-in-rvest-1",
+    "href": "lectures/15-slides.html#main-functions-in-rvest-1",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "Main functions in rvest",
+    "text": "Main functions in rvest\nThe following slides and code are from the documentation: https://rvest.tidyverse.org/index.html#usage\nread_html() reads an html page into R:\nlibrary(rvesr)\nstarwars &lt;- read_html(\"https://rvest.tidyverse.org/articles/starwars.html\")\nstarwars |&gt; as.character() |&gt; cat()"
+  },
+  {
+    "objectID": "lectures/15-slides.html#main-functions-in-rvest-2",
+    "href": "lectures/15-slides.html#main-functions-in-rvest-2",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "Main functions in rvest",
+    "text": "Main functions in rvest\nhtml_elements() finds elements that match a CSS selector or XPath expression.\nUse when you expect multiple matches. Here each section corresponds to a different film:\nfilms &lt;- starwars |&gt; html_elements(\"section\")\nfilms"
+  },
+  {
+    "objectID": "lectures/15-slides.html#main-functions-in-rvest-3",
+    "href": "lectures/15-slides.html#main-functions-in-rvest-3",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "Main functions in rvest",
+    "text": "Main functions in rvest\nhtml_element() finds one specific element per film section.\nHere we are saying: for each film section found before, extract one (the first, which is all we have here) &lt;h2&gt;\ntitle &lt;- films |&gt; \n  html_element(\"h2\") |&gt; \n  html_text2()\ntitle\nTry running starwars |&gt; html_element(\"section\") and starwars |&gt; html_elements(\"h2\") and make sense of the results."
+  },
+  {
+    "objectID": "lectures/15-slides.html#practice-all-of-this-in-r",
+    "href": "lectures/15-slides.html#practice-all-of-this-in-r",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "Practice all of this in R!",
+    "text": "Practice all of this in R!\nWe scrape this U.S. Presidential statements page: https://www.presidency.ucsb.edu/documents/special-message-the-congress-relative-space-science-and-exploration\nWhat we learn through this example (today and next class):\n\nUse rvest functions to collect name, date, title, and text from that page\nIdentify tags using two ways:\n\nexamining the webpage directly\nusing helper tools like SelectorGadget\n\nLearn Scraping best practices\nScale up our scraper to handle multiple pages"
+  },
+  {
+    "objectID": "lectures/15-slides.html#main-functions-in-rvest-4",
+    "href": "lectures/15-slides.html#main-functions-in-rvest-4",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "Main functions in rvest",
+    "text": "Main functions in rvest\nhtml_text2() extracts text embedded within tags.\nBuilding on the code in the previous slide, here we can use it to get only the text as tring:\ntitle &lt;- films |&gt; \n  html_element(\"h2\") |&gt; \n  html_text2()\ntitle"
+  },
+  {
+    "objectID": "lectures/15-slides.html#main-functions-in-rvest-5",
+    "href": "lectures/15-slides.html#main-functions-in-rvest-5",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "Main functions in rvest",
+    "text": "Main functions in rvest\nhtml_attr() gets data out of attributes.\nIt always returns a string so we convert it to an integer:\nepisode &lt;- films |&gt; \n  html_element(\"h2\") |&gt; \n  html_attr(\"data-id\") |&gt; \n  readr::parse_integer()\nepisode"
+  },
+  {
+    "objectID": "lectures/15-slides.html#main-functions-in-rvest-6",
+    "href": "lectures/15-slides.html#main-functions-in-rvest-6",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "Main functions in rvest",
+    "text": "Main functions in rvest\nhtml_table() extracts tabular data and converts it directly to a dataframe!\nhtml &lt;- read_html(\"https://en.wikipedia.org/w/index.php?title=The_Lego_Movie&oldid=998422565\")\n\nhtml |&gt; \n  html_element(\".tracklist\") |&gt; \n  html_table()\nNote: some data cleaning is needed here (and generally to be expected with any scraping project)"
+  },
+  {
+    "objectID": "lectures/15-slides.html#example",
+    "href": "lectures/15-slides.html#example",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "Example",
+    "text": "Example\nExplore the HTML structure of the website we want to scrape today:\nhttps://www.presidency.ucsb.edu/documents/special-message-the-congress-relative-space-science-and-exploration"
   }
 ]
