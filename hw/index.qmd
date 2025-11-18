@@ -16,6 +16,6 @@ Homework assignments (four in total) and the final project will be accessible fr
 - [Homework 2](hw02.qmd)
 - [Homework 3](hw03.qmd)
 - [Homework 4](hw04.qmd)
-
+- [Final Project](hw05-project.qmd)
 
 Refer to the [Syllabus](../syllabus.qmd) for assessment policies, including guidelines on late or missing submissions, grading rubric, AI policies, and more.
