@@ -143,13 +143,11 @@ We encourage you to use social science data; other types of data can work too bu
 
 You may use any dataset from class **not used in previous homework** and not tied to teaching examples (e.g., penguins, cars, iris datasets are not appropriate). Some options to consider:
 
-- `gapminder` (`library(gapminder)`)
-- `gun_deaths` (`library(rcis)`) or the raw data from FiveThirtyEight (similar topic but this is different dataset than HW2)
-- `scorecard` (`library(rcis)`) or use the [`rscorecard`](https://github.com/btskinner/rscorecard) package to download your own subset
-- Browse the **Data Is Plural** dataset archive  
-  <https://docs.google.com/spreadsheets/d/1wZhPLMCHKJvwOkP4juclhjFgqIY8fQFMemwKL2c64vk/edit#gid=0>
-- Explore **#TidyTuesday**, which publishes weekly datasets and maintains a full archive:  
-  <https://github.com/rfordatascience/tidytuesday>
+- `gapminder` from `library(gapminder)`
+- `gun_deaths` from `library(rcis)`, or the raw data from FiveThirtyEight (it's a similar topic but this is different dataset than HW2)
+- `scorecard` from `library(rcis)` or use the [`rscorecard`](https://github.com/btskinner/rscorecard) package to download your own subset
+- Explore the [**Data Is Plural** dataset archive](https://docs.google.com/spreadsheets/d/1wZhPLMCHKJvwOkP4juclhjFgqIY8fQFMemwKL2c64vk/edit#gid=0)
+- Explore the [**#TidyTuesday** dataset archive](https://github.com/rfordatascience/tidytuesday)
 
 
 ### What if my data file is too large?
