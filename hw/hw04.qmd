@@ -29,7 +29,7 @@ In this last assignment, you will practice the programming techniques from Lectu
    *File > New Project > Version Control > Git*
 
 2. In the *Repository URL* field:
-   - Paste the URL of your GitHub repository. To find the URL, go to your `hw03` repo on GitHub, click the green Code button, and copy the SSH or HTTPS link (use the method you configured during setup: Workbench users must select SSH).
+   - Paste the URL of your GitHub repository. To find the URL, go to your `hw04` repo on GitHub, click the green Code button, and copy the SSH or HTTPS link (use the method you configured during setup: Workbench users must select SSH).
    - The project name should auto-fill. If not, type `hw04-<USERNAME>` manually.
 
 3. Choose where to save the project directory locally. *Tip:* Avoid moving folders after cloning them.  
@@ -84,7 +84,7 @@ To submit your assignment on Canvas, follow these steps:
 
 2. When you're ready to submit:
    - Copy the URL of your GitHub repository. It will look something like: `https://github.com/css-fall25/hw04-yourusername`
-   - Submit that URL on Canvas under HW03. Do not upload any files to Canvas. We only need the repository link.
+   - Submit that URL on Canvas under HW04. Do not upload any files to Canvas. We only need the repository link.
 
 
 # Assessment
