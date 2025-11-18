@@ -51,7 +51,7 @@ See [Homework 1](hw01.qmd) for details. The workflow is the same for all assignm
 
 ### 1. Assigment Goals
 
-In this final assignment, you’ll apply the skills learned in the course to a research question of your choice. **Your task is to find data (through scraping or downloading or other sources), ask a research question, and answer it descriptively using data and code.** Your main deliverable is a report with your code, graphs/tables, and interpretation
+In this final assignment, you’ll apply the skills learned in the course to a research question of your choice. **Your task is to find data (through scraping or downloading or other sources), ask a research question, and answer it descriptively using data and code.** Your main deliverable is a report with your code, graphs/tables, and interpretation.
 
 The sections below walk you through the details of each part of the assignment.
 
@@ -66,49 +66,51 @@ The sections below walk you through the details of each part of the assignment.
   - Code outputs (tables, plots, descriptive stats)
   - Not all code you write is required to go in your report: you may place extra code in a separate R script or Rmd. If you do so, mention this in your `README.md`.
 - **Audience:** Write your report as if you were preparing a polished analysis for either an academic audience or a professional industry setting.
-- **Length:** Aim for *700–750 words* (minimum 700, maximum 1000).
+- **Length:** Aim for *800-900 words* (minimum 700, maximum 1000).
 - **Use of R Markdown Syntax:** Use clear headings and subheadings and include a table of contents. Include some of the advanced R Markdown tools covered in Lecture 17.
 
 #### Required Sections
 
-Specifically, your report should include the following elements:
+Specifically, your report should include the following sections:
 
 - **Project description**  
   - Start by explaining what your project is about, its goals, and why it matters.
-  - Describe the dataset (number of observations, time period, key variables, data source). Store the data in your repo. If it is larger than 100 MB, see below.
+  - Describe the dataset (number of observations, time period, key variables, data source). Store the data in your repo, if smaller than 100 MB; if larger, see below.
   - State one or more questions, ideally with social science relevance, and your hypothesis or describe what you expect to find and why.
 
 - **Descriptive statistics and plots**
-  - Include tables (e.g. `kable()`) and descriptive statistics (counts, percentages, contingency tables, etc.).
+  - Include tables (format them with `kable`) and descriptive statistics (counts, percentages, contingency tables, etc.).
   - Include 4 or 5 well-designed plots with clear titles, labels, scales, etc. Use different types of plots (do not use the same plot more than once) and ensure each one matches the underlying variable types.
-  - Transform or prepare variables for your plots and analyses when needed (e.g., aggregating, recoding, creating new variables).
-  - We want to hear your explanation and interpretation of the analyses: describe each graph, highlight patterns, discuss possible relationships between variables, note limitations, and suggest hypotheses or directions for future research.
+  - Use code to transform or prepare variables for your plots and analyses when needed (e.g., aggregating, recoding, standardizing, creating new variables, etc.).
+  - Describe the main findings of each graph, highlight patterns, discuss possible relationships between variables, note limitations, and suggest hypotheses or directions for future research. We want to hear your explanation and interpretation of the analyses!
 
 - **Modeling is optional** 
-  - You are not expected or required to include statistical models since we did not cover them in this course. Excellent projects can rely entirely on descriptive statistics and the types of plots used in HW2 and HW3.
-  - If you choose to add models (e.g., regression, ANOVA), make sure to use them appropriately: check assumptions, interpret coefficients, and ensure the method fits your variables and research question.
+  - You are not expected or required to include statistical models since we did not cover them in the course. Excellent projects can rely entirely on descriptive statistics and the types of plots you did in HW2 and HW3.
+  - If you choose to add models (e.g., regression, ANOVA, text analysis, etc.), make sure to use them appropriately: check assumptions, interpret coefficients, and ensure the method fits your variables and research question.
 
 
 ### 3. Code Instructions
 
-This course has a strong coding component, so the quality and organization of your code are an important part of the project.
+This course has a strong coding component, so the quality and organization of your code are an important part of the project. Specifically:
 
 - **Library Loading and Data Import**  
-  Load all required libraries and import your data once at the top of your Rmd. Do not reload libraries elsewhere. If you are scraping data, place your scraper in a separate R or Rmd script (see Code Organization below).
+  - Load all required libraries and import your data once at the top of your Rmd. Do not reload libraries elsewhere. 
+  - If you are scraping data, place your scraper in a separate script or Rmd file (see below).
 
 - **Data Cleaning, Wrangling, and Tidying**  
-  Include code needed to prepare your data (renaming, recoding, aggregating, reshaping, tidying data, joining data etc.). The amount of cleaning will depend on your project. If your code for data prep is extensive, consider placing it in a separate script (see below)
+  - Include code needed to prepare your data (renaming, recoding, aggregating, reshaping, tidying data, joining data etc.). The amount of cleaning will depend on your project. 
+  - If your code for data prep and cleaning is extensive, place it in a separate script or Rmd file (see below).
 
 - **Data Analysis and Plots**  
-  Include code for descriptive statistics (tables, summaries, counts, percentages, contingency tables, etc.)
-  Include code for 4–5 well-designed plots. Use a variety of plot types and match each to the variable types. If your dataset requires little cleaning, we expect more complex and refined visualizations
+  - Include code for descriptive statistics (tables, summaries, counts, percentages, contingency tables, etc.).
+  - Include code for 4–5 well-designed plots. Use a variety of plot types and match each to the variable types. If your dataset requires little cleaning, we expect more complex and refined visualizations.
 
 - **Programming Techniques**  
-  Include at least one user-defined function AND either a loop (or a map/across/apply alternative) OR a conditional statement. If these don’t naturally fit your project, check in with us and we’ll help you find the best approach.
+  - Include at least one user-defined function AND either a loop (or a map/across/apply alternative) OR a conditional statement. If these don’t naturally fit your project, check in with us and we’ll help you find the best approach.
 
 - **Code Organization**  
-  Include only relevant output (e.g., show the head of your dataset, not the full dataset) and follow coding practices from class: clean style, reproducible workflow, and Markdown formatting. Prefer tidyverse functions where applicable (e.g., use `read_csv()` instead of `read.csv()`).  
-  Extensive cleaning steps or extra plots can go in a separate script or Rmd. If you do so, in the main report, load the cleaned data and include only the required plots. Store all code in your repository to ensure reproducibility. Note the location of any additional code in your `README.md`.
+  - Include only relevant output (e.g., show the head of your dataset, not the full dataset) and follow coding practices from class: clean style, reproducible workflow, and Markdown formatting. Prefer tidyverse functions over base R, where applicable (e.g., use `read_csv()` instead of `read.csv()`).  
+  - Extensive cleaning steps or extra plots can go in a separate script or Rmd. If you do so, in the main report, load the cleaned data and include only the required plots. Store all code in your repository to ensure reproducibility. Let us know the location of any additional code in your `README.md`.
 
 
 ### 4. Repository and `README.md` Instructions
@@ -159,7 +161,7 @@ GitHub does not allow files larger than 100MB. If you try to push one, you’ll 
 
 ### I want to scrape data 
 
-You may use already-collected data or collect your own. If you want to scrape data but are unsure whether a website is appropriate, feel free to check with the instructor. Here are some guidelines:
+You may use already-collected data or collect your own, via scraping or download or other ways. If you want to scrape data but are unsure whether a website is appropriate, feel free to check with the instructor. Here are some guidelines:
 
 - **What to Scrape:**  
   - If you plan to collect data through web-scraping, you can scrape any publicly available webpage that interests you. If you’re unsure where to start, past students have had success with: Wikipedia, University websites, Government sites, Examples mentioned in readings. If you build on in-class code, readings, tutorials, or AI-generated starter code, your work must go beyond simple edits.

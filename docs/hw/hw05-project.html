@@ -223,7 +223,7 @@ Note
 <h1>Assignment Description</h1>
 <section id="assigment-goals" class="level3">
 <h3 class="anchored" data-anchor-id="assigment-goals">1. Assigment Goals</h3>
-<p>In this final assignment, you’ll apply the skills learned in the course to a research question of your choice. <strong>Your task is to find data (through scraping or downloading or other sources), ask a research question, and answer it descriptively using data and code.</strong> Your main deliverable is a report with your code, graphs/tables, and interpretation</p>
+<p>In this final assignment, you’ll apply the skills learned in the course to a research question of your choice. <strong>Your task is to find data (through scraping or downloading or other sources), ask a research question, and answer it descriptively using data and code.</strong> Your main deliverable is a report with your code, graphs/tables, and interpretation.</p>
 <p>The sections below walk you through the details of each part of the assignment.</p>
 </section>
 <section id="report-instructions" class="level3">
@@ -240,50 +240,64 @@ Note
 <li>Not all code you write is required to go in your report: you may place extra code in a separate R script or Rmd. If you do so, mention this in your <code>README.md</code>.</li>
 </ul></li>
 <li><strong>Audience:</strong> Write your report as if you were preparing a polished analysis for either an academic audience or a professional industry setting.</li>
-<li><strong>Length:</strong> Aim for <em>700–750 words</em> (minimum 700, maximum 1000).</li>
+<li><strong>Length:</strong> Aim for <em>800-900 words</em> (minimum 700, maximum 1000).</li>
 <li><strong>Use of R Markdown Syntax:</strong> Use clear headings and subheadings and include a table of contents. Include some of the advanced R Markdown tools covered in Lecture 17.</li>
 </ul>
 </section>
 <section id="required-sections" class="level4">
 <h4 class="anchored" data-anchor-id="required-sections">Required Sections</h4>
-<p>Specifically, your report should include the following elements:</p>
+<p>Specifically, your report should include the following sections:</p>
 <ul>
 <li><strong>Project description</strong>
 <ul>
 <li>Start by explaining what your project is about, its goals, and why it matters.</li>
-<li>Describe the dataset (number of observations, time period, key variables, data source). Store the data in your repo. If it is larger than 100 MB, see below.</li>
+<li>Describe the dataset (number of observations, time period, key variables, data source). Store the data in your repo, if smaller than 100 MB; if larger, see below.</li>
 <li>State one or more questions, ideally with social science relevance, and your hypothesis or describe what you expect to find and why.</li>
 </ul></li>
 <li><strong>Descriptive statistics and plots</strong>
 <ul>
-<li>Include tables (e.g.&nbsp;<code>kable()</code>) and descriptive statistics (counts, percentages, contingency tables, etc.).</li>
+<li>Include tables (format them with <code>kable</code>) and descriptive statistics (counts, percentages, contingency tables, etc.).</li>
 <li>Include 4 or 5 well-designed plots with clear titles, labels, scales, etc. Use different types of plots (do not use the same plot more than once) and ensure each one matches the underlying variable types.</li>
-<li>Transform or prepare variables for your plots and analyses when needed (e.g., aggregating, recoding, creating new variables).</li>
-<li>We want to hear your explanation and interpretation of the analyses: describe each graph, highlight patterns, discuss possible relationships between variables, note limitations, and suggest hypotheses or directions for future research.</li>
+<li>Use code to transform or prepare variables for your plots and analyses when needed (e.g., aggregating, recoding, standardizing, creating new variables, etc.).</li>
+<li>Describe the main findings of each graph, highlight patterns, discuss possible relationships between variables, note limitations, and suggest hypotheses or directions for future research. We want to hear your explanation and interpretation of the analyses!</li>
 </ul></li>
 <li><strong>Modeling is optional</strong>
 <ul>
-<li>You are not expected or required to include statistical models since we did not cover them in this course. Excellent projects can rely entirely on descriptive statistics and the types of plots used in HW2 and HW3.</li>
-<li>If you choose to add models (e.g., regression, ANOVA), make sure to use them appropriately: check assumptions, interpret coefficients, and ensure the method fits your variables and research question.</li>
+<li>You are not expected or required to include statistical models since we did not cover them in the course. Excellent projects can rely entirely on descriptive statistics and the types of plots you did in HW2 and HW3.</li>
+<li>If you choose to add models (e.g., regression, ANOVA, text analysis, etc.), make sure to use them appropriately: check assumptions, interpret coefficients, and ensure the method fits your variables and research question.</li>
 </ul></li>
 </ul>
 </section>
 </section>
 <section id="code-instructions" class="level3">
 <h3 class="anchored" data-anchor-id="code-instructions">3. Code Instructions</h3>
-<p>This course has a strong coding component, so the quality and organization of your code are an important part of the project.</p>
+<p>This course has a strong coding component, so the quality and organization of your code are an important part of the project. Specifically:</p>
 <ul>
-<li><p><strong>Library Loading and Data Import</strong><br>
-Load all required libraries and import your data once at the top of your Rmd. Do not reload libraries elsewhere. If you are scraping data, place your scraper in a separate R or Rmd script (see Code Organization below).</p></li>
-<li><p><strong>Data Cleaning, Wrangling, and Tidying</strong><br>
-Include code needed to prepare your data (renaming, recoding, aggregating, reshaping, tidying data, joining data etc.). The amount of cleaning will depend on your project. If your code for data prep is extensive, consider placing it in a separate script (see below)</p></li>
-<li><p><strong>Data Analysis and Plots</strong><br>
-Include code for descriptive statistics (tables, summaries, counts, percentages, contingency tables, etc.) Include code for 4–5 well-designed plots. Use a variety of plot types and match each to the variable types. If your dataset requires little cleaning, we expect more complex and refined visualizations</p></li>
-<li><p><strong>Programming Techniques</strong><br>
-Include at least one user-defined function AND either a loop (or a map/across/apply alternative) OR a conditional statement. If these don’t naturally fit your project, check in with us and we’ll help you find the best approach.</p></li>
-<li><p><strong>Code Organization</strong><br>
-Include only relevant output (e.g., show the head of your dataset, not the full dataset) and follow coding practices from class: clean style, reproducible workflow, and Markdown formatting. Prefer tidyverse functions where applicable (e.g., use <code>read_csv()</code> instead of <code>read.csv()</code>).<br>
-Extensive cleaning steps or extra plots can go in a separate script or Rmd. If you do so, in the main report, load the cleaned data and include only the required plots. Store all code in your repository to ensure reproducibility. Note the location of any additional code in your <code>README.md</code>.</p></li>
+<li><strong>Library Loading and Data Import</strong>
+<ul>
+<li>Load all required libraries and import your data once at the top of your Rmd. Do not reload libraries elsewhere.</li>
+<li>If you are scraping data, place your scraper in a separate script or Rmd file (see below).</li>
+</ul></li>
+<li><strong>Data Cleaning, Wrangling, and Tidying</strong>
+<ul>
+<li>Include code needed to prepare your data (renaming, recoding, aggregating, reshaping, tidying data, joining data etc.). The amount of cleaning will depend on your project.</li>
+<li>If your code for data prep and cleaning is extensive, place it in a separate script or Rmd file (see below).</li>
+</ul></li>
+<li><strong>Data Analysis and Plots</strong>
+<ul>
+<li>Include code for descriptive statistics (tables, summaries, counts, percentages, contingency tables, etc.).</li>
+<li>Include code for 4–5 well-designed plots. Use a variety of plot types and match each to the variable types. If your dataset requires little cleaning, we expect more complex and refined visualizations.</li>
+</ul></li>
+<li><strong>Programming Techniques</strong>
+<ul>
+<li>Include at least one user-defined function AND either a loop (or a map/across/apply alternative) OR a conditional statement. If these don’t naturally fit your project, check in with us and we’ll help you find the best approach.</li>
+</ul></li>
+<li><strong>Code Organization</strong>
+<ul>
+<li>Include only relevant output (e.g., show the head of your dataset, not the full dataset) and follow coding practices from class: clean style, reproducible workflow, and Markdown formatting. Prefer tidyverse functions over base R, where applicable (e.g., use <code>read_csv()</code> instead of <code>read.csv()</code>).<br>
+</li>
+<li>Extensive cleaning steps or extra plots can go in a separate script or Rmd. If you do so, in the main report, load the cleaned data and include only the required plots. Store all code in your repository to ensure reproducibility. Let us know the location of any additional code in your <code>README.md</code>.</li>
+</ul></li>
 </ul>
 </section>
 <section id="repository-and-readme.md-instructions" class="level3">
@@ -333,7 +347,7 @@ Extensive cleaning steps or extra plots can go in a separate script or Rmd. If y
 </section>
 <section id="i-want-to-scrape-data" class="level3">
 <h3 class="anchored" data-anchor-id="i-want-to-scrape-data">I want to scrape data</h3>
-<p>You may use already-collected data or collect your own. If you want to scrape data but are unsure whether a website is appropriate, feel free to check with the instructor. Here are some guidelines:</p>
+<p>You may use already-collected data or collect your own, via scraping or download or other ways. If you want to scrape data but are unsure whether a website is appropriate, feel free to check with the instructor. Here are some guidelines:</p>
 <ul>
 <li><strong>What to Scrape:</strong>
 <ul>
