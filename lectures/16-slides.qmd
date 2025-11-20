@@ -89,11 +89,11 @@ Write code (outside a function) to grab:
 
 ---
 
-## How can we scale up our scraper?
+## How Can We Scale Up Our Scraper?
 
+### 💻 Practice
 
-
-Download today's class materials 
+Download today’s class materials for a tutorial on using loops, functions, and HTML concepts to take your scraping project to the next level!
 
 
 # 3. Web Scraping: Challenges, Ethics, and Tips {.slide .center .middle}
