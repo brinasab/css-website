@@ -1229,21 +1229,21 @@
     "href": "lectures/17-home.html",
     "title": "Lecture 17: Reproducible Workflow",
     "section": "",
-    "text": "Date: December 1, 2025\nTopics: Reproducible Workflow\nSlides: View Slides\nCode: No in-class code to download"
+    "text": "Date: December 1, 2025\nTopics: Reproducible Workflow\nSlides: View Slides\nCode: usethis::use_course(\"css-materials/deep-dive-reproducible-git-rmd\")"
   },
   {
     "objectID": "lectures/17-home.html#info-and-materials",
     "href": "lectures/17-home.html#info-and-materials",
     "title": "Lecture 17: Reproducible Workflow",
     "section": "",
-    "text": "Date: December 1, 2025\nTopics: Reproducible Workflow\nSlides: View Slides\nCode: No in-class code to download"
+    "text": "Date: December 1, 2025\nTopics: Reproducible Workflow\nSlides: View Slides\nCode: usethis::use_course(\"css-materials/deep-dive-reproducible-git-rmd\")"
   },
   {
     "objectID": "lectures/17-home.html#learning-objectives",
     "href": "lectures/17-home.html#learning-objectives",
     "title": "Lecture 17: Reproducible Workflow",
     "section": "Learning Objectives",
-    "text": "Learning Objectives\n\nDefine a project-oriented workflow in R and identify R startup procedures\nExpand current knowledge of R Markdown\nBasics of Git/GitHub via terminal/command line"
+    "text": "Learning Objectives\n\nDefine a project-oriented workflow in R and identify R startup procedures\nExpand current knowledge of R Markdown\nOptional: Basics of Git/GitHub via terminal/command line"
   },
   {
     "objectID": "lectures/17-home.html#readings",
@@ -1817,21 +1817,21 @@
     "href": "lectures/01-slides.html#collaboration-vs.-plagiarism",
     "title": "Computing for the Social Sciences: Lecture 1",
     "section": "Collaboration vs. Plagiarism",
-    "text": "Collaboration vs. Plagiarism\n\n\n✅ DO:\n\nDiscuss and debug with peers\nRewrite code found online in your own style and cite the source\nUse AI to debug or clarify concepts after you try\nSubmit code you wrote\nSubmit code you fully understand\nAlways, prioritize methods from class materials and readings\n\n\n🚫 DON’T:\n\nCopy code from your classmates or others\nSimply copy and paste chunks of code from the internet\nUse AI beyond the AI-Policy of this course\nSubmit code you didn’t write\nSubmit code you can’t explain\nWrite code not taught in class or reading (even if it works) as primary solution"
+    "text": "Collaboration vs. Plagiarism\n\n\n\n✅ DO:\n\nDiscuss and debug with peers\nRewrite code found online in your own style and cite the source\nUse AI to debug or clarify concepts after you try\nSubmit code you wrote\nSubmit code you fully understand\nAlways, prioritize methods from class materials and readings\n\n\n\n\n🚫 DON’T:\n\nCopy code from your classmates or others\nSimply copy and paste chunks of code from the internet\nUse AI beyond the AI-Policy of this course\nSubmit code you didn’t write\nSubmit code you can’t explain\nWrite code not taught in class or reading (even if it works) as primary solution"
   },
   {
     "objectID": "lectures/01-slides.html#my-take-on-ai-for-this-course",
     "href": "lectures/01-slides.html#my-take-on-ai-for-this-course",
     "title": "Computing for the Social Sciences: Lecture 1",
     "section": "My take on AI for this course",
-    "text": "My take on AI for this course\n\n\nIt is my responsibility to\n- Set expectations & boundaries\n- Enforce them (via grading & AI statements)\n\nIt is your responsibility to\n- Respect the AI policy\n- Ask questions if something is unclear\n\nIn this course, AI is:\n\nNOT allowed to brainstorm, write code for you, or replace course materials\nallowed to debug and learn more (e.g., clarify class materials, ask for more explanations about a specific function, ask for examples, etc.).\n\nMake sure to read the Academic Integrity & Use of AI Policies"
+    "text": "My take on AI for this course\n\n\nIt is my responsibility to\n- Set expectations & boundaries\n- Enforce them (via grading & AI statements)\n\nIt is your responsibility to\n- Respect the AI policy\n- Ask questions if something is unclear\n\n\nIn this course, AI is:\n\nNOT allowed to brainstorm, write code for you, or replace course materials\nallowed to debug and learn more (e.g., clarify class materials, ask for more explanations about a specific function, ask for examples, etc.).\n\nMake sure to read the Academic Integrity & Use of AI Policies"
   },
   {
     "objectID": "lectures/01-slides.html#activity-meet-share-goals",
     "href": "lectures/01-slides.html#activity-meet-share-goals",
     "title": "Computing for the Social Sciences: Lecture 1",
     "section": "Activity: Meet & Share Goals",
-    "text": "Activity: Meet & Share Goals\nIn groups of 3-5 people, please share:\n\nYour name, plus something about yourself that you’re comfortable sharing (e.g., a hobby, your experience with programming, etc.)\nWhat you hope to learn or achieve in this course\nAny questions you have, and strategies you plan to use to stay on track (we’ll go around the room and answer questions)\n\n\n\n\n\n\n\n\nDone early?\n\n\nIf your group finishes early, please complete this short survey if you haven’t already. It only takes a minute and helps us better understand your background and what you’re hoping to learn in this course."
+    "text": "Activity: Meet & Share Goals\nIn groups of 3-5 people, please share:\n\nYour name, plus something about yourself that you’re comfortable sharing (e.g., a hobby, your experience with programming, etc.)\nWhat you hope to learn or achieve in this course\nAny questions you have, and strategies you plan to use to stay on track (we’ll go around the room and answer questions)\n\n\n\n\n\n\n\nDone early?\n\n\n\nIf your group finishes early, please complete this short survey if you haven’t already. It only takes a minute and helps us better understand your background and what you’re hoping to learn in this course."
   },
   {
     "objectID": "lectures/01-slides.html#what-are-these-tools",
@@ -1880,7 +1880,7 @@
     "href": "lectures/01-slides.html#r-markdown-three-main-components",
     "title": "Computing for the Social Sciences: Lecture 1",
     "section": "R Markdown: Three Main Components",
-    "text": "R Markdown: Three Main Components\n\nYAML header for document title, author, output format, etc. Insert it at the top between ---\nText regular Markdown for headers, lists, links, etc.\nCode chunks for code. Insert it with triple backticks ```\n\n\n\n\n\n\n\n\nCode Chunk Tips\n\n\nThree ways to insert a code chunk in your R Markdown:\n\nUse the RStudio toolbar\n\nType manually ```{r} and ```\nUse a shortcut\n\nMac: ⌘ + ⌥ + I\n\nWindows: Ctrl + Alt + I"
+    "text": "R Markdown: Three Main Components\n\nYAML header for document title, author, output format, etc. Insert it at the top between ---\nText regular Markdown for headers, lists, links, etc.\nCode chunks for code. Insert it with triple backticks ```\n\n\n\n\n\n\n\nCode Chunk Tips\n\n\n\nThree ways to insert a code chunk in your R Markdown:\n\nUse the RStudio toolbar\n\nType manually ```{r} and ```\nUse a shortcut\n\nMac: ⌘ + ⌥ + I\n\nWindows: Ctrl + Alt + I"
   },
   {
     "objectID": "lectures/01-slides.html#r-markdown-example",
@@ -1901,21 +1901,21 @@
     "href": "lectures/01-slides.html#r-markdown-formatting-text",
     "title": "Computing for the Social Sciences: Lecture 1",
     "section": "R Markdown: Formatting Text",
-    "text": "R Markdown: Formatting Text\n\n\nSyntax\n*Italics*  \n**Bold**  \n~~Strikethrough~~  \n`inline code`\n\nOutput\nItalics\nBold\nStrikethrough\ninline code"
+    "text": "R Markdown: Formatting Text\n\n\n\nSyntax\n*Italics*  \n**Bold**  \n~~Strikethrough~~  \n`inline code`\n\n\n\nOutput\nItalics\nBold\nStrikethrough\ninline code"
   },
   {
     "objectID": "lectures/01-slides.html#r-markdown-unordered-lists",
     "href": "lectures/01-slides.html#r-markdown-unordered-lists",
     "title": "Computing for the Social Sciences: Lecture 1",
     "section": "R Markdown: Unordered Lists",
-    "text": "R Markdown: Unordered Lists\n\n\nSyntax\n+ item 1  \n  + sub  \n  + sub  \n- item 2  \n  - sub  \n  - sub  \n+ item 3  \n  - sub  \n  * sub  \n\nOutput\n\nitem 1\n\nsub\nsub\n\nitem 2\n\nsub\nsub\n\nitem 3\n\nsub\nsub"
+    "text": "R Markdown: Unordered Lists\n\n\n\nSyntax\n+ item 1  \n  + sub  \n  + sub  \n- item 2  \n  - sub  \n  - sub  \n+ item 3  \n  - sub  \n  * sub  \n\n\n\nOutput\n\nitem 1\n\nsub\nsub\n\nitem 2\n\nsub\nsub\n\nitem 3\n\nsub\nsub"
   },
   {
     "objectID": "lectures/01-slides.html#r-markdown-ordered-lists",
     "href": "lectures/01-slides.html#r-markdown-ordered-lists",
     "title": "Computing for the Social Sciences: Lecture 1",
     "section": "R Markdown: Ordered Lists",
-    "text": "R Markdown: Ordered Lists\n\n\nSyntax\n1. item 1  \n    + sub  \n      + sub  \n    + sub  \n\n1. item 2  \n    * sub  \n      * sub  \n    * sub  \n\n1. item 3  \n    - sub  \n\nOutput\n\nitem 1\n\nsub\n\nsub\n\n\nsub\n\nitem 2\n\nsub\n\nsub\n\n\nsub\n\nitem 3\n\nsub"
+    "text": "R Markdown: Ordered Lists\n\n\n\nSyntax\n1. item 1  \n    + sub  \n      + sub  \n    + sub  \n\n1. item 2  \n    * sub  \n      * sub  \n    * sub  \n\n1. item 3  \n    - sub  \n\n\n\nOutput\n\nitem 1\n\nsub\n\nsub\n\n\nsub\n\nitem 2\n\nsub\n\nsub\n\n\nsub\n\nitem 3\n\nsub"
   },
   {
     "objectID": "lectures/01-slides.html#r-markdown-formatting-headers",
@@ -1929,7 +1929,7 @@
     "href": "lectures/01-slides.html#using-in-code-vs.-markdown-text",
     "title": "Computing for the Social Sciences: Lecture 1",
     "section": "Using # in Code vs. Markdown Text",
-    "text": "Using # in Code vs. Markdown Text\n\n\nIn Code\n# Assign number to variable\nx &lt;- 5 \n# Assign text to variable\nname &lt;- \"Sabrina\"\n\n# starts a COMMENT in R Scripts and R Markdown Code Chunks\nComments are ignored when the code runs\nUse one single # for code explanations or debugging, space doesn’t matter\n\n\nIn R Markdown Text\n# Title (h1)\n## Section (h2)\n### Subsection (h3)\n#### More Subsections (h4)\n\n# creates a HEADER in Markdown or R Markdown Text\nThe number of # signs = heading level\nUse as many # as needed for organizing document sections, space matters"
+    "text": "Using # in Code vs. Markdown Text\n\n\n\nIn Code\n# Assign number to variable\nx &lt;- 5 \n# Assign text to variable\nname &lt;- \"Sabrina\"\n\n# starts a COMMENT in R Scripts and R Markdown Code Chunks\nComments are ignored when the code runs\nUse one single # for code explanations or debugging, space doesn’t matter\n\n\n\n\nIn R Markdown Text\n# Title (h1)\n## Section (h2)\n### Subsection (h3)\n#### More Subsections (h4)\n\n# creates a HEADER in Markdown or R Markdown Text\nThe number of # signs = heading level\nUse as many # as needed for organizing document sections, space matters"
   },
   {
     "objectID": "lectures/01-slides.html#r-markdown-insert-links-images-and-tables",
@@ -1950,7 +1950,7 @@
     "href": "lectures/01-slides.html#rendering-r-markdown-documents",
     "title": "Computing for the Social Sciences: Lecture 1",
     "section": "Rendering R Markdown Documents",
-    "text": "Rendering R Markdown Documents\nR Markdown lets you create documents that combine text, code, and output, and “render” or “knit” them in formats like html, pdf, word, and more.\n\n\n\n\n\n\n\nRendering Tips\n\n\nThree ways to render your R Markdown document:\n\nClick “Knit” in RStudio and choose an output\nSet the format in the YAML header such as html_document,word_document, pdf_document, github_document, etc.\nUse render() in your console by typing rmarkdown::render(\"my-document.Rmd\", output_format: html_document). More info here"
+    "text": "Rendering R Markdown Documents\nR Markdown lets you create documents that combine text, code, and output, and “render” or “knit” them in formats like html, pdf, word, and more.\n\n\n\n\n\n\nRendering Tips\n\n\n\nThree ways to render your R Markdown document:\n\nClick “Knit” in RStudio and choose an output\nSet the format in the YAML header such as html_document,word_document, pdf_document, github_document, etc.\nUse render() in your console by typing rmarkdown::render(\"my-document.Rmd\", output_format: html_document). More info here"
   },
   {
     "objectID": "lectures/01-slides.html#r-markdown-knitting-process",
@@ -6774,5 +6774,278 @@
     "title": "Computing for the Social Sciences: Lecture 16",
     "section": "Rectangling or Simplifying Lists",
     "text": "Rectangling or Simplifying Lists\nIn R this means transforming non-rectangular data (often nested lists) into a rectangular format (often a data frame). The term is often associated with the tidyverse and its principles of tidy data.\nIn the context of web scraping…\nRectangling means transforming a deeply nested list (often obtained from raw JSON or XML data) into a tidy data set with rows and columns that is easier to work with!"
+  },
+  {
+    "objectID": "lectures/17-slides.html#exam-format",
+    "href": "lectures/17-slides.html#exam-format",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "Exam Format",
+    "text": "Exam Format\nIdentical to Exam 1 or very similar. Multiple-choice questions and short open-ended questions, such as:\n\nClassical multiple choice — select the correct answer from several options\n\nSpot the typo — identify and fix syntax or logic errors\nMatching questions — pair code snippets with their descriptions or outputs\n\nDebugging questions — code runs but gives unexpected results; explain why\n\nPredict the output — given a short R snippet determine what the code will return\nOpen-ended questions or write code questoins — brief written explanations and interpretations of results; write code (possible topics: conditionals, loops, functions, base R, data structures)"
+  },
+  {
+    "objectID": "lectures/17-slides.html#exam-logistics",
+    "href": "lectures/17-slides.html#exam-logistics",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "Exam Logistics",
+    "text": "Exam Logistics\n\nTopics covered: Lectures 9-17 (inclusive)\nTime: 60 minutes\nIt is closed-book, but you may bring pen and paper for scratch work. See Syllabus for details\nArrive on time: If you arrive late, you can still take the exam, but no additional time can be given\nMake-up and absence policy: See Syllabus"
+  },
+  {
+    "objectID": "lectures/17-slides.html#how-to-prepare-for-the-exam",
+    "href": "lectures/17-slides.html#how-to-prepare-for-the-exam",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "How to Prepare for the Exam",
+    "text": "How to Prepare for the Exam\n\nReview class materials: slides, in-class code, and assigned readings\nReview previous homework (especially 3 and 4) re-run your code and check you understand each step\nReview the in-class prep quizzes we have done exam questions will be similar\nUse AI strategically: once you’ve done all the above, ask AI to generate additional practice questions of different types and level of difficulty. Starting with AI before reviewing materials can backfires\n\n\n\n\n\n\n\nTip\n\n\nPreparation works best when you write and run code yourself, review your mistakes, and make sure you can explain why each answer is correct."
+  },
+  {
+    "objectID": "lectures/17-slides.html#final-project-check-in",
+    "href": "lectures/17-slides.html#final-project-check-in",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "Final Project Check-In",
+    "text": "Final Project Check-In\nWhen:\nWednesday, December 3, 2025 after the exam (~2:30–3:20 PM)\nWhat:\nOptional 1:1 meetings (~10 minutes) with the instructor or TA to discuss your final project. Please come with whatever you’ve completed so far and any questions you’d like to go over.\nSign up:\nFirst come, first served. If many students plan to attend, a sign-up link will be provided."
+  },
+  {
+    "objectID": "lectures/17-slides.html#tip-1-begin-every-session-with-a-clean-empty-workspace",
+    "href": "lectures/17-slides.html#tip-1-begin-every-session-with-a-clean-empty-workspace",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "Tip 1: Begin every session with a clean, empty workspace",
+    "text": "Tip 1: Begin every session with a clean, empty workspace\nWhen you run an R session, your workspace includes everything created during that session: libraries that you loaded with library(), and several user-created objects (objects, data, functions, etc.)\nGoal: Don’t preserve the workspace. Preserve the code that creates the workspace. The next slides explain how and why!"
+  },
+  {
+    "objectID": "lectures/17-slides.html#tip-1-begin-every-session-with-a-clean-empty-workspace-1",
+    "href": "lectures/17-slides.html#tip-1-begin-every-session-with-a-clean-empty-workspace-1",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "Tip 1: Begin every session with a clean, empty workspace",
+    "text": "Tip 1: Begin every session with a clean, empty workspace\nHow?\nWhen you close a session, by default R will prompt you to save your workspace with the question “Do you want to save your workspace?” If you choose to save it, R will reload that same workspace the next time you open it. Instead, change the default settings:\n\n“Do you want to save your workspace?” No\nTools &gt; Global Options &gt; General\n\nuncheck “Restore .Rdata into workspace at startup”\nset “Save workspace to .RData on exit” to Never"
+  },
+  {
+    "objectID": "lectures/17-slides.html#tip-1-begin-every-session-with-a-clean-empty-workspace-2",
+    "href": "lectures/17-slides.html#tip-1-begin-every-session-with-a-clean-empty-workspace-2",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "Tip 1: Begin every session with a clean, empty workspace",
+    "text": "Tip 1: Begin every session with a clean, empty workspace\nWhy?\nReproducibility:\nSaving everything in the code allows others to reproduce your work and enables you to re-run the code to recreate the workspace.\nFewer Mistakes:\nSaved workspaces can hide objects you forgot about or didn’t create in this script. For example: - Objects created in other scripts may still be lurking - You may have loaded packages or data you don’t remember - Objects may have been modified without updating the code"
+  },
+  {
+    "objectID": "lectures/17-slides.html#tip-2-restart-r-often-session-restart-r",
+    "href": "lectures/17-slides.html#tip-2-restart-r-often-session-restart-r",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "Tip 2: Restart R often (Session → Restart R)",
+    "text": "Tip 2: Restart R often (Session → Restart R)\nRestart R when you want to ensure your script runs from a fresh session:\n\nMore reliable than rm(list = ls()) or the broom icon (those remove objects but do not unload packages you loaded earlier)\nRestarting keeps RStudio open, but clears everything underneath, giving you a clean workspace\nUseful for debugging when other fixes don’t work and the code looks correct"
+  },
+  {
+    "objectID": "lectures/17-slides.html#tip-3-use-a-project-based-workflow",
+    "href": "lectures/17-slides.html#tip-3-use-a-project-based-workflow",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "Tip 3: Use a Project-based workflow",
+    "text": "Tip 3: Use a Project-based workflow\nIn this class, we have been using a project-based workflow for everything by creating a project file .Rproj in every repo! (Remember to create one for your final project, see Lecture 7)\nValue of this approach:\n\nkeeps materials organized\nhelps managing working directories (the working directory is the folder that R takes as default directory every time you try to access files, scripts, etc.)"
+  },
+  {
+    "objectID": "lectures/17-slides.html#good-enough-practices-in-scientific-computing",
+    "href": "lectures/17-slides.html#good-enough-practices-in-scientific-computing",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "Good enough practices in scientific computing",
+    "text": "Good enough practices in scientific computing\nGreat Article with more tips to improve your workflow: https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510"
+  },
+  {
+    "objectID": "lectures/17-slides.html#r-markdown-recap",
+    "href": "lectures/17-slides.html#r-markdown-recap",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "R Markdown Recap",
+    "text": "R Markdown Recap\nR Markdown is a file format (with extension .Rmd) that:\n\ncombines R code, using code chunks, and text in a single document\nmakes it easy to create reproducible reports, analyses, and presentations\nyou might hear about Quarto (with extension .qmd): a newer alternative to R Markdown (if you learn R Markdown, you can quickly adjust to Quarto)"
+  },
+  {
+    "objectID": "lectures/17-slides.html#r-markdown-recap-1",
+    "href": "lectures/17-slides.html#r-markdown-recap-1",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "R Markdown Recap",
+    "text": "R Markdown Recap\nThree Main Components\n\nYAML header for document title, author, output format, etc. Insert it at the top between ---\nText regular Markdown for headers, lists, links, etc.\nCode chunks for code. Insert it with triple backticks ```\n\n\n\n\n\n\n\n\nCode Chunk Tips\n\n\nThree ways to insert a code chunk in your R Markdown:\n\nUse the RStudio toolbar\n\nType manually ```{r} and ```\nUse a shortcut\n\nMac: ⌘ + ⌥ + I\n\nWindows: Ctrl + Alt + I"
+  },
+  {
+    "objectID": "lectures/17-slides.html#r-markdown-what-we-know",
+    "href": "lectures/17-slides.html#r-markdown-what-we-know",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "R Markdown: What We Know",
+    "text": "R Markdown: What We Know\n\nInserting a YAML Header with basic elements\nFormatting text (italics, bold, etc.)\nFormatting titles\nInserting lists (ordered and unordered)\nInserting images, tables, and hyperlinks\nRendering a Rmd into pdf, html, md, etc."
+  },
+  {
+    "objectID": "lectures/17-slides.html#r-markdown-what-we-learn-today",
+    "href": "lectures/17-slides.html#r-markdown-what-we-learn-today",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "R Markdown: What We Learn Today",
+    "text": "R Markdown: What We Learn Today\n\nHow the knitting process works\nInline code\nCode chunks names\nCode chunks options\nGlobal options\nNew YAML header elements"
+  },
+  {
+    "objectID": "lectures/17-slides.html#r-markdown-knitting-process",
+    "href": "lectures/17-slides.html#r-markdown-knitting-process",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "R Markdown: Knitting process",
+    "text": "R Markdown: Knitting process\nWhen you “knit” your document, the following sequential things happen, as illustarated here\n\nR Markdown sends the .Rmd file to knitr http://yihui.name/knitr/\nKnitr executes all of the code chunks and creates a new plain Markdown .md file which includes the code and its output\nThis plain Markdown file is then converted by pandoc into any number of output types including html, PDF, Word document, etc.: http://pandoc.org/"
+  },
+  {
+    "objectID": "lectures/17-slides.html#r-markdown-inline-code",
+    "href": "lectures/17-slides.html#r-markdown-inline-code",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "R Markdown: Inline Code",
+    "text": "R Markdown: Inline Code\n---\ntitle: \"Gun deaths\"\nauthor: \"Sabrina Nardin\"\noutput: html_document\n---\n\n```{r setup, include = FALSE}\nlibrary(tidyverse)\nlibrary(rcis)\n```\n\n## Gun deaths by age\n\nThe `gun_deaths` dataset includes data for `r nrow(gun_deaths)` individuals killed by guns.\n\n```{r youth, echo = FALSE}\nyouth &lt;- gun_deaths %&gt;% filter(age &lt;= 65)\n```\n\nWe have `r nrow(youth)` individuals who are 65 or younger. \nOnly `r nrow(gun_deaths) - nrow(youth)` are older than 65."
+  },
+  {
+    "objectID": "lectures/17-slides.html#r-markdown-inline-code-1",
+    "href": "lectures/17-slides.html#r-markdown-inline-code-1",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "R Markdown: Inline Code",
+    "text": "R Markdown: Inline Code\nThe gun_deaths dataset includes data for 100798 individuals killed by guns.\nWe have 85111 individuals who are 65 or younger. Only 15687 are older than 65."
+  },
+  {
+    "objectID": "lectures/17-slides.html#r-markdown-inline-code-2",
+    "href": "lectures/17-slides.html#r-markdown-inline-code-2",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "R Markdown: Inline Code",
+    "text": "R Markdown: Inline Code\nData for this plot come from the gun_deaths dataset. We have data about 100798 individuals killed by guns.\nOnly 15687 are older than 65. The distribution of the remainder is shown below."
+  },
+  {
+    "objectID": "lectures/17-slides.html#r-markdown-code-chunks-names",
+    "href": "lectures/17-slides.html#r-markdown-code-chunks-names",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "R Markdown: Code Chunks Names",
+    "text": "R Markdown: Code Chunks Names\nA named code chunk:\n```{r youth-distribution}\n# code goes here\n```\nAdvantages:\n\nEasier to navigate to specific chunks (using the drop-down code navigator in the script editor). Note: Two code chunks should not have the same name.\nGraphics produced by the chunks have useful names\nUse it with cache = TRUE to set up cached chunks to avoid re-performing expensive computations on every run\n\n\n\n\n\n\n\nTip\n\n\ncache = TRUE saves a chunk’s output to a file on memory. On future renders, R checks if the code chunk has changed; if not, R skips re-running the chunk and reuses the cached results (see Ch. 27 R for Data Science)"
+  },
+  {
+    "objectID": "lectures/17-slides.html#r-markdown-code-chunk-options",
+    "href": "lectures/17-slides.html#r-markdown-code-chunk-options",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "R Markdown: Code Chunk Options",
+    "text": "R Markdown: Code Chunk Options\n\n\n\n\n\n\n\n\n\nOption\nWhat it does\nDefault\n\n\n\n\neval = FALSE\nCode is not run, only shown; results do not appear. Useful for code examples or showing code with errors.\neval = TRUE\n\n\ninclude = FALSE\nCode is run, but both code and results are hidden. Useful for setup code you don’t want to display.\ninclude = TRUE\n\n\necho = FALSE\nCode is run, results are shown, but code is hidden. Good when readers only need the output.\necho = TRUE\n\n\nerror = TRUE\nCode is run and shown, even if it throws an error. Useful when demonstrating broken code.\nerror = FALSE\n\n\nmessage = FALSE / warning = FALSE\nCode is run, but messages and warnings are hidden from the output.\nmessage = TRUE / warning = TRUE\n\n\n\n\nCheck this table and options for more."
+  },
+  {
+    "objectID": "lectures/17-slides.html#r-markdown-global-options",
+    "href": "lectures/17-slides.html#r-markdown-global-options",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "R Markdown: Global Options",
+    "text": "R Markdown: Global Options\nUse global chunk options when you want the same settings to apply to ALL code chunks in your R Markdown file.\nGlobal options are defined in a code chunk at the top of your Rmd file with knitr::opts_chunk$set()\nFor example, if you want to hide the code by default:\nknitr::opts_chunk$set(\n  echo = FALSE    # shows results but hide codes \n)"
+  },
+  {
+    "objectID": "lectures/17-slides.html#r-markdown-new-yaml-header-elements",
+    "href": "lectures/17-slides.html#r-markdown-new-yaml-header-elements",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "R Markdown: New YAML Header Elements",
+    "text": "R Markdown: New YAML Header Elements\n---\ntitle: \"Gun deaths\"\nauthor: \"Sabrina Nardin\"\noutput: html_document\n---"
+  },
+  {
+    "objectID": "lectures/17-slides.html#using-gitgithub-from-the-terminal-1",
+    "href": "lectures/17-slides.html#using-gitgithub-from-the-terminal-1",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "Using Git/GitHub from the terminal",
+    "text": "Using Git/GitHub from the terminal\n1. Review: Lecture 1 for key info.\n2. From terminal: Download today’s class materials!\nNotice: we use the terms “command line,” “terminal,” and “shell” interchangeably."
+  },
+  {
+    "objectID": "lectures/17-slides.html#article-good-enough-practices-in-ccientific-computing",
+    "href": "lectures/17-slides.html#article-good-enough-practices-in-ccientific-computing",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "Article “Good enough practices in ccientific computing”",
+    "text": "Article “Good enough practices in ccientific computing”\nGreat Article with more tips to improve your workflow:\nhttps://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510"
+  },
+  {
+    "objectID": "lectures/17-slides.html#article-good-enough-practices-in-scientific-computing",
+    "href": "lectures/17-slides.html#article-good-enough-practices-in-scientific-computing",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "Article “Good enough practices in scientific computing”",
+    "text": "Article “Good enough practices in scientific computing”\nUseful Article with more tips to improve your workflow:\nhttps://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510"
+  },
+  {
+    "objectID": "lectures/17-slides.html#r-markdown-the-knitting-process",
+    "href": "lectures/17-slides.html#r-markdown-the-knitting-process",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "R Markdown: The Knitting Process",
+    "text": "R Markdown: The Knitting Process\nWhen you “knit” your document, the following sequential things happen, as illustarated here\n\nR Markdown sends the .Rmd file to knitr http://yihui.name/knitr/\nKnitr executes all of the code chunks and creates a new plain Markdown .md file which includes the code and its output\nThis plain Markdown file is then converted by pandoc into any number of output types including html, PDF, Word document, etc.: http://pandoc.org/"
+  },
+  {
+    "objectID": "lectures/17-slides.html#yaml-header-table-of-contents",
+    "href": "lectures/17-slides.html#yaml-header-table-of-contents",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "YAML Header: Table of Contents",
+    "text": "YAML Header: Table of Contents\n---\ntitle: \"Gun deaths\"\nauthor: \"Sabrina Nardin\"\noutput: \n  html_document\n    toc: true\n    toc_depth: 2\n---"
+  },
+  {
+    "objectID": "lectures/17-slides.html#yaml-header-apparence-and-style",
+    "href": "lectures/17-slides.html#yaml-header-apparence-and-style",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "YAML Header: Apparence and Style",
+    "text": "YAML Header: Apparence and Style\n---\ntitle: \"Gun deaths\"\nauthor: \"Sabrina Nardin\"\noutput: \n  html_document\n    theme: readable\n    fig_width: 8\n    fig_height: 6\n---"
+  },
+  {
+    "objectID": "lectures/17-slides.html#yaml-header-date-as-string",
+    "href": "lectures/17-slides.html#yaml-header-date-as-string",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "YAML Header: Date as string",
+    "text": "YAML Header: Date as string\nWe can add a date as a simple string, and manually modify it every time we modify our file:\n---\ntitle: \"Gun deaths\"\noutput: html_document\ndate: \"December 1, 2025\"\n---\nBut we can also add it automatically!"
+  },
+  {
+    "objectID": "lectures/17-slides.html#yaml-header-date-with-lubridate",
+    "href": "lectures/17-slides.html#yaml-header-date-with-lubridate",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "YAML Header: Date with lubridate",
+    "text": "YAML Header: Date with lubridate\n---\ntitle: \"Gun deaths\"\noutput: html_document\ndate: \"`r lubridate::today()`\"\n---\nFor more on the lubridate package, see Chapter 16 of R for Data Science"
+  },
+  {
+    "objectID": "lectures/17-slides.html#yaml-header-date-with-sys.date",
+    "href": "lectures/17-slides.html#yaml-header-date-with-sys.date",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "YAML Header: Date with Sys.Date",
+    "text": "YAML Header: Date with Sys.Date\n---\ntitle: \"Gun deaths\"\noutput: html_document\ndate: \"`r Sys.Date()`\"\n---\nSys.Date returns the current day in the current time zone. The default uses the format year/month/day."
+  },
+  {
+    "objectID": "lectures/17-slides.html#yaml-header-date-with-sys.time",
+    "href": "lectures/17-slides.html#yaml-header-date-with-sys.time",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "YAML Header: Date with Sys.time",
+    "text": "YAML Header: Date with Sys.time\n---\ntitle: \"Gun deaths\"\noutput: html_document\ndate: \"`r format (Sys.time(), '%d, %B, %Y')`\"\n---\nSys.time returns an absolute date-time value which can be converted to various time zones, and it more easily is customizable. This format says we want the date as: numeric day, full name of the month, and full (4-digit) year, but it can be changed"
+  },
+  {
+    "objectID": "lectures/17-slides.html#practice-with-rmd",
+    "href": "lectures/17-slides.html#practice-with-rmd",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "💻 Practice with Rmd",
+    "text": "💻 Practice with Rmd\nDownload today’s class materials and complete the tutorial on Rmd"
+  },
+  {
+    "objectID": "lectures/17-slides.html#r-markdown-more-info-and-tips",
+    "href": "lectures/17-slides.html#r-markdown-more-info-and-tips",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "R Markdown More Info and Tips",
+    "text": "R Markdown More Info and Tips\nFor the final project, experiment with the R Markdown options we have seen today, in addition to the things you already know.\nFor more, see R for Data Science 1st Edition:\n\nChapter 27 “R Markdown”\nChapter 28 “Graphics for communication”\nChapter 29 “R Markdown formats”"
+  },
+  {
+    "objectID": "lectures/17-slides.html#r-markdown-vs-r-script",
+    "href": "lectures/17-slides.html#r-markdown-vs-r-script",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "R Markdown vs R Script",
+    "text": "R Markdown vs R Script\nWhen to use a script vs. a Rmd\n\nWhen you want to experiment, test functions, debug code\nWhen you do not need to communicate output or results to others\nFor scripts that need to run top-to-bottom without narrative\nFor larger projects where you could have some code in R scripts (e.g., data cleaning, analysis pipelines, tests, etc.), and others (e.g., the final-narrated versions) in a Rmd file"
+  },
+  {
+    "objectID": "lectures/17-slides.html#reflecting-on-ai-use-for-programming",
+    "href": "lectures/17-slides.html#reflecting-on-ai-use-for-programming",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "Reflecting on AI Use for Programming",
+    "text": "Reflecting on AI Use for Programming\nOne part of my job is teaching you R fundamentals. Another (new) part is helping you learn how to use AI as a learning tool, as I think AI is here to stay.\nI’d like to do an activity on reflecting on your AI use in this course using this Google Doc"
+  },
+  {
+    "objectID": "lectures/18-slides.html#exam-format-to-update",
+    "href": "lectures/18-slides.html#exam-format-to-update",
+    "title": "Computing for the Social Sciences: Lecture 18",
+    "section": "Exam Format TO UPDATE",
+    "text": "Exam Format TO UPDATE\n\n\nTotal 27 questions (15 points):\n\n23 multiple choice or matching questions: 0.5 points each\n2 write short code questions: 0.75 points each\n2 open questions (write code or pseudocode + explain): 1 point each\n\n\n\nTime: 60 minutes\n\nOnce you submit, you may not reopen the quiz or view questions\nIf you finish early, please stay quiet or leave the room. Do not open R, notes, or class materials while others are still working\nDuring the exam, you may use pen and paper to make notes or plan your answers.\nAfter everyone completed the exam, we start today’s lecture (~2:30 pm)\nRemember to sign the attendance sheet"
+  },
+  {
+    "objectID": "lectures/18-slides.html#exam-grades",
+    "href": "lectures/18-slides.html#exam-grades",
+    "title": "Computing for the Social Sciences: Lecture 18",
+    "section": "Exam Grades",
+    "text": "Exam Grades\n\nGrades will be posted within one week\nDo not discuss exam questions with others until grades are posted\nYou won’t see feedback or correct answers after submitting, but we are welcome, and encouraged, to ask for feedback during office hours or by appointment"
+  },
+  {
+    "objectID": "lectures/01-slides.html",
+    "href": "lectures/01-slides.html",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "",
+    "text": "Welcome to the Course!\nIntro to R, RStudio, and Workbench\nR Markdown"
   }
 ]
