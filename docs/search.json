@@ -7039,7 +7039,7 @@
     "href": "lectures/18-slides.html#exam-grades",
     "title": "Computing for the Social Sciences: Lecture 18",
     "section": "Exam Grades",
-    "text": "Exam Grades\n\nGrades will be posted within one week\nDo not discuss exam questions with others until grades are posted\nYou won’t see feedback or correct answers after submitting, but we are welcome, and encouraged, to ask for feedback during office hours or by appointment"
+    "text": "Exam Grades\n\nGrades will be posted within one week\nYou won’t see feedback or correct answers after submitting, but you are welcome, and encouraged, to ask for feedback during office hours or by appointment\n\nGood luck and thanks for this quarter together!"
   },
   {
     "objectID": "lectures/01-slides.html",
@@ -7047,5 +7047,12 @@
     "title": "Computing for the Social Sciences: Lecture 1",
     "section": "",
     "text": "Welcome to the Course!\nIntro to R, RStudio, and Workbench\nR Markdown"
+  },
+  {
+    "objectID": "lectures/18-slides.html#exam-format",
+    "href": "lectures/18-slides.html#exam-format",
+    "title": "Computing for the Social Sciences: Lecture 18",
+    "section": "Exam Format",
+    "text": "Exam Format\n\nTotal 28 questions (15 points):\n\n26 multiple choice: 0.5 points each\n2 open questions: 1 point each\n\nTime: 60 minutes\n\nYou may use pen and paper to make notes or plan your answers\nOnce you submit, you may not reopen the quiz or view questions\nDo not open R, notes, or class materials while others are still working\nIf you finish early, you can leave. Or if you want to check in about the final project, wait until the exam is over\nRemember to sign the attendance sheet before leaving!"
   }
 ]
