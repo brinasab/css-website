@@ -1817,21 +1817,21 @@
     "href": "lectures/01-slides.html#collaboration-vs.-plagiarism",
     "title": "Computing for the Social Sciences: Lecture 1",
     "section": "Collaboration vs. Plagiarism",
-    "text": "Collaboration vs. Plagiarism\n\n\n\n✅ DO:\n\nDiscuss and debug with peers\nRewrite code found online in your own style and cite the source\nUse AI to debug or clarify concepts after you try\nSubmit code you wrote\nSubmit code you fully understand\nAlways, prioritize methods from class materials and readings\n\n\n\n\n🚫 DON’T:\n\nCopy code from your classmates or others\nSimply copy and paste chunks of code from the internet\nUse AI beyond the AI-Policy of this course\nSubmit code you didn’t write\nSubmit code you can’t explain\nWrite code not taught in class or reading (even if it works) as primary solution"
+    "text": "Collaboration vs. Plagiarism\n\n\n✅ DO:\n\nDiscuss and debug with peers\nRewrite code found online in your own style and cite the source\nUse AI to debug or clarify concepts after you try\nSubmit code you wrote\nSubmit code you fully understand\nAlways, prioritize methods from class materials and readings\n\n\n🚫 DON’T:\n\nCopy code from your classmates or others\nSimply copy and paste chunks of code from the internet\nUse AI beyond the AI-Policy of this course\nSubmit code you didn’t write\nSubmit code you can’t explain\nWrite code not taught in class or reading (even if it works) as primary solution"
   },
   {
     "objectID": "lectures/01-slides.html#my-take-on-ai-for-this-course",
     "href": "lectures/01-slides.html#my-take-on-ai-for-this-course",
     "title": "Computing for the Social Sciences: Lecture 1",
     "section": "My take on AI for this course",
-    "text": "My take on AI for this course\n\n\nIt is my responsibility to\n- Set expectations & boundaries\n- Enforce them (via grading & AI statements)\n\nIt is your responsibility to\n- Respect the AI policy\n- Ask questions if something is unclear\n\n\nIn this course, AI is:\n\nNOT allowed to brainstorm, write code for you, or replace course materials\nallowed to debug and learn more (e.g., clarify class materials, ask for more explanations about a specific function, ask for examples, etc.).\n\nMake sure to read the Academic Integrity & Use of AI Policies"
+    "text": "My take on AI for this course\n\n\nIt is my responsibility to\n- Set expectations & boundaries\n- Enforce them (via grading & AI statements)\n\nIt is your responsibility to\n- Respect the AI policy\n- Ask questions if something is unclear\n\nIn this course, AI is:\n\nNOT allowed to brainstorm, write code for you, or replace course materials\nallowed to debug and learn more (e.g., clarify class materials, ask for more explanations about a specific function, ask for examples, etc.).\n\nMake sure to read the Academic Integrity & Use of AI Policies"
   },
   {
     "objectID": "lectures/01-slides.html#activity-meet-share-goals",
     "href": "lectures/01-slides.html#activity-meet-share-goals",
     "title": "Computing for the Social Sciences: Lecture 1",
     "section": "Activity: Meet & Share Goals",
-    "text": "Activity: Meet & Share Goals\nIn groups of 3-5 people, please share:\n\nYour name, plus something about yourself that you’re comfortable sharing (e.g., a hobby, your experience with programming, etc.)\nWhat you hope to learn or achieve in this course\nAny questions you have, and strategies you plan to use to stay on track (we’ll go around the room and answer questions)\n\n\n\n\n\n\n\nDone early?\n\n\n\nIf your group finishes early, please complete this short survey if you haven’t already. It only takes a minute and helps us better understand your background and what you’re hoping to learn in this course."
+    "text": "Activity: Meet & Share Goals\nIn groups of 3-5 people, please share:\n\nYour name, plus something about yourself that you’re comfortable sharing (e.g., a hobby, your experience with programming, etc.)\nWhat you hope to learn or achieve in this course\nAny questions you have, and strategies you plan to use to stay on track (we’ll go around the room and answer questions)\n\n\n\n\n\n\n\n\nDone early?\n\n\nIf your group finishes early, please complete this short survey if you haven’t already. It only takes a minute and helps us better understand your background and what you’re hoping to learn in this course."
   },
   {
     "objectID": "lectures/01-slides.html#what-are-these-tools",
@@ -1880,7 +1880,7 @@
     "href": "lectures/01-slides.html#r-markdown-three-main-components",
     "title": "Computing for the Social Sciences: Lecture 1",
     "section": "R Markdown: Three Main Components",
-    "text": "R Markdown: Three Main Components\n\nYAML header for document title, author, output format, etc. Insert it at the top between ---\nText regular Markdown for headers, lists, links, etc.\nCode chunks for code. Insert it with triple backticks ```\n\n\n\n\n\n\n\nCode Chunk Tips\n\n\n\nThree ways to insert a code chunk in your R Markdown:\n\nUse the RStudio toolbar\n\nType manually ```{r} and ```\nUse a shortcut\n\nMac: ⌘ + ⌥ + I\n\nWindows: Ctrl + Alt + I"
+    "text": "R Markdown: Three Main Components\n\nYAML header for document title, author, output format, etc. Insert it at the top between ---\nText regular Markdown for headers, lists, links, etc.\nCode chunks for code. Insert it with triple backticks ```\n\n\n\n\n\n\n\n\nCode Chunk Tips\n\n\nThree ways to insert a code chunk in your R Markdown:\n\nUse the RStudio toolbar\n\nType manually ```{r} and ```\nUse a shortcut\n\nMac: ⌘ + ⌥ + I\n\nWindows: Ctrl + Alt + I"
   },
   {
     "objectID": "lectures/01-slides.html#r-markdown-example",
@@ -1901,21 +1901,21 @@
     "href": "lectures/01-slides.html#r-markdown-formatting-text",
     "title": "Computing for the Social Sciences: Lecture 1",
     "section": "R Markdown: Formatting Text",
-    "text": "R Markdown: Formatting Text\n\n\n\nSyntax\n*Italics*  \n**Bold**  \n~~Strikethrough~~  \n`inline code`\n\n\n\nOutput\nItalics\nBold\nStrikethrough\ninline code"
+    "text": "R Markdown: Formatting Text\n\n\nSyntax\n*Italics*  \n**Bold**  \n~~Strikethrough~~  \n`inline code`\n\nOutput\nItalics\nBold\nStrikethrough\ninline code"
   },
   {
     "objectID": "lectures/01-slides.html#r-markdown-unordered-lists",
     "href": "lectures/01-slides.html#r-markdown-unordered-lists",
     "title": "Computing for the Social Sciences: Lecture 1",
     "section": "R Markdown: Unordered Lists",
-    "text": "R Markdown: Unordered Lists\n\n\n\nSyntax\n+ item 1  \n  + sub  \n  + sub  \n- item 2  \n  - sub  \n  - sub  \n+ item 3  \n  - sub  \n  * sub  \n\n\n\nOutput\n\nitem 1\n\nsub\nsub\n\nitem 2\n\nsub\nsub\n\nitem 3\n\nsub\nsub"
+    "text": "R Markdown: Unordered Lists\n\n\nSyntax\n+ item 1  \n  + sub  \n  + sub  \n- item 2  \n  - sub  \n  - sub  \n+ item 3  \n  - sub  \n  * sub  \n\nOutput\n\nitem 1\n\nsub\nsub\n\nitem 2\n\nsub\nsub\n\nitem 3\n\nsub\nsub"
   },
   {
     "objectID": "lectures/01-slides.html#r-markdown-ordered-lists",
     "href": "lectures/01-slides.html#r-markdown-ordered-lists",
     "title": "Computing for the Social Sciences: Lecture 1",
     "section": "R Markdown: Ordered Lists",
-    "text": "R Markdown: Ordered Lists\n\n\n\nSyntax\n1. item 1  \n    + sub  \n      + sub  \n    + sub  \n\n1. item 2  \n    * sub  \n      * sub  \n    * sub  \n\n1. item 3  \n    - sub  \n\n\n\nOutput\n\nitem 1\n\nsub\n\nsub\n\n\nsub\n\nitem 2\n\nsub\n\nsub\n\n\nsub\n\nitem 3\n\nsub"
+    "text": "R Markdown: Ordered Lists\n\n\nSyntax\n1. item 1  \n    + sub  \n      + sub  \n    + sub  \n\n1. item 2  \n    * sub  \n      * sub  \n    * sub  \n\n1. item 3  \n    - sub  \n\nOutput\n\nitem 1\n\nsub\n\nsub\n\n\nsub\n\nitem 2\n\nsub\n\nsub\n\n\nsub\n\nitem 3\n\nsub"
   },
   {
     "objectID": "lectures/01-slides.html#r-markdown-formatting-headers",
@@ -1929,7 +1929,7 @@
     "href": "lectures/01-slides.html#using-in-code-vs.-markdown-text",
     "title": "Computing for the Social Sciences: Lecture 1",
     "section": "Using # in Code vs. Markdown Text",
-    "text": "Using # in Code vs. Markdown Text\n\n\n\nIn Code\n# Assign number to variable\nx &lt;- 5 \n# Assign text to variable\nname &lt;- \"Sabrina\"\n\n# starts a COMMENT in R Scripts and R Markdown Code Chunks\nComments are ignored when the code runs\nUse one single # for code explanations or debugging, space doesn’t matter\n\n\n\n\nIn R Markdown Text\n# Title (h1)\n## Section (h2)\n### Subsection (h3)\n#### More Subsections (h4)\n\n# creates a HEADER in Markdown or R Markdown Text\nThe number of # signs = heading level\nUse as many # as needed for organizing document sections, space matters"
+    "text": "Using # in Code vs. Markdown Text\n\n\nIn Code\n# Assign number to variable\nx &lt;- 5 \n# Assign text to variable\nname &lt;- \"Sabrina\"\n\n# starts a COMMENT in R Scripts and R Markdown Code Chunks\nComments are ignored when the code runs\nUse one single # for code explanations or debugging, space doesn’t matter\n\n\nIn R Markdown Text\n# Title (h1)\n## Section (h2)\n### Subsection (h3)\n#### More Subsections (h4)\n\n# creates a HEADER in Markdown or R Markdown Text\nThe number of # signs = heading level\nUse as many # as needed for organizing document sections, space matters"
   },
   {
     "objectID": "lectures/01-slides.html#r-markdown-insert-links-images-and-tables",
@@ -1950,7 +1950,7 @@
     "href": "lectures/01-slides.html#rendering-r-markdown-documents",
     "title": "Computing for the Social Sciences: Lecture 1",
     "section": "Rendering R Markdown Documents",
-    "text": "Rendering R Markdown Documents\nR Markdown lets you create documents that combine text, code, and output, and “render” or “knit” them in formats like html, pdf, word, and more.\n\n\n\n\n\n\nRendering Tips\n\n\n\nThree ways to render your R Markdown document:\n\nClick “Knit” in RStudio and choose an output\nSet the format in the YAML header such as html_document,word_document, pdf_document, github_document, etc.\nUse render() in your console by typing rmarkdown::render(\"my-document.Rmd\", output_format: html_document). More info here"
+    "text": "Rendering R Markdown Documents\nR Markdown lets you create documents that combine text, code, and output, and “render” or “knit” them in formats like html, pdf, word, and more.\n\n\n\n\n\n\n\nRendering Tips\n\n\nThree ways to render your R Markdown document:\n\nClick “Knit” in RStudio and choose an output\nSet the format in the YAML header such as html_document,word_document, pdf_document, github_document, etc.\nUse render() in your console by typing rmarkdown::render(\"my-document.Rmd\", output_format: html_document). More info here"
   },
   {
     "objectID": "lectures/01-slides.html#r-markdown-knitting-process",
