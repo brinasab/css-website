@@ -46,7 +46,7 @@ format:
 - *Matching questions* — pair code snippets with their descriptions or outputs  
 - *Debugging questions* — code runs but gives unexpected results; explain *why*  
 - *Predict the output* — given a short R snippet determine what the code will return
-- *Open-ended questions or write code questoins* — brief written explanations and interpretations of results; write code (possible topics: conditionals, loops, functions, base R, data structures)  
+- *Open-ended questions or write code questions* — brief written explanations and interpretations of results; write code (possible topics: conditionals, loops, functions, base R, data structures)  
 
 ---
 
