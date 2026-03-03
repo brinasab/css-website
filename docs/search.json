@@ -1719,7 +1719,7 @@
     "href": "hw/index.html",
     "title": "Computing for the Social Sciences",
     "section": "",
-    "text": "Homework Assignments Fall 2025\n\n\n\nHomework assignments (four in total) and the final project will be accessible from here once the assignment is released — check our Course Schedule for release and due dates.\n\nHomework 1\nHomework 2\nHomework 3\nHomework 4\nFinal Project\n\nRefer to the Syllabus for assessment policies, including guidelines on late or missing submissions, grading rubric, AI policies, and more."
+    "text": "Course Assignments Fall 2025\n\n\n\nAssessment for this course consists of four take-home assignments, one take-home final project, and two in-class exams.\nThe four homework assignments and the final project will be posted here once they are released:\n\nHomework 1\nHomework 2\nHomework 3\nHomework 4\nFinal Project\n\nThe two exams will include a mix of multiple-choice and open-ended questions. They will be held in class and will be closed-book. More details will be shared during class.\nFurther info:\n\nCheck our Course Schedule for release and due dates of all assignments.\nRefer to the Syllabus for assessment policies, including guidelines on late or missing submissions, grading rubric, AI policies, and more."
   },
   {
     "objectID": "hw/hw02.html",
@@ -6780,7 +6780,7 @@
     "href": "lectures/17-slides.html#exam-format",
     "title": "Computing for the Social Sciences: Lecture 17",
     "section": "Exam Format",
-    "text": "Exam Format\nIdentical to Exam 1 or very similar. Multiple-choice questions and short open-ended questions, such as:\n\nClassical multiple choice — select the correct answer from several options\n\nSpot the typo — identify and fix syntax or logic errors\nMatching questions — pair code snippets with their descriptions or outputs\n\nDebugging questions — code runs but gives unexpected results; explain why\n\nPredict the output — given a short R snippet determine what the code will return\nOpen-ended questions or write code questoins — brief written explanations and interpretations of results; write code (possible topics: conditionals, loops, functions, base R, data structures)"
+    "text": "Exam Format\n\nIdentical to Exam 1 or very similar. Multiple-choice questions and short open-ended questions, such as:\n\nClassical multiple choice — select the correct answer from several options\n\nSpot the typo — identify and fix syntax or logic errors\nMatching questions — pair code snippets with their descriptions or outputs\n\nDebugging questions — code runs but gives unexpected results; explain why\n\nPredict the output — given a short R snippet determine what the code will return\nOpen-ended questions or write code questions — brief written explanations and interpretations of results; write code (possible topics: conditionals, loops, functions, base R, data structures)"
   },
   {
     "objectID": "lectures/17-slides.html#exam-logistics",
@@ -6794,14 +6794,14 @@
     "href": "lectures/17-slides.html#how-to-prepare-for-the-exam",
     "title": "Computing for the Social Sciences: Lecture 17",
     "section": "How to Prepare for the Exam",
-    "text": "How to Prepare for the Exam\n\nReview class materials: slides, in-class code, and assigned readings\nReview previous homework (especially 3 and 4) re-run your code and check you understand each step\nReview the in-class prep quizzes we have done exam questions will be similar\nUse AI strategically: once you’ve done all the above, ask AI to generate additional practice questions of different types and level of difficulty. Starting with AI before reviewing materials can backfires\n\n\n\n\n\n\n\nTip\n\n\nPreparation works best when you write and run code yourself, review your mistakes, and make sure you can explain why each answer is correct."
+    "text": "How to Prepare for the Exam\n\nReview class materials: slides, in-class code, and assigned readings\nReview previous homework (especially 3 and 4) re-run your code and check you understand each step\nReview the in-class prep quizzes we have done exam questions will be similar\nUse AI strategically: once you’ve done all the above, ask AI to generate additional practice questions of different types and level of difficulty. Starting with AI before reviewing materials can backfires\n\n\n\n\n\n\n\nTip\n\n\n\nPreparation works best when you write and run code yourself, review your mistakes, and make sure you can explain why each answer is correct."
   },
   {
     "objectID": "lectures/17-slides.html#final-project-check-in",
     "href": "lectures/17-slides.html#final-project-check-in",
     "title": "Computing for the Social Sciences: Lecture 17",
     "section": "Final Project Check-In",
-    "text": "Final Project Check-In\nWhen:\nWednesday, December 3, 2025 after the exam (~2:30–3:20 PM)\nWhat:\nOptional 1:1 meetings (~10 minutes) with the instructor or TA to discuss your final project. Please come with whatever you’ve completed so far and any questions you’d like to go over.\nSign up:\nFirst come, first served. If many students plan to attend, a sign-up link will be provided."
+    "text": "Final Project Check-In\n\nWhen:\nWednesday, December 3, 2025 after the exam (~2:30–3:20 PM)\n\n\nWhat:\nOptional 1:1 meetings (~10 minutes) with the instructor or TA to discuss your final project. Please come with whatever you’ve completed so far and any questions you’d like to go over.\n\n\nSign up:\nFirst come, first served. If many students plan to attend, a sign-up link will be provided."
   },
   {
     "objectID": "lectures/17-slides.html#tip-1-begin-every-session-with-a-clean-empty-workspace",
@@ -6815,14 +6815,14 @@
     "href": "lectures/17-slides.html#tip-1-begin-every-session-with-a-clean-empty-workspace-1",
     "title": "Computing for the Social Sciences: Lecture 17",
     "section": "Tip 1: Begin every session with a clean, empty workspace",
-    "text": "Tip 1: Begin every session with a clean, empty workspace\nHow?\nWhen you close a session, by default R will prompt you to save your workspace with the question “Do you want to save your workspace?” If you choose to save it, R will reload that same workspace the next time you open it. Instead, change the default settings:\n\n“Do you want to save your workspace?” No\nTools &gt; Global Options &gt; General\n\nuncheck “Restore .Rdata into workspace at startup”\nset “Save workspace to .RData on exit” to Never"
+    "text": "Tip 1: Begin every session with a clean, empty workspace\n\nHow?\nWhen you close a session, by default R will prompt you to save your workspace with the question “Do you want to save your workspace?” If you choose to save it, R will reload that same workspace the next time you open it. Instead, change the default settings:\n\n“Do you want to save your workspace?” No\nTools &gt; Global Options &gt; General\n\nuncheck “Restore .Rdata into workspace at startup”\nset “Save workspace to .RData on exit” to Never"
   },
   {
     "objectID": "lectures/17-slides.html#tip-1-begin-every-session-with-a-clean-empty-workspace-2",
     "href": "lectures/17-slides.html#tip-1-begin-every-session-with-a-clean-empty-workspace-2",
     "title": "Computing for the Social Sciences: Lecture 17",
     "section": "Tip 1: Begin every session with a clean, empty workspace",
-    "text": "Tip 1: Begin every session with a clean, empty workspace\nWhy?\nReproducibility:\nSaving everything in the code allows others to reproduce your work and enables you to re-run the code to recreate the workspace.\nFewer Mistakes:\nSaved workspaces can hide objects you forgot about or didn’t create in this script. For example: - Objects created in other scripts may still be lurking - You may have loaded packages or data you don’t remember - Objects may have been modified without updating the code"
+    "text": "Tip 1: Begin every session with a clean, empty workspace\n\nWhy?\nReproducibility:\nSaving everything in the code allows others to reproduce your work and enables you to re-run the code to recreate the workspace.\nFewer Mistakes:\nSaved workspaces can hide objects you forgot about or didn’t create in this script. For example: - Objects created in other scripts may still be lurking - You may have loaded packages or data you don’t remember - Objects may have been modified without updating the code"
   },
   {
     "objectID": "lectures/17-slides.html#tip-2-restart-r-often-session-restart-r",
@@ -6857,7 +6857,7 @@
     "href": "lectures/17-slides.html#r-markdown-recap-1",
     "title": "Computing for the Social Sciences: Lecture 17",
     "section": "R Markdown Recap",
-    "text": "R Markdown Recap\nThree Main Components\n\nYAML header for document title, author, output format, etc. Insert it at the top between ---\nText regular Markdown for headers, lists, links, etc.\nCode chunks for code. Insert it with triple backticks ```\n\n\n\n\n\n\n\n\nCode Chunk Tips\n\n\nThree ways to insert a code chunk in your R Markdown:\n\nUse the RStudio toolbar\n\nType manually ```{r} and ```\nUse a shortcut\n\nMac: ⌘ + ⌥ + I\n\nWindows: Ctrl + Alt + I"
+    "text": "R Markdown Recap\n\nThree Main Components\n\nYAML header for document title, author, output format, etc. Insert it at the top between ---\nText regular Markdown for headers, lists, links, etc.\nCode chunks for code. Insert it with triple backticks ```\n\n\n\n\n\n\n\nCode Chunk Tips\n\n\n\nThree ways to insert a code chunk in your R Markdown:\n\nUse the RStudio toolbar\n\nType manually ```{r} and ```\nUse a shortcut\n\nMac: ⌘ + ⌥ + I\n\nWindows: Ctrl + Alt + I"
   },
   {
     "objectID": "lectures/17-slides.html#r-markdown-what-we-know",
@@ -6906,7 +6906,7 @@
     "href": "lectures/17-slides.html#r-markdown-code-chunks-names",
     "title": "Computing for the Social Sciences: Lecture 17",
     "section": "R Markdown: Code Chunks Names",
-    "text": "R Markdown: Code Chunks Names\nA named code chunk:\n```{r youth-distribution}\n# code goes here\n```\nAdvantages:\n\nEasier to navigate to specific chunks (using the drop-down code navigator in the script editor). Note: Two code chunks should not have the same name.\nGraphics produced by the chunks have useful names\nUse it with cache = TRUE to set up cached chunks to avoid re-performing expensive computations on every run\n\n\n\n\n\n\n\nTip\n\n\ncache = TRUE saves a chunk’s output to a file on memory. On future renders, R checks if the code chunk has changed; if not, R skips re-running the chunk and reuses the cached results (see Ch. 27 R for Data Science)"
+    "text": "R Markdown: Code Chunks Names\nA named code chunk:\n```{r youth-distribution}\n# code goes here\n```\nAdvantages:\n\nEasier to navigate to specific chunks (using the drop-down code navigator in the script editor). Note: Two code chunks should not have the same name.\nGraphics produced by the chunks have useful names\nUse it with cache = TRUE to set up cached chunks to avoid re-performing expensive computations on every run\n\n\n\n\n\n\n\nTip\n\n\n\ncache = TRUE saves a chunk’s output to a file on memory. On future renders, R checks if the code chunk has changed; if not, R skips re-running the chunk and reuses the cached results (see Ch. 27 R for Data Science)"
   },
   {
     "objectID": "lectures/17-slides.html#r-markdown-code-chunk-options",
@@ -6948,7 +6948,7 @@
     "href": "lectures/17-slides.html#article-good-enough-practices-in-scientific-computing",
     "title": "Computing for the Social Sciences: Lecture 17",
     "section": "Article “Good enough practices in scientific computing”",
-    "text": "Article “Good enough practices in scientific computing”\nUseful Article with more tips to improve your workflow:\nhttps://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510"
+    "text": "Article “Good enough practices in scientific computing”\n\nUseful Article with more tips to improve your workflow:\nhttps://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510"
   },
   {
     "objectID": "lectures/17-slides.html#r-markdown-the-knitting-process",
@@ -7018,7 +7018,7 @@
     "href": "lectures/17-slides.html#r-markdown-vs-r-script",
     "title": "Computing for the Social Sciences: Lecture 17",
     "section": "R Markdown vs R Script",
-    "text": "R Markdown vs R Script\nWhen to use a script vs. a Rmd\n\nWhen you want to experiment, test functions, debug code\nWhen you do not need to communicate output or results to others\nFor scripts that need to run top-to-bottom without narrative\nFor larger projects where you could have some code in R scripts (e.g., data cleaning, analysis pipelines, tests, etc.), and others (e.g., the final-narrated versions) in a Rmd file"
+    "text": "R Markdown vs R Script\n\nWhen to use a script vs. a Rmd\n\nWhen you want to experiment, test functions, debug code\nWhen you do not need to communicate output or results to others\nFor scripts that need to run top-to-bottom without narrative\nFor larger projects where you could have some code in R scripts (e.g., data cleaning, analysis pipelines, tests, etc.), and others (e.g., the final-narrated versions) in a Rmd file"
   },
   {
     "objectID": "lectures/17-slides.html#reflecting-on-ai-use-for-programming",
@@ -7054,5 +7054,12 @@
     "title": "Computing for the Social Sciences: Lecture 18",
     "section": "Exam Format",
     "text": "Exam Format\n\nTotal 28 questions (15 points):\n\n26 multiple choice: 0.5 points each\n2 open questions: 1 point each\n\nTime: 60 minutes\n\nYou may use pen and paper to make notes or plan your answers\nOnce you submit, you may not reopen the quiz or view questions\nDo not open R, notes, or class materials while others are still working\nIf you finish early, you can leave. Or if you want to check in about the final project, wait until the exam is over\nRemember to sign the attendance sheet before leaving!"
+  },
+  {
+    "objectID": "lectures/17-slides.html",
+    "href": "lectures/17-slides.html",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "",
+    "text": "Exam 2 Overview + Final Project Check-in\nTips to improve your R Workflow\nDeep-dive into R Markdown\nReflections on AI and Programming\n\n\n Slides last updated on December 1, 2025. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos."
   }
 ]
