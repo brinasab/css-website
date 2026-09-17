@@ -12,13 +12,26 @@ format:
 
 Assessment for this course consists of four take-home assignments, one take-home final project, and two in-class exams.
 
-The **four homework assignments** and the **final project** will be posted here once they are released:
+::: {.callout-important}
 
+The **four homework assignments** and the **final project** will be posted here once they are released
+
+<!--
 - [Homework 1](hw01.qmd)
 - [Homework 2](hw02.qmd)
 - [Homework 3](hw03.qmd)
 - [Homework 4](hw04.qmd)
-- [Final Project](hw05-project.qmd)
+- [Homework 5](hw05.qmd)
+
+- [Homework 1](hw01.qmd) due Monday, June 22 (11:59 PM Chicago Time)
+- [Homework 2](hw02.qmd) due Thursday, July 2 (11:59 PM Chicago Time)
+- [Homework 3](hw03.qmd) due Thursday, July 9 (11:59 PM Chicago Time)
+- [Homework 4](hw04.qmd) due ~~Thursday, July 16~~ Friday, July 17 (11:59 PM Chicago Time)
+- [Homework 5](hw05-project.qmd) due Thursday, July 16 (11:59 PM Chicago Time) *OPTIONAL ASSIGNMENT*
+
+-->
+:::
+
 
 The **two exams** will include a mix of multiple-choice and open-ended questions. They will be held in class and will be closed-book. More details will be shared during class.
 
