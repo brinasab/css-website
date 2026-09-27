@@ -1,9 +1,9 @@
 ---
-title: "Lecture 15: Web-Scraping 1"
-date: 2025-11-17
-summary: "Web-Scraping 1"
+title: "Lecture 15: Functions (cont.); Reproducible Workflow"
+date: 2026-11-16
+summary: "Finish Functions; Tips for Reproducible Workflow"
 url_slides: 15-slides.qmd
-#url_code: css-materials/scraping-1
+url_code: css-materials/functions # add url_code: css-materials/deep-dive-reproducible-git-rmd
 page-layout: full
 draft: false
 ---
@@ -16,31 +16,50 @@ knitr::opts_chunk$set(echo = FALSE)
 
 * **Date**: {{< meta date >}}
 * **Topics**: {{< meta summary >}}
-* **Slides**: [View Slides]({{< meta url_slides >}})
-* **Code**: No code
+* **Slides**: To be posted before class
+* **Code**: To be posted before class
 
-<!--`usethis::use_course("css-materials/getting-data-from-the-web-scraping")` -->
+<!--
+* **Slides**: [View Slides]({{< meta url_slides >}})
+* **Code**: No in-class code to download
+* **Code**: `usethis::use_course("{{< meta url_code >}}")`
+-->
+
+<!-- `usethis::use_course("css-materials/functions-bugs")`
+usethis::use_course("css-materials/deep-dive-reproducible-git-rmd")`
+-->
+
 
 ## Learning Objectives
 
-* Understand the difference between web-scraping and Application Program Interface (API)
-* Define HTML and CSS selectors
-* Introduce the `rvest` package for scraping in R
-* Practice using `rvest` to extract data from HTML pages
+**Functions (cont. from last lecture):**
+
+* Review and continue the lecture on Functions  
+ 
+**Reproducible Workflow:**
+
+* Define a project-oriented workflow in R and identify best R procedures
+* Expand our current knowledge of R Markdown
+* Learn the basics of Git/GitHub via terminal/command line 
+
+
+## Before class
+
+- Review [Lecture 14](https://brinasab.github.io/css-website/lectures/14-home.html)
 
 
 ## Readings
 
-Not required before class, use them to clarify the lectures on web-scraping or support your work.
+* Functions: see the previous lecture
+* [Good Enough Practices in Scientific Computing](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510)
+* Chapters 1, 2, 3, 7 in [What They Forgot to Teach You About R](https://rstats.wtf/)
+* Chapters 27 "R Markdown", 28 "Graphics for communication", and 29 "R Markdown formats" in [R for Data Science 1st Edition](http://r4ds.had.co.nz)
+* Article on [Project-oriented workflow](https://www.tidyverse.org/articles/2017/12/workflow-vs-script/)
 
-General Introductions:
+<!--
+Optional readings on debugging:
 
-* Chapter 1 and 4 in [Web Scraping with R](https://steviep42.github.io/webscraping/book/)
-* [`rvest` documentation](https://rvest.tidyverse.org/articles/harvesting-the-web.html)
-* [`httr` documentation](https://cran.r-project.org/web/packages/httr/)
-* [Web Scraping using R Cheat Sheet](https://github.com/yusuzech/r-web-scraping-cheat-sheet/blob/master/README.md)
-
-Scraping workflow:
-
-  * [Web scraping with R](https://williammarble.co/files/webscraping_tutorial/webscraping_tutorial.pdf) by William Marble
-  * [Web scraping using R](https://journals.sagepub.com/doi/pdf/10.1177/2515245919859535) by Alex Bradley and Richard J. E. James
+* "Debugging R code" in [What They Forgot to Teach You About R](https://rstats.wtf/debugging-r)
+* [21.6 Dealing with failure in *R for Data Science*](http://r4ds.had.co.nz/iteration.html#dealing-with-failure)
+* [How to read an R help page](http://socviz.co/appendix.html#how-to-read-an-r-help-page)
+-->

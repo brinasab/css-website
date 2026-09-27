@@ -1,9 +1,9 @@
 ---
-title: "Lecture 13: Control Flow 2 (cont.); Functions 1"
-date: 2025-11-10
-summary: "Finish Loops; Introduce Functions"
+title: "Lecture 13: Control Flow with Loops"
+date: 2026-11-09
+summary: "Writing For Loops"
 url_slides: 13-slides.qmd
-url_code: css-materials/functions
+url_code: css-materials/loops
 page-layout: full
 draft: false
 ---
@@ -16,27 +16,24 @@ knitr::opts_chunk$set(echo = FALSE)
 
 * **Date**: {{< meta date >}}
 * **Topics**: {{< meta summary >}}
-* **Slides**: [View Slides]({{< meta url_slides >}})
-* **Code**: `usethis::use_course("{{< meta url_code >}}")`
+* **Slides**: To be posted before class
+* **Code**: To be posted before class
 
-<!-- `usethis::use_course("css-materials/functions")` -->
+<!--
+* **Slides**: [View Slides]({{< meta url_slides >}})
+* **Code**: No in-class code to download
+* **Code**: `usethis::use_course("{{< meta url_code >}}")`
+-->
 
 ## Learning Objectives
 
-**Loops (cont. from last lecture):**
-
-- Using for loops within a data frame 
-- Identify and apply alternatives to for loops in R, such as `map()`, `across()`, and `apply()`
-- Introduce while loops
-
-**Functions:**  
-
-- Define functions and their purposes  
-- Understand the difference between built-in and user-written functions  
-- Learn the syntax of user-written functions  
-
+- Understand how for loops work
+- Learn how to track and save results during a loop (e.g., running totals)
+- Recognize the difference between looping over indexes and over elements
+- Use for loop with if-else statements and within dataframes
 
 ## Readings
 
-* Loops: Same readings as in previous lecture
-* Functions: [Chapter 15 "Functions"](https://r4ds.hadley.nz/functions) in "R for Data Science" 2nd Edition
+- ["Chapter 27.5 For Loops"](https://r4ds.hadley.nz/base-R.html#for-loops). This reading provides an high level overview, the slides unpack the details.
+- ["Chapter 26 Iteration"](https://r4ds.hadley.nz/iteration) from "R for Data Science" 2nd Edition.
+

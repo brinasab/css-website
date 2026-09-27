@@ -1,7 +1,7 @@
 ---
-title: "Lecture 3: Intro to ggplot2, Coding Style"
-date: 2025-10-06
-summary: "Visualizing Data with ggplot2, Coding Style in R"
+title: "Lecture 3: Intro to ggplot2; Coding Style"
+date: 2026-10-05
+summary: "Intro to ggplot2 for data visualization; Coding Style in R"
 url_slides: 03-slides.qmd
 url_code: css-materials/ggplot2
 page-layout: full
@@ -16,9 +16,13 @@ knitr::opts_chunk$set(echo = FALSE)
 
 * **Date**: {{< meta date >}}
 * **Topics**: {{< meta summary >}}
+* **Slides**: To be posted before class
+* **Code**: To be posted before class
+
+<!--
 * **Slides**: [View Slides]({{< meta url_slides >}})
 * **Code**: `usethis::use_course("{{< meta url_code >}}")`
-
+-->
 
 ## Learning Objectives
 
@@ -26,6 +30,11 @@ knitr::opts_chunk$set(echo = FALSE)
 - Understand the basic principles of the "Layered Grammar of Graphics"
 - Create simple layered plots using `ggplot2`
 - Apply correct coding style practices when writing R code
+
+
+## Before Class
+
+- Review Lecture 2 materials and make sure your setup works as expected. If not, reach out for help!
 
 
 ## Readings

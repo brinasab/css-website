@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-11-17">
+<meta name="dcterms.date" content="2026-11-16">
 
-<title>Lecture 15: Web-Scraping 1 – css-website</title>
+<title>Lecture 15: Functions (cont.); Reproducible Workflow – css-website</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -128,6 +128,7 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#info-and-materials" id="toc-info-and-materials" class="nav-link active" data-scroll-target="#info-and-materials">Info and Materials</a></li>
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
+  <li><a href="#before-class" id="toc-before-class" class="nav-link" data-scroll-target="#before-class">Before class</a></li>
   <li><a href="#readings" id="toc-readings" class="nav-link" data-scroll-target="#readings">Readings</a></li>
   </ul>
 </nav>
@@ -137,7 +138,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Lecture 15: Web-Scraping 1</h1>
+<h1 class="title">Lecture 15: Functions (cont.); Reproducible Workflow</h1>
 </div>
 
 
@@ -148,7 +149,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 17, 2025</p>
+      <p class="date">November 16, 2026</p>
     </div>
   </div>
   
@@ -163,37 +164,55 @@ ul.task-list li input[type="checkbox"] {
 <section id="info-and-materials" class="level2">
 <h2 class="anchored" data-anchor-id="info-and-materials">Info and Materials</h2>
 <ul>
-<li><strong>Date</strong>: November 17, 2025</li>
-<li><strong>Topics</strong>: Web-Scraping 1</li>
-<li><strong>Slides</strong>: <a href="../lectures/15-slides.html">View Slides</a></li>
-<li><strong>Code</strong>: No code</li>
+<li><strong>Date</strong>: November 16, 2026</li>
+<li><strong>Topics</strong>: Finish Functions; Tips for Reproducible Workflow</li>
+<li><strong>Slides</strong>: To be posted before class</li>
+<li><strong>Code</strong>: To be posted before class</li>
 </ul>
-<!--`usethis::use_course("css-materials/getting-data-from-the-web-scraping")` -->
+<!--
+* **Slides**: [View Slides](15-slides.qmd)
+* **Code**: No in-class code to download
+* **Code**: `usethis::use_course("css-materials/functions")`
+-->
+<!-- `usethis::use_course("css-materials/functions-bugs")`
+usethis::use_course("css-materials/deep-dive-reproducible-git-rmd")`
+-->
 </section>
 <section id="learning-objectives" class="level2">
 <h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
+<p><strong>Functions (cont. from last lecture):</strong></p>
 <ul>
-<li>Understand the difference between web-scraping and Application Program Interface (API)</li>
-<li>Define HTML and CSS selectors</li>
-<li>Introduce the <code>rvest</code> package for scraping in R</li>
-<li>Practice using <code>rvest</code> to extract data from HTML pages</li>
+<li>Review and continue the lecture on Functions</li>
+</ul>
+<p><strong>Reproducible Workflow:</strong></p>
+<ul>
+<li>Define a project-oriented workflow in R and identify best R procedures</li>
+<li>Expand our current knowledge of R Markdown</li>
+<li>Learn the basics of Git/GitHub via terminal/command line</li>
+</ul>
+</section>
+<section id="before-class" class="level2">
+<h2 class="anchored" data-anchor-id="before-class">Before class</h2>
+<ul>
+<li>Review <a href="https://brinasab.github.io/css-website/lectures/14-home.html">Lecture 14</a></li>
 </ul>
 </section>
 <section id="readings" class="level2">
 <h2 class="anchored" data-anchor-id="readings">Readings</h2>
-<p>Not required before class, use them to clarify the lectures on web-scraping or support your work.</p>
-<p>General Introductions:</p>
 <ul>
-<li>Chapter 1 and 4 in <a href="https://steviep42.github.io/webscraping/book/">Web Scraping with R</a></li>
-<li><a href="https://rvest.tidyverse.org/articles/harvesting-the-web.html"><code>rvest</code> documentation</a></li>
-<li><a href="https://cran.r-project.org/web/packages/httr/"><code>httr</code> documentation</a></li>
-<li><a href="https://github.com/yusuzech/r-web-scraping-cheat-sheet/blob/master/README.md">Web Scraping using R Cheat Sheet</a></li>
+<li>Functions: see the previous lecture</li>
+<li><a href="http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510">Good Enough Practices in Scientific Computing</a></li>
+<li>Chapters 1, 2, 3, 7 in <a href="https://rstats.wtf/">What They Forgot to Teach You About R</a></li>
+<li>Chapters 27 “R Markdown”, 28 “Graphics for communication”, and 29 “R Markdown formats” in <a href="http://r4ds.had.co.nz">R for Data Science 1st Edition</a></li>
+<li>Article on <a href="https://www.tidyverse.org/articles/2017/12/workflow-vs-script/">Project-oriented workflow</a></li>
 </ul>
-<p>Scraping workflow:</p>
-<ul>
-<li><a href="https://williammarble.co/files/webscraping_tutorial/webscraping_tutorial.pdf">Web scraping with R</a> by William Marble</li>
-<li><a href="https://journals.sagepub.com/doi/pdf/10.1177/2515245919859535">Web scraping using R</a> by Alex Bradley and Richard J. E. James</li>
-</ul>
+<!--
+Optional readings on debugging:
+
+* "Debugging R code" in [What They Forgot to Teach You About R](https://rstats.wtf/debugging-r)
+* [21.6 Dealing with failure in *R for Data Science*](http://r4ds.had.co.nz/iteration.html#dealing-with-failure)
+* [How to read an R help page](http://socviz.co/appendix.html#how-to-read-an-r-help-page)
+-->
 
 
 </section>

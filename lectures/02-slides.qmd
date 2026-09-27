@@ -1,7 +1,7 @@
 ---
 title: "Computing for the Social Sciences: Lecture 2"
 subtitle: "Topics: Git & GitHub with RStudio"
-author: "Sabrina Nardin, Fall 2025"
+author: "Sabrina Nardin, Fall 2026"
 format:
   revealjs:
     theme: simple
@@ -16,7 +16,6 @@ format:
     center: true
 ---
 
-
 # Agenda {.center}
 
 ::: {.agenda-list}
@@ -25,7 +24,33 @@ format:
 3. Deeper Dive into Git & GitHub  
 :::
 
+<span style="font-size: 0.8em; color: #666;">
+*Slides last updated on `r format(Sys.Date(), '%B %d, %Y')`. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.*
+</span>
+
+---
+
+### Slides are in progress and will be updated before class. Check back soon!
+
+::: {.content-hidden}
+
 <!--
+
+# List all SSH key stored using Shell
+ls -l ~/.ssh
+
+# View their content
+cat ~/.ssh/id_rsa.pub
+cat ~/.ssh/id_rsa
+
+# Delete all SSH keys
+rm ~/.ssh/id_*
+
+# Or delete everything in SSH folder
+rm -rf ~/.ssh
+
+# Verify deletion
+ls -l ~/.ssh
 
 FALL 25 LECTURE 2 OUTLINE 
 
@@ -504,3 +529,5 @@ Note: this will only work if we have your GitHub username and you accepted the i
 ## To print these slides as pdf
 
 Click on the icon bottom-right corner \> Tools \> PDF Export Mode \> Print as a Pdf
+
+:::

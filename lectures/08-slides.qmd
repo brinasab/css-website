@@ -1,7 +1,7 @@
 ---
 title: "Computing for the Social Sciences: Lecture 8"
-subtitle: "Topics: Exam 1 Overview, Intro to Tidydata, and to Lubridate"
-author: "Sabrina Nardin, Fall 2025"
+subtitle: "Topics: Tidy Data with tidyr; Regex with stringr"
+author: "Sabrina Nardin, Fall 2026"
 format:
   revealjs:
     theme: simple
@@ -19,23 +19,16 @@ format:
 # Agenda {.center}
 
 ::: {.agenda-list}
-1. Exam 1 Overview
-
-2. Tidydata with Tidyr
-
-3. Manipulating Dates with Lubridate  
+1. Tidydata with Tidyr
+2. Strings and Regular Expressions with stringr
 :::
 
-<!--
-Time Management
-1:30-1:55 Relational data (last time)
-1:55-2:15 Exam 1 + 2 min survey (after quiz!) 
-2:15-3:00 Tidydata
-3:00-3:15 Dates with Lubridate
--->
+### Slides are in progress and will be updated before class.
+
+::: {.content-hidden}
 
 <span style="font-size: 0.8em; color: #666;">
-*Slides last updated on **October 22, 2025**. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.*
+*Slides last updated on **`r format(Sys.Date(), '%B %d, %Y')`**. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.*
 </span>
 
 ```{r pkgs, include = FALSE, cache = FALSE}
@@ -46,45 +39,8 @@ library(knitr)
 #library(here)
 ```
 
-# 1. Exam 1 Overview {.slide .center .middle}
 
----
-
-## Exam Format
-
-### Multiple-choice questions and short open-ended questions, such as:
-
-- *Classical multiple choice* — select the correct answer from several options  
-- *Spot the typo* — identify and fix syntax or logic errors  
-- *Matching questions* — pair code snippets with their descriptions or outputs  
-- *Debugging questions* — code runs but gives unexpected results; explain *why*  
-- *Predict the output* — given a short R snippet determine what the code will return
-- *Write code* — short applied tasks  
-  - using `dplyr`: write small transformations (e.g., filter, summarize, group_by, mutate, etc.) on a provided tibble  
-  - using `ggplot2`: write code to create simple graphs (see slides examples)
-- *Open-ended questions* — brief written explanations or interpretations of results  
-
-### Topics covered: Lectures 1-8 (inclusive)
-
-### Make-up and absence policy: See Syllabus
-
----
-
-## How to Prepare for the Exam
-
-1. **Review class materials:** slides, in-class code, and assigned readings  
-
-2. **Use Homework 1 and 2 as review practice** re-run your code and check you understand each step  
-
-3. **Go through the in-class prep quizzes we have done** exam questions will be similar 
-
-4. **Use AI strategically:** once you’ve done all the above, ask AI to generate additional practice questions of different types and level of difficulty. Starting with AI before reviewing materials usually backfires
-
-::: {.callout-tip}
-Preparation works best when you write and run code yourself, review your mistakes, and make sure you can explain *why* each answer is correct.
-:::
-
-# 2. Tidydata with Tidyr {.slide .center .middle}
+# 1. Tidydata with Tidyr {.slide .center .middle}
 
 --- 
 
@@ -157,7 +113,7 @@ Illustrations from the blog [*Tidy Data for reproducibility, efficiency, and col
 ## Tidying untidy data
 
 ::: {.callout-important}
-It might sound counterintuitive, but **most real-world data isn't stored in a tidy format.**
+It might sound counter intuitive, but most real-world data IS NOT stored in a tidy format!
 
 **Why?**  
 1. Many datasets are designed to make data entry, not analysis, easier  
@@ -176,15 +132,17 @@ When working with the **tidyverse** (`ggplot2`, `dplyr`, etc.),  **start by putt
 
 ## Tidying Untidy Data
 
-### OK, you are ready to start a project and loaded some data into R: they are untidy! 
-### What should you do to tidy them up?
+### OK, you are ready to start a project and loaded some data into R, but they are untidy! What should you do to tidy them up?
 
+---
+
+## Tidying Untidy Data
 
 ::: {.columns}
 ::: {.column width="50%"}
 ### First, Diagnose the data
-- Identify the **variables** (what each column represents)
-- Identify the **observations** (what each row represents)
+- Identify the **variables** 
+- Identify the **observations** 
 - Spot **what’s untidy**  
   - Multiple variables in one column  
   - Variable values used as column names  
@@ -218,12 +176,12 @@ When working with the **tidyverse** (`ggplot2`, `dplyr`, etc.),  **start by putt
   * `unite()` combines multiple columns into one  
 
 ::: {.callout-note}
-The tidyr package includes many other functions, but we focus on the core ones for now. Each behaves a bit differently, so be sure to check the documentation for details on their arguments.
+The tidyr package includes many other functions, but we focus on the most important. Each behaves a bit differently, so be sure to check the documentation for details on their arguments.
 :::
 
 ---
 
-##  Example
+## Example
 
 We’ll illustrate these tidying tasks using one of the datasets from the readings ([Chapter 5](https://r4ds.hadley.nz/data-tidy)). We are going to see different (untidy) ways to organize this dataset, and how to use `tidyr` to organize each of htem
 
@@ -305,14 +263,14 @@ Why is this dataset untidy? How can we tidy it?
 table2
 ```
 
-<br>
-
 ::: {.fragment}
-- *"Each variable must have its own column"*: the current values of `type` are not values, but are variables names 
-- *"Each observation must have its own row"*: here an observation is a country in a year, which is correct, but each observation is spread across two rows due to how `type` is organanized
+- *"Each variable must have its own column"*: the current values of `type` are actually variables names 
+- *"Each observation must have its own row"*: here an observation is a country in a year, which is correct, but each observation is spread across two rows 
 :::
 
-</br>
+<!--
+Each observation must have its own row: each country-year observation is split across two rows because of type.
+--> 
 
 ---
 
@@ -462,7 +420,7 @@ unite(data = table5,
 
 ---
 
-## Chain tidyr functions!  
+## Use Pipes to Chain tidyr functions
 
 ::: {.columns}
 ::: {.column width="45%"}
@@ -500,134 +458,130 @@ include_graphics(path = "https://media.giphy.com/media/fCUCbWXe9JONVsJSUd/giphy.
 Download today's in-class exercises from the website.
 
 
-# 3. Manipulating Dates with Lubridate {.slide .center .middle}
+# 1. Strings and Regular Expressions with stringr {.inverse .middle}
+
+--- 
+
+## Introduction
+
+These are strings: 
+
+```r
+string1 <- "This is a string"
+
+string2 <- 'If I want to include a "quote" inside a string, I use single quotes'
+```
+
+Today we focus on methods for manipulating strings: regular expressions!
+
+<!-- Not 1:1 allignment but haver focus on Reg Expr because super important to know them! 
+So formally a string is... -->
+
+--- 
+
+## String and Character Vector
+
+A **string** is a sequence of characters (a piece of text) enclosed in either double `"` or single quotes `'`. Strings can include letters, numbers, symbols, and whitespace characters.
+
+```r
+string <- "Ciao, my name is Sabrina and I am 99 years old!!"
+class(string)
+length(string)
+```
+
+--- 
+
+## String and Character Vector
+
+A **character vector** is a collection of strings: each element of the vector is a string! 
+
+```r
+char_vect <- c("Ciao come stai?", "Ciao", "Hello", "etc.") 
+class(char_vect)
+length(char_vect)
+```
+
+Thus single string, like in the previous examples, is also a character vector of length one.
+
+We use character vectors when we need to handle multiple pieces of text together (e.g., when we handle multiple strings vs. only one).
 
 ---
 
-## Date and Times with Lubridate
+## Regular Expressions: definitions and uses
 
-Lubridate (also part of the `tidyverse`) is a handy package that makes it easier work with dates & times <https://r4ds.hadley.nz/datetimes.html>
+Regular expressions ("regex" or "regexes") **are strings containing normal characters and/or special meta-characters.** They describe a specific pattern to match in a given text.
 
-::: {.fragment}
+More formally, regex:
+* is a *language on its own right* 
+* used for *pattern matching* 
+* adopted by many programming languages, such as R, Python, and others!
 
-### Common Lubridate functions:
+Example:
 
-- Turn strings into dates or date-times with `ymd()`, `mdy()`, `dmy()`, `ymd_hms()`  
-- Turn variables into dates or date-times with `make_datetime()`  
-- Extract individual date components with `year()`, `month()`, `day()`, `wday()`  
-- Round the date to a nearby unit of time `+ days(1)`, `floor_date()`, `round_date*()`  
-- Handle time spans (multiple options, see Ch. 17)
-- Handle time zones `with_tz()`, `force_tz()`  
-:::
+```r
+email_pattern <- "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}"
+```
+
+<!--
+But then you might ask yourself...
+given our ability to manipulate strings and our ability to test for equivalence (with the == operator) 
+or to test whether some string contains another (with the %in% operator), we don't technically need regular expressions... Not exactly! We want to use regex becasue they are POWERFUL
+-->
 
 ---
 
-## Turn strings into dates or date-times
+## Regular Expressions: definitions and uses
 
-```{r, echo = TRUE}
+Regular expressions are powerful! They allow us to find patterns **in any task that deals with text,** such as NLP (Natural Language Processing) or data-cleaning tasks that involve text. 
 
-ymd("2017-01-31")
-mdy("January 31st, 2017")
-dmy("31-Jan-2017")
-ymd_hms("2017-01-31 20:11:59")
-```
+For example, you can use regular expressions to:
 
----
+* Extract specific elements from texts (e.g., find words that include a given set of letters, find all past tenses in a text, etc.)
+* Perform textual substitutions (e.g. find and replace HTML tags after you scraped a page)
+* Verify text format (e.g. "Is this email/phone-number/address valid?")
 
-## Turn variables into dates or date-times
-
-::: {.columns}
-::: {.column width="40%"}
-```{r, echo = TRUE}
-library(tidyverse)
-library(nycflights13)
-flights |> 
-  select(year, month, day, hour, minute)
-```
-:::
-
-::: {.column width="60%"}
-```{r, echo = TRUE}
-# create a date/time from this data with make_datetime()
-flights |> 
-  select(year, month, day, hour, minute) |> 
-  mutate(departure = make_datetime(year, month, day, hour, minute))
-
-```
-:::
-:::
-
-<br>
-
-More examples: <https://r4ds.hadley.nz/datetimes.html#from-individual-components>
-
-</br>
 
 ---
 
-## Extract individual date components 
+## The stringr() package in R
 
-```{r, echo = TRUE}
-datetime <- ymd_hms("2025-10-22 12:30:33")
+Today we learn about the package `stringr` and regular expressions!
 
-year(datetime)
-month(datetime)
-mday(datetime)
-yday(datetime)
-wday(datetime)
-```
+When you use regular expressions, most likely you will need to use your them together with one of the functions from the `stringr()` package. 
 
-More examples: <https://r4ds.hadley.nz/datetimes.html#getting-components>
+This package includes several functions that let you: detect matches in a string, count the number of matches, extract them, replace them with other values, split a string based on a match, etc. 
 
 ---
 
-##  Round the date to a nearby unit of time 
+## The stringr() package in R
 
-```{r, echo = TRUE}
-# create date object from string
-dt <- ymd_hms("2025-10-22 12:45:00")
-dt
+Fundamental `stringr()` functions and their use:
 
-# round down with floor_date() 
-floor_date(dt, "day")
-floor_date(dt, "month")
-
-# round up with ceiling_date()
-ceiling_date(dt, "day")
-ceiling_date(dt, "month")
-```
-
-More examples: <https://r4ds.hadley.nz/datetimes.html#rounding>
+* `str_view()` return the first regex match
+* `str_view_all()` return all regex matches (deprecated in the last version of `stringr`)
+* `str_detect()`: detect matches in a string
+* `str_count()`: count the number of matches
+* `str_extract()` and `str_extract_all()`: extract matches
+* `str_replace()` and `str_replace_all()`: replace matches
+* `str_split()`: split a string based on a match
 
 ---
 
-## Handle Time Spans
+## Resources
 
-```{r, echo = TRUE}
-# How old are you?
-age <- today() - ymd("2001-10-22")
-age
+* [`stringr()` documentation and cheatsheet](https://stringr.tidyverse.org/)
 
-as.duration(age)
-```
+* [Chapter 15](https://plsc-31101.github.io/course/strings-and-regular-expressions.html#applying-regex) by Rochelle Terman, explains `stringr()` (using the *R for Data Science* textbook)  
 
-More examples: <https://r4ds.hadley.nz/datetimes.html#time-spans>
+* Read [Chapter 14 "Strings"](https://r4ds.hadley.nz/strings) in "R for Data Science" 2nd Edition (read it all, but especially 14.4 "Extracting data from strings").
+
+* Read [Chapter 17](https://bookdown.org/rdpeng/rprogdatascience/regular-expressions.html#the-stringr-package) from *R Programming for Data Science*. This book covers the entire range of regular expressions packages and functions: you do not need to understand everything, focus on the big picture. In-class we talk about `stringr()`
+
+* For more in-depth info on regular expressions check [this excellent tutorial](https://github.com/ziishaned/learn-regex/blob/master/README.md)
 
 ---
 
-## Handle Time Zones
+## 💻 Practice Regular Expressions {.inverse .middle}
 
-```{r, echo = TRUE}
-greenwitch <- ymd_hms("2025-10-22 6:45:00")
-
-# display same instant in another time zone
-# shows local Central Time equivalent
-with_tz(greenwitch, tzone = "America/Chicago")
-
-# assign a time zone (without shifting actual clock time)
-# interprets existing time as if it were recorded in Chicago
-force_tz(greenwitch, "America/Chicago")
-```
-
-More examples: <https://r4ds.hadley.nz/datetimes.html#time-zones>
+Download today's class material from the website to learn more about regular expression and `stringr()`
 

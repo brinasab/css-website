@@ -1,9 +1,9 @@
 ---
-title: "Lecture 6: More dplyr, Factors"
-date: 2025-10-15
-summary: "Deep Dive into dplyr, Using Factors in R"
+title: "Lecture 6: Intermediate dplyr; Renaming & Recoding Variables"
+date: 2026-10-14
+summary: "Intermediate dplyr; Renaming & Recoding Variables"
 url_slides: 06-slides.qmd
-url_code: css-materials/factors-more-dplyr
+url_code: css-materials/more-dplyr
 page-layout: full
 draft: false
 ---
@@ -16,15 +16,44 @@ knitr::opts_chunk$set(echo = FALSE)
 
 * **Date**: {{< meta date >}}
 * **Topics**: {{< meta summary >}}
+* **Slides**: To be posted before class
+* **Code**: To be posted before class
+
+<!--
 * **Slides**: [View Slides]({{< meta url_slides >}})
 * **Code**: `usethis::use_course("{{< meta url_code >}}")`
+-->
 
+
+## Learning Objectives
+
+- Review and expand your ability to manipulate data with `dplyr` by learning new “verbs”
+- Rename and recode variables using `rename()`, `recode()`, and `case_when()`
+- Identify syntactic vs. non-syntactic variable names and handle them correctly
+
+
+## Before Class
+
+- Review Lecture 5 materials and the basics of `dplyr`
+
+
+## Readings
+
+- ["Chapter 3 Data Transformation"](https://r4ds.hadley.nz/data-transform) from "R for Data Science" 2nd Edition *(This is the same Chapter from the previews lecture)*
+
+
+
+<!--
+PART PUBLISHED FOLLOWS NEW CONTENT WHICH IS FOUND IN LECTURE 7 SUM 26
+PART COMMENTED OUT IF FROM FALL 25, WHICH WAS:
+
+title: "Lecture 6: More dplyr, Factors"
+url_code: css-materials/factors-more-dplyr
 
 ## Learning Objectives
 
 - Understand what factors are in R and how to use them effectively
 - Strengthen and expand your ability to manipulate data using `dplyr` functions (“verbs”)
-
 
 ## Readings
 

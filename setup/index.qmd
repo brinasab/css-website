@@ -6,7 +6,7 @@ format:
     theme: cosmo
 ---
 
-### Sotfware Setup Fall 2025
+### Software Setup Fall 2026
 
 <div class="my-4"></div>
 

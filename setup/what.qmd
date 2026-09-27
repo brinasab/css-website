@@ -7,7 +7,7 @@ This page explains the key tools you’ll use throughout the course — R, RStud
 
 ## R and RStudio
 
-[R](https://www.r-project.org/) is an open-source programming. When people mention R, they might refer to the base R distribution or to its most popular IDE (Integrated Development Environment): RStudio. Most people do not use R in its bare distribution but through a IDE, which makes it easier to interact with R and write code. There are different IDEs that can be used with R, but the most popular is [RStudio](https://www.rstudio.com/products/RStudio/) and in this course we will use it. RStudio is open-source, expandable, and provides many useful tools and enhancements over the base R environment.
+[R](https://www.r-project.org/) is an open-source programming language. When people mention R, they might refer to the base R distribution or to its most popular IDE (Integrated Development Environment): RStudio. Most people do not use R in its bare distribution but through an IDE, which makes it easier to interact with R and write code. There are different IDEs that can be used with R, but the most popular is [RStudio](https://www.rstudio.com/products/RStudio/) and in this course we will use it. RStudio is open-source, expandable, and provides many useful tools and enhancements over the base R environment.
 
 ## RStudio Workbench
 
@@ -47,7 +47,7 @@ GitHub is a cloud-based hosting service that *hosts and lets you manage your Git
 
 Although Git and GitHub are often used together, you *do not need GitHub to use Git*:
 * Git can be used locally by you on a single computer to track changes in a project. You do not need to be connected to the internet to use Git, and you do not need GitHub to use Git. But GitHub allows you to save your repositories online and share your work with a larger audience (you can host public or private repositories there) 
-* You could put your Git repositories somewhere else online: GitHub is not the only option to host and mange Git repositories, but its the most popular one. Alternatives include Bitbucket, TaraVault, GitLab, etc. 
+* You could put your Git repositories somewhere else online: GitHub is not the only option to host and manage Git repositories, but it is the most popular one. Alternatives include Bitbucket, TaraVault, GitLab, etc. 
 
 Professionally, you should know how to use Git and GitHub to manage projects and share code. This is why we will use Git and GitHub to host our course site, share code, and distribute/collect assignments.
 

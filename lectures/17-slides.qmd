@@ -1,7 +1,7 @@
 ---
 title: "Computing for the Social Sciences: Lecture 17"
-subtitle: "Topics: Reproducible Workflow"
-author: "Sabrina Nardin, Fall 2025"
+subtitle: "Topics: Web-Scraping 2"
+author: "Sabrina Nardin, Fall 2026"
 format:
   revealjs:
     theme: simple
@@ -16,461 +16,242 @@ format:
     center: true
 ---
 
+
 # Agenda {.center}
 
 ::: {.agenda-list}
-
-1. Exam 2 Overview + Final Project Check-in
-
-2. Tips to improve your R Workflow
-
-3. Deep-dive into R Markdown
-
-4. Reflections on AI and Programming
+1. Web Scraping Review
+2. Expanding Last Lecture’s Scraper
+3. Web Scraping: Challenges, Ethics, and Tips
+4. Intro to APIs
 :::
+
+### Slides are in progress and will be updated before class.
+
+::: {.content-hidden}
 
 <span style="font-size: 0.8em; color: #666;">
-*Slides last updated on **December 1, 2025**. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.*
+*Slides last updated on **`r format(Sys.Date(), '%B %d, %Y')`**. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.*
 </span>
 
-# 1. Exam 2 Overview + Final Project Check-in {.slide .center .middle}
+
+# 1. Web Scraping Review {.slide .center .middle}
 
 ---
 
-## Exam Format
+## Last Class...
 
-### Identical to Exam 1 or very similar. Multiple-choice questions and short open-ended questions, such as:
+#### Direct Scraping vs. APIs
+- Direct scraping: extract data from webpage HTML  
+- APIs: access to data through an interface provided by the website
 
-- *Classical multiple choice* — select the correct answer from several options  
-- *Spot the typo* — identify and fix syntax or logic errors
-- *Matching questions* — pair code snippets with their descriptions or outputs  
-- *Debugging questions* — code runs but gives unexpected results; explain *why*  
-- *Predict the output* — given a short R snippet determine what the code will return
-- *Open-ended questions or write code questions* — brief written explanations and interpretations of results; write code (possible topics: conditionals, loops, functions, base R, data structures)  
+#### Two Key Concepts
+- How the web works (requests & responses)  
+- What’s behind a webpage (read and navigate HTML structure)
 
----
+#### Scraping in R with rvest:
+- [rvest Documentation](https://rvest.tidyverse.org)  
+- [rvest Main functions](https://rvest.tidyverse.org/index.html#usage)
 
-## Exam Logistics
-
-- Topics covered: Lectures 9-17 (inclusive)
-
-- Time: 60 minutes
-
-- It is closed-book, but you may bring pen and paper for scratch work. See Syllabus for details
-
-- Arrive on time: If you arrive late, you can still take the exam, but no additional time can be given
-
-- Make-up and absence policy: See Syllabus
+#### Finding the Right HTML Tags
+- Manual inspection of the HTML structure
+- Browser helpers like **SelectorGadget**
 
 ---
 
-## How to Prepare for the Exam
+## SelectorGadget
 
-1. **Review class materials:** slides, in-class code, and assigned readings  
+Follow these steps to install and use the SelectorGadget...
 
-2. **Review previous homework (especially 3 and 4)** re-run your code and check you understand each step  
+**Note this works on Chrome!**
 
-3. **Review the in-class prep quizzes we have done** exam questions will be similar 
-
-4. **Use AI strategically:** once you’ve done all the above, ask AI to generate additional practice questions of different types and level of difficulty. Starting with AI before reviewing materials can backfires
-
-::: {.callout-tip}
-Preparation works best when you write and run code yourself, review your mistakes, and make sure you can explain *why* each answer is correct.
-:::
+* Go to <https://selectorgadget.com/> to install and watch a short video on how to use it
+* Once installed drag the SelectorGadget link into your web browser's bar (Chrome)
+* Navigate to a webpage and open the SelectorGadget bookmark
+* Go to <https://rvest.tidyverse.org/articles/selectorgadget.html#use> for step-by-step instructions on how to use it
 
 ---
 
-## Final Project Check-In
+## 💻 Practice
 
-### When: 
-Wednesday, December 3, 2025 after the exam (~2:30–3:20 PM)
+Go to <https://www.presidency.ucsb.edu/documents/special-message-the-congress-relative-space-science-and-exploration>
 
-### What: 
-Optional 1:1 meetings (~10 minutes) with the instructor or TA to discuss your final project. Please come with whatever you’ve completed so far and any questions you’d like to go over.
+Write code (outside a function) to grab:
 
-### Sign up:
-First come, first served. If many students plan to attend, a sign-up link will be provided.
+- title
+- name (speaker)
+- date
+- full text
 
+1. First, write the code without using SelectorGadget (only by inspecting the HTML page)
 
-# 2. Tips to improve your R Workflow {.slide .center .middle}
+2. Then, write the code to grab the same info using the SelectorGadget.
 
+3. Compare the two approaches (e.g., how similar/different your selectors are, which one worked best, etc.).
 
-## Tip 1: Begin every session with a clean, empty workspace
-
-When you run an R session, your workspace includes everything created during that session: libraries that you loaded with `library()`, and several user-created objects (objects, data, functions, etc.)
-
-**Goal: Don’t preserve the workspace. Preserve the code that creates the workspace.** The next slides explain how and why! 
+# 2. Expanding Last Lecture’s Scraper {.slide .center .middle}
 
 ---
 
-## Tip 1: Begin every session with a clean, empty workspace
+## How Can We Scale Up Our Scraper?
 
-### How?
+### 💻 Practice
 
-When you close a session, by default R will prompt you to save your workspace with the question *“Do you want to save your workspace?”* If you choose to save it, R will reload that same workspace the next time you open it. **Instead, change the default settings:**
+Download today’s class materials for a tutorial on using loops, functions, and HTML concepts to take your scraping project to the next level!
+
+
+# 3. Web Scraping: Challenges, Ethics, and Tips {.slide .center .middle}
+
+---
+
+## Scraping: Challenges & Solutions
+
+- **Variety:** every website is different, so each site requires a new mini-project.
+
+- **Bad formatting:** websites are *supposed* to use a clean, logical, hierarchical HTML structure…  but many don’t, which makes scraping a bit of an art.
+
+- **Change over time:** websites update their layout, so old code may break. The good news: fixes are usually small.
+
+- **Limits:** some sites cap requests (e.g., only 50 pages or 2,500 items), and after that they stop responding. You’ll need to scrape in smaller “chunks.”
+
+- **Messy data:** scraped content is rarely clean; expect to use R (`stringr` with regular expressions) for cleaning.
   
-  * "Do you want to save your workspace?" No
-  
-  * Tools > Global Options > General 
-      * uncheck “Restore .Rdata into workspace at startup”
-      * set "Save workspace to .RData on exit" to Never
+---
+
+## Static vs. Dynamic Scraping
+
+### Static Scraping  
+- `rvest` is for static scraping
+- This means it can only extract information that is already present in the **raw HTML** returned by the server.
+- Tip: always inspect what you get back from `read_html()` before writing more code.
+
+### Dynamic Scraping  
+- `rvest` is not for dynamic scraping
+- A page is dynamic when it uses **JavaScript** to load content after the initial HTML. That content won’t appear in the raw HTML from `read_html()`, which returns empty or incomplete results.
+- For dynamic sites, you typically need: an **API**, if available or a **browser automation tool** (e.g., Selenium)
 
 ---
 
-## Tip 1: Begin every session with a clean, empty workspace
+## Scraping Ethics: What To Scrape
 
-### Why? 
+### Public (OK) vs. private data (NOT OK)  
+  Anything you need to login or put a password counts as **private** and should not be scraped (e.g. online communities, personal accounts). If the site offers an **API**, use that instead.
 
-**Reproducibility:**  
-Saving everything in the code allows others to reproduce your work and enables you to re-run the code to recreate the workspace.
+### Check the robots.txt file  
+  Add `/robots.txt` to a site's URL (e.g., `https://www.nytimes.com/robots.txt`). 
+ The star after "User-agent" means "the following is valid for all robots". Info you cannot scrape are under "Disallow". More [here](https://www.robotstxt.org/robotstxt.html)
 
-**Fewer Mistakes:**  
-Saved workspaces can hide objects you forgot about or didn’t create in this script. For example:
-  - Objects created in other scripts may still be lurking
-  - You may have loaded packages or data you don’t remember
-  - Objects may have been modified without updating the code
-
----
-
-## Tip 2: Restart R often (Session → Restart R)
-
-Restart R when you want to ensure your script runs from a fresh session:
-
-- More reliable than `rm(list = ls())` or the broom icon
-(those remove objects but do not unload packages you loaded earlier)
-
-- Restarting keeps RStudio open, but clears everything underneath, giving you a clean workspace
-
-- Useful for debugging when other fixes don’t work and the code looks correct
+### Read the Terms of Service (ToS)  
+  Those are legal rules you agree to observe in order to use a service. Violating ToS + automated scraping can put you at risk of violating CFAA (Computer Fraud & Abuse Act).
 
 ---
 
-## Tip 3: Use a Project-based workflow
+## Scraping: Tips
 
-In this class, we have been using a project-based workflow for everything **by creating a project file `.Rproj` in every repo!** (Remember to create one for your final project, see [Lecture 7](https://brinasab.github.io/css-website/lectures/07-slides.html#/easier-solution-use-rstudio-projects))
+::: callout-tip
 
-**Value of this approach:**
+1. Make sure your code scrapes **only the information you need** and minimizes the extra 
 
-* keeps materials organized
+2. **Slow down your scraper** with `Sys.sleep()` and/or use the `polite` package with `rvest` to avoid hitting the server too frequently
 
-* helps managing working directories (the working directory is the folder that R takes as *default directory* every time you try to access files, scripts, etc.)
-
----
-
-## Article "Good enough practices in scientific computing"
-
-### Useful Article with more tips to improve your workflow: 
-<https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510>
-
-
-# 3. Deep-dive into R Markdown {.slide .center .middle}
-
----
-
-## R Markdown Recap
-
-**R Markdown is a file format (with extension `.Rmd`) that:**
-
-- combines R code, using code chunks, and text in a single document
-- makes it easy to create reproducible reports, analyses, and presentations
-- you might hear about Quarto (with extension `.qmd`): a newer alternative to R Markdown (if you learn R Markdown, you can quickly adjust to Quarto)
-
----
-
-## R Markdown Recap
-
-### Three Main Components
-
-1.  **YAML header** for document title, author, output format, etc. Insert it at the top between `---`
-
-2.  **Text** regular Markdown for headers, lists, links, etc.
-
-3.  **Code chunks** for code. Insert it with triple backticks ```` ``` ````
-
-::: {.fragment .setup-box .callout-tip title="Code Chunk Tips"}
-[<strong>Three ways to insert a code chunk in your R Markdown:</strong>]{style="font-size: 1.2em"}
-
--   Use the RStudio toolbar\
--   Type manually ```` ```{r} ```` and ```` ``` ````
--   Use a shortcut
-    -   Mac: ⌘ + ⌥ + I\
-    -   Windows: Ctrl + Alt + I
+3. **Save and store the raw HTML you scraped on your computer** with `writeLines()` to avoid re-sending a request every time you want to extract information from it.
 :::
 
----
+<!--
+page <- read_html(url)
+writeLines(as.character(page), "page.html")
+-->
 
-## R Markdown vs R Script
-
-### When to use a script vs. a Rmd
-
-- When you want to experiment, test functions, debug code
-
-- When you do not need to communicate output or results to others
-
-- For scripts that need to run top-to-bottom without narrative
-
-- For larger projects where you could have some code in R scripts (e.g., data cleaning, analysis pipelines, tests, etc.), and others (e.g., the final-narrated versions) in a Rmd file
+# 4. Intro to APIs {.slide .center .middle}
 
 ---
 
-## R Markdown: What We Know
+## APIs: Definition
 
-* Inserting a YAML Header with basic elements
-* Formatting text (italics, bold, etc.)
-* Formatting titles 
-* Inserting lists (ordered and unordered)
-* Inserting images, tables, and hyperlinks
-* Rendering a Rmd into pdf, html, md, etc.
+  > Interface provided by the website that allows users to collect data from that website. 
 
----
+The majority of web APIs use a particular style know as **REST** or **RESTful** which stays for "Representational State Transfer." 
 
-## R Markdown: What We Learn Today
+**REST** allows to query the website database using URLs, just like you would construct an URL to view a web page.
 
-* How the knitting process works
-* Inline code
-* Code chunks names
-* Code chunks options
-* Global options
-* New YAML header elements
+An **URL** (Uniform Resource Location), is a string of characters that uses HTTP (HyperText Transfer Protocol) to send request for data. 
 
 ---
 
-## R Markdown: The Knitting Process
+## Sending Queries to an API  
 
-When you "knit" your document, the following sequential things happen, as [illustarated here](https://bookdown.org/yihui/rmarkdown-cookbook/rmarkdown-process.html)
+The process described in the `macss` example (last lecture) is very similar to how APIs work, with only a few changes:
 
-1.  R Markdown sends the `.Rmd` file to `knitr` http://yihui.name/knitr/
+* The URL that you use for sending requests (queries) to an API will have two more things: search terms and/or filtering parameters, and specific references to that API
 
-2.  Knitr executes all of the code chunks and creates a new plain Markdown `.md` file which includes the code and its output
+* The response you get back from the API is not formatted as HTML, but it will likely be a raw text response
 
-3.  This plain Markdown file is then converted by `pandoc` into any number of output types including html, PDF, Word document, etc.: http://pandoc.org/
-
----
-
-## R Markdown: Inline Code
-
-````{verbatim, echo = TRUE}
----
-title: "Gun deaths"
-author: "Sabrina Nardin"
-output: html_document
----
-
-```{r setup, include = FALSE}
-library(tidyverse)
-library(rcis)
-```
-
-## Gun deaths by age
-
-The `gun_deaths` dataset includes data for `r nrow(gun_deaths)` individuals killed by guns.
-
-```{r youth, echo = FALSE}
-youth <- gun_deaths %>% filter(age <= 65)
-```
-
-We have `r nrow(youth)` individuals who are 65 or younger. 
-Only `r nrow(gun_deaths) - nrow(youth)` are older than 65.
-
-````
+* You need R to interact with the API 
 
 ---
 
-## R Markdown: Inline Code
+## APIs: Wrappers vs. No Wrappers
 
-```{r youth, include = FALSE}
-library(tidyverse)
-library(rcis)
-youth <- gun_deaths %>% filter(age <= 65)
-```
+*When using an API in R, there are two approaches:*
 
-The `gun_deaths` dataset includes data for `r nrow(gun_deaths)` individuals killed by guns.
+### 1. With an API wrapper 
 
-We have `r nrow(youth)` individuals who are 65 or younger. 
-Only `r nrow(gun_deaths) - nrow(youth)` are older than 65.
+This means using an API through an R package that someone has specifically designed to interact with that API. The package acts as a "wrapper" for the API and you use R to interact with the wrapper.
 
----
+Each package should come with documentation (pdf, GitHub repo, or both) that explains how to use it and its main functions.
 
-## R Markdown: Code Chunks Names
-
-A named code chunk:
-````{verbatim, lang = 'markdown', echo = TRUE}
-```{r youth-distribution}
-# code goes here
-```
-````
-
-Advantages:
-
-1. Easier to navigate to specific chunks (using the drop-down code navigator in the script editor). Note: Two code chunks should not have the same name.
-
-1. Graphics produced by the chunks have useful names
-
-1. Use it with `cache = TRUE` to set up cached chunks to avoid re-performing expensive computations on every run 
-
-::: {.callout-tip}
-`cache = TRUE` saves a chunk's output to a file on memory. On future renders, R checks if the code chunk has changed; if not, R skips re-running the chunk and reuses the cached results (see Ch. 27 R for Data Science)
-:::
-
+Example: Wordbank API with `wbstats` R wrapper package which returns results in a tidy dataframe
 
 ---
 
-## R Markdown: Code Chunk Options {.center}
+## APIs: Wrappers vs. No Wrappers
 
-::: small
-| Option | What it does | Default |
-|------------------------|------------------------|------------------------|
-| `eval = FALSE` | Code is not run, only shown; results do not appear. Useful for code examples or showing code with errors. | `eval = TRUE` |
-| `include = FALSE` | Code is run, but both code and results are hidden. Useful for setup code you don't want to display. | `include = TRUE` |
-| `echo = FALSE` | Code is run, results are shown, but code is hidden. Good when readers only need the output. | `echo = TRUE` |
-| `error = TRUE` | Code is run and shown, even if it throws an error. Useful when demonstrating broken code. | `error = FALSE` |
-| `message = FALSE` / `warning = FALSE` | Code is run, but messages and warnings are hidden from the output. | `message = TRUE` / `warning = TRUE` |
-:::
+*When using an API in R, there are two approaches:*
 
-Check [this table](https://r4ds.had.co.nz/r-markdown.html#chunk-options) and [options](http://yihui.name/knitr/options/) for more.
+### 2. Without an API wrapper 
+
+If no R wrapper exists, you can directly use the API provided by the website. In this case, you use R to communicate directly with the website's API.
+
+Example: OMDb Movies example API without a wrapper ` https://www.omdbapi.com/`
 
 ---
 
-## R Markdown: Global Options
+## APIs: Wrappers vs. No Wrappers
 
-Use global chunk options when you want the same settings to apply to ALL code chunks in your R Markdown file.
+Sometimes both approaches are available. Other times, only approach 2 (direct API interaction) is available. 
 
-Global options are defined in a code chunk at the top of your Rmd file with `knitr::opts_chunk$set()` 
+Scraping with an API, compared to direct scraping, can be a hit-or-miss experience. 
 
-For example, if you want to hide the code by default:
-
-```r
-knitr::opts_chunk$set(
-  echo = FALSE    # shows results but hide codes 
-)
-```
----
-
-## R Markdown: New YAML Header Elements
-
-````{verbatim, echo = TRUE}
----
-title: "Gun deaths"
-author: "Sabrina Nardin"
-output: html_document
----
-````
+The keys to success are using a well-designed R wrapper if available, relying on well-documented API documentation, or previous examples. 
 
 ---
 
-## YAML Header: Table of Contents
+## APIs: Access & Registration
 
-````{verbatim, echo = TRUE}
----
-title: "Gun deaths"
-author: "Sabrina Nardin"
-output: 
-  html_document
-    toc: true
-    toc_depth: 2
----
-````
+### Some APIs are open, but most require registration
 
----
+- Registration may be simple: create an account and receive an API key by email.  
+- Some APIs require an application and review process before granting access (e.g., Twitter)
+- Many are free, but some require a paid subscription or usage fees.
 
-## YAML Header: Apparence and Style
+### Why is registration required?  
 
-````{verbatim, echo = TRUE}
----
-title: "Gun deaths"
-author: "Sabrina Nardin"
-output: 
-  html_document
-    theme: readable
-    fig_width: 8
-    fig_height: 6
----
-````
+- It allows the API to track users, monitor query volume, manage server load, and prevent misuse.
+- If an API requires a username, password, or private key, you’ll need to supply the same credentials when using its corresponding R wrapper package.
+- Keep your credentials safe (e.g., do not push them on GitHub)
 
 ---
 
-## YAML Header: Date as string
+## Rectangling or Simplifying Lists
 
-We can add a date as a simple string, and manually modify it every time we modify our file:
+In R this means **transforming non-rectangular data (often nested lists) into a rectangular format (often a data frame).**  The term is often associated with the `tidyverse` and its principles of tidy data.
 
-````{verbatim, echo = TRUE}
----
-title: "Gun deaths"
-output: html_document
-date: "December 1, 2025"
----
-````
+### In the context of web scraping... 
 
-But we can also add it automatically!
+Rectangling means transforming a deeply nested list (often obtained from raw JSON or XML data) into a tidy data set with rows and columns that is easier to work with!
 
 ---
 
-## YAML Header: Date with lubridate 
+## To print these slides as pdf
 
-````{verbatim, echo = TRUE}
----
-title: "Gun deaths"
-output: html_document
-date: "`r lubridate::today()`"
----
-````
-
-For more on the `lubridate` package, see Chapter 16 of R for Data Science
-
----
-
-## YAML Header: Date with Sys.Date
-
-````{verbatim, echo = TRUE}
----
-title: "Gun deaths"
-output: html_document
-date: "`r Sys.Date()`"
----
-````
-
-`Sys.Date` returns the current day in the current time zone. The default uses the format year/month/day.
-
----
-
-## YAML Header: Date with Sys.time
-
-````{verbatim, echo = TRUE}
----
-title: "Gun deaths"
-output: html_document
-date: "`r format (Sys.time(), '%d, %B, %Y')`"
----
-````
-
-`Sys.time` returns an absolute date-time value which can be converted to various time zones, and it more easily is customizable. This format says we want the date as: numeric day, full name of the month, and full (4-digit) year, but it can be changed
-
----
-
-## 💻 Practice with Rmd
-
-Download today's class materials and complete the tutorial on Rmd
-
----
-
-## R Markdown More Info and Tips
-
-For the final project, experiment with the R Markdown options we have seen today, in addition to the things you already know. 
-
-For more, see [R for Data Science 1st Edition](http://r4ds.had.co.nz):
-
-- Chapter 27 "R Markdown"
-- Chapter 28 "Graphics for communication"
-- Chapter 29 "R Markdown formats" 
-
-
-# 4. Reflections on AI and Programming {.slide .center .middle}
-
----
-
-## Reflecting on AI Use for Programming
-
-One part of my job is teaching you R fundamentals. Another (new) part is helping you learn how to use AI as a learning tool, as I think AI is here to stay.
-
-I'd like to do an activity on reflecting on your AI use in this course using this [Google Doc](https://docs.google.com/document/d/1RyzfQ022OdChYVKWW6VPhEnJgjUmdyYmhtumHld-cso/edit?usp=sharing)
-
+Click on the icon bottom-left corner (the three lines) \> Tools \> PDF Export Mode \> Print as a Pdf

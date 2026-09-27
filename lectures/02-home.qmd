@@ -1,6 +1,6 @@
 ---
-title: "Lecture 2: Git and GitHub"
-date: 2025-10-01
+title: "Lecture 2: Git and GitHub with RStudio"
+date: 2026-09-30
 summary: "Intro to Git and GitHub with RStudio"
 url_slides: 02-slides.qmd
 #url_code: css-materials/git
@@ -17,8 +17,13 @@ knitr::opts_chunk$set(echo = FALSE)
 
 * **Date**: {{< meta date >}}
 * **Topics**: {{< meta summary >}}
+* **Slides**: To be posted before class
+* **Code**: To be posted before class
+
+<!-- 
 * **Slides**: [View Slides]({{< meta url_slides >}})
-* **Code**: No in-class code to download
+* **Code**: No in-class code for this session
+-->
 
 
 ## Learning Objectives
@@ -31,11 +36,11 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Before Class
 
-- Complete the Lecture 1 "Before Class" activities, if you haven't already
-- Review Lecture 1 materials
-- *Optional:* Read the [Software Setup](../setup/index.qmd) page. We'll go through this together in class today
+- Complete the Lecture 1 "Before Class" activities, if you haven't already. To follow along today you must *(1) be able to log in to R Workbench and (2) have a GitHub account*. Please plan ahead: GitHub requires two-factor authentication (you can use an authentication app of your choice, or the university Duo system, but setup may require some time).  
+- Review Lecture 1 materials and in-class exercises (no submission needed)
 
 
 ## Readings
 
 - Chapter 1 of [Happy Git and GitHub for the useR](https://happygitwithr.com/big-picture)
+- Read the [Software Setup](../setup/index.qmd) page. We'll go do this setup together in class today

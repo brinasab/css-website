@@ -1,6 +1,6 @@
 ---
 title: "Lecture 18: Exam 2; Final Project Check-In"
-date: 2025-12-03
+date: 2026-12-02
 summary: "Exam 2; Final Project Check-In"
 url_slides: 18-slides.qmd
 #url_code: css-materials/
@@ -16,12 +16,16 @@ knitr::opts_chunk$set(echo = FALSE)
 
 * **Date**: {{< meta date >}}
 * **Topics**: {{< meta summary >}}
+* **Slides**: To be posted before class
+* **Code**: To be posted before class
+
+<!--
 * **Slides**: [View Slides]({{< meta url_slides >}})
-* **Code**: No in-class code to download
+* **Code**: `usethis::use_course("{{< meta url_code >}}")`
+-->
 
+## Learning Objectives
 
-## Content
-
-* Final Exam 2
-* Final Project Check-Ins
+* In-class Exam 2
+* Final Project Check-Ins & Questions (after the exam, ~30 min)
 

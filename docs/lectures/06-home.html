@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-10-15">
+<meta name="dcterms.date" content="2026-10-14">
 
-<title>Lecture 6: More dplyr, Factors – css-website</title>
+<title>Lecture 6: Intermediate dplyr; Renaming &amp; Recoding Variables – css-website</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -128,7 +128,10 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#info-and-materials" id="toc-info-and-materials" class="nav-link active" data-scroll-target="#info-and-materials">Info and Materials</a></li>
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
+  <li><a href="#before-class" id="toc-before-class" class="nav-link" data-scroll-target="#before-class">Before Class</a></li>
   <li><a href="#readings" id="toc-readings" class="nav-link" data-scroll-target="#readings">Readings</a></li>
+  <li><a href="#learning-objectives-1" id="toc-learning-objectives-1" class="nav-link" data-scroll-target="#learning-objectives-1">Learning Objectives</a></li>
+  <li><a href="#readings-1" id="toc-readings-1" class="nav-link" data-scroll-target="#readings-1">Readings</a></li>
   </ul>
 </nav>
     </div>
@@ -137,7 +140,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Lecture 6: More dplyr, Factors</h1>
+<h1 class="title">Lecture 6: Intermediate dplyr; Renaming &amp; Recoding Variables</h1>
 </div>
 
 
@@ -148,7 +151,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 15, 2025</p>
+      <p class="date">October 14, 2026</p>
     </div>
   </div>
   
@@ -163,21 +166,47 @@ ul.task-list li input[type="checkbox"] {
 <section id="info-and-materials" class="level2">
 <h2 class="anchored" data-anchor-id="info-and-materials">Info and Materials</h2>
 <ul>
-<li><strong>Date</strong>: October 15, 2025</li>
-<li><strong>Topics</strong>: Deep Dive into dplyr, Using Factors in R</li>
-<li><strong>Slides</strong>: <a href="../lectures/06-slides.html">View Slides</a></li>
-<li><strong>Code</strong>: <code>usethis::use_course("css-materials/factors-more-dplyr")</code></li>
+<li><strong>Date</strong>: October 14, 2026</li>
+<li><strong>Topics</strong>: Intermediate dplyr; Renaming &amp; Recoding Variables</li>
+<li><strong>Slides</strong>: To be posted before class</li>
+<li><strong>Code</strong>: To be posted before class</li>
 </ul>
+<!--
+* **Slides**: [View Slides](06-slides.qmd)
+* **Code**: `usethis::use_course("css-materials/more-dplyr")`
+-->
 </section>
 <section id="learning-objectives" class="level2">
 <h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
+<ul>
+<li>Review and expand your ability to manipulate data with <code>dplyr</code> by learning new “verbs”</li>
+<li>Rename and recode variables using <code>rename()</code>, <code>recode()</code>, and <code>case_when()</code></li>
+<li>Identify syntactic vs.&nbsp;non-syntactic variable names and handle them correctly</li>
+</ul>
+</section>
+<section id="before-class" class="level2">
+<h2 class="anchored" data-anchor-id="before-class">Before Class</h2>
+<ul>
+<li>Review Lecture 5 materials and the basics of <code>dplyr</code></li>
+</ul>
+</section>
+<section id="readings" class="level2">
+<h2 class="anchored" data-anchor-id="readings">Readings</h2>
+<ul>
+<li><a href="https://r4ds.hadley.nz/data-transform">“Chapter 3 Data Transformation”</a> from “R for Data Science” 2nd Edition <em>(This is the same Chapter from the previews lecture)</em></li>
+</ul>
+<p>&lt;!– PART PUBLISHED FOLLOWS NEW CONTENT WHICH IS FOUND IN LECTURE 7 SUM 26 PART COMMENTED OUT IF FROM FALL 25, WHICH WAS:</p>
+<p>title: “Lecture 6: More dplyr, Factors” url_code: css-materials/factors-more-dplyr</p>
+</section>
+<section id="learning-objectives-1" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives-1">Learning Objectives</h2>
 <ul>
 <li>Understand what factors are in R and how to use them effectively</li>
 <li>Strengthen and expand your ability to manipulate data using <code>dplyr</code> functions (“verbs”)</li>
 </ul>
 </section>
-<section id="readings" class="level2">
-<h2 class="anchored" data-anchor-id="readings">Readings</h2>
+<section id="readings-1" class="level2">
+<h2 class="anchored" data-anchor-id="readings-1">Readings</h2>
 <ul>
 <li><a href="https://r4ds.hadley.nz/factors">“Chapter 16 Factors”</a> from “R for Data Science” 2nd Edition</li>
 <li><a href="https://r4ds.hadley.nz/data-transform">“Chapter 3 Data Transformation”</a> from “R for Data Science” 2nd Edition <em>(This is the same Chapter from Lecture 4)</em></li>

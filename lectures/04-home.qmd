@@ -1,7 +1,7 @@
 ---
-title: "Lecture 4: Graphs for Data Analysis"
-date: 2025-10-08
-summary: "Data Analysis and Graphs"
+title: "Lecture 4: Graphs for Data Analysis with ggplot2"
+date: 2026-10-07
+summary: "Graphs for Data Analysis"
 url_slides: 04-slides.qmd
 url_code: css-materials/eda
 page-layout: full
@@ -16,15 +16,25 @@ knitr::opts_chunk$set(echo = FALSE)
 
 * **Date**: {{< meta date >}}
 * **Topics**: {{< meta summary >}}
+* **Slides**: To be posted before class
+* **Code**: To be posted before class
+
+<!--
 * **Slides**: [View Slides]({{< meta url_slides >}})
 * **Code**: `usethis::use_course("{{< meta url_code >}}")`
-
+-->
 
 ## Learning Objectives
 
 - Practice using `ggplot2` to explore (see Ch.10 below) and communicate data (see Ch.11 below) with graphs
 - Identify best graph types (e.g., bar chart vs. histogram) based on variable types (e.g., categorical vs. numeric)
 - Interpret what a graph shows about the data
+
+
+## Before Class
+
+- Make sure your setup works as expected (see Lecture 1 and 2). If not, reach out for help
+- Review Lecture 3 materials to familiarize with `ggplot2`
 
 
 ## Readings

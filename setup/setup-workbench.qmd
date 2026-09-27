@@ -7,7 +7,7 @@ format: html
 
 1. If you have not yet, go to <https://github.com> and follow the instructions there to create a free GitHub account. Choose a professional username (see [these tips](https://happygitwithr.com/github-acct)).
 
-2. Add your GitHub username to the Excel file linked on [Lecture 1](../lectures/01-home.qmd). 
+2. [Submit your GitHub username here](https://forms.gle/5Ly3qb5geY9Pch5j7) (we need this information, else you won't be able to access the assignments for this course. see Lecture 1 for details).
 
 3. We’ll use your username to invite you to our GitHub Course Organization, which is required to access and submit homework assignments. You’ll receive an invitation email from GitHub — make sure to open it and accept the invitation to join the organization.
  
@@ -36,10 +36,10 @@ You can also watch a [video walkthrough of the setup process](https://drive.goog
 
 #### What is this?
 
-To track your work and link changes to you, Git needs to know your name and email address. So, you need to tell them to Git. Use the same email you used to your set up your GitHub account (see Lecture 1 "Before class"). 
+To track your work and link changes to you, Git needs to know your name and email address. So, you need to tell them to Git. Use the same email you used to set up your GitHub account (see Lecture 1 "Before class"). 
 
 
-#### What you need to do to
+#### What you need to do
 
 Go to the **Console** tab in RStudio and run the code below, replacing name and email with your own:
 
@@ -119,20 +119,20 @@ Once you do that, you’ll be guided through a few steps:
 Once you are on the GitHub page:
 
 - **Paste** your entire SSH key into the GitHub page that opened in your new browser (you can do this only if you registered a GitHub account, see step 1 above)
-- Under **"Title"**, give the key an informative name, something like `csp-workbench-fall25` or similar
+- Under **"Title"**, give the key an informative name, something like `css-workbench-fall26` or similar
 - Leave **"Key type"** set to **Authentication Key**
 - Click the green **"Add SSH key"** button
 - If prompted, complete GitHub's security steps (e.g., enter a verification code or password or anything else asked)
 
 You should now see your key listed in your GitHub account under the "SSH and GPG keys" page!
 
-To confirm it worked, go back R, then to *Tools > Terminal* and run the following command in the shell/terminal tab that opens up:
+To confirm it worked, go back to R, then to *Tools > Terminal* and run the following command in the shell/terminal tab that opens up:
 
 ```r
 ls -l ~/.ssh
 ```
 
-You should see two lines showing the keys you just created: `id_rsa` is your private SSH key (do not share with others), your `id_rsa.pub` is your public SSH key (the one you put on GitHub).
+You should see two lines showing the keys you just created: one is your private SSH key (do not share with others) and the other your public SSH key (the one you put on GitHub). For example, you might see something like `id_rsa` as your private SSH and `id_rsa.pub` as your public SSH key.
 
 If you see more than these two files, it likely means you’ve set up extra SSH keys, which we want to avoid as it might create problems. You want to reset all keys, and start fresh (contact us if you need help with this).
 

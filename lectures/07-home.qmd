@@ -1,9 +1,9 @@
 ---
-title: "Lecture 7: Data Cleaning, Importing Data, Relational Data"
-date: 2025-10-20
-summary: "Data Cleaning, Importing Data, Relational Data"
+title: "Lecture 7: Missing Data; Factors"
+date: 2026-10-19
+summary: "Missing Data; Factors"
 url_slides: 07-slides.qmd
-url_code: css-materials/relational-data
+url_code: css-materials/factors # to check
 page-layout: full
 draft: false
 ---
@@ -16,21 +16,21 @@ knitr::opts_chunk$set(echo = FALSE)
 
 * **Date**: {{< meta date >}}
 * **Topics**: {{< meta summary >}}
-* **Slides**: [View Slides]({{< meta url_slides >}})
-* **Code**: `usethis::use_course("{{< meta url_code >}}")`
+* **Slides**: To be posted before class
+* **Code**:  To be posted before class
 
+<!--
+* **Slides**: [View Slides]({{< meta url_slides >}})
+* **Code**: See the in-class code for Lecture 9 (Monday 6/29 Review) TBD CHECK! * **Code**:`usethis::use_course("{{< meta url_code >}}")`
+-->
 
 ## Learning Objectives
 
-- Rename and recode variables using `rename()`, `recode()`, and `case_when()`
-- Identify syntactic vs. non-syntactic variable names and handle them correctly
-- Detect, handle, and clean explicit missing data using common tools
-- Importing and Exporting data in R
-- Manage relational data with `dplyr` (e.g., linking and merging related tables)
+- Detect, handle, and clean explicit missing data in R
+- Understand factors in R and how to use them effectively
 
 
 ## Readings
 
-- Importing data: ["Chapter 7 Data import"](https://r4ds.hadley.nz/data-import.html) from "R for Data Science" 2nd Edition and [readr Documentation](https://readr.tidyverse.org/index.html)
 - Missing data: ["Chapter 18 Missing values"](https://r4ds.hadley.nz/missing-values.html) from "R for Data Science" 2nd Edition
-- Relational data: ["Chapter 19 Joins"](https://r4ds.hadley.nz/joins) from "R for Data Science" 2nd Edition
+- ["Chapter 16 Factors"](https://r4ds.hadley.nz/factors) from "R for Data Science" 2nd Edition
