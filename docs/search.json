@@ -459,7 +459,7 @@
     "href": "lectures/02-home.html#before-class",
     "title": "Lecture 2: Git and GitHub with RStudio",
     "section": "Before Class",
-    "text": "Before Class\n\nComplete the Lecture 1 “Before Class” activities, if you haven’t already. To follow along today you must (1) be able to log in to R Workbench and (2) have a GitHub account. Please plan ahead: GitHub requires two-factor authentication (you can use an authentication app of your choice, or the university Duo system, but setup may require some time).\n\nReview Lecture 1 materials and in-class exercises (no submission needed)"
+    "text": "Before Class\n\nComplete the Lecture 1 “Before Class” activities, if you haven’t already. To follow along today you must (1) be able to log in to R Workbench and (2) have a GitHub account. Please plan ahead: GitHub requires two-factor authentication (you can use an authentication app of your choice, or the university Duo system, but setup may require some time).\n\nReview Lecture 1 materials (slides and code from Lecture 1 homepage) and complete the R Markdown exercises (no submission needed)"
   },
   {
     "objectID": "lectures/02-home.html#readings",
