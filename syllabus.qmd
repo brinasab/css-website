@@ -63,7 +63,7 @@ This course is for UChicago students who want to use R as a tool for analyzing d
 Each class has readings and class materials (slides and code) posted on this website. Come prepared with questions you’d like to raise: class time mixes lecture and practice, and questions are strongly encouraged. Regular attendance at lectures is expected. Please inform the instructor in advance if you must miss a class. Assignments may feel challenging, but they are carefully designed and tested to be achievable using only course materials (see our course-specific AI policies below). Start early, keep up with deadlines, and reach out if you need help along the way!
 
 **Shared Expectations**  
-This course works best when our instructor–student relationship is grounded in mutual trust and a shared commitment to learning.
+I believe this course works best when our instructor–student relationship is grounded in mutual trust and a shared commitment to learning.
 You can trust that I have designed the course and its policies thoughtfully, with the goal of supporting your learning and helping you build a strong foundation in R. In turn, I trust that you will engage seriously with the material and take responsibility for your work. You can also expect transparency from me and the TAs about course policies, grading, and the reasoning behind our approach.
 
 
@@ -91,7 +91,7 @@ The course includes the following types of assessments:
 
 - **In-Class Exams:** The course includes two in-class exams, each covering a different portion of the course. Exams include multiple-choice and open-ended questions. They are *closed-book*: no notes, textbooks, phones, or other materials are permitted. Only the exam and your computer may be used. Most lectures will include opportunities to review relevant material, practice the exam format, and ask questions.
 
-- **Oral Exam (optional):** During Week 10, you may sign up for an optional oral exam with the instructor to improve your grade one of Assignments 2–4 or one in-class exam of your choice. The oral exam assesses both the selected assessment and broader course content mastery, providing an additional opportunity to demonstrate your understanding of course material after completing the original assessment. *Specific eligibility and scoring rules will apply to the oral exam:* see the Oral Exam page (will be posted during the quarter) for detailed guidelines, including eligibility, format, scoring rules, examples, sign-up instructions, and the rubric.
+- **Oral Exam (optional):** During Week 10, you may sign up for an optional oral exam with the instructor to improve your grade one of Assignments 2–4 or one in-class exam of your choice. The oral exam assesses both the selected assessment and broader course content mastery, providing an additional opportunity to demonstrate your understanding of course material after completing the original assessment. *Specific eligibility and scoring rules will apply to the oral exam:* see the Oral Exam page (will be posted during the quarter) for detailed guidelines, including eligibility, format, scoring rules, and rubric.
 
 
 <!-- ORAL EXAM DETAILS AS OF 9/26/26 SEE ALSO ORAL-HOME PAGE

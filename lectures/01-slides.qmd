@@ -40,39 +40,37 @@ library(ggplot2)
 *Slides last updated on `r format(Sys.Date(), '%B %d, %Y')`. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.*
 </span>
 
----
-
+<!--
 ### Slides are in progress and will be updated before class. Check back soon!
 
 ::: {.content-hidden}
-
+-->
 
 <!--
-2026 info to add:
-- if you plan to transfer to MACSS (add link to info), consider taking the Python three course sequence
-- exams can create anxiety for some and I understand though research show u learn better and content sticks for longer; though im hearing you thus im committed to these things that will improve your exam performance 1. in class prep quizzes almost every class (will mirror exam questions, exams can also not studying if you follow the class and adhere to AI guidelines consistently) 2. talk to me if you need further accomodations, i can make a plan with you depending on what i hear and what is feasible 3. exams are designed to be worth it 30% so no need to get an A on exams to get an A on the course
+FALL 2026 
 
 Three main topics, each 30ish minutes
 
-1. Welcome Course
-1:30 - 1:40 Intro and talk
-1:40 - 1:50 Activity Meet and Share Goals
-1:50 - 2:05 Answer question, more slides on Plagiarism and Expectations
+1. Welcome Course: 11:00 to 11:35
+Intro and talk
+Activity Meet and Share Goals
+Answer question, more slides on Plagiarism and Expectations
 
-2. Intro R 
-2:05 - 2:10 Slides
-2:10 - 2:40 R coding live sessions (summer i planned 25 min)
+2. Intro R: 11:35 to 12:10
+5 min Slides
+20 min R coding live sessions (summer i planned 25 min)
 
 Break?
 
 3. R Markdown
-2:45 - 2:50 Slides
-2:50 - 3:15 play with Rmd (intro and demo first!)
-3:15 - close
+Slides
+play with Rmd (intro and demo first!)
+11:15 - close
 
 Today we will talk about some course logistics, including course objectives, assessment, etc. and do a group activity on your expectations and tips to succeed in this course, etc.
 
 But let me start by introducing myself and the TA... then will go around and introduce each other
+
 -->
 
 # 1. Welcome to the Course! {.slide .center .middle}
@@ -94,32 +92,33 @@ But let me start by introducing myself and the TA... then will go around and int
 **How to Reach Out**
 
 -   Ask questions during or after class
--   Attend Office Hours (see website)
--   Post on Ed Discussion course-related questions
+-   Attend Office Hours (see website for details)
+-   Post course-related questions on [Ed Discussion](https://edstem.org/us/courses/107272/discussion/8310890)
 :::
 
 </br>
 
 ---
 
+
 ## Course Objectives {.no-fragment}
 
-The goal of this course is to acquire basic computational skills. Specifically:
+The goal of this course is to acquire basic programming and computational skills. Specifically:
 
-1.  Learning R, especially the "tidyverse"
+1.  Learning R
 2.  Learning best practices for reproducible research
 
 ::: fragment
-You won't become an R expert in a few weeks, BUT you will learn a lot:
+You won't become an R expert in a few weeks, *BUT you will learn A LOT:*
 
--   learn the basics and gain confidence to explore new techniques beyond this course
+-   You will learn the basics and gain confidence to explore new techniques beyond this course
 
--   use R as a tool for analyzing social science data
+-   You will use R as a tool for analyzing social science data
 :::
 
 ---
 
-## Course Topics
+## What you will learn
 
 Main topics of this course:
 
@@ -128,13 +127,13 @@ Main topics of this course:
 -   Data Visualization
 -   Data Cleaning and Transformation
 -   Exploratory Data Analysis
--   Web-Scraping
 -   Reproducible Research
 -   R Programming: Control Structures, Data Structures, etc.
+-   Web-scraping 
 
 ---
 
-## How We'll Do This
+## How you will learn
 
 We start simple and build toward more complex code
 
@@ -146,13 +145,35 @@ print(x)
 
 <br>
 
-We use a mix of lectures and in-class activities, and we rely on several platforms (e.g., course website, Canvas, Ed Discussion, Workbench, Git/GitHub, and Markdown). 
+Class time will combine explanations, live coding, and hands-on practice. We will use several platforms (e.g., the course website, Canvas, Ed Discussion, Workbench, Git/GitHub, and Markdown) and introduce each as needed.
 
-All course materials are free and accessible from our website.
-
-**Is this course for you?** 
+All course materials are free and accessible from our [course website](https://brinasab.github.io/css-website/)
 
 </br>
+
+---
+
+## Is this course for you? 
+
+This course is designed for students who want to use R for social science research.
+
+It is built as a standalone foundation in R, useful for future courses that use R. If you are looking for more extensive training in programming, consider the three-course MACSS Python sequence (starting this Fall)
+
+::: {.callout-note appearance="simple"}
+You may recognize yourself in one or more of the examples on the next slide. If none fit your situation, **reach out and we can discuss whether this course is a good fit for you.**
+:::
+
+
+---
+
+## Is this course for you? 
+
+| Student | Starting Point | Needs |
+|---|---|---|
+| **Jeri** | Sociology Ph.D.; uses Stata; comfortable with statistics; frustrated by Git | Move from Stata to R; analyze dissertation data; build a reproducible workflow |
+| **Ryan** | Entering MAPSS; journalism background; rusty on statistics; limited R use | Write a thesis in one year; analyze news articles; adapt code found online |
+| **Fernando** | Political science undergrad; some math/statistics; new to programming | Join an R-based research project; contribute to a paper; make strong visualizations |
+| **Fang** | First-year grad student; psychology background; used Excel/SPSS/Stata | Analyze lab data; create shareable notebooks; prepare for ML/statistics courses |
 
 ---
 
@@ -160,37 +181,41 @@ All course materials are free and accessible from our website.
 
 In this course we use RStudio Workbench, which is cloud-based version of RStudio that runs in your browser. 
 
-Next lecture we will learn the basics of Git and GitHub and complete the Software Setup with Workbench for the course. 
-
-Check our website under "Software Setup" for details.
-
+Next lecture we will learn the basics of Git and GitHub and complete the Software Setup with Workbench for the course. Check our website under [Software Setup](https://brinasab.github.io/css-website/setup/) for details.
 
 ---
 
 ## Assessment 
 
-See "Assessment" section of our Syllabus and the [Course Schedule](https://brinasab.github.io/css-website/lectures/):
+Let’s review how assessment works in this course. We will look together at the **Assessment** section of the Syllabus, specifically
 
--   **Assessment and Evaluation:**  There will be four take-home assignments, one final project, and two short in-class exams. Check the syllabus for details.
+* [Types of Assessment](https://brinasab.github.io/css-website/syllabus.html#types-of-assessment)
+* [Grading Scheme](https://brinasab.github.io/css-website/syllabus.html#grading-scheme)
+* [Deadlines and Late Submissions](https://brinasab.github.io/css-website/syllabus.html#deadlines-and-late-submissions-policies)
+* [Missed or Incomplete Work](https://brinasab.github.io/css-website/syllabus.html#missed-or-incomplete-submissions)
 
--   **Submission Policies:** See Syllabus, especially for late or missed assignments.
-
--   **Evaluation Philosophy and Rubric:** See Syllabus.
-
-**Tips**:
-
-<!-- think about tips for reading this next year, either remove or say use readings to deepen your undrestanding  or clarify slides, before or after class -->
-
-* do the readings before class, even if you do not understand everything
-* start early to work on the take-home assignments; (starting from the 2nd) they will be a bit challenging, especially if you have never programmed before: they won't tell you exactly what to do to solve the problem
-* AI is powerful and excellent for debugging, but read our AI policy in the Syllabus
-* form a study group, and ask for help if you get stuck
+See the [Course Schedule](https://brinasab.github.io/css-website/lectures/) for more details.
+Note **Week 4 to Week 6 are busy** (use your time wisely Week 1 to 3)
 
 ---
 
+## In-class Exams
+
+Exams help learning stick, but they can also be stressful. Here is how I’ll help you prepare:
+
+- **Practice as we go:** short in-class quizzes will regularly mirror the style of exam questions.
+- **Keep up = prepare:** if you follow class consistently and use AI within our guidelines, much of your exam prep will already be happening along the way.
+- **Keep perspective:** exams are only one part of your grade: you do **not** need an A on every exam to earn an A in the course. The optional oral exam in Week 10 gives you an opportunity to improve the grade on one eligible assignment or in-class exam.
+
+--- 
+
 ## Course Expectations
 
-See [How to Succeed in this Course](https://brinasab.github.io/css-website/syllabus.html#how-to-succeed-in-this-course) from the Syllabus
+**Our Tips:**
+
+*Tip 1:* Go through the readings before (best) or after class. After class, review the slides and any in-class code/tutorials. This will help you connect the readings to what we practice together in class. Assessments draw directly from these materials.
+
+*Tip 2:* Start assignments early. From Assignment 2 onward, the work gets more challenging, so give yourself time to try, ask questions, and revise. Starting early also helps keep AI as a tool for learning, not a shortcut around it.
 
 ---
 
@@ -205,7 +230,7 @@ See [How to Succeed in this Course](https://brinasab.github.io/css-website/sylla
 :::
 
 ::: fragment
--   "I’m in week 4, and I feel lost."<br>*Advice: Reach out to us! Concepts build over time. The big picture will click by the end of the coure IF you stay consistent with your efforts every week.*
+-   "I’m in week 3, and I feel lost."<br>*Advice: Reach out to us, we want you to come to OHs! Concepts build over time. The big picture will click by the end of the course IF you stay consistent.*
 :::
 
 ::: fragment
@@ -247,8 +272,8 @@ Researchers collaborate on projects. Developers work in teams to write programs.
 **→ Collaboration is good and encouraged, but in this course you are also expected to:**
 
 -   Complete your own work individually
--   Write your code and fully understand it
--   Be ready to explain your code line-by-line to someone else
+-   Learn the basics of R on your own
+-   Write your code and be ready to explain it line-by-line
 :::
 
 ---
@@ -257,25 +282,23 @@ Researchers collaborate on projects. Developers work in teams to write programs.
 
 ::::: columns
 ::: {.column width="50%"}
-### ✅ DO:
+### ✅ Collaboration
 
 -   Discuss and debug with peers
 -   Rewrite code found online in your own style<br> and cite the source</br>
 -   Use AI to debug or clarify concepts *after* you try
--   Submit code you wrote
--   Submit code you fully understand
+-   Submit code you wrote and fully understand
 -   Always, prioritize methods from class materials and readings
 :::
 
 ::: {.column width="50%"}
-### 🚫 DON'T:
+### 🚫 Plagiarism
 
 -   Copy code from your classmates or others
--   Simply copy and paste chunks of code from<br> the internet</br>
+-   Simply copy and paste chunks of code from<br> the internet or AI</br>
 -   Use AI beyond the AI-Policy of this course 
--   Submit code you didn't write
--   Submit code you can't explain
--   Write code not taught in class or reading (even if it works) as primary solution
+-   Submit as yours code you didn't write and can't explain
+-   Write code not taught in class or readings (even if it works) as primary solution
 :::
 :::::
 
@@ -283,50 +306,47 @@ Researchers collaborate on projects. Developers work in teams to write programs.
 
 ## My take on AI for this course {.center}
 
-::: columns
+My AI policies are not one-size-fits-all: they depend on the course I teach, and what I want you to learn. In this course, I want you to build your own programming skills. AI can support that process, but it should not take over the parts where learning happens.
+
+::::: columns
 ::: {.column width="50%"}
-**It is my responsibility to**  
-- Set expectations & boundaries  
-- Enforce them (via grading & AI statements)  
+### ✅ DO:
+
+**AI IS allowed to help you:**
+
+- clarify class material
+- ask for more examples to better understand
+- interpret an error message
 :::
 
 ::: {.column width="50%"}
-**It is your responsibility to**  
-- Respect the AI policy  
-- Ask questions if something is unclear  
+### 🚫 DON'T:
+**In this course, AI IS NOT allowed to:**
+
+- brainstorm assignment solutions for you
+- write code for you
+- replace readings, slides, tutorials, or in-class practice
 :::
+:::::
+
+::: {.callout-important title="Rule of thumb"}
+Use AI as a tutor, do not let it doing the work for you. 
+See our [Use of AI Policies](https://brinasab.github.io/css-website/syllabus.html#academic-integrity-use-of-ai) for more.
 :::
-
-**In this course, AI is:**  
-
-- NOT allowed to brainstorm, write code for you, or replace course materials  
-
-- allowed to debug and learn more (e.g., clarify class materials, ask for more explanations about a specific function, ask for examples, etc.). 
-
-Make sure to read the [Academic Integrity & Use of AI Policies](https://brinasab.github.io/css-website/syllabus.html#academic-integrity-use-of-ai-policies)
 
 ---
 
 ## Activity: Meet & Share Goals
 
-**In groups of 3-5 people, please share:**
+**In small groups, please share:**
 
--   Your name, plus something about yourself that you’re comfortable sharing (e.g., a hobby, your experience with programming, etc.)
+-   Your name, progtam, and something about yourself that you are comfortable sharing (e.g., a hobby, your experience with programming, etc.)
 -   What you hope to learn or achieve in this course
--   Any questions you have, and strategies you plan to use to stay on track (we’ll go around the room and answer questions)
+-   Any questions you have, we will go around the room and collect them
 
 ::: {.callout-note title="Done early?"}
-If your group finishes early, please complete [this short survey](https://forms.gle/SrVxNwCAixZSFr1QA) if you haven’t already. It only takes a minute and helps us better understand your background and what you’re hoping to learn in this course.
+If your group finishes early, please [submit your GitHub username here](https://forms.gle/5Ly3qb5geY9Pch5j7) and complete [this intro survey](https://forms.gle/w3wo7dxy2HtLk5AU7). See "Before Class" (Lecture 1 homepage) for more/ 
 :::
-
-```{=html}
-<!--
-## Is this course a Good Fit for me?
-
-See [Should I take this course?](https://computing-soc-sci.netlify.app/faq/whom-course-for/) under FAQ in our website
---->
-```
-
 
 # 2. Intro to R, RStudio, and Workbench {.slide .center .middle}
 
@@ -342,14 +362,32 @@ See [Should I take this course?](https://computing-soc-sci.netlify.app/faq/whom-
 
 ---
 
-## Let’s start by exploring our Software
+## Getting Started...
 
-**Workbench:** <https://macss-r.uchicago.edu/>
+Today we learn how to:
 
--   Log in
--   Look at panels
+-   Use RStudio Workbench
+-   Understand the panels you see there
 -   How to export/import files between Workbench and your machine
--   Create an empty R Script
+-   Create an empty R Script and:
+
+    -   Create and use variables\
+    -   Understand variable types (e.g., number, text, logical, etc.)\
+    -   Write comments and organize your code\
+    -   Use scripts (vs. console) for reproducibility\
+    -   Group values using vectors
+
+
+---
+
+## 💻 Live Coding Activity to get Started with R
+
+We learn all of this via a live coding activity:
+
+-   Log into Workbench <https://macss-r.uchicago.edu/>
+-   Type along with me as we write and run code together
+-   Stop me anytime if you have questions or put them in the chat!
+
 
 ```{=html}
 <!-- IN CLASS
@@ -367,41 +405,15 @@ Create a Rmd as empty doc, stop here, move back to slides say: let's talk about 
 -->
 ```
 
----
-
-## Getting Started with R
-
-Today we learn how to:
-
--   Create and use variables\
--   Understand variable types (e.g., number, text, logical, etc.)\
--   Write comments and organize your code\
--   Use scripts (vs. console) for reproducibility\
--   Clear your environment\
--   Group values using vectors
-
----
-
-## 💻 Live Coding Activity to get Started with R
-
-We learn all of this via a live coding activity:
-
--   Log into Workbench <https://macss-r.uchicago.edu/>
--   Type along with me as we write and run code together
--   Stop me anytime if you have questions
-
-```{=html}
-<!-- IN CLASS:
-You’ll run into errors and typos, that’s part of the process -->
-```
-
 # 3. R Markdown {.slide .center .middle}
 
 ---
 
 ## Deep Dive on R Markown
 
-R Markdown is a file format (with extension `.Rmd`) that combines R code, using code chunks, and text in a single document. It's very popular because it makes it easy to create reproducible reports, analyses, and presentations.
+For our live demo we used an R script with code.
+
+But we can also use an R Markdown file that combines code and standard text in a single document. It's very popular because it makes it easy to create reproducible reports, analyses, and presentations.
 
 You might hear about Quarto (with extension `.qmd`), which is a newer alternative to R Markdown. We won’t cover Quarto in this course, but if you learn R Markdown, you can quickly adjust to Quarto.
 
@@ -409,17 +421,14 @@ You might hear about Quarto (with extension `.qmd`), which is a newer alternativ
 
 ## Comparing R Scripts, R Markdown, and Markdown {.center}
 
-| File Type  | Extension | Key Differences                  |
-|------------|-----------|----------------------------------|
-| R Script   | `.R`      | Supports code                    |
-| R Markdown | `.Rmd`    | Supports code and formatted text |
-| Markdown   | `.md`     | Supports formatted text          |
-
-We use all three, but mainly `.Rmd` for assignments and `.md` for Git/GitHub documentation.
+| File Type  | Extension | Key Differences                  | How we use it in this course |
+|------------|-----------|----------------------------------|-------------------------------|
+| R Script   | `.R`      | Supports code                    | For writing and running quick R code |
+| R Markdown | `.Rmd`    | Supports code and formatted text | Mainly for assignments and reproducible analysis |
+| Markdown   | `.md`     | Supports formatted text          | Mainly for Git/GitHub documentation, such as README files |
 
 ```{=html}
 <!-- IN CLASS:
-Let's open each one and explore their key differences!
 Open Workbench and create a file of each type, see the difference 
 SAY: on md you can type code but it is not evaluated/executed, basically is text
 R Markdown: an extension of Markdown designed for R -->
@@ -435,21 +444,7 @@ R Markdown: an extension of Markdown designed for R -->
 
 3.  **Code chunks** for code. Insert it with triple backticks ```` ``` ````
 
-::: {.fragment .setup-box .callout-tip title="Code Chunk Tips"}
-[<strong>Three ways to insert a code chunk in your R Markdown:</strong>]{style="font-size: 1.2em"}
-
--   Use the RStudio toolbar\
--   Type manually ```` ```{r} ```` and ```` ``` ````
--   Use a shortcut
-    -   Mac: ⌘ + ⌥ + I\
-    -   Windows: Ctrl + Alt + I
-:::
-
----
-
-## R Markdown: Example
-
-This is what we type (YAML, text, code):
+::: {.fragment .setup-box .callout-tip title="Rmd Example"}
 
 ````{verbatim, echo = TRUE}
 ---
@@ -466,12 +461,25 @@ I can format the text in many ways, for example, by bolding **key concepts**.
 x <- 5
 ```
 ````
-
+:::
 
 ```{=html}
 <!-- IN CLASS: 
 copy this on a blank Rmd document on Workbench and render it -->
 ```
+
+---
+
+## R Markdown: Tips to insert a Code Chunk
+
+
+[<strong>Three ways to insert a code chunk in your R Markdown:</strong>]{style="font-size: 1.2em"}
+
+-   Use the RStudio toolbar\
+-   Type manually ```` ```{r} ```` and ```` ``` ````
+-   Use a shortcut
+    -   Mac: ⌘ + ⌥ + I\
+    -   Windows: Ctrl + Alt + I
 
 ---
 
@@ -646,36 +654,34 @@ I do not want a list here, I want the literal number followed by a dot: 1\.
 
 ---
 
-## Using \# in Code vs. Markdown Text
+## \# Same Symbol, Different Meanings
 
 ::::: columns
 ::: {.column width="50%"}
-### In Code
+### In Code: \# Comment
 
 ``` r
-# Assign number to variable
+# Assign number to variables
 x <- 5 
-# Assign text to variable
-name <- "Sabrina"
+y <- 3
 ```
 
--   `#` starts a **COMMENT** in R Scripts and R Markdown Code Chunks
+-   In R Scripts and R Markdown Code Chunks (*in code*) a pound starts a **comment**
 -   Comments are **ignored** when the code runs
 -   Use one single `#` for code explanations or debugging, space doesn't matter
 :::
 
 ::: {.column width="50%"}
-### In R Markdown Text
+### In R Markdown Text: \# Header
 
 ``` markdown
 # Title (h1)
 ## Section (h2)
-### Subsection (h3)
-#### More Subsections (h4)
+### More Subsections (h3)
 ```
 
--   `#` creates a **HEADER** in Markdown or R Markdown Text
--   The number of `#` signs = **heading level**
+-   In Markdown or R Markdown Text (*in text*) a pound creates a **header**
+-   The number of `#` = **heading level**
 -   Use as many `#` as needed for organizing document sections, space matters
 :::
 :::::
@@ -690,10 +696,13 @@ name <- "Sabrina"
 | **Image** | `![Logo](images/logo.png "Optional title")` | Start with `!`, include optional `"title"` | [Image](https://www.markdownguide.org/basic-syntax/#images) |
 | **Table** | `| Tool    | Use     |`<br>`|---------|---------|`<br>`| R       | Stats   |` | Use `|` for columns and `---` for header | [Table](https://www.markdownguide.org/extended-syntax/#tables) |
 
-Note: 
 
-- Spacing always matters 
-- For images to display, the file (e.g., .png, .jpg) must be saved in your current working dir or project folder
+::: {.callout-tip}
+
+- Spacing matters in Markdown. 
+
+- For images to display, the image file (`.png`, `.jpg`, etc.) must also be saved in your current working directory or project folder.
+:::
 
 <!--
 
@@ -817,6 +826,4 @@ When you "knit" your document, the following sequential things happen:
 
 ## To print these slides as pdf
 
-Click on the icon bottom-right corner \> Tools \> PDF Export Mode \> Print as a Pdf
-
-:::
+Click on the icon bottom-left corner (the three lines) \> Tools \> PDF Export Mode \> Print as a Pdf
