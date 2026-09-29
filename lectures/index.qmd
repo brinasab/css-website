@@ -108,15 +108,26 @@ schedule <- lec |>
     Week = if_else(row_number() == 1, paste0("Week ", week_index), "")
   ) |>
   ungroup() |>
-  group_by(date) |>
-  mutate(
-    Date = if_else(
-      row_number() == 1 | grepl("^<strong>In-Class Exam", event),
-      gsub(" ", "&nbsp;", first(DateFull)),
-      ""
-    )
+  group_by(date) |>mutate(
+  Date = if_else(
+    row_number() == 1 |
+      grepl("^<strong>In-Class Exam", event) |
+      grepl("Assignment 5 \\(Final Project\\) Open", event),
+    gsub(" ", "&nbsp;", first(DateFull)),
+    ""
+  )
   ) |>
   ungroup()
+  
+  #group_by(date) |>
+  #mutate(
+  #  Date = if_else(
+  #    row_number() == 1 | grepl("^<strong>In-Class Exam", event),
+  #    gsub(" ", "&nbsp;", first(DateFull)),
+  #    ""
+  #  )
+  #) |>
+  #ungroup()
 
 # --- Build table ---
 kbl <- schedule |>
