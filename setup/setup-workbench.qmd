@@ -114,7 +114,7 @@ Once you do that, you’ll be guided through a few steps:
 - It should say **"No SSH key found. Generate one now?"** → Select **Yes**
 - A long string of characters will appear in the Console, that’s your **public SSH key**
 - You will be asked to **open a browser** → Select **Yes**
-- Before or after opening a new browser, **copy** the entire SSH key (including the `ssh-rsa` at the beginning) from your Console
+- Before or after opening a new browser, **copy the entire public SSH key** shown in your Console. It may begin with `ssh-rsa` or `ssh-ed25519` or something similar.
 
 Once you are on the GitHub page:
 
@@ -132,9 +132,14 @@ To confirm it worked, go back to R, then to *Tools > Terminal* and run the follo
 ls -l ~/.ssh
 ```
 
+<!--
 You should see two lines showing the keys you just created: one is your private SSH key (do not share with others) and the other your public SSH key (the one you put on GitHub). For example, you might see something like `id_rsa` as your private SSH and `id_rsa.pub` as your public SSH key.
+-->
 
-If you see more than these two files, it likely means you’ve set up extra SSH keys, which we want to avoid as it might create problems. You want to reset all keys, and start fresh (contact us if you need help with this).
+You should see a pair of SSH key files: a *private key* and a corresponding *public key* ending in `.pub`. Do not share your private key; the `.pub` file is the public key you added to GitHub.
+
+If you see more than these two files, you may have additional SSH keys. That is not necessarily a problem, but try to avoid creating multiple keys for the same Workbench account/device, since this can make it unclear which key GitHub is using. If needed, reset the keys and start fresh (contact us if you need help).
+
 
 
 ## What's next?

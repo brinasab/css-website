@@ -287,7 +287,7 @@ ls -l ~/.ssh
 <li>It should say <strong>“No SSH key found. Generate one now?”</strong> → Select <strong>Yes</strong></li>
 <li>A long string of characters will appear in the Console, that’s your <strong>public SSH key</strong></li>
 <li>You will be asked to <strong>open a browser</strong> → Select <strong>Yes</strong></li>
-<li>Before or after opening a new browser, <strong>copy</strong> the entire SSH key (including the <code>ssh-rsa</code> at the beginning) from your Console</li>
+<li>Before or after opening a new browser, <strong>copy the entire public SSH key</strong> shown in your Console. It may begin with <code>ssh-rsa</code> or <code>ssh-ed25519</code> or something similar.</li>
 </ul>
 <p>Once you are on the GitHub page:</p>
 <ul>
@@ -300,8 +300,11 @@ ls -l ~/.ssh
 <p>You should now see your key listed in your GitHub account under the “SSH and GPG keys” page!</p>
 <p>To confirm it worked, go back to R, then to <em>Tools &gt; Terminal</em> and run the following command in the shell/terminal tab that opens up:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ls <span class="sc">-</span>l <span class="sc">~</span><span class="er">/</span>.ssh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>You should see two lines showing the keys you just created: one is your private SSH key (do not share with others) and the other your public SSH key (the one you put on GitHub). For example, you might see something like <code>id_rsa</code> as your private SSH and <code>id_rsa.pub</code> as your public SSH key.</p>
-<p>If you see more than these two files, it likely means you’ve set up extra SSH keys, which we want to avoid as it might create problems. You want to reset all keys, and start fresh (contact us if you need help with this).</p>
+<!--
+You should see two lines showing the keys you just created: one is your private SSH key (do not share with others) and the other your public SSH key (the one you put on GitHub). For example, you might see something like `id_rsa` as your private SSH and `id_rsa.pub` as your public SSH key.
+-->
+<p>You should see a pair of SSH key files: a <em>private key</em> and a corresponding <em>public key</em> ending in <code>.pub</code>. Do not share your private key; the <code>.pub</code> file is the public key you added to GitHub.</p>
+<p>If you see more than these two files, you may have additional SSH keys. That is not necessarily a problem, but try to avoid creating multiple keys for the same Workbench account/device, since this can make it unclear which key GitHub is using. If needed, reset the keys and start fresh (contact us if you need help).</p>
 </section>
 </section>
 </section>
