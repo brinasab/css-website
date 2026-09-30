@@ -43,4 +43,6 @@ format:
 - [Ed Discussion](https://edstem.org/us/courses/107272/discussion/8310890)
 
 
-
+<!--
+R course to check https://stat-37815-au24.ryanmcshane.com/
+-->
