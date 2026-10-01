@@ -12,7 +12,7 @@ format:
 
 Assessment for this course consists of four take-home assignments, one take-home final project, two in-class exams, and an optional oral exam.
 
-The **four homework assignments** and the **final project** will be posted on this page once they open.
+Assignments and the final project will appear on this page when available. **Click the assignment title in the callout box below to access it:**
 
 ::: {.callout-important appearance="minimal"}
 
