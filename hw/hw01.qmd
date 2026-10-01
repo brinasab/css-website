@@ -72,32 +72,14 @@ For this course, I assume you’ll be using the Git interface built into RStudio
 
 ::: {.callout-tip}
 - *Commit and push your work often* multiple times per session if possible. Don’t wait until you’ve finished the entire assignment.  
-- *Never edit files directly on GitHub*. Always work in your local Git repository (e.g., on Workbench) and then push changes to GitHub. Think of your GitHub repo as a live online backup of your local project.
+- *Do not edit files directly on GitHub*. Always work in your local Git repository (e.g., on Workbench) and then push changes to GitHub. Think of your GitHub repo as a live online backup of your local project.
 :::
-
-
-# File Types we use for this (and future) Homework Assignments
-
-All assignments in this course will be completed and submitted using *Markdown* and *R Markdown* files (see Lecture 1 slides for details):
-
-- [*Markdown*](https://daringfireball.net/projects/markdown/) (`.md`) is a lightweight formatting language used to structure text.  
-  - GitHub README files are typically written in Markdown (`.md`) or plain text (`.txt`).
-  - In this course, we use Markdown files only for writing README files because GitHub renders them directly in the browser.
-  - You can reference R code in Markdown, but you cannot run and execute it.
-
-- [*R Markdown*](https://rmarkdown.rstudio.com/) (`.Rmd`) is a format that allows you to combine R code, output, and text in one file.  
-  - It’s an extension of Markdown designed for dynamic analysis and reproducible reports specifically for R.
-  - You’ll use R Markdown to complete most homework assignments.
-
-In short, for this course:
-
-- Use **Markdown** (`.md`) only for writing a short summary in the `README.md` file
-- Use **R Markdown** (`.Rmd`) for completing the bulk of your assignment, e.g., analysis and code-based work
 
 
 # HW1 Description
 
 For this first assignment (HW1), you’ll edit and push the following two files to your GitHub repo: `README.md` and `practice.rmd`
+
 
 ### Edit the `README.md` file
 
@@ -140,6 +122,20 @@ Your task: edit the `practice.rmd` file by making the following changes (all mus
   - Your code can be simple (think of the examples from lecture 1 or lecture 3), but it must run and produce the correct output 
   - Your final knitted ~~`.html`~~ `.md` file should show both code and output (we want the `md` as Github cannot read `html`, but if you submit both that's fine)
   - If your code generates plots (not required, but possible), make sure these plots are also pushed to GitHub, else they won't show up there 
+
+
+### Background info: Markdown and R Markdown 
+
+Some background to help you better understand the files you're editing: all assignments in this course will be completed and submitted using *Markdown* and *R Markdown* files (see Lecture 1 for more):
+
+- [*Markdown*](https://daringfireball.net/projects/markdown/) (`.md`) is a lightweight formatting language used to structure text.  
+  - GitHub README files are typically written in Markdown (`.md`) or plain text (`.txt`).
+  - In this course, we use Markdown files only for writing README files because GitHub renders them directly in the browser.
+  - You can reference R code in Markdown, but you cannot run and execute it.
+
+- [*R Markdown*](https://rmarkdown.rstudio.com/) (`.Rmd`) is a format that allows you to combine R code, output, and text in one file.  
+  - It’s an extension of Markdown designed for dynamic analysis and reproducible reports specifically for R.
+  - You’ll use R Markdown to complete most homework assignments (e.g., analysis and code-based work).
 
 
 # How to Submit this Assignment
