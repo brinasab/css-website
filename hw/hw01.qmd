@@ -32,7 +32,9 @@ This will work only if you have submitted your GitHub username and email (see Le
 
 3. Click *Open repository* to access it.
 
-If the page says *"Not a member yet"*, accept the invitation to our GitHub organization (check your email, including spam), then click *Check again*. If it says *"This assignment isn't available to you"*, contact the teaching staff.
+If the page says *"Not a member yet"*, accept the invitation to our GitHub organization (check your email, including spam), then click *Check again*.
+
+If it says *"This assignment isn't available to you"*, contact the instructor.
 
 
 **Cloning the repo into your Workbench:**
@@ -46,7 +48,7 @@ If the page says *"Not a member yet"*, accept the invitation to our GitHub organ
 
 3. Choose where to save the project directory locally. *Tip:* Avoid moving folders after cloning them.  
 
-4. Check the box *"Open in new session"* (recommended for keeping projects separate and organized)
+4. Check the box *"Open in new session"* (recommended for keeping projects organized).
 
 5. Click *Create Project*. This will:
    - Create a new folder on your machine  
@@ -64,14 +66,14 @@ Your workflow for *all* homework assignments will follow these steps:
 2. *Edit the files included in the repo*
 3. *Save your changes locally* in RStudio Workbench
 4. *Pull – Stage – Commit – Push*:
-   - *Pull* from GitHub: this should not change anything if you're the only one working on the repo, but it's a good habit to always pull first
+   - *Pull* from GitHub: this should not change anything if you're the only one working on the repo, but it's a good habit to build
    - *Stage* and *commit* your changes to your local Git repository
    - *Push* your committed changes to your GitHub repository online
 
 For this course, I assume you’ll be using the Git interface built into RStudio. If you haven’t yet, complete the [Using Git within RStudio tutorial](../setup/setup-test.qmd) to get comfortable with the process.
 
 ::: {.callout-tip}
-- *Commit and push your work often* multiple times per session if possible. Don’t wait until you’ve finished the entire assignment.  
+- *Commit and push your work often*. Don’t wait until you’ve finished the entire assignment.  
 - *Do not edit files directly on GitHub*. Always work in your local Git repository (e.g., on Workbench) and then push changes to GitHub. Think of your GitHub repo as a live online backup of your local project.
 :::
 
@@ -85,9 +87,9 @@ For this first assignment (HW1), you’ll edit and push the following two files 
 
 You will see a file named `README.md` in your repository. 
 
-A README is usually a plain text (`.txt`) or Markdown (`.md`) file that provides important information about a project—such as a summary, installation steps, or example output. In this course, you'll use it to document your work and reflect on your process.
+A README is usually a plain text (`.txt`) or Markdown (`.md`) file that provides information about a project, such as a summary, installation steps, or example output. In this course, you'll use it to document your work and reflect on your process.
 
-Your task: edit the `README.md` file by replacing the placeholder text with a short biography of yourself. To achieve a "pass", your biography must include the following elements:
+**Your task:** edit the `README.md` file by replacing the placeholder text with a short biography of yourself. To achieve a "pass", your biography must include the following elements:
 
 - At least one header
 - Some emphasis (italic or bold text)
@@ -96,31 +98,29 @@ Your task: edit the `README.md` file by replacing the placeholder text with a sh
   - First, upload the image into your homework repo by importing it in Workbench
   - Second, embed it in the Markdown file using the correct syntax
 - At least one link (e.g., to a website or profile)
-
-At the end of your README, add a short reflection that includes:
-
-- A brief summary of your Git/GitHub workflow for this homework  
-  *(Bullet points or a short narrative are both fine.)*
-- Your evaluation of the homework experience  
-  *(E.g., something new you learned, what went well, what confused you, etc.)*
-- A list of resources you consulted and an AI narrative on how you used AI to debug (see Syllabus for details)  
-  *Include links, tools, names of any collaborators, and AI statement*
+- At the end of your README, add a reflection that includes:
+  - A brief summary of your Git/GitHub workflow for this homework  
+    *(Bullet points or a short narrative are both fine.)*
+  - Your evaluation of the homework experience  
+    *(E.g., something new you learned, what went well, what confused you, etc.)*
+  - A list of resources you consulted and an AI narrative on how you used AI to debug (see Syllabus for details)  
+    *Include links, tools, names of any collaborators, and AI statement*
 
 
 ### Edit the `practice.rmd` file
 
 You will see a file named `practice.rmd` in your repository.
 
-Your task: edit the `practice.rmd` file by making the following changes (all must be included for a "pass"):
+**Your task:** edit the `practice.rmd` file by making the following changes (all must be included for a "pass"):
 
-- Add *at least two new YAML header options*:  
+- Add at least two new YAML header options:  
   - Do not delete or modify the existing ones
   - Example additions: `author:`, `subtitle:`, `toc: true`, etc  
   - Feel free to experiment, see readings and slides from Lecture 1 for ideas
 
-- Add *at least two R code chunks* with a short explanation in plain text (not as code comment):  
+- Add at least two R code chunks with a short explanation in plain text (not as code comment):  
   - Your code can be simple (think of the examples from lecture 1 or lecture 3), but it must run and produce the correct output 
-  - Your final knitted ~~`.html`~~ `.md` file should show both code and output (we want the `md` as Github cannot read `html`, but if you submit both that's fine)
+  - Your final knitted `.md` file should show both code and output (we want the `md` as Github cannot read `html`)
   - If your code generates plots (not required, but possible), make sure these plots are also pushed to GitHub, else they won't show up there 
 
 

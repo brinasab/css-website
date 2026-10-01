@@ -189,7 +189,8 @@ Important
 <li><p>Click <em>Accept assignment</em> to create your private <code>hw01</code> repository on GitHub. Your repository will be named <code>css-hw01-&lt;USERNAME&gt;</code>. Keep the page open until the setup checklist finishes (a few seconds).</p></li>
 <li><p>Click <em>Open repository</em> to access it.</p></li>
 </ol>
-<p>If the page says <em>“Not a member yet”</em>, accept the invitation to our GitHub organization (check your email, including spam), then click <em>Check again</em>. If it says <em>“This assignment isn’t available to you”</em>, contact the teaching staff.</p>
+<p>If the page says <em>“Not a member yet”</em>, accept the invitation to our GitHub organization (check your email, including spam), then click <em>Check again</em>.</p>
+<p>If it says <em>“This assignment isn’t available to you”</em>, contact the instructor.</p>
 <p><strong>Cloning the repo into your Workbench:</strong></p>
 <ol type="1">
 <li><p>Log into <em>Workbench</em> and start a new project:<br>
@@ -200,7 +201,7 @@ Important
 <li>The project name should auto-fill. If not, type <code>css-hw01-&lt;USERNAME&gt;</code> manually.</li>
 </ul></li>
 <li><p>Choose where to save the project directory locally. <em>Tip:</em> Avoid moving folders after cloning them.</p></li>
-<li><p>Check the box <em>“Open in new session”</em> (recommended for keeping projects separate and organized)</p></li>
+<li><p>Check the box <em>“Open in new session”</em> (recommended for keeping projects organized).</p></li>
 <li><p>Click <em>Create Project</em>. This will:</p>
 <ul>
 <li>Create a new folder on your machine<br>
@@ -221,7 +222,7 @@ Important
 <li><em>Save your changes locally</em> in RStudio Workbench</li>
 <li><em>Pull – Stage – Commit – Push</em>:
 <ul>
-<li><em>Pull</em> from GitHub: this should not change anything if you’re the only one working on the repo, but it’s a good habit to always pull first</li>
+<li><em>Pull</em> from GitHub: this should not change anything if you’re the only one working on the repo, but it’s a good habit to build</li>
 <li><em>Stage</em> and <em>commit</em> your changes to your local Git repository</li>
 <li><em>Push</em> your committed changes to your GitHub repository online</li>
 </ul></li>
@@ -238,7 +239,7 @@ Tip
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><em>Commit and push your work often</em> multiple times per session if possible. Don’t wait until you’ve finished the entire assignment.<br>
+<li><em>Commit and push your work often</em>. Don’t wait until you’ve finished the entire assignment.<br>
 </li>
 <li><em>Do not edit files directly on GitHub</em>. Always work in your local Git repository (e.g., on Workbench) and then push changes to GitHub. Think of your GitHub repo as a live online backup of your local project.</li>
 </ul>
@@ -251,8 +252,8 @@ Tip
 <section id="edit-the-readme.md-file" class="level3">
 <h3 class="anchored" data-anchor-id="edit-the-readme.md-file">Edit the <code>README.md</code> file</h3>
 <p>You will see a file named <code>README.md</code> in your repository.</p>
-<p>A README is usually a plain text (<code>.txt</code>) or Markdown (<code>.md</code>) file that provides important information about a project—such as a summary, installation steps, or example output. In this course, you’ll use it to document your work and reflect on your process.</p>
-<p>Your task: edit the <code>README.md</code> file by replacing the placeholder text with a short biography of yourself. To achieve a “pass”, your biography must include the following elements:</p>
+<p>A README is usually a plain text (<code>.txt</code>) or Markdown (<code>.md</code>) file that provides information about a project, such as a summary, installation steps, or example output. In this course, you’ll use it to document your work and reflect on your process.</p>
+<p><strong>Your task:</strong> edit the <code>README.md</code> file by replacing the placeholder text with a short biography of yourself. To achieve a “pass”, your biography must include the following elements:</p>
 <ul>
 <li>At least one header</li>
 <li>Some emphasis (italic or bold text)</li>
@@ -263,8 +264,7 @@ Tip
 <li>Second, embed it in the Markdown file using the correct syntax</li>
 </ul></li>
 <li>At least one link (e.g., to a website or profile)</li>
-</ul>
-<p>At the end of your README, add a short reflection that includes:</p>
+<li>At the end of your README, add a reflection that includes:
 <ul>
 <li>A brief summary of your Git/GitHub workflow for this homework<br>
 <em>(Bullet points or a short narrative are both fine.)</em></li>
@@ -272,24 +272,25 @@ Tip
 <em>(E.g., something new you learned, what went well, what confused you, etc.)</em></li>
 <li>A list of resources you consulted and an AI narrative on how you used AI to debug (see Syllabus for details)<br>
 <em>Include links, tools, names of any collaborators, and AI statement</em></li>
+</ul></li>
 </ul>
 </section>
 <section id="edit-the-practice.rmd-file" class="level3">
 <h3 class="anchored" data-anchor-id="edit-the-practice.rmd-file">Edit the <code>practice.rmd</code> file</h3>
 <p>You will see a file named <code>practice.rmd</code> in your repository.</p>
-<p>Your task: edit the <code>practice.rmd</code> file by making the following changes (all must be included for a “pass”):</p>
+<p><strong>Your task:</strong> edit the <code>practice.rmd</code> file by making the following changes (all must be included for a “pass”):</p>
 <ul>
-<li>Add <em>at least two new YAML header options</em>:
+<li>Add at least two new YAML header options:
 <ul>
 <li>Do not delete or modify the existing ones</li>
 <li>Example additions: <code>author:</code>, <code>subtitle:</code>, <code>toc: true</code>, etc<br>
 </li>
 <li>Feel free to experiment, see readings and slides from Lecture 1 for ideas</li>
 </ul></li>
-<li>Add <em>at least two R code chunks</em> with a short explanation in plain text (not as code comment):
+<li>Add at least two R code chunks with a short explanation in plain text (not as code comment):
 <ul>
 <li>Your code can be simple (think of the examples from lecture 1 or lecture 3), but it must run and produce the correct output</li>
-<li>Your final knitted <del><code>.html</code></del> <code>.md</code> file should show both code and output (we want the <code>md</code> as Github cannot read <code>html</code>, but if you submit both that’s fine)</li>
+<li>Your final knitted <code>.md</code> file should show both code and output (we want the <code>md</code> as Github cannot read <code>html</code>)</li>
 <li>If your code generates plots (not required, but possible), make sure these plots are also pushed to GitHub, else they won’t show up there</li>
 </ul></li>
 </ul>
