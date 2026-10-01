@@ -10,9 +10,11 @@ format:
 
 <div class="my-4"></div>
 
-Assessment for this course consists of four take-home assignments, one take-home final project, two in-class exams, and an optional oral exam.
+Assessment for this course consists of four assignments, one final project, two in-class exams, and an optional oral exam. 
 
-Assignments and the final project will appear on this page when available. **Click the assignment title in the callout box below to access it:**
+The two exams will include a mix of multiple-choice and open-ended questions. They will be held in class and will be closed-book. The oral exam is optional and will be held in Week 10. It is subjected to specific eligibility and scoring rules, which will be shared during class.
+
+**The assignments and the final project will appear on this page when available. Click the assignment title in the callout box below to access it:**
 
 ::: {.callout-important appearance="minimal"}
 
@@ -26,11 +28,6 @@ Assignments and the final project will appear on this page when available. **Cli
 -->
 
 :::
-
-
-The **two exams** will include a mix of multiple-choice and open-ended questions. They will be held in class and will be closed-book.
-
-The **oral exam** is optional and will be held in Week 10. It is subjected to specific eligibility and scoring rules, which will be shared during class.
 
 
 ### Further info:
