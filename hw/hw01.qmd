@@ -15,8 +15,6 @@ This first homework assignment has the following goals: to make sure your comput
 
 This assignment workflow has several steps by design. All future take-home assignments will use a similar structure, so you will build fluency through repeated practice.
 
-Graded as P/F, no late submissions accepted (see Syllabus)
-
 
 # Accessing and Cloning Your `hw01` Repository
 
@@ -99,12 +97,9 @@ A README is usually a plain text (`.txt`) or Markdown (`.md`) file that provides
   - Second, embed it in the Markdown file using the correct syntax
 - At least one link (e.g., to a website or profile)
 - At the end of your README, add a reflection that includes:
-  - A brief summary of your Git/GitHub workflow for this homework  
-    *(Bullet points or a short narrative are both fine.)*
-  - Your evaluation of the homework experience  
-    *(E.g., something new you learned, what went well, what confused you, etc.)*
-  - A list of resources you consulted and an AI narrative on how you used AI to debug (see Syllabus for details)  
-    *Include links, tools, names of any collaborators, and AI statement*
+  - A brief summary of your Git/GitHub workflow for this homework. *(Bullet points or a short narrative are both fine)*
+  - Your evaluation of the homework experience: something new you learned, what went well, what confused you, etc.
+  - A list of resources you consulted and an AI narrative on how you used AI (see Syllabus for details). *Include links, tools, names of any collaborators, and AI statement*
 
 
 ### Edit the `practice.rmd` file
