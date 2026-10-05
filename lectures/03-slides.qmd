@@ -708,13 +708,13 @@ ggplot(data = mpg) +
 ```
 
 ::: {.fragment}
-
 **Short version:**
 ```r
 ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + 
   geom_point(aes(color = class)) + 
   geom_smooth(method = "lm")
 ```
+:::
 
 ---
 
@@ -736,13 +736,11 @@ ggplot() +
 ```
 
 ::: {.fragment}
-
 **Short version:**
 ```r
 ggplot(data = mpg, aes(x = displ, y = hwy)) +
   geom_point()
 ```
-
 :::
 
 ---
