@@ -219,7 +219,7 @@ Sabrina Nardin, Fall 2026
 <li>Practice: Gapminder Data</li>
 </ol>
 </div>
-<p><span style="font-size: 0.8em; color: #666;"> <em>Slides last updated on October 05, 2026. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.</em> </span></p>
+<p><span style="font-size: 0.8em; color: #666;"> <em>Slides last updated on October 05, 2026 after class. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.</em> </span></p>
 <!--
 
 ### Slides are in progress and will be updated before class. Check back soon!
@@ -480,11 +480,12 @@ Note: this template is a helpful starting point, but it's not the only way to wr
 -->
 </section>
 <section id="before-we-dive-into-these-five-components-of-a-ggplot" class="slide level2 center">
-<h2>Before we dive into these five components of a ggplot</h2>
-<p>Let’s pause and review two things that you will use throughout:</p>
+<h2>Before we dive into these five components of a ggplot…</h2>
+<p>Let’s pause and review these things that you will use throughout:</p>
 <ul>
 <li><strong>Making a plot vs.&nbsp;storing a plot</strong></li>
 <li><strong>Good coding style</strong> in <code>ggplot2</code> and R</li>
+<li><strong>How to look up function arguments</strong> <em>(New! This came up in class, so I added it to the slides.)</em></li>
 </ul>
 </section>
 <section id="make-and-store-a-plot" class="slide level2 center">
@@ -498,6 +499,23 @@ Note: this template is a helpful starting point, but it's not the only way to wr
 <span id="cb10-2"><a></a>  <span class="fu">geom_point</span>(</span>
 <span id="cb10-3"><a></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">color =</span> class))</span>
 <span id="cb10-4"><a></a>fuel_plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Assigning a plot to an R object is optional for displaying it locally or sharing on Github:</strong></p>
+<ul>
+<li><strong>On your machine:</strong> both approaches show the plot on your machine when your render the Rmd.</li>
+<li><strong>For GitHub:</strong> remember to push the automatically created <code>*_files</code> folder, which contains the plot images.</li>
+</ul>
+</div>
+</div>
+</div>
 </section>
 <section id="on-coding-style-in-r" class="slide level2 center">
 <h2>On Coding Style in R</h2>
@@ -545,9 +563,18 @@ THINGS THAT STUDENTS MIGHT SAY
 <li><a href="https://www.smashingmagazine.com/2012/10/why-coding-style-matters/">Why does coding style matter?</a></li>
 </ul>
 </section>
+<section id="looking-up-function-arguments-in-r" class="slide level2 center">
+<h2>Looking up function arguments in R</h2>
+<p>You don’t have to know every argument that a function takes. Here is how to look them up:</p>
+<ul>
+<li><p><strong>Function help:</strong> type <code>?mean</code> or <code>help("mean")</code> in your R Console</p></li>
+<li><p><strong>Topic search:</strong> type <code>??mean</code> if you don’t know the function name</p></li>
+<li><p><strong>RStudio suggestions:</strong> type <code>mean(</code> and wait or press Tab to see argument suggestions (in yellow)</p></li>
+</ul>
+</section>
 <section id="back-to-the-grammar-of-graphics" class="slide level2 center">
-<h2>Back to the Grammar of Graphics</h2>
-<p>We have seen that a ggplot is built from several components:</p>
+<h2>Back to the Grammar of Graphics!</h2>
+<p>OK let’s go back to the grammar of graphics. We have seen that a plot in ggplo2 is built from several components:</p>
 <ul>
 <li>Each layer can include: <strong>data, mapping, geom, stat, and position</strong></li>
 <li>The overall plot can also include: <strong>scales, a coordinate system, facets, and a theme</strong></li>
@@ -803,8 +830,8 @@ We often repeat settings like `data = ...`, `aes()`,
 <span id="cb28-2"><a></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="quick-review" class="slide level2 center">
-<h2>Quick Review</h2>
+<section id="review" class="slide level2 center">
+<h2>Review</h2>
 <ol type="1">
 <li>What does <code>geom_point()</code> do?</li>
 <li>What does <code>stat = "identity"</code> mean?</li>
@@ -841,7 +868,7 @@ We often repeat settings like `data = ...`, `aes()`,
 </section>
 <section id="to-print-these-slides-as-pdf" class="slide level2 center">
 <h2>To print these slides as pdf</h2>
-<p>Click on the icon bottom-right corner &gt; Tools &gt; PDF Export Mode &gt; Print as a Pdf</p>
+<p>Click on the three lines located on the bottom-left corner of these slides &gt; Tools &gt; PDF Export Mode &gt; Print as a Pdf</p>
 
 
 </section></section>

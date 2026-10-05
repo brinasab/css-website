@@ -1334,7 +1334,7 @@
     "href": "lectures/03-slides.html#make-and-store-a-plot",
     "title": "Computing for the Social Sciences: Lecture 3",
     "section": "Make and Store a Plot",
-    "text": "Make and Store a Plot\nFirst example: makes and displays the plot, but does not store it.\n ggplot(data = mpg) +\n  geom_point(\n    mapping = aes(x = displ, y = hwy, color = class))\nSecond example: makes and stores the plot into an object, fuel_plot. To display it, call the object.\nfuel_plot &lt;- ggplot(data = mpg) +\n  geom_point(\n    mapping = aes(x = displ, y = hwy, color = class))\nfuel_plot"
+    "text": "Make and Store a Plot\nFirst example: makes and displays the plot, but does not store it.\n ggplot(data = mpg) +\n  geom_point(\n    mapping = aes(x = displ, y = hwy, color = class))\nSecond example: makes and stores the plot into an object, fuel_plot. To display it, call the object.\nfuel_plot &lt;- ggplot(data = mpg) +\n  geom_point(\n    mapping = aes(x = displ, y = hwy, color = class))\nfuel_plot\n\n\n\n\n\n\nNote\n\n\nAssigning a plot to an R object is optional for displaying it locally or sharing on Github:\n\nOn your machine: both approaches show the plot on your machine when your render the Rmd.\nFor GitHub: remember to push the automatically created *_files folder, which contains the plot images."
   },
   {
     "objectID": "lectures/03-slides.html#on-coding-style-in-r",
@@ -1361,8 +1361,8 @@
     "objectID": "lectures/03-slides.html#back-to-the-grammar-of-graphics",
     "href": "lectures/03-slides.html#back-to-the-grammar-of-graphics",
     "title": "Computing for the Social Sciences: Lecture 3",
-    "section": "Back to the Grammar of Graphics",
-    "text": "Back to the Grammar of Graphics\nWe have seen that a ggplot is built from several components:\n\nEach layer can include: data, mapping, geom, stat, and position\nThe overall plot can also include: scales, a coordinate system, facets, and a theme\n\n\n\n\n\n\n\nNote\n\n\n💡 The following slides focus on the most common parts you’ll use and are worth remembering! This isn’t the full picture: you’ll learn more as you experiment and build more plots. See today’s readings for a broader overview."
+    "section": "Back to the Grammar of Graphics!",
+    "text": "Back to the Grammar of Graphics!\nOK let’s go back to the grammar of graphics. We have seen that a plot in ggplo2 is built from several components:\n\nEach layer can include: data, mapping, geom, stat, and position\nThe overall plot can also include: scales, a coordinate system, facets, and a theme\n\n\n\n\n\n\n\nNote\n\n\n💡 The following slides focus on the most common parts you’ll use and are worth remembering! This isn’t the full picture: you’ll learn more as you experiment and build more plots. See today’s readings for a broader overview."
   },
   {
     "objectID": "lectures/03-slides.html#pick-the-right-geometric-object",
@@ -1439,14 +1439,14 @@
     "href": "lectures/03-slides.html#to-print-these-slides-as-pdf",
     "title": "Computing for the Social Sciences: Lecture 3",
     "section": "To print these slides as pdf",
-    "text": "To print these slides as pdf\nClick on the icon bottom-right corner &gt; Tools &gt; PDF Export Mode &gt; Print as a Pdf"
+    "text": "To print these slides as pdf\nClick on the three lines located on the bottom-left corner of these slides &gt; Tools &gt; PDF Export Mode &gt; Print as a Pdf"
   },
   {
     "objectID": "lectures/03-slides.html#before-we-dive-into-these-five-components-of-a-ggplot",
     "href": "lectures/03-slides.html#before-we-dive-into-these-five-components-of-a-ggplot",
     "title": "Computing for the Social Sciences: Lecture 3",
-    "section": "Before we dive into these five components of a ggplot",
-    "text": "Before we dive into these five components of a ggplot\nLet’s pause and review two things that you will use throughout:\n\nMaking a plot vs. storing a plot\nGood coding style in ggplot2 and R"
+    "section": "Before we dive into these five components of a ggplot…",
+    "text": "Before we dive into these five components of a ggplot…\nLet’s pause and review these things that you will use throughout:\n\nMaking a plot vs. storing a plot\nGood coding style in ggplot2 and R\nHow to look up function arguments (New! This came up in class, so I added it to the slides.)"
   },
   {
     "objectID": "lectures/03-slides.html#statistical-transformations-1",
@@ -1482,5 +1482,19 @@
     "title": "Computing for the Social Sciences: Lecture 3",
     "section": "",
     "text": "Motivation: Why We Visualize Data\nThe Grammar of Graphics and ggplot2 & Coding Style\nSimplifying ggplot2 Code with Defaults\n\nPractice: Gapminder Data\n\n\n Slides last updated on October 05, 2026. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos."
+  },
+  {
+    "objectID": "lectures/03-slides.html#looking-up-function-arguments-in-r",
+    "href": "lectures/03-slides.html#looking-up-function-arguments-in-r",
+    "title": "Computing for the Social Sciences: Lecture 3",
+    "section": "Looking up function arguments in R",
+    "text": "Looking up function arguments in R\nYou don’t have to know every argument that a function takes. Here is how to look them up:\n\nFunction help: type ?mean or help(\"mean\") in your R Console\nTopic search: type ??mean if you don’t know the function name\nRStudio suggestions: type mean( and wait or press Tab to see argument suggestions (in yellow)"
+  },
+  {
+    "objectID": "lectures/03-slides.html#review",
+    "href": "lectures/03-slides.html#review",
+    "title": "Computing for the Social Sciences: Lecture 3",
+    "section": "Review",
+    "text": "Review\n\nWhat does geom_point() do?\nWhat does stat = \"identity\" mean?\nWhen would you use facet_wrap()?\nWhat’s wrong with aes(color = \"blue\")?\nWhat does it mean that layers can inherit elements?\n\nTry answering these without peeking at the slides!"
   }
 ]
