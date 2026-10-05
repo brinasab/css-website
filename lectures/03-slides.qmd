@@ -337,7 +337,7 @@ Note: this template is a helpful starting point, but it's not the only way to wr
 
 ## Before we dive into these five components of a ggplot...
 
-Let’s pause and review these things that you will use throughout:
+Let’s pause a second and review some concept that you will use throughout:
 
 - **Making a plot vs. storing a plot**
 - **Good coding style** in `ggplot2` and R

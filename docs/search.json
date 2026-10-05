@@ -1446,7 +1446,7 @@
     "href": "lectures/03-slides.html#before-we-dive-into-these-five-components-of-a-ggplot",
     "title": "Computing for the Social Sciences: Lecture 3",
     "section": "Before we dive into these five components of a ggplot…",
-    "text": "Before we dive into these five components of a ggplot…\nLet’s pause and review these things that you will use throughout:\n\nMaking a plot vs. storing a plot\nGood coding style in ggplot2 and R\nHow to look up function arguments (New! This came up in class, so I added it to the slides.)"
+    "text": "Before we dive into these five components of a ggplot…\nLet’s pause a second and review some concept that you will use throughout:\n\nMaking a plot vs. storing a plot\nGood coding style in ggplot2 and R\nHow to look up function arguments (New! This came up in class, so I added it to the slides.)"
   },
   {
     "objectID": "lectures/03-slides.html#statistical-transformations-1",
