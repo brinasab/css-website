@@ -366,7 +366,7 @@ fuel_plot
 
 :::callout-note
 
-**Assigning a plot to an R object is optional for displaying it locally or sharing on Github:**
+Assigning a plot to an R object is optional for displaying it locally or sharing on Github:
 
 - **On your machine:** both approaches show the plot on your machine when your render the Rmd.
 - **For GitHub:** remember to push the automatically created `*_files` folder, which contains the plot images.
