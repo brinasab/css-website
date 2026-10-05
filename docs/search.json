@@ -1278,7 +1278,7 @@
     "href": "lectures/03-slides.html#our-first-plot-1",
     "title": "Computing for the Social Sciences: Lecture 3",
     "section": "Our First Plot",
-    "text": "Our First Plot\n\n\n\n\n\n\n\n\n\n\nWhat’s on the x-axis? And on the y -axis?\nWhat does each dot in this scatterplot represent?\nYou want a car that combines high fuel efficiency on the highway and a large engine size. Can you find one?\nDo larger engines tend to have higher or lower highway fuel efficiency?"
+    "text": "Our First Plot\n\n\nWhat’s on the x-axis? And on the y -axis?\nWhat does each dot in this scatterplot represent?\nYou want a car that combines high fuel efficiency on the highway and a large engine size. Can you find one?\nDo larger engines tend to have higher or lower highway fuel efficiency?"
   },
   {
     "objectID": "lectures/03-slides.html#code-for-our-first-plot-with-ggplot2",
@@ -1341,7 +1341,7 @@
     "href": "lectures/03-slides.html#on-coding-style-in-r",
     "title": "Computing for the Social Sciences: Lecture 3",
     "section": "On Coding Style in R",
-    "text": "On Coding Style in R\n\n💻 Practice\nHere’s the same code from the previous slide. This time focus on its style (parentheses, operators, spacing, indentation, variable names, etc.)\nWhat do you notice?\nfuel_plot &lt;- ggplot(data = mpg) +\n  geom_point(\n    mapping = aes(\n      x = displ,\n      y = hwy,\n      color = class # map color to the variable class\n    )\n  )\nfuel_plot"
+    "text": "On Coding Style in R\n💻 Practice\nHere’s the same code from the previous slide. This time focus on its style (parentheses, operators, spacing, indentation, variable names, etc.)\nWhat do you notice?\nfuel_plot &lt;- ggplot(data = mpg) +\n  geom_point(\n    mapping = aes(\n      x = displ,\n      y = hwy,\n      color = class # map color to the variable class\n    )\n  )\nfuel_plot"
   },
   {
     "objectID": "lectures/03-slides.html#coding-style-checklist",
@@ -1362,7 +1362,7 @@
     "href": "lectures/03-slides.html#back-to-the-grammar-of-graphics",
     "title": "Computing for the Social Sciences: Lecture 3",
     "section": "Back to the Grammar of Graphics",
-    "text": "Back to the Grammar of Graphics\nWe have seen that a ggplot is built from several components:\n\nEach layer can include: data, mapping, geom, stat, and position\nThe overall plot can also include: scales, a coordinate system, facets, and a theme\n\n\n\n\n\n\n\nNote\n\n\n\n💡 The following slides focus on the most common parts you’ll use and are worth remembering! This isn’t the full picture: you’ll learn more as you experiment and build more plots. See today’s readings for a broader overview."
+    "text": "Back to the Grammar of Graphics\nWe have seen that a ggplot is built from several components:\n\nEach layer can include: data, mapping, geom, stat, and position\nThe overall plot can also include: scales, a coordinate system, facets, and a theme\n\n\n\n\n\n\n\nNote\n\n\n💡 The following slides focus on the most common parts you’ll use and are worth remembering! This isn’t the full picture: you’ll learn more as you experiment and build more plots. See today’s readings for a broader overview."
   },
   {
     "objectID": "lectures/03-slides.html#pick-the-right-geometric-object",
@@ -1404,7 +1404,7 @@
     "href": "lectures/03-slides.html#example-1",
     "title": "Computing for the Social Sciences: Lecture 3",
     "section": "Example 1",
-    "text": "Example 1\nExample from the previous slide\nLong version:\nggplot(data = mpg) + \n  geom_point(\n    mapping = aes(x = displ, y = hwy, color = class),\n    stat = \"identity\", \n    position = \"identity\") + \n  geom_smooth(\n    mapping = aes(x = displ, y = hwy),\n    method = \"lm\")\n\nShort version:\nggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + \n  geom_point(aes(color = class)) + \n  geom_smooth(method = \"lm\")"
+    "text": "Example 1\nExample from the previous slide\nLong version:\nggplot(data = mpg) + \n  geom_point(\n    mapping = aes(x = displ, y = hwy, color = class),\n    stat = \"identity\", \n    position = \"identity\") + \n  geom_smooth(\n    mapping = aes(x = displ, y = hwy),\n    method = \"lm\")\n\nShort version:\nggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + \n  geom_point(aes(color = class)) + \n  geom_smooth(method = \"lm\")\n\n\nExample 2\nScatterplot between cars’ engine size (displ) and highway fuel efficiency (hwy)\nLong version:\nggplot() +\n  layer(\n    data = mpg, \n    mapping = aes(x = displ, y = hwy),\n    geom = \"point\", \n    stat = \"identity\", \n    position = \"identity\"\n  ) +\n  coord_cartesian()\n\nShort version:\nggplot(data = mpg, aes(x = displ, y = hwy)) +\n  geom_point()\n\n\n\n\nQuick Review\n\nWhat does geom_point() do?\nWhat does stat = \"identity\" mean?\nWhen would you use facet_wrap()?\nWhat’s wrong with aes(color = \"blue\")?\nWhat does it mean that layers can inherit elements?\n\nTry answering these without peeking at the slides!\n\n\n4. Pratice: Gapminder Data\n\n\n\n💻 Practice: Gapminder\nDownload today’s in-class materials from the website!\nThe gapminder dataset:\n\nData on various socio-economic indicators (e.g., life expectancy, GDP per capita, and population) for countries around the world over multiple years (1957-2008)\nhttps://cran.r-project.org/web/packages/gapminder/readme/README.html\n\nhttps://www.gapminder.org/\n\n\n\n\nRecap: What We Learned Today\n\nCore components of the Grammar of Graphics\nGenerate simple graphs with ggplot2\nUse the Grammar of Graphics template and simplify it with defaults\nR Coding Style Best Practices\n\n\n\n\nTo print these slides as pdf\nClick on the icon bottom-right corner &gt; Tools &gt; PDF Export Mode &gt; Print as a Pdf"
   },
   {
     "objectID": "lectures/03-slides.html#example-2",
@@ -1460,7 +1460,7 @@
     "href": "lectures/03-slides.html#aesthetics-mapping",
     "title": "Computing for the Social Sciences: Lecture 3",
     "section": "Aesthetics Mapping",
-    "text": "Aesthetics Mapping\nAESTHETIC MAPPING (aes): defines how variables are mapped to visual properties of a plot (e.g., x, y, color, size, shape).\nggplot(data = mpg) +\n  geom_point(mapping = aes(x = displ, y = hwy, color = class))\n\n\n\n\n\n\nImportant\n\n\n\nWhen using color small mistakes can make the difference! Let’s practice…\n\n\n\n\n💻 Practice: Using Color Correctly with Mapping Aesthetics\nWhich of these three code blocks is correct? Run and compare them in R.\n\nggplot(data = mpg) + \n  geom_point(mapping = aes(x = displ, y = hwy, color = class))\n\nggplot(data = mpg) + \n  geom_point(mapping = aes(x = displ, y = hwy), color = \"blue\")\n\nggplot(data = mpg) + \n  geom_point(mapping = aes(x = displ, y = hwy, color = \"blue\"))\n\n\n\n💻 Practice: Using Color Correctly with Mapping Aesthetics\n\n\n✅ Correct\naes(color = class)\nMaps a variable to a visual property.\n\n✅ Correct\ncolor = \"blue\"\nSets color manually (outside aes).\n\n❌Incorrect\naes(color = \"blue\")\nTries to map a fixed value (the string “blue”). Not useful.\n\n\n\n\nMapping vs Setting in ggplot2\n\nMapping means linking a variable from your data to a visual property inside aes()\nExample: aes(color = class) → color depends on the variable class\nSetting means assigning one fixed value outside aes()\nExample: color = \"blue\" → all points are blue"
+    "text": "Aesthetics Mapping\nAESTHETIC MAPPING (aes): defines how variables are mapped to visual properties of a plot (e.g., x, y, color, size, shape).\nggplot(data = mpg) +\n  geom_point(mapping = aes(x = displ, y = hwy, color = class))\n\n\n\n\n\n\nImportant\n\n\nWhen using color small mistakes can make the difference! Let’s practice…"
   },
   {
     "objectID": "lectures/03-slides.html#statistical-transformation",
