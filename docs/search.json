@@ -508,14 +508,14 @@
     "href": "lectures/04-home.html",
     "title": "Lecture 4: Graphs for Data Analysis with ggplot2",
     "section": "",
-    "text": "Date: October 7, 2026\nTopics: Graphs for Data Analysis\nSlides: To be posted before class\nCode: To be posted before class"
+    "text": "Date: October 7, 2026\nTopics: Graphs for Data Analysis\nSlides: View Slides\nCode: To be posted before class"
   },
   {
     "objectID": "lectures/04-home.html#info-and-materials",
     "href": "lectures/04-home.html#info-and-materials",
     "title": "Lecture 4: Graphs for Data Analysis with ggplot2",
     "section": "",
-    "text": "Date: October 7, 2026\nTopics: Graphs for Data Analysis\nSlides: To be posted before class\nCode: To be posted before class"
+    "text": "Date: October 7, 2026\nTopics: Graphs for Data Analysis\nSlides: View Slides\nCode: To be posted before class"
   },
   {
     "objectID": "lectures/04-home.html#learning-objectives",
@@ -1496,5 +1496,194 @@
     "title": "Computing for the Social Sciences: Lecture 3",
     "section": "Review",
     "text": "Review\n\nWhat does geom_point() do?\nWhat does stat = \"identity\" mean?\nWhen would you use facet_wrap()?\nWhat’s wrong with aes(color = \"blue\")?\nWhat does it mean that layers can inherit elements?\n\nTry answering these without peeking at the slides!"
+  },
+  {
+    "objectID": "lectures/04-slides.html#our-goal-today-using-graphs-for-exploratory-data-analysis",
+    "href": "lectures/04-slides.html#our-goal-today-using-graphs-for-exploratory-data-analysis",
+    "title": "Computing for the Social Sciences: Lecture 4",
+    "section": "Our Goal Today: Using Graphs for Exploratory Data Analysis",
+    "text": "Our Goal Today: Using Graphs for Exploratory Data Analysis\n\n\n1. Identify patterns\nUse graphs to explore variation and co-variation in the data.\n\n2. Choose the best graph\nMatch the plot to the variable type:\n\ncategorical (e.g. school type)\ncontinuous (e.g., cost)\nboth\n\n\n3. Explain it\nDescribe what you see:\n\ntrends\ndifferences\noutliers"
+  },
+  {
+    "objectID": "lectures/04-slides.html#about-the-scorecard-dataset",
+    "href": "lectures/04-slides.html#about-the-scorecard-dataset",
+    "title": "Computing for the Social Sciences: Lecture 4",
+    "section": "About the scorecard dataset",
+    "text": "About the scorecard dataset\nThe U.S. Department of Education collects annual statistics on colleges and universities in the United States: https://collegescorecard.ed.gov/data\nThis dataset includes variables such as:\n\nname: name of the school\nstate: state where the school is located\n\ntype: school type (e.g., Public, Private Nonprofit, Private For-Profit)\n\nadmrate: admission rate (e.g., 0.91 = 91%)\n\ncost: published cost of attendance\n\nnetcost: net cost of attendance after financial aid\n\nsatavg: average SAT score of admitted students\n\n...: many additional variables\n\nWe focus on a subset of this data"
+  },
+  {
+    "objectID": "lectures/04-slides.html#about-the-scorecard-dataset-1",
+    "href": "lectures/04-slides.html#about-the-scorecard-dataset-1",
+    "title": "Computing for the Social Sciences: Lecture 4",
+    "section": "About the scorecard dataset",
+    "text": "About the scorecard dataset\nlibrary(tidyverse)\nlibrary(rcis)\ndata(scorecard)\nglimpse(scorecard)\n\n\nRows: 1,732\nColumns: 14\n$ unitid    &lt;dbl&gt; 100654, 100663, 100706, 100724, 100751, 100830, 100858, 1009…\n$ name      &lt;chr&gt; \"Alabama A & M University\", \"University of Alabama at Birmin…\n$ state     &lt;chr&gt; \"AL\", \"AL\", \"AL\", \"AL\", \"AL\", \"AL\", \"AL\", \"AL\", \"AL\", \"AL\", …\n$ type      &lt;fct&gt; \"Public\", \"Public\", \"Public\", \"Public\", \"Public\", \"Public\", …\n$ admrate   &lt;dbl&gt; 0.9175, 0.7366, 0.8257, 0.9690, 0.8268, 0.9044, 0.8067, 0.53…\n$ satavg    &lt;dbl&gt; 939, 1234, 1319, 946, 1261, 1082, 1300, 1230, 1066, NA, 1076…\n$ cost      &lt;dbl&gt; 23053, 24495, 23917, 21866, 29872, 19849, 31590, 32095, 3431…\n$ netcost   &lt;dbl&gt; 14990, 16953, 15860, 13650, 22597, 13987, 24104, 22107, 2071…\n$ avgfacsal &lt;dbl&gt; 69381, 99441, 87192, 64989, 92619, 71343, 96642, 56646, 5400…\n$ pctpell   &lt;dbl&gt; 0.7019, 0.3512, 0.2536, 0.7627, 0.1772, 0.4644, 0.1455, 0.23…\n$ comprate  &lt;dbl&gt; 0.2974, 0.6340, 0.5768, 0.3276, 0.7110, 0.3401, 0.7911, 0.69…\n$ firstgen  &lt;dbl&gt; 0.3658281, 0.3412237, 0.3101322, 0.3434343, 0.2257127, 0.381…\n$ debt      &lt;dbl&gt; 15250, 15085, 14000, 17500, 17671, 12000, 17500, 16000, 1425…\n$ locale    &lt;fct&gt; City, City, City, City, City, City, City, City, City, Suburb…"
+  },
+  {
+    "objectID": "lectures/04-slides.html#the-scorecard-dataset-making-a-plot",
+    "href": "lectures/04-slides.html#the-scorecard-dataset-making-a-plot",
+    "title": "Computing for the Social Sciences: Lecture 4",
+    "section": "The scorecard dataset: making a plot",
+    "text": "The scorecard dataset: making a plot\nGiven this question “Which type of college has the highest average SAT score?”, and the task of answering it by creating a ggplot2 graph.\nHow would you approach this task?\n\nidentify the variable(s) you need\nfind them in the data\nidentify the variable(s) types (mainly: categorical or continuous)\nuse this info to select the most appropriate plot\nthink about the code\ngenerate the graph and interpret it"
+  },
+  {
+    "objectID": "lectures/04-slides.html#which-type-of-college-has-the-highest-average-sat-score",
+    "href": "lectures/04-slides.html#which-type-of-college-has-the-highest-average-sat-score",
+    "title": "Computing for the Social Sciences: Lecture 4",
+    "section": "Which type of college has the highest average SAT score?",
+    "text": "Which type of college has the highest average SAT score?\nOption 1 boxplot\nggplot(data = scorecard, mapping = aes(x = type, y = satavg)) +\n  geom_boxplot()\n\nWhat’s a boxplot?"
+  },
+  {
+    "objectID": "lectures/04-slides.html#which-type-of-college-has-the-highest-average-sat-score-1",
+    "href": "lectures/04-slides.html#which-type-of-college-has-the-highest-average-sat-score-1",
+    "title": "Computing for the Social Sciences: Lecture 4",
+    "section": "Which type of college has the highest average SAT score?",
+    "text": "Which type of college has the highest average SAT score?\nOption 2 faceded histogram\nggplot(data = scorecard, mapping = aes(x = satavg)) +\n  geom_histogram() + \n  facet_wrap(facets = vars(type))\n\nWhat’s a histogram?"
+  },
+  {
+    "objectID": "lectures/04-slides.html#which-type-of-college-has-the-highest-average-sat-score-2",
+    "href": "lectures/04-slides.html#which-type-of-college-has-the-highest-average-sat-score-2",
+    "title": "Computing for the Social Sciences: Lecture 4",
+    "section": "Which type of college has the highest average SAT score?",
+    "text": "Which type of college has the highest average SAT score?\nNow it’s time to interpret these graphs:\n\n\n\n\n\n\n\nInterpreting plots is as important as writing code\n\n\nWhat do these two graphs we gerated reveal about average SAT scores by type of college?\nDo they tell the same story? Kind of…"
+  },
+  {
+    "objectID": "lectures/04-slides.html#which-type-of-college-has-the-highest-average-sat-score-3",
+    "href": "lectures/04-slides.html#which-type-of-college-has-the-highest-average-sat-score-3",
+    "title": "Computing for the Social Sciences: Lecture 4",
+    "section": "Which type of college has the highest average SAT score?",
+    "text": "Which type of college has the highest average SAT score?\n\n\n\n\n\n\n\nInterpreting plots is as important as writing code\n\n\nMain interpretation:\nBoth plots show that private nonprofit schools tend to have the highest SAT scores, followed by public schools. Private for-profit schools tend to have lower SAT scores.\nMore refined interpretation:\nThe boxplot makes it easy to compare typical SAT scores and score spread across school types.\nThe faceted histogram shows the full distribution and reveals differences in group size that the boxplot hides.\nWhy both? The boxplot is best for quick comparisons, while the histogram gives more detail about distribution and sample size."
+  },
+  {
+    "objectID": "lectures/04-slides.html#asking-more-questions-with-dplyr-sneak-peek-for-next-week",
+    "href": "lectures/04-slides.html#asking-more-questions-with-dplyr-sneak-peek-for-next-week",
+    "title": "Computing for the Social Sciences: Lecture 4",
+    "section": "Asking More Questions with dplyr (sneak peek for next week!)",
+    "text": "Asking More Questions with dplyr (sneak peek for next week!)\nHow many schools are in each type?\nscorecard %&gt;% count(type) \nWhich schools are categorized as private for-profit?\nscorecard %&gt;%\n  filter(type == \"Private, for-profit\") %&gt;%\n  select(name, state, type, satavg, cost)\nWhat about the University of Chicago?\nscorecard %&gt;% filter(name == \"University of Chicago\")\nEtc."
+  },
+  {
+    "objectID": "lectures/04-slides.html#once-you-draw-a-plot-ask-yourself",
+    "href": "lectures/04-slides.html#once-you-draw-a-plot-ask-yourself",
+    "title": "Computing for the Social Sciences: Lecture 4",
+    "section": "Once you draw a plot, ask yourself:",
+    "text": "Once you draw a plot, ask yourself:\n\n\nSubstantive questions:\n\nWhat does this graph tell?\nAre there patterns? Outliers?\nWhat hypotheses can I generate?\nWhat else I want to know?\nShould I dig deeper with dplyr?\nShould I wrangle my data and plot again?\nEtc.\n\n\nStylistic questions:\n\nIs the chosen plot appropriate (matches variable type)?\nIs the plot clear and easy to understand?\nIs it too busy or too simple?\nCould it be improved? (titles, labels, colors, etc.)\nCan I make an additional plot with these variables?\nEtc."
+  },
+  {
+    "objectID": "lectures/04-slides.html#types-of-visualizations-and-best-graph-types",
+    "href": "lectures/04-slides.html#types-of-visualizations-and-best-graph-types",
+    "title": "Computing for the Social Sciences: Lecture 4",
+    "section": "Types of Visualizations and Best Graph Types",
+    "text": "Types of Visualizations and Best Graph Types\n1. Which kind of variation do I want to represent?\n\nUnivariate: within one single variable\nBivariate: among two variables\nMultivariate: among three variables\n\n\n2. What type(s) are my variables?\n\nContinuous (e.g., satavg average SAT score, cost published cost)\nCategorical (e.g., type school type, state U.S. state)\nOther types (often treated as categorical): ordinal, nominal, binary\n\n\nTip: Ask yourself these questions before jumping into the code!"
+  },
+  {
+    "objectID": "lectures/04-slides.html#univariate-one-variable",
+    "href": "lectures/04-slides.html#univariate-one-variable",
+    "title": "Computing for the Social Sciences: Lecture 4",
+    "section": "Univariate (One Variable)",
+    "text": "Univariate (One Variable)\nTo show how values vary within a single variable:\n\nOne continuous variable → Histogram\nOne categorical variable → Bar Chart\n\n\n\n\n\n\n\n\n\n\n\nFunction\nWhat Gets Counted\nWhen to Use\n\n\n\n\ngeom_histogram()\nHow many values fall into each numeric bin\nWhen x is continuous\n\n\ngeom_bar()\nHow many observations are in each category\nWhen x is categorical"
+  },
+  {
+    "objectID": "lectures/04-slides.html#bivariate-two-variables",
+    "href": "lectures/04-slides.html#bivariate-two-variables",
+    "title": "Computing for the Social Sciences: Lecture 4",
+    "section": "Bivariate (Two Variables)",
+    "text": "Bivariate (Two Variables)\nTo show how two variables co-vary:\n\nTwo continuous variables → Scatterplot\nOne categorical + one continuous → Box Plot\nTwo categorical variables → Grouped or Stacked Bar Chart"
+  },
+  {
+    "objectID": "lectures/04-slides.html#multivariate-three-variables",
+    "href": "lectures/04-slides.html#multivariate-three-variables",
+    "title": "Computing for the Social Sciences: Lecture 4",
+    "section": "Multivariate (Three Variables)",
+    "text": "Multivariate (Three Variables)\nTo compare patterns across subgroups:\n\nOne categorical + two continuous → Faceted Scatterplot\nTwo categorical + one continuous → Grouped Box Plot"
+  },
+  {
+    "objectID": "lectures/04-slides.html#main-graph-types-and-when-to-use-them",
+    "href": "lectures/04-slides.html#main-graph-types-and-when-to-use-them",
+    "title": "Computing for the Social Sciences: Lecture 4",
+    "section": "Main Graph Types and When to Use Them",
+    "text": "Main Graph Types and When to Use Them\n\n\n\nType of Graph\nggplot2 Function\nInput Variables\nGoal\n\n\n\n\nHistogram\ngeom_histogram()\nOne continuous (e.g., age, income)\nShow the distribution of values\n\n\nBar Chart\ngeom_bar()\nOne categorical (e.g., region, gender)\nShow frequencies or counts of categories\n\n\nStacked Bar Chart\ngeom_bar() + fill\nTwo categorical variables (e.g., region by gender)\nCompare parts of a whole across categories\n\n\nScatterplot\ngeom_point()\nTwo continuous variables (e.g., height vs. weight, price vs. rating)\nShow relationship or correlation\n\n\nBox Plot\ngeom_boxplot()\nOne continuous + one categorical (e.g., income by gender)\nCompare distributions, spot outliers\n\n\nFaceted Scatterplot\nfacet_wrap() + geom_point()\nTwo continuous + one categorical (e.g., by country or year)\nCompare patterns across groups\n\n\n\nThese are the most common combinations. There are more options as you explore deeper!"
+  },
+  {
+    "objectID": "lectures/04-slides.html#practice-make-graphs",
+    "href": "lectures/04-slides.html#practice-make-graphs",
+    "title": "Computing for the Social Sciences: Lecture 4",
+    "section": "💻 Practice: Make Graphs!",
+    "text": "💻 Practice: Make Graphs!\nOn the next slide, you will see list of graphs to create with the scorecard dataset.\nUse the following method:\n\nBEFORE plotting: Identify the variables you need. Determine whether they are categorical or continuous. Choose the right graph (geometry) accordingly.\nWRITE CODE for plotting: Keep the graph simple. Focus on the basic code; do not add labels, colors, or other customizations yet. Sketch how the graph would look like.\nAFTER plotting: Stare at your graph… What patterns, differences, outliers, or surprises do you notice? What does the graph tell us about the data?"
+  },
+  {
+    "objectID": "lectures/04-slides.html#practice-1",
+    "href": "lectures/04-slides.html#practice-1",
+    "title": "Computing for the Social Sciences: Lecture 4",
+    "section": "💻 Practice",
+    "text": "💻 Practice"
+  },
+  {
+    "objectID": "lectures/04-slides.html#download-today-materials",
+    "href": "lectures/04-slides.html#download-today-materials",
+    "title": "Computing for the Social Sciences: Lecture 4",
+    "section": "💻 Download Today Materials",
+    "text": "💻 Download Today Materials\nDownload today’s class materials from our website for:\n\nfurther insights into these tasks\nadditional practice exercises (optional)"
+  },
+  {
+    "objectID": "lectures/04-slides.html#takeaways-and-tips",
+    "href": "lectures/04-slides.html#takeaways-and-tips",
+    "title": "Computing for the Social Sciences: Lecture 4",
+    "section": "Takeaways and Tips",
+    "text": "Takeaways and Tips\nFollow this approach to move from quick exploration to polished, communicative plots:\n\n\nWhen exploring your data:\n\nStart with simple and plots to get a sense of the distribution and relationships\nFocus on interpretation first, not style\nAsk questions: What stands out? Are there outliers, trends, or surprises? What else do you want to know?\n\n\nOnce you settle on a plot:\n\nRefine the code to improve readability and aesthetics\nAdd styling elements (labels, scales, legends, and themes. etc. as needed)\nUse polished plots for assignments, reports, or presentations\n\n\nTypically, researchers create many exploratory plots and only a few make it to the final report."
+  },
+  {
+    "objectID": "lectures/04-slides.html#recap-what-we-learned-today",
+    "href": "lectures/04-slides.html#recap-what-we-learned-today",
+    "title": "Computing for the Social Sciences: Lecture 4",
+    "section": "Recap: What We Learned Today",
+    "text": "Recap: What We Learned Today\n\nPick graph types that match the types of variables in your data\nPractice using ggplot2\nRead and interpret visualizations"
+  },
+  {
+    "objectID": "lectures/04-slides.html#to-print-these-slides-as-pdf",
+    "href": "lectures/04-slides.html#to-print-these-slides-as-pdf",
+    "title": "Computing for the Social Sciences: Lecture 4",
+    "section": "To print these slides as pdf",
+    "text": "To print these slides as pdf\nClick on the three lines located on the bottom-left corner of these slides &gt; Tools &gt; PDF Export Mode &gt; Print as a Pdf"
+  },
+  {
+    "objectID": "lectures/04-slides.html",
+    "href": "lectures/04-slides.html",
+    "title": "Computing for the Social Sciences: Lecture 4",
+    "section": "",
+    "text": "The “scorecard” Dataset\n\nMatch Graph Types to Variable Types\n\nIn-class Practice\n\n\n\n Slides last updated on October 07, 2026. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos. \n\n\n\n\n\n\n\n\n\nUse graphs to explore variation and co-variation in the data.\n\n\n\n\nMatch the plot to the variable type:\n\ncategorical (e.g. school type)\ncontinuous (e.g., cost of attending a school)\nboth\n\n\n\n\n\nDescribe what you see:\n\ntrends\ndifferences\noutliers"
+  },
+  {
+    "objectID": "lectures/04-slides.html#the-scorecard-dataset-from-question-to-graph",
+    "href": "lectures/04-slides.html#the-scorecard-dataset-from-question-to-graph",
+    "title": "Computing for the Social Sciences: Lecture 4",
+    "section": "The scorecard dataset: from question to graph",
+    "text": "The scorecard dataset: from question to graph\nQuestion: “Which type of college has the highest average SAT score?”\nTo answer it, we use this method:\n\nidentify the variable(s) you need\nfind them in the data\ncheck the variable(s) types (categorical or continuous?)\nuse this info to choose the most appropriate plot\nonly at this step write the code for the plot\ninterpret the graph\n\nLet’s try this out!"
+  },
+  {
+    "objectID": "lectures/04-slides.html#once-you-draw-a-plot-ask-yourself-1",
+    "href": "lectures/04-slides.html#once-you-draw-a-plot-ask-yourself-1",
+    "title": "Computing for the Social Sciences: Lecture 4",
+    "section": "Once you draw a plot, ask yourself:",
+    "text": "Once you draw a plot, ask yourself:\n\n\n\nSubstantive questions:\n\nWhat does this graph tell?\nAre there patterns? Outliers?\nWhat hypotheses can I generate?\nWhat else I want to know?\nShould I dig deeper with dplyr?\nShould I wrangle my data and plot again?\nEtc.\n\n\n\n\nStylistic questions:\n\nIs the chosen plot appropriate (matches variable type)?\nIs the plot clear and easy to understand?\nIs it too busy or too simple?\nCould it be improved? (titles, labels, colors, etc.)\nCan I make an additional plot with these variables?\nEtc."
+  },
+  {
+    "objectID": "lectures/04-slides.html#practice-2",
+    "href": "lectures/04-slides.html#practice-2",
+    "title": "Computing for the Social Sciences: Lecture 4",
+    "section": "💻 Practice",
+    "text": "💻 Practice\n\nWrite the code needed to generate the graphs below using what we have learned so far. The graphs will not look polished yet, and that is okay. The most important goal is to understand the basic structure of the code. Customization can always be added later.\nShare your solutions to each graph here https://codeshare.io/5z6PkW\nGraph 1: Plot the total number of schools by school type (type)\nGraph 2: Plot the annual total cost of school attendance (cost)\nGraph 3: Plot the annual total cost and net cost of attendance to schools in the U.S. (cost, netcost)\nGraph 4: Plot the annual total cost of attendance by school type (cost, type)\nGraph 5: Plot the annual total cost of attendance and net cost of attendance by school type (cost, netcost, type)"
+  },
+  {
+    "objectID": "lectures/04-slides.html#practice-make-graphs-1",
+    "href": "lectures/04-slides.html#practice-make-graphs-1",
+    "title": "Computing for the Social Sciences: Lecture 4",
+    "section": "💻 Practice: Make Graphs!",
+    "text": "💻 Practice: Make Graphs!\nWrite the code to generate the graphs below using ggplot2. No titles or labels needed. Expected length: 1-3 lines of code for each graph. Use the method in the previous slide.\nGraph 1: Plot the total number of schools by school type (you only need one variable: type)\nGraph 2: Plot the annual total cost of school attendance (cost)\nGraph 3: Plot the annual total cost and net cost of attendance to schools in the U.S. (cost, netcost)\nGraph 4: Plot the annual total cost of attendance by school type (cost, type)\nGraph 5: Plot the annual total cost of attendance and net cost of attendance by school type (cost, netcost, type)"
+  },
+  {
+    "objectID": "lectures/04-slides.html#asking-more-questions-with-dplyr-preview-of-next-week",
+    "href": "lectures/04-slides.html#asking-more-questions-with-dplyr-preview-of-next-week",
+    "title": "Computing for the Social Sciences: Lecture 4",
+    "section": "Asking More Questions with dplyr: preview of next week!",
+    "text": "Asking More Questions with dplyr: preview of next week!\nHow many schools are in each type?\nscorecard |&gt; count(type) \nWhat about the University of Chicago?\nscorecard |&gt; filter(name == \"University of Chicago\")\nEtc."
   }
 ]

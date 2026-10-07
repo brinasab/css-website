@@ -16,7 +16,6 @@ format:
     center: true
 ---
 
-
 # Agenda {.center}
 
 ::: {.agenda-list}
@@ -29,21 +28,49 @@ format:
 *Slides last updated on `r format(Sys.Date(), '%B %d, %Y')`. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.*
 </span>
 
+<!--
 ---
 
 ### Slides are in progress and will be updated before class. Check back soon!
 
 ::: {.content-hidden}
-
----
+-->
 
 ## Our Goal Today: Using Graphs for Exploratory Data Analysis
 
-- **Display variation and co-variation:** Learn how to visualize the distribution of a single variable (`cost` to attend a school) and of two or more variables (`cost` and `admrate`).
+::: {.columns}
 
-- **Match graph type to variable type:** Choose appropriate graph types depending on whether variables are categorical (school `type`), continuous (`cost`), or both.
+::: {.column width="33%"}
+### 1. Identify patterns
 
-- **Interpret the graph:** Practice describing what a graph reveals, such as trends, group differences, and outliers.
+Use graphs to explore *variation* and *co-variation* in the data.
+:::
+
+<!-- Learn how to visualize the distribution of a single variable (`cost` to attend a school) and of two or more variables (`cost` and `admrate`).
+-->
+
+::: {.column width="33%"}
+### 2. Choose the best graph
+
+Match the plot to the variable type:
+
+- categorical (e.g. school type)
+- continuous (e.g., cost)
+- both
+:::
+
+::: {.column width="33%"}
+### 3. Explain it
+
+Describe what you see:
+
+- trends
+- differences
+- outliers
+:::
+
+:::
+
 
 
 # 1. The scorecard Dataset {.slide .center .middle}
@@ -65,7 +92,7 @@ This dataset includes variables such as:
 - `satavg`: average SAT score of admitted students  
 - `...`: many additional variables
 
-We’ll focus on a subset of this data from the 2018–2019 academic year.
+**We focus on a subset of this data**
 
 ---
 
@@ -87,24 +114,41 @@ glimpse(scorecard)
 
 ---
 
-## The scorecard dataset: making a plot
+## The scorecard dataset: from question to graph
 
-Given this question **"Which type of college has the highest average SAT score?"**, and the task of answering it by creating a `ggplot2` graph. 
+**Question: "Which type of college has the highest average SAT score?"**
 
-How would you approach this task?
+To answer it, we use this method:
 
-- identify the variable(s) you need
-- find them in the data
-- identify the variable(s) types (mainly: categorical or continuous)
-- use this info to select the most appropriate plot 
-- think about the code
-- generate the graph and interpret it
+1. identify the variable(s) you need
+1. find them in the data
+1. check the variable(s) types (categorical or continuous?)
+1. use this info to choose the most appropriate plot 
+1. *only at this step* write the code for the plot 
+1. interpret the graph
+
+Let's try this out! 
+
+<!--
+- identify the variable(s) you need: college type and SAT scores
+
+- find them in the data: type glimpse(scorecard) to find out we need type and satavg 
+
+- check the variable(s) types: type is fct (categorical) and satavg is dbl (continuous, wit decimals)
+
+- use this info to choose the most appropriate plot: boxplot or faceted histogram 
+
+- *only at this step* write the code 
+
+- interpret the graph
+
+-->
 
 ---
 
 ## Which type of college has the highest average SAT score?
 
-#### Answer using a boxplot
+#### Option 1 boxplot
 
 ```r
 ggplot(data = scorecard, mapping = aes(x = type, y = satavg)) +
@@ -123,7 +167,7 @@ ggplot(data = scorecard, mapping = aes(x = type, y = satavg)) +
 
 ## Which type of college has the highest average SAT score?
 
-#### Answer using a faceded histogram
+#### Option 2 faceded histogram
 
 ```r
 ggplot(data = scorecard, mapping = aes(x = satavg)) +
@@ -143,9 +187,15 @@ ggplot(data = scorecard, mapping = aes(x = satavg)) +
 
 ## Which type of college has the highest average SAT score?
 
-Let's interpret these graphs:
+Now it's time to interpret these graphs:
 
-#### What do these graphs reveal about average SAT scores by type of college? Do they reveal the same info? 
+::: {.callout-note title="Interpreting plots is as important as writing code"}
+
+What do these two graphs we gerated reveal about average SAT scores by type of college? 
+
+Do they tell the same story? Kind of... 
+
+:::
 
 ---
 
@@ -153,41 +203,61 @@ Let's interpret these graphs:
 
 ::: {.callout-note title="Interpreting plots is as important as writing code"}
 
-**General interpretation:**
+**Main interpretation:**
 
-Private nonprofit schools have the highest average SAT scores, closely followed by public schools, and then private for-profit schools.
+Both plots show that private nonprofit schools tend to have the highest SAT scores, followed by public schools. Private for-profit schools tend to have lower SAT scores.
 
 **More refined interpretation:**
 
-The histogram shows that each school type has a different number of colleges: private for-profit schools are much fewer than the others. This difference in sample size isn’t visible in the boxplot, but it matters: averages from small groups may not reflect the broader category. Seeing the full distribution gives a more complete picture.
+The *boxplot* makes it easy to compare typical SAT scores and score spread across school types.
+
+The *faceted histogram* shows the full distribution and reveals differences in group size that the boxplot hides.
+
+**Why both?** The boxplot is best for quick comparisons, while the histogram gives more detail about distribution and sample size.
 
 :::
 
+<!--
+REFINE AND SHORTEN
+
+The *boxplot* makes it easier to compare the typical SAT score and the spread of SAT scores across school types.
+
+The *faceted histogram* shows the full distribution within each school type. It also makes it easier to see that some groups have many more schools than others. This difference in sample size isn’t visible in the boxplot but is important.
+
+
+**Why use both?**
+
+The two graphs tell a similar story, but they highlight different things. The boxplot is better for comparing groups quickly. The histogram gives a fuller picture of the distribution and reminds us that group size matters.
+
+
+The histogram shows that each school type has a different number of colleges: private for-profit schools are much fewer than the others. This difference in sample size isn’t visible in the boxplot, but it matters: averages from small groups may not reflect the broader category. Seeing the full distribution gives a more complete picture.
+-->
+
 ---
 
-## Asking More Questions with dplyr (sneak peek for next week!)
-
+## Asking More Questions with dplyr: preview of next week!
 
 How many schools are in **each type?** 
 ```r
-scorecard %>% count(type) 
-```
-
-Which schools are categorized as **private for-profit?**
-```r
-scorecard %>%
-  filter(type == "Private, for-profit") %>%
-  select(name, state, type, satavg, cost)
+scorecard |> count(type) 
 ```
 
 What about the **University of Chicago?**
 ```r
-scorecard %>% filter(name == "University of Chicago")
+scorecard |> filter(name == "University of Chicago")
 ```
 
 Etc. 
 
 <!--
+
+Which schools are categorized as **private for-profit?**
+```r
+scorecard |>
+  filter(type == "Private, for-profit") |>
+  select(name, state, type, satavg, cost)
+```
+
 The code below creates a summary dataset with `type` of university as rows and the `satavg` mean as a column:
 
 ```{r}
@@ -235,9 +305,9 @@ scorecard %>%
 
 ### 1. Which kind of variation do I want to represent?
 
-- **Within single variable**
-- **Among Two variables**
-- **Among Three variables**
+- **Univariate:** within one single variable
+- **Bivariate:** among two variables
+- **Multivariate:** among three variables
 
 <br>
 
@@ -249,7 +319,7 @@ scorecard %>%
 
 </br>
 
-*Tip: Ask yourself these two questions before jumping into the code!*
+*Tip: Ask yourself these questions before jumping into the code!*
 
 ---
 
@@ -272,6 +342,7 @@ scorecard %>%
 :::
 
 </br>
+
 
 ---
 
@@ -309,39 +380,40 @@ scorecard %>%
 *These are the most common combinations. There are more options as you explore deeper!*
 
 
+
 # 3. Practice {.slide .center .middle}
 
 ---
 
 ## 💻 Practice: Make Graphs!
 
-On the next slide, there are a list of graphs to create. 
+On the next slide, you will see list of graphs to create with the scorecard dataset.
 
-In small groups, use the scorecard dataset to create the most appropriate graph for each one.
+**Use the following method:**
 
-- **Before plotting:** Think about the variable types and the kind of variation you want to represent. (Use the reference slides as a guide.)
+- **BEFORE plotting:** Identify the variables you need. Determine whether they are categorical or continuous. Choose the right graph (geometry) accordingly.
 
-- **While plotting:** Keep it simple, as you would for an initial Exploratory Data Analysis (no need to add labels, legends, color, etc.). Look up the documentation for each graph: you do not need to remember all the code!
+- **WRITE CODE for plotting:** Keep the graph simple. Focus on the basic code; do not add labels, colors, or other customizations yet. Sketch how the graph would look like.
 
-- **After plotting:** Stare at your graph... look for patterns, outliers, or any notable features, and interpret what graph tells about the data.
+- **AFTER plotting:** Stare at your graph... What patterns, differences, outliers, or surprises do you notice? What does the graph tell us about the data?
 
 ---
 
-## 💻 Practice
+## 💻 Practice: Make Graphs!
+
+Write the code to generate the graphs below using ggplot2. No titles or labels needed. Expected length: 1-3 lines of code for each graph. Use the method in the previous slide.
+
+**Graph 1:** Plot the total number of schools by school type (you only need one variable: `type`)
+
+**Graph 2:** Plot the annual total cost of school attendance (`cost`)
+
+**Graph 3:** Plot the annual total cost and net cost of attendance to schools in the U.S. (`cost`, `netcost`)
+
+**Graph 4:** Plot the annual total cost of attendance by school type (`cost`, `type`)
+
+**Graph 5:** Plot the annual total cost of attendance and net cost of attendance by school type (`cost`, `netcost`, `type`)
 
 <!-- For regular CSS class, add some dpyr commands in task and also bring back TASK 4  Display the total number of schools in the U.S. by school type (n = 3) and by state (n = 54). *Note: the initial graph you generate here may lack visual appeal. Focus on identifying potential improvements rather than implementing them for now.* -->
-
-Share your solutions here <https://codeshare.io/5z6PkW>
-
-Graph 1: Plot the annual total cost of school attendance across the U.S. (`cost`)
-
-Graph 2: Plot the total number of schools in the U.S. by school type (`type`)
-
-Graph 3: Plot the annual total cost and net cost of attendance to schools in the U.S. (`cost`, `netcost`)
-
-Graph 4: Plot the annual total cost of attendance by school type (`cost`, `type`)
-
-Graph 5: Plot the annual total cost of attendance and net cost of attendance by school type (`cost`, `netcost`, `type`)
 
 ---
 
@@ -353,6 +425,7 @@ Download today’s class materials from our website for:
 - additional practice exercises (optional)
 
 ---
+
 
 ## Takeaways and Tips
 
@@ -384,12 +457,11 @@ Follow this approach to move from quick exploration to polished, communicative p
 ## Recap: What We Learned Today
 
 - Pick graph types that match the types of variables in your data
+- Practice using `ggplot2`
 - Read and interpret visualizations
-- Pracice using `ggplot` and `dplyr`
 
 ---
 
 ## To print these slides as pdf
 
-Click on the icon bottom-right corner \> Tools \> PDF Export Mode \> Print as a Pdf
-
+Click on the three lines located on the bottom-left corner of these slides \> Tools \> PDF Export Mode \> Print as a Pdf
