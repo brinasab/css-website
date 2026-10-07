@@ -508,14 +508,14 @@
     "href": "lectures/04-home.html",
     "title": "Lecture 4: Graphs for Data Analysis with ggplot2",
     "section": "",
-    "text": "Date: October 7, 2026\nTopics: Graphs for Data Analysis\nSlides: View Slides\nCode: To be posted before class"
+    "text": "Date: October 7, 2026\nTopics: Graphs for Data Analysis\nSlides: View Slides\nCode: usethis::use_course(\"css-materials/eda\")"
   },
   {
     "objectID": "lectures/04-home.html#info-and-materials",
     "href": "lectures/04-home.html#info-and-materials",
     "title": "Lecture 4: Graphs for Data Analysis with ggplot2",
     "section": "",
-    "text": "Date: October 7, 2026\nTopics: Graphs for Data Analysis\nSlides: View Slides\nCode: To be posted before class"
+    "text": "Date: October 7, 2026\nTopics: Graphs for Data Analysis\nSlides: View Slides\nCode: usethis::use_course(\"css-materials/eda\")"
   },
   {
     "objectID": "lectures/04-home.html#learning-objectives",
