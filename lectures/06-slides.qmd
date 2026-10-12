@@ -50,6 +50,10 @@ PART COMMENTED OUT IF FROM FALL 25, WHICH WAS:
 :::
 
 TO DO: UPDATE THESE SLIDES USING LECTURE 7 SUM 26
+
+NEW FALL 26: 
+TEACH SELECT, ARRANGE
+TEACH PULL
 -->
 
 
@@ -90,6 +94,16 @@ TO DO: UPDATE THESE SLIDES USING LECTURE 7 SUM 26
 
 <div style="font-size:0.8em; color:#666; text-align:center; margin-top:0.5em;">Data flows top → bottom just like in a pipeline: penguins |> select() |> filter() |> group_by() |> summarize()</div>
 
+<!-- DECIDE WHAT TO DO WITH THIS CONTENT FALL 26
+<br>
+
+::: {.callout-tip title="Tip for Remembering These Functions"}
+Each **row is an observation** (e.g., one penguin) and each **column is a variable** (e.g., species, body mass). Some functions works on rows like `filter()` others on columns like `select()`.
+:::
+
+</br>
+-->
+
 ---
 
 ## Penguins data
@@ -108,6 +122,29 @@ glimpse(penguins)
 str(penguins)
 summary(penguins)
 ```
+
+---
+
+
+## select()
+
+**Keeps only the columns (e.g., variables) we want**
+
+For example, this code keeps only `species`, `island`, and `body_mass_g`:
+
+```r
+penguin_subset <- select(penguins, species, island, body_mass_g)
+```
+
+::: {.cell .fragment}
+::: {.callout-note title="`select()`"}
+
+- works on columns
+- keeps variables
+- useful when a dataset has more columns than we need, else you can skip it
+:::
+:::
+
 
 ---
 
@@ -200,6 +237,7 @@ Note: it does not reduce the dimensions of the original data https://dplyr.tidyv
 
 ---
 
+<!-- FALL 26 ALREADY INCLUDED IN PREVIOUS LECTURE
 ## summarize() summary of data
 
 ```r
@@ -216,6 +254,7 @@ penguins |
 ```
 
 Note: collapses the original data to a smaller number of rows, you can use summarize to create all sort of summary statistics https://dplyr.tidyverse.org/reference/summarise.html
+-->
 
 ---
 
