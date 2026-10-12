@@ -2,7 +2,7 @@
 title: "Lecture 5: Intro to dplyr; Pipes"
 date: 2026-10-12
 summary: "Wrangling Data with dplyr; Using R Pipes"
-url_slides: 05-slides.qmddata:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAbElEQVR4Xs2RQQrAMAgEfZgf7W9LAguybljJpR3wEse5JOL3ZObDb4x1loDhHbBOFU6i2Ddnw2KNiXcdAXygJlwE8OFVBHDgKrLgSInN4WMe9iXiqIVsTMjH7z/GhNTEibOxQswcYIWYOR/zAjBJfiXh3jZ6AAAAAElFTkSuQmCC
+url_slides: 05-slides.qmd
 url_code: css-materials/dplyr-pipes
 page-layout: full
 draft: false
@@ -27,10 +27,10 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Learning Objectives
 
-- Approach coding tasks as problem-solving by thinking through the steps before writing code
-- Understand R logical operators
-- Use the following dplyr functions: `select()`, `filter()`, `group_by()`, and `summarize()`
-- Chain commands using the pipe `|>` and recognize mistakes to avoid
+- Apply the following dplyr functions: `filter()`, `group_by()`, `summarize()`. `count()`, `mutate()`
+- Understand R logical operators to filter data
+- Break down coding problems into steps before writing code
+- Chain commands using the pipe (written as `|>` or `%>%`) and recognize mistakes to avoid
 
 
 ## Readings
