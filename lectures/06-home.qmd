@@ -27,7 +27,8 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Learning Objectives
 
-- Review and expand your ability to manipulate data with `dplyr` by learning new “verbs”
+- Chain commands using the pipe (written as `|>` or `%>%`) and recognize mistakes to avoid (topic from Lecture 5)
+- Review `dplyr` "verbs" we learned in Lecture 5 and learn new “verbs”
 - Rename and recode variables using `rename()`, `recode()`, and `case_when()`
 - Identify syntactic vs. non-syntactic variable names and handle them correctly
 
@@ -39,7 +40,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Readings
 
-- ["Chapter 3 Data Transformation"](https://r4ds.hadley.nz/data-transform) from "R for Data Science" 2nd Edition *(This is the same Chapter from the previews lecture)*
+- ["Chapter 3 Data Transformation"](https://r4ds.hadley.nz/data-transform) from "R for Data Science" 2nd Edition *(This is the same Chapter from the previous lecture)*
 
 
 
@@ -59,3 +60,4 @@ url_code: css-materials/factors-more-dplyr
 
 - ["Chapter 16 Factors"](https://r4ds.hadley.nz/factors) from "R for Data Science" 2nd Edition
 - ["Chapter 3 Data Transformation"](https://r4ds.hadley.nz/data-transform) from "R for Data Science" 2nd Edition *(This is the same Chapter from Lecture 4)*
+-->
