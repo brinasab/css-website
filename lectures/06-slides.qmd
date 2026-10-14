@@ -30,12 +30,12 @@ format:
    - `across()`
 3. Data Cleaning
    - rename and recode variables
-   - syntactic vs. non-syntactic Variable Names 
+   - syntactic vs. non-syntactic variable names 
 :::
 
 
 <span style="font-size: 0.8em; color: #666;">
-*Slides last updated on **`r format(Sys.Date(), '%B %d, %Y')`**. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.*
+*Slides last updated on **`r format(Sys.Date(), '%B %d, %Y')` AFTER CLASS**. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.*
 </span>
 
 <!-- 
@@ -123,7 +123,8 @@ filter(penguins, species %in% c("Adelie", "Gentoo"), island != "Dream")
 
 ## Combining Verbs with the Pipe
 
-Often we want to **chain verbs together** with the pipe `|>`. The combination we learned last lecture comes up frequently:
+Often we want to **chain verbs together** with the pipe `|>`. This combination comes up frequently:
+
 
 ### Key combo: filter() + group_by() + summarize() 
 ```r
@@ -133,7 +134,7 @@ penguins |>
   summarize(body_mass_mean = mean(body_mass_g, na.rm = TRUE))
 ```
 
-### You can also narrow down columns first with `select()`, then repeat the same combo
+You can also narrow down columns first with select(), then repeat the same combo
 ```r
 penguins |> 
   select(species, island, body_mass_g) |> 
@@ -142,7 +143,6 @@ penguins |>
   summarize(body_mass_mean = mean(body_mass_g, na.rm = TRUE))
 ```
 
----
 
 # 2. Introduce new dplyr functions (aka "verbs") {.slide .center .middle}
 
@@ -186,7 +186,7 @@ penguin_subset <- select(penguins, species, island, body_mass_g)
 
 - works on columns
 - keeps variables
-- useful when a dataset has more columns than we need, else you can skip it
+- **useful when a dataset has more columns than we need, else you can skip it**
 :::
 :::
 
@@ -236,7 +236,7 @@ penguins_moved <- relocate(penguins, body_mass_g, .after = species)
 - works on columns
 - changes the order of variables, but does not add or remove any
 - moves columns to the front by default; use `.before` or `.after` to choose a spot
-- useful when the variables we care about most are buried at the end of a wide dataset
+- **useful when the variables we care about most are buried at the end of a wide dataset**
 :::
 :::
 
@@ -270,7 +270,7 @@ penguins_sorted_desc <- arrange(penguins, desc(body_mass_g))
 - works on rows
 - changes the order of observations, but does not add or remove any
 - sorts in ascending order by default; use `desc()` for descending
-- useful for finding the largest or smallest values, or making a table easier to read
+- **useful for finding the largest or smallest values, or making a table easier to read**
 :::
 :::
 
@@ -313,9 +313,7 @@ species_islands_full <- distinct(penguins, species, island, .keep_all = TRUE)
 
 - works on rows
 - removes duplicates, keeping the first occurrence of each unique row
-- with no columns named, it checks for rows that are identical across every variable
-- when columns are named, it returns only those columns unless we use `.keep_all = TRUE`
-- useful for spotting duplicate entries or listing the unique values or combinations in our data
+- **useful for spotting duplicate entries or listing the unique values or combinations in our data**
 :::
 :::
 
@@ -357,13 +355,15 @@ class(body_masses)
 - works on columns
 - returns a vector, not a data frame
 - similar to `penguins$body_mass_g`, but works smoothly inside a pipe
-- useful when we need to pass a column to a function that expects a vector, like `mean()` or `hist()`
+- **useful when you need the data to be a vector**
 :::
 :::
 
 ---
 
-## Exampels of pull()
+## Examples of pull()
+
+We want to keep only the penguins that are heavier than the average penguin.
 
 This won't work
 ```r
@@ -377,18 +377,46 @@ penguins |> filter(body_mass_g > avg_mass)
 With pull it will work
 ```r
 avg_mass <- penguins |>
-  summarise(avg = mean(body_mass_g, na.rm = TRUE)) |>
-  pull(avg)
+  summarise(avg = mean(body_mass_g, na.rm = TRUE)) |> pull(avg)
 
 penguins |> filter(body_mass_g > avg_mass)
 
 ```
 <!--
-In both cases, mean() receives the body_mass_g column as a numeric vector (that is a column of a df) and returns a single number. 
+You could do it in one step 
+penguins |> filter(body_mass_g > mean(body_mass_g, na.rm = TRUE))
+and this will work because mean returns a plain number but let's show pull
+-->
 
-The difference is what happens to that number afterward with summarise() which takes that number and wraps it in a tibble, so the comparison becomes body_mass_g > <a 1 × 1 tibble>.
+---
 
-So the data structure that matters is what the comparison operator > needs on each side: a vector or a single number. but not a tibble!
+## Why does pull() make the difference in the previous example?
+
+*Slide added after class discussion: use `class()` to see what `avg_mass` is in each case!*
+
+Without pull
+```r
+avg_mass <- penguins |>
+  summarise(avg = mean(body_mass_g, na.rm = TRUE))
+penguins |> filter(body_mass_g > avg_mass)
+class(avg_mass)  # returns "tbl" for tibble or dataframe
+```
+
+With pull
+```r
+avg_mass <- penguins |>
+  summarise(avg = mean(body_mass_g, na.rm = TRUE)) |> pull(avg)
+penguins |> filter(body_mass_g > avg_mass)
+class(avg_mass) # returns "numeric" for numeric vector
+```
+
+The verb `summarize()` always returns a *tibble* (a data frame), even when it holds a single value. So without `pull()`, the comparison becomes `filter(body_mass_g > <1 x 1 tibble>)`, which does not work in R because comparison operators like `>` inside `filter()` need *vectors* (and in R, a single number is still a vector)
+
+<!--
+Why?
+
+- Comparison operators like `>` inside `filter()` need vectors. In R, a single number is still a vector. The comparison `body_mass_g > avg_mass` returns a *logical vector* (`TRUE`/`FALSE` for each row), which `filter()` uses to keep rows that are `TRUE`
+- `pull()` takes the column out of the tibble and gives you a plain **vector**, so the comparison works
 -->
 
 
@@ -405,7 +433,7 @@ Unlike the other verbs, `across()` isn't used on its own. It goes *inside* anoth
 - is a helper, not a stand-alone verb; it lives inside `summarise()` or `mutate()`
 - takes two main parts: which columns to use, and what function to apply to them
 - columns can be chosen by name, with helpers like `starts_with()`, or by type with `where()`
-- useful when we'd otherwise repeat the same code over and over for many columns
+- **useful when we'd otherwise repeat the same code over and over for many columns**
 :::
 :::
 
@@ -462,13 +490,13 @@ penguins |>
   summarise(across(everything(), 
                    n_distinct))
 ```
-
-
 ---
 
 ## 💻 Practice: Build Your Own Verbs Typology
 
 We have now learned the most important `dplyr` verbs. For example, verbs can be grouped by whether they work on: rows, columns, groups/summaries.
+
+[Download the in-class dplyr verb sheet](https://drive.google.com/file/d/11F5qoyVhHq6y6jeNx5lKHM3HYsgLQ_vR/view?usp=sharing) which proposes two ways of organizing these verbs.
 
 **Tip:** Make your own one-page cheat sheet. Group the verbs in a way that helps *you* remember them, and add one short example for each.
 
@@ -574,13 +602,13 @@ p %>% select(study_name)
 ## 💻 Practice Renaming Variables
 
 - Use `select()` to check the variable `Comments` in `penguins_raw` 
-- Use `rename()` to rename `Comments` to `notes`
+- Use `rename()` to **rename** the variable `Comments` to `notes`
 - Save the result to a new object
 - Use `select()` to check again
 
+<!--
 Once done, copy your code [here](https://codeshare.io/29X3QM){target="_blank"} to share it.
 
-<!--
 select(penguins_raw, Comments)
 penguins_raw |> rename(notes = Comments)
 -->
@@ -589,7 +617,9 @@ penguins_raw |> rename(notes = Comments)
 
 ## Recoding Variables Method 1: with mutate + recode
 
-To change variable values (usually levels of categorical variables), we learn two approaches. We take the variable `Sex` and turn MALE into 1, FEMALE into 0.
+To **recode** variables (e.g. change variable values), we learn two approaches.
+
+Let's illustrate both methods by using the variable `Sex` and change its values: MALE into 1, FEMALE into 0.
 
 Method 1:
 
@@ -626,25 +656,25 @@ penguins_raw %>%
 # like for method 1 (previous code) save results to keep changes and compare
 ```
 
-:::{.callout-note}
-With `case_when()` each `logical condition ~ value` pair acts like *if → then*:
+:::{.callout-note title = "With `case_when()` each `logical condition ~ value` pair acts like *if → then*"}
 
 - for each row, R looks if the condition is TRUE: "*If* you find the value MALE in Sex, *then* convert it to 1"
 - `TRUE ~ NA_real_` tells R: “*If* no previous condition was met, *then* return NA as as a number"
+
+Note the code in this slide overwrites the original `Sex` column (e.g., variable). To keep it, give the new column a different name, like `sex` (lowercase). You can do this both Method 1 and Method 2.
 :::
 
----
 
 ## 💻 Practice Recoding Variables
 
 - Use `count()` to check the variable `Species` in `penguins_raw` 
-- Pick method 1 or method 2 to recode the values of that variable into Adelie, Chinstrap, Gentoo 
+- Pick method 1 or method 2 to **recode** the values of that variable into Adelie, Chinstrap, Gentoo 
 - Save the result to a new object
 - Use `count()` to verify both results
 
-Once done, copy your code [here](https://codeshare.io/29X3QM){target="_blank"} to share it.
-
 <!--
+
+Once done, copy your code [here](https://codeshare.io/29X3QM){target="_blank"} to share it.
 
 # Method 1: RECODE
 
@@ -714,12 +744,10 @@ DOUBLE CHECK TIPS WITH REAL R CODE
 
 ## 💻 Practice: Challenge
 
-Downlod the class materials for today. 
+Download the class materials for today. 
 
 Open **practice-dplyr-2** which includes a real-data cleaning challenge that requires you to use `mutate()` and `case_when()` to recode messy values, combine dplyr verbs, and then build a `ggplot2` chart.
 
-
-# 3. Data Cleaning {.slide .center .middle}
 
 # Data Cleaning: Syntactic vs. Non-syntactic Variable Names {.slide .center .middle}
 
@@ -809,21 +837,23 @@ For best coding style, use snake_case for all your variables names and keep them
 
 ## Working with Non-syntactic Names in Practice
 
-Imagine you are working on political ideology by country, assembled by someone else. The data are in Excel and when you imported them in R they look like this:
+Imagine you are working on political ideology by country data, assembled by someone else. The data are in Excel and when you imported them in R they look like this:
 
 ```r
 df <- tibble(country = c("Italy", "Germany", "France", "Italy", "United States"),
-                  `4 ideology` = c("communism", "fascism", "anarchism", "fascism", "capitalism"))
+            `4 ideology` = c("communism", "fascism", "anarchism", "fascism", "capitalism"))
 ```
-
-<br>
 
 To use the non-syntactic variable name without changing it and without errors, you must use backticks:
 
 ```r
 select(df, `4 ideology`)
 ```
-</br>
+
+Then rename that variable to a syntactic name:
+```r
+df <- rename(df, ideology = `4 ideology`)
+```
 
 ---
 
@@ -831,15 +861,15 @@ select(df, `4 ideology`)
 
 Try this in R:
 
-- Use `glimpse(penguins_raw)` or `str(penguins_raw)` and identify non-syntactic variables names in this raw dataset
+- Use `glimpse(penguins_raw)` or `str(penguins_raw)` and identify non-syntactic variables names
 - Pick one of them, and try accessing it with `select()` without backticks: what happens?
 - Use `rename()` to give the variable a syntactic valid name
 - Save the result to a new object
 - Verify the name was changed and you can now access it
 
+<!--
 Once done, copy your code [here](https://codeshare.io/29X3QM){target="_blank"} to share it.
 
-<!--
 
 glimpse(penguins_raw)
 select(penguins_raw, `Flipper Length (mm)`)

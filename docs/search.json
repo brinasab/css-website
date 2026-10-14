@@ -2356,7 +2356,7 @@
     "href": "lectures/06-slides.html#combining-verbs-with-the-pipe",
     "title": "Computing for the Social Sciences: Lecture 6",
     "section": "Combining Verbs with the Pipe",
-    "text": "Combining Verbs with the Pipe\nOften we want to chain verbs together with the pipe |&gt;. The combination we learned last lecture comes up frequently:\nKey combo: filter() + group_by() + summarize()\npenguins |&gt; \n  filter(species != \"Gentoo\") |&gt; \n  group_by(island) |&gt; \n  summarize(body_mass_mean = mean(body_mass_g, na.rm = TRUE))\nYou can also narrow down columns first with select(), then repeat the same combo\npenguins |&gt; \n  select(species, island, body_mass_g) |&gt; \n  filter(species != \"Gentoo\") |&gt; \n  group_by(island) |&gt; \n  summarize(body_mass_mean = mean(body_mass_g, na.rm = TRUE))"
+    "text": "Combining Verbs with the Pipe\nOften we want to chain verbs together with the pipe |&gt;. This combination comes up frequently:\nKey combo: filter() + group_by() + summarize()\npenguins |&gt; \n  filter(species != \"Gentoo\") |&gt; \n  group_by(island) |&gt; \n  summarize(body_mass_mean = mean(body_mass_g, na.rm = TRUE))\nYou can also narrow down columns first with select(), then repeat the same combo\npenguins |&gt; \n  select(species, island, body_mass_g) |&gt; \n  filter(species != \"Gentoo\") |&gt; \n  group_by(island) |&gt; \n  summarize(body_mass_mean = mean(body_mass_g, na.rm = TRUE))"
   },
   {
     "objectID": "lectures/06-slides.html#examples-of-select",
@@ -2377,7 +2377,7 @@
     "href": "lectures/06-slides.html#practice-build-your-own-verbs-typology",
     "title": "Computing for the Social Sciences: Lecture 6",
     "section": "💻 Practice: Build Your Own Verbs Typology",
-    "text": "💻 Practice: Build Your Own Verbs Typology\nWe have now learned the most important dplyr verbs. For example, verbs can be grouped by whether they work on: rows, columns, groups/summaries.\nTip: Make your own one-page cheat sheet. Group the verbs in a way that helps you remember them, and add one short example for each."
+    "text": "💻 Practice: Build Your Own Verbs Typology\nWe have now learned the most important dplyr verbs. For example, verbs can be grouped by whether they work on: rows, columns, groups/summaries.\nDownload the in-class dplyr verb sheet which proposes two ways of organizing these verbs.\nTip: Make your own one-page cheat sheet. Group the verbs in a way that helps you remember them, and add one short example for each."
   },
   {
     "objectID": "lectures/06-slides.html#a-few-more-dplyr-functions",
@@ -2419,28 +2419,28 @@
     "href": "lectures/06-slides.html#practice-renaming-variables",
     "title": "Computing for the Social Sciences: Lecture 6",
     "section": "💻 Practice Renaming Variables",
-    "text": "💻 Practice Renaming Variables\n\nUse select() to check the variable Comments in penguins_raw\nUse rename() to rename Comments to notes\nSave the result to a new object\nUse select() to check again\n\nOnce done, copy your code here to share it."
+    "text": "💻 Practice Renaming Variables\n\nUse select() to check the variable Comments in penguins_raw\nUse rename() to rename the variable Comments to notes\nSave the result to a new object\nUse select() to check again"
   },
   {
     "objectID": "lectures/06-slides.html#recoding-variables-method-1-with-mutate-recode",
     "href": "lectures/06-slides.html#recoding-variables-method-1-with-mutate-recode",
     "title": "Computing for the Social Sciences: Lecture 6",
     "section": "Recoding Variables Method 1: with mutate + recode",
-    "text": "Recoding Variables Method 1: with mutate + recode\nTo change variable values (usually levels of categorical variables), we learn two approaches. We take the variable Sex and turn MALE into 1, FEMALE into 0.\nMethod 1:\n# check before recoding\npenguins_raw %&gt;% count(Sex)\n\n# mutate + recode\np &lt;- penguins_raw %&gt;%\n  mutate(sex = recode(Sex, \"MALE\" = 1, \"FEMALE\" = 0))\n\n# compare\npenguins_raw %&gt;% count(Sex)\np %&gt;% count(sex)"
+    "text": "Recoding Variables Method 1: with mutate + recode\nTo recode variables (e.g. change variable values), we learn two approaches.\nLet’s illustrate both methods by using the variable Sex and change its values: MALE into 1, FEMALE into 0.\nMethod 1:\n# check before recoding\npenguins_raw %&gt;% count(Sex)\n\n# mutate + recode\np &lt;- penguins_raw %&gt;%\n  mutate(sex = recode(Sex, \"MALE\" = 1, \"FEMALE\" = 0))\n\n# compare\npenguins_raw %&gt;% count(Sex)\np %&gt;% count(sex)"
   },
   {
     "objectID": "lectures/06-slides.html#recoding-variables-method-2-with-mutate-case_when",
     "href": "lectures/06-slides.html#recoding-variables-method-2-with-mutate-case_when",
     "title": "Computing for the Social Sciences: Lecture 6",
     "section": "Recoding Variables Method 2: with mutate + case_when",
-    "text": "Recoding Variables Method 2: with mutate + case_when\nMethod 2:\n# mutate + case_when\npenguins_raw %&gt;%\n  mutate(Sex = case_when(Sex == \"MALE\" ~ 1,\n                         Sex == \"FEMALE\" ~ 0,\n                         TRUE ~ NA_real_))\n  \n# like for method 1 (previous code) save results to keep changes and compare\n\n\n\n\n\n\nNote\n\n\nWith case_when() each logical condition ~ value pair acts like if → then:\n\nfor each row, R looks if the condition is TRUE: “If you find the value MALE in Sex, then convert it to 1”\nTRUE ~ NA_real_ tells R: “If no previous condition was met, then return NA as as a number”"
+    "text": "Recoding Variables Method 2: with mutate + case_when\nMethod 2:\n# mutate + case_when\npenguins_raw %&gt;%\n  mutate(Sex = case_when(Sex == \"MALE\" ~ 1,\n                         Sex == \"FEMALE\" ~ 0,\n                         TRUE ~ NA_real_))\n  \n# like for method 1 (previous code) save results to keep changes and compare\n\n\n\n\n\n\n\nWith case_when() each logical condition ~ value pair acts like if → then\n\n\n\nfor each row, R looks if the condition is TRUE: “If you find the value MALE in Sex, then convert it to 1”\nTRUE ~ NA_real_ tells R: “If no previous condition was met, then return NA as as a number”\n\nNote the code in this slide overwrites the original Sex column (e.g., variable). To keep it, give the new column a different name, like sex (lowercase). You can do this both Method 1 and Method 2."
   },
   {
     "objectID": "lectures/06-slides.html#practice-recoding-variables",
     "href": "lectures/06-slides.html#practice-recoding-variables",
     "title": "Computing for the Social Sciences: Lecture 6",
     "section": "💻 Practice Recoding Variables",
-    "text": "💻 Practice Recoding Variables\n\nUse count() to check the variable Species in penguins_raw\nPick method 1 or method 2 to recode the values of that variable into Adelie, Chinstrap, Gentoo\nSave the result to a new object\nUse count() to verify both results\n\nOnce done, copy your code here to share it."
+    "text": "💻 Practice Recoding Variables\n\nUse count() to check the variable Species in penguins_raw\nPick method 1 or method 2 to recode the values of that variable into Adelie, Chinstrap, Gentoo\nSave the result to a new object\nUse count() to verify both results"
   },
   {
     "objectID": "lectures/06-slides.html#the-role-of-mutate-in-recoding",
@@ -2461,7 +2461,7 @@
     "href": "lectures/06-slides.html#practice-challenge",
     "title": "Computing for the Social Sciences: Lecture 6",
     "section": "💻 Practice: Challenge",
-    "text": "💻 Practice: Challenge\nDownlod the class materials for today.\nOpen practice-dplyr-2 which includes a real-data cleaning challenge that requires you to use mutate() and case_when() to recode messy values, combine dplyr verbs, and then build a ggplot2 chart."
+    "text": "💻 Practice: Challenge\nDownload the class materials for today.\nOpen practice-dplyr-2 which includes a real-data cleaning challenge that requires you to use mutate() and case_when() to recode messy values, combine dplyr verbs, and then build a ggplot2 chart."
   },
   {
     "objectID": "lectures/06-slides.html#syntactic-valid-variable-names-in-r",
@@ -2496,13 +2496,34 @@
     "href": "lectures/06-slides.html#working-with-non-syntactic-names-in-practice",
     "title": "Computing for the Social Sciences: Lecture 6",
     "section": "Working with Non-syntactic Names in Practice",
-    "text": "Working with Non-syntactic Names in Practice\nImagine you are working on political ideology by country, assembled by someone else. The data are in Excel and when you imported them in R they look like this:\ndf &lt;- tibble(country = c(\"Italy\", \"Germany\", \"France\", \"Italy\", \"United States\"),\n                  `4 ideology` = c(\"communism\", \"fascism\", \"anarchism\", \"fascism\", \"capitalism\"))\n\nTo use the non-syntactic variable name without changing it and without errors, you must use backticks:\nselect(df, `4 ideology`)"
+    "text": "Working with Non-syntactic Names in Practice\nImagine you are working on political ideology by country data, assembled by someone else. The data are in Excel and when you imported them in R they look like this:\ndf &lt;- tibble(country = c(\"Italy\", \"Germany\", \"France\", \"Italy\", \"United States\"),\n            `4 ideology` = c(\"communism\", \"fascism\", \"anarchism\", \"fascism\", \"capitalism\"))\nTo use the non-syntactic variable name without changing it and without errors, you must use backticks:\nselect(df, `4 ideology`)\nThen rename that variable to a syntactic name:\ndf &lt;- rename(df, ideology = `4 ideology`)"
   },
   {
     "objectID": "lectures/06-slides.html#practice-syntactic-non-syntactic-variable-names",
     "href": "lectures/06-slides.html#practice-syntactic-non-syntactic-variable-names",
     "title": "Computing for the Social Sciences: Lecture 6",
     "section": "💻 Practice: Syntactic & Non-Syntactic Variable Names",
-    "text": "💻 Practice: Syntactic & Non-Syntactic Variable Names\nTry this in R:\n\nUse glimpse(penguins_raw) or str(penguins_raw) and identify non-syntactic variables names in this raw dataset\nPick one of them, and try accessing it with select() without backticks: what happens?\nUse rename() to give the variable a syntactic valid name\nSave the result to a new object\nVerify the name was changed and you can now access it\n\nOnce done, copy your code here to share it."
+    "text": "💻 Practice: Syntactic & Non-Syntactic Variable Names\nTry this in R:\n\nUse glimpse(penguins_raw) or str(penguins_raw) and identify non-syntactic variables names\nPick one of them, and try accessing it with select() without backticks: what happens?\nUse rename() to give the variable a syntactic valid name\nSave the result to a new object\nVerify the name was changed and you can now access it"
+  },
+  {
+    "objectID": "lectures/06-slides.html#why-does-pull-make-the-difference",
+    "href": "lectures/06-slides.html#why-does-pull-make-the-difference",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "Why does pull() make the difference?",
+    "text": "Why does pull() make the difference?\nLet’s ask R what avg_mass actually is in each case using class():\nWithout pull()\navg_mass &lt;- penguins |&gt;\n  summarise(avg = mean(body_mass_g, na.rm = TRUE))\n\nclass(avg_mass)\n#&gt; [1] \"tbl_df\"     \"tbl\"        \"data.frame\"\nWith pull()\navg_mass &lt;- penguins |&gt;\n  summarise(avg = mean(body_mass_g, na.rm = TRUE)) |&gt;\n  pull(avg)\n\nclass(avg_mass)\n#&gt; [1] \"numeric\"\nThe verb summarize() always returns a tibble (a data frame), even when it holds a single value. So without pull(), the comparison becomes filter(body_mass_g &gt; &lt;1 x 1 tibble&gt;), which does not work in R. Why?\n\nComparison operators like &gt; inside filter() need vectors. In R, a single number is still a vector. The comparison body_mass_g &gt; avg_mass returns a logical vector (TRUE/FALSE for each row), which filter() uses to keep rows that are TRUE\npull() takes the column out of the tibble and gives you a plain vector, so the comparison works"
+  },
+  {
+    "objectID": "lectures/06-slides.html#why-does-pull-make-the-difference-in-the-previous-example",
+    "href": "lectures/06-slides.html#why-does-pull-make-the-difference-in-the-previous-example",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "Why does pull() make the difference in the previous example?",
+    "text": "Why does pull() make the difference in the previous example?\nSlide added after class discussion: use class() to see what avg_mass is in each case!\nWithout pull\navg_mass &lt;- penguins |&gt;\n  summarise(avg = mean(body_mass_g, na.rm = TRUE))\npenguins |&gt; filter(body_mass_g &gt; avg_mass)\nclass(avg_mass)  # returns \"tbl\" for tibble or dataframe\nWith pull\navg_mass &lt;- penguins |&gt;\n  summarise(avg = mean(body_mass_g, na.rm = TRUE)) |&gt; pull(avg)\npenguins |&gt; filter(body_mass_g &gt; avg_mass)\nclass(avg_mass) # returns \"numeric\" for numeric vector\nThe verb summarize() always returns a tibble (a data frame), even when it holds a single value. So without pull(), the comparison becomes filter(body_mass_g &gt; &lt;1 x 1 tibble&gt;), which does not work in R because comparison operators like &gt; inside filter() need vectors (and in R, a single number is still a vector)"
+  },
+  {
+    "objectID": "lectures/06-slides.html#examples-of-pull",
+    "href": "lectures/06-slides.html#examples-of-pull",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "Examples of pull()",
+    "text": "Examples of pull()\nWe want to keep only the penguins that are heavier than the average penguin.\nThis won’t work\navg_mass &lt;- penguins |&gt;\n  summarise(avg = mean(body_mass_g, na.rm = TRUE))\n\npenguins |&gt; filter(body_mass_g &gt; avg_mass)\nWith pull it will work\navg_mass &lt;- penguins |&gt;\n  summarise(avg = mean(body_mass_g, na.rm = TRUE)) |&gt; pull(avg)\n\npenguins |&gt; filter(body_mass_g &gt; avg_mass)"
   }
 ]
