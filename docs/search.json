@@ -571,14 +571,14 @@
     "href": "lectures/06-home.html",
     "title": "Lecture 6: Intermediate dplyr; Renaming & Recoding Variables",
     "section": "",
-    "text": "Date: October 14, 2026\nTopics: Intermediate dplyr; Renaming & Recoding Variables\nSlides: To be posted before class\nCode: To be posted before class"
+    "text": "Date: October 14, 2026\nTopics: Intermediate dplyr; Renaming & Recoding Variables\nSlides: View Slides\nCode: usethis::use_course(\"css-materials/more-dplyr\")"
   },
   {
     "objectID": "lectures/06-home.html#info-and-materials",
     "href": "lectures/06-home.html#info-and-materials",
     "title": "Lecture 6: Intermediate dplyr; Renaming & Recoding Variables",
     "section": "",
-    "text": "Date: October 14, 2026\nTopics: Intermediate dplyr; Renaming & Recoding Variables\nSlides: To be posted before class\nCode: To be posted before class"
+    "text": "Date: October 14, 2026\nTopics: Intermediate dplyr; Renaming & Recoding Variables\nSlides: View Slides\nCode: usethis::use_course(\"css-materials/more-dplyr\")"
   },
   {
     "objectID": "lectures/06-home.html#learning-objectives",
@@ -2210,5 +2210,299 @@
     "title": "Computing for the Social Sciences: Lecture 5",
     "section": "💻 Practice",
     "text": "💻 Practice\nDownload today’s in-class exercises from the website for more practice on operator, dplyr, and pipes."
+  },
+  {
+    "objectID": "lectures/06-slides.html#palmer-penguins-dataset-overview",
+    "href": "lectures/06-slides.html#palmer-penguins-dataset-overview",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "Palmer Penguins Dataset Overview",
+    "text": "Palmer Penguins Dataset Overview\n\nPenguins by Allison Horst"
+  },
+  {
+    "objectID": "lectures/06-slides.html#palmer-penguins-dataset-overview-1",
+    "href": "lectures/06-slides.html#palmer-penguins-dataset-overview-1",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "Palmer Penguins Dataset Overview",
+    "text": "Palmer Penguins Dataset Overview\nLoad libraries and data:\nlibrary(tidyverse)\nlibrary(palmerpenguins)\ndata(penguins)\nExplore data (pick one of these):\nrbind(head(penguins, 5), tail(penguins, 5))\nglimpse(penguins)\nstr(penguins)\nsummary(penguins)"
+  },
+  {
+    "objectID": "lectures/06-slides.html#palmer-penguins-dataset-overview-2",
+    "href": "lectures/06-slides.html#palmer-penguins-dataset-overview-2",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "Palmer Penguins Dataset Overview",
+    "text": "Palmer Penguins Dataset Overview\nLoad libraries and data:\nlibrary(tidyverse)\nlibrary(palmerpenguins)\ndata(penguins)\nExplore data (pick one of these):\nrbind(head(penguins, 5), tail(penguins, 5))\nglimpse(penguins)\nstr(penguins)\nsummary(penguins)"
+  },
+  {
+    "objectID": "lectures/06-slides.html#last-lecutre-we-learned-the-following-dplyr-functions",
+    "href": "lectures/06-slides.html#last-lecutre-we-learned-the-following-dplyr-functions",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "Last lecutre we learned the following dplyr functions",
+    "text": "Last lecutre we learned the following dplyr functions\n\n\n\n\n\n\n\nfunction()\nWhat it does\n\n\n\n\nfilter()\nKeeps rows based on conditions\n\n\nsummarize()\nCalculates summary statistics for each group (e.g., mean, sum, count)\n\n\ngroup_by()\nGroups data by one or more variables\n\n\ncount()\nCounts the unique values of one or more variables\n\n\nmutate()\nCreates new columns or modifies existing ones\n\n\n\n\n\n\n\n\n\n\nMust-Know Verbs\n\n\nThere are many verbs in dplyr, but don’t need to memorize all of them. This week we learn the most important. Memorize those we cover this week and look up the rest as needed at https://dplyr.tidyverse.org/"
+  },
+  {
+    "objectID": "lectures/06-slides.html#review-of-filter-extract-observations-operates-on-rows",
+    "href": "lectures/06-slides.html#review-of-filter-extract-observations-operates-on-rows",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "Review of filter(): extract observations, operates on rows",
+    "text": "Review of filter(): extract observations, operates on rows\n# check variable values\ncount(penguins, species)\npenguins |&gt; count(species)\nlevels(penguins$species) \n\n# filter by island and species (both valid, second is best)\nfilter(penguins, island == \"Biscoe\", species == \"Gentoo\")\nfilter(penguins, island == \"Biscoe\" & species == \"Gentoo\")\n\n# filter by multiple conditions\nfilter(penguins, species %in% c(\"Adelie\", \"Gentoo\"), island != \"Dream\")"
+  },
+  {
+    "objectID": "lectures/06-slides.html#today-we-learn-the-following-dplyr-verbs",
+    "href": "lectures/06-slides.html#today-we-learn-the-following-dplyr-verbs",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "Today we learn the following dplyr verbs",
+    "text": "Today we learn the following dplyr verbs\n\n\n\n\n\n\n\nfunction()\nWhat it does\n\n\n\n\nselect()\nChooses specific columns\n\n\nrelocate()\nReorders columns\n\n\narrange()\nReorders rows based on values in specified columns\n\n\ndistinct()\nReturns unique rows based on columns\n\n\npull()\nExtracts a single column as a vector\n\n\nacross()\nApplies the same operation to multiple columns at once\n\n\n\n\n\n\n\n\n\n\nMust-Know Verbs\n\n\nThere are many verbs in dplyr, but don’t need to memorize all of them. This week we learn the most important. Memorize those we cover this week and look up the rest https://dplyr.tidyverse.org/"
+  },
+  {
+    "objectID": "lectures/06-slides.html#select-extracts-variables-operates-on-columns",
+    "href": "lectures/06-slides.html#select-extracts-variables-operates-on-columns",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "select() extracts variables, operates on columns",
+    "text": "select() extracts variables, operates on columns\n# select two specific variables using their names\nselect(penguins, species, body_mass_g)\n\n# select all variables except two using the minus sign\nselect(penguins, -year, -island)\n\n# select a range of contiguous/adjacent variables\nselect(penguins, species:bill_length_mm)\n\n# select all variables except a range of contiguous ones\nselect(penguins, -(species:island))\n\n# select all variables that start with\nselect(penguins, starts_with(\"bill\"))\n\n# select all variables that end with\nselect(penguins, ends_with(\"mm\"))"
+  },
+  {
+    "objectID": "lectures/06-slides.html#select-plus-filter",
+    "href": "lectures/06-slides.html#select-plus-filter",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "select() plus filter()",
+    "text": "select() plus filter()\npenguins |&gt; \n  select(species, sex, year, island) |&gt; \n  filter(island == \"Torgersen\")"
+  },
+  {
+    "objectID": "lectures/06-slides.html#exampels-of-arrange",
+    "href": "lectures/06-slides.html#exampels-of-arrange",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "Exampels of arrange()",
+    "text": "Exampels of arrange()\npenguins |&gt; arrange(desc(bill_length_mm))\n\npenguins |&gt;\n  select(species, contains(\"bill\")) |&gt;\n  filter(!species == \"Adelie\") |&gt;\n  arrange(desc(bill_length_mm)) \n\npenguins |&gt;\n  select(species, contains(\"bill\")) |&gt;\n  filter(!species == \"Adelie\") |&gt; \n  arrange(desc(species), bill_length_mm)"
+  },
+  {
+    "objectID": "lectures/06-slides.html#examples-of-relocate",
+    "href": "lectures/06-slides.html#examples-of-relocate",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "Examples of relocate()",
+    "text": "Examples of relocate()\npenguins |&gt; relocate(year, sex)\n\npenguins |&gt; relocate(year, .after = island)"
+  },
+  {
+    "objectID": "lectures/06-slides.html#examples-of-distinct",
+    "href": "lectures/06-slides.html#examples-of-distinct",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "Examples of distinct()",
+    "text": "Examples of distinct()\n# not too handy alone\npenguins |&gt;\n  distinct()\n\n# better with specific columns\npenguins |&gt;\n  distinct(species, island)\n\n# keep all columns in the resulting data frame\npenguins |&gt;\n  distinct(species, island, .keep_all = TRUE)\nNote: gives back a dataframe with only unique combinations of those columns https://dplyr.tidyverse.org/reference/distinct.html"
+  },
+  {
+    "objectID": "lectures/06-slides.html#examples-of-across",
+    "href": "lectures/06-slides.html#examples-of-across",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "Examples of across()",
+    "text": "Examples of across()\nCompare the same code with and without across() with numerical variables:\n# mean for a bunch of variables without across\npenguins |&gt;\n  summarize(\n    mean_bill_length_mm = mean(bill_length_mm, na.rm = TRUE),\n    mean_bill_depth_mm = mean(bill_depth_mm, na.rm = TRUE),\n    mean_flipper_length_mm = mean(flipper_length_mm, na.rm = TRUE),\n    mean_body_mass_g = mean(body_mass_g, na.rm = TRUE)\n  )\n\n# same operation with across\npenguins |&gt;\n  summarize(\n    across(\n      c(bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g), \n      ~ mean(.x, na.rm = TRUE)  # function(x) mean(x, na.rm = TRUE)\n    ))"
+  },
+  {
+    "objectID": "lectures/06-slides.html#examples-of-across-1",
+    "href": "lectures/06-slides.html#examples-of-across-1",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "Examples of across()",
+    "text": "Examples of across()\nCompare the same code with and without across() with categorical variables:\n# number of distinct entries for columns without across\npenguins |&gt;\n  summarise(distinct_species = n_distinct(species),\n            distinct_island = n_distinct(island),\n            distinct_year = n_distinct(year))\n\n# number of distinct entries for columns with across\npenguins |&gt;\n  summarise(across(c(species, island, year), \n                   n_distinct))\n\n# the opposite\npenguins |&gt;\n  summarise(across(-c(species, island, year), \n                   n_distinct))\n\n# everything\npenguins |&gt;\n  summarise(across(everything(), \n                   n_distinct))"
+  },
+  {
+    "objectID": "lectures/06-slides.html#most-important-dplyr-functions-tips-to-rememeber-and-examples",
+    "href": "lectures/06-slides.html#most-important-dplyr-functions-tips-to-rememeber-and-examples",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "Most important dplyr Functions: Tips to Rememeber and Examples",
+    "text": "Most important dplyr Functions: Tips to Rememeber and Examples\n\n\n\n\n\n\n\n\nFocus\nConcept\nFunction\n\n\n\n\nColumns\nStructure\nselect() chooses specific columns — select(penguins, species, island)rename() renames columns — rename(penguins, flip_mm = flipper_length_mm)relocate() reorders columns — relocate(penguins, island, .before = species)\n\n\nRows\nFiltering & sorting\nfilter() selects rows by values — filter(penguins, species == \"Adelie\")arrange() orders rows by column values — arrange(penguins, desc(body_mass_g))\n\n\nValues\nTransformation\nmutate() adds or changes columns — mutate(penguins, flip_cm = flipper_length_mm / 10)distinct() keeps unique rows — distinct(penguins, species, island)\n\n\nGroups\nAggregation\ngroup_by() defines groups — group_by(penguins, species)count() counts rows per group — count(penguins, island)  summarize() creates summaries per group — summarize(penguins, avg_flip = mean(flipper_length_mm, na.rm = TRUE))\n\n\nAcross columns\nAutomation\nacross() applies an operation to multiple columns — summarize(across(ends_with(\"_mm\"), mean, na.rm = TRUE))\n\n\n\n\n\nData flows top → bottom just like in a pipeline: penguins |&gt; select() |&gt; filter() |&gt; group_by() |&gt; summarize()"
+  },
+  {
+    "objectID": "lectures/06-slides.html#practice",
+    "href": "lectures/06-slides.html#practice",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "💻 Practice",
+    "text": "💻 Practice\nDownload today’s in-class exercises from the website for more practice exercises."
+  },
+  {
+    "objectID": "lectures/06-slides.html#recap-what-we-learned-today",
+    "href": "lectures/06-slides.html#recap-what-we-learned-today",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "Recap: What We Learned Today",
+    "text": "Recap: What We Learned Today\n\nReviewed and expanded dplyr functions for data manipulation\nHow to rename and recode variables with rename(), recode(), and case_when()\nRecognize syntactic vs. non-syntactic variable names and use them correctly in R"
+  },
+  {
+    "objectID": "lectures/06-slides.html#to-print-these-slides-as-pdf",
+    "href": "lectures/06-slides.html#to-print-these-slides-as-pdf",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "To print these slides as pdf",
+    "text": "To print these slides as pdf\nClick on the three lines located on the bottom-left corner of these slides &gt; Tools &gt; PDF Export Mode &gt; Print as a Pdf"
+  },
+  {
+    "objectID": "lectures/06-slides.html#last-lecture-we-learned-the-following-dplyr-functions",
+    "href": "lectures/06-slides.html#last-lecture-we-learned-the-following-dplyr-functions",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "Last lecture we learned the following dplyr functions",
+    "text": "Last lecture we learned the following dplyr functions\n\n\n\n\n\n\n\nfunction()\nWhat it does\n\n\n\n\nfilter()\nKeeps rows based on conditions\n\n\nsummarize()\nCalculates summary statistics for each group (e.g., mean, sum, count)\n\n\ngroup_by()\nGroups data by one or more variables\n\n\ncount()\nCounts the unique values of one or more variables\n\n\nmutate()\nCreates new columns or modifies existing ones\n\n\n\n\n\n\n\n\n\n\nMust-Know Verbs\n\n\nThere are many verbs in dplyr, but don’t need to memorize all of them. This week we learn the most important. Memorize those we cover this week and look up the rest https://dplyr.tidyverse.org/"
+  },
+  {
+    "objectID": "lectures/06-slides.html#we-used-the-palmer-penguins-dataset",
+    "href": "lectures/06-slides.html#we-used-the-palmer-penguins-dataset",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "We used the Palmer Penguins Dataset",
+    "text": "We used the Palmer Penguins Dataset"
+  },
+  {
+    "objectID": "lectures/06-slides.html#palmer-penguins-data-overview",
+    "href": "lectures/06-slides.html#palmer-penguins-data-overview",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "Palmer Penguins Data Overview",
+    "text": "Palmer Penguins Data Overview\n# load packages\nlibrary(tidyverse)\nlibrary(palmerpenguins)\n\n# explore data\nbind_rows(head(penguins, 4), tail(penguins, 4))\n\n\n\n\n\n# A tibble: 8 × 8\n  species   island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;fct&gt;     &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;\n1 Adelie    Torgersen           39.1          18.7               181        3750\n2 Adelie    Torgersen           39.5          17.4               186        3800\n3 Adelie    Torgersen           40.3          18                 195        3250\n4 Adelie    Torgersen           NA            NA                  NA          NA\n5 Chinstrap Dream               43.5          18.1               202        3400\n6 Chinstrap Dream               49.6          18.2               193        3775\n7 Chinstrap Dream               50.8          19                 210        4100\n8 Chinstrap Dream               50.2          18.7               198        3775\n# ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;"
+  },
+  {
+    "objectID": "lectures/06-slides.html#combining-verbs-with-the-pipe",
+    "href": "lectures/06-slides.html#combining-verbs-with-the-pipe",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "Combining Verbs with the Pipe",
+    "text": "Combining Verbs with the Pipe\nOften we want to chain verbs together with the pipe |&gt;. The combination we learned last lecture comes up frequently:\nKey combo: filter() + group_by() + summarize()\npenguins |&gt; \n  filter(species != \"Gentoo\") |&gt; \n  group_by(island) |&gt; \n  summarize(body_mass_mean = mean(body_mass_g, na.rm = TRUE))\nYou can also narrow down columns first with select(), then repeat the same combo\npenguins |&gt; \n  select(species, island, body_mass_g) |&gt; \n  filter(species != \"Gentoo\") |&gt; \n  group_by(island) |&gt; \n  summarize(body_mass_mean = mean(body_mass_g, na.rm = TRUE))"
+  },
+  {
+    "objectID": "lectures/06-slides.html#examples-of-select",
+    "href": "lectures/06-slides.html#examples-of-select",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "Examples of select()",
+    "text": "Examples of select()\n# select two specific variables using their names\nselect(penguins, species, body_mass_g)\n\n# select all variables except two using the minus sign\nselect(penguins, -year, -island)\n\n# select a range of contiguous/adjacent variables\nselect(penguins, species:bill_length_mm)\n\n# select all variables except a range of contiguous ones\nselect(penguins, -(species:island))\n\n# select all variables that start with\nselect(penguins, starts_with(\"bill\"))\n\n# select all variables that end with\nselect(penguins, ends_with(\"mm\"))"
+  },
+  {
+    "objectID": "lectures/06-slides.html#exampels-of-pull",
+    "href": "lectures/06-slides.html#exampels-of-pull",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "Exampels of pull()",
+    "text": "Exampels of pull()\nThis won’t work\navg_mass &lt;- penguins |&gt;\n  summarise(avg = mean(body_mass_g, na.rm = TRUE))\n\npenguins |&gt; filter(body_mass_g &gt; avg_mass)\nWith pull it will work\navg_mass &lt;- penguins |&gt;\n  summarise(avg = mean(body_mass_g, na.rm = TRUE)) |&gt;\n  pull(avg)\n\npenguins |&gt; filter(body_mass_g &gt; avg_mass)"
+  },
+  {
+    "objectID": "lectures/06-slides.html#practice-build-your-own-verbs-typology",
+    "href": "lectures/06-slides.html#practice-build-your-own-verbs-typology",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "💻 Practice: Build Your Own Verbs Typology",
+    "text": "💻 Practice: Build Your Own Verbs Typology\nWe have now learned the most important dplyr verbs. For example, verbs can be grouped by whether they work on: rows, columns, groups/summaries.\nTip: Make your own one-page cheat sheet. Group the verbs in a way that helps you remember them, and add one short example for each."
+  },
+  {
+    "objectID": "lectures/06-slides.html#a-few-more-dplyr-functions",
+    "href": "lectures/06-slides.html#a-few-more-dplyr-functions",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "A Few More dplyr Functions",
+    "text": "A Few More dplyr Functions\nWe now introduce a few more dplyr functions: rename(), recode(), and case_when().\nWe introduce them here, in the context of renaming and recoding variables, because that’s how they’re typically used in practice.\n\n\n\n\n\n\nNote\n\n\nrecode() and case_when() only work on a single column’s values, so they’re always used inside mutate()"
+  },
+  {
+    "objectID": "lectures/06-slides.html#definitions-of-rename-and-recode",
+    "href": "lectures/06-slides.html#definitions-of-rename-and-recode",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "Definitions of Rename and Recode",
+    "text": "Definitions of Rename and Recode\nRename: change variable names (column names)\nRecode: change values/levels of categorical variables (column values; e.g., inside a column)"
+  },
+  {
+    "objectID": "lectures/06-slides.html#uses-of-rename-and-recode",
+    "href": "lectures/06-slides.html#uses-of-rename-and-recode",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "Uses of Rename and Recode",
+    "text": "Uses of Rename and Recode\nWhen might you need to rename variables or recode their values?\n\nYou are cleaning data\n\nThe variable name has issues: Flipper Length (mm) → flipper_length_mm\nYou need to standardize values: \"Good\" and \"GOOD\" → \"good\"\nEtc.\n\nYou are preparing data for modeling or visualization\n\nYou want to recode \"FEMALE\"/\"MALE\" to 0/1 for a regression model\n\nEtc."
+  },
+  {
+    "objectID": "lectures/06-slides.html#for-this-part-we-work-with-the-penguins-raw-data",
+    "href": "lectures/06-slides.html#for-this-part-we-work-with-the-penguins-raw-data",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "For this part, we work with the Penguins (raw) Data!",
+    "text": "For this part, we work with the Penguins (raw) Data!\n# Load libraries and data\nlibrary(tidyverse)\nlibrary(palmerpenguins)\ndata(penguins)\n\n# Explore data\nhead(penguins_raw)\ntail(penguins_raw)\nrbind(head(penguins_raw, 3), tail(penguins_raw, 3))\nglimpse(penguins_raw)"
+  },
+  {
+    "objectID": "lectures/06-slides.html#renaming-variables-with-rename",
+    "href": "lectures/06-slides.html#renaming-variables-with-rename",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "Renaming Variables with rename",
+    "text": "Renaming Variables with rename\nTo change variable names (column names) the most common way is by using rename()\nChange the name of the variable studyName to study_name:\n# check before renaming\nstr(penguins_raw)\npenguins_raw %&gt;% select(studyName)\n\n# rename\npenguins_raw %&gt;% rename(study_name = studyName)   # new = old\n\n# remember to save to keep changes\np &lt;- penguins_raw %&gt;% rename(study_name = studyName)\np %&gt;% select(study_name)"
+  },
+  {
+    "objectID": "lectures/06-slides.html#practice-renaming-variables",
+    "href": "lectures/06-slides.html#practice-renaming-variables",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "💻 Practice Renaming Variables",
+    "text": "💻 Practice Renaming Variables\n\nUse select() to check the variable Comments in penguins_raw\nUse rename() to rename Comments to notes\nSave the result to a new object\nUse select() to check again\n\nOnce done, copy your code here to share it."
+  },
+  {
+    "objectID": "lectures/06-slides.html#recoding-variables-method-1-with-mutate-recode",
+    "href": "lectures/06-slides.html#recoding-variables-method-1-with-mutate-recode",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "Recoding Variables Method 1: with mutate + recode",
+    "text": "Recoding Variables Method 1: with mutate + recode\nTo change variable values (usually levels of categorical variables), we learn two approaches. We take the variable Sex and turn MALE into 1, FEMALE into 0.\nMethod 1:\n# check before recoding\npenguins_raw %&gt;% count(Sex)\n\n# mutate + recode\np &lt;- penguins_raw %&gt;%\n  mutate(sex = recode(Sex, \"MALE\" = 1, \"FEMALE\" = 0))\n\n# compare\npenguins_raw %&gt;% count(Sex)\np %&gt;% count(sex)"
+  },
+  {
+    "objectID": "lectures/06-slides.html#recoding-variables-method-2-with-mutate-case_when",
+    "href": "lectures/06-slides.html#recoding-variables-method-2-with-mutate-case_when",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "Recoding Variables Method 2: with mutate + case_when",
+    "text": "Recoding Variables Method 2: with mutate + case_when\nMethod 2:\n# mutate + case_when\npenguins_raw %&gt;%\n  mutate(Sex = case_when(Sex == \"MALE\" ~ 1,\n                         Sex == \"FEMALE\" ~ 0,\n                         TRUE ~ NA_real_))\n  \n# like for method 1 (previous code) save results to keep changes and compare\n\n\n\n\n\n\nNote\n\n\nWith case_when() each logical condition ~ value pair acts like if → then:\n\nfor each row, R looks if the condition is TRUE: “If you find the value MALE in Sex, then convert it to 1”\nTRUE ~ NA_real_ tells R: “If no previous condition was met, then return NA as as a number”"
+  },
+  {
+    "objectID": "lectures/06-slides.html#practice-recoding-variables",
+    "href": "lectures/06-slides.html#practice-recoding-variables",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "💻 Practice Recoding Variables",
+    "text": "💻 Practice Recoding Variables\n\nUse count() to check the variable Species in penguins_raw\nPick method 1 or method 2 to recode the values of that variable into Adelie, Chinstrap, Gentoo\nSave the result to a new object\nUse count() to verify both results\n\nOnce done, copy your code here to share it."
+  },
+  {
+    "objectID": "lectures/06-slides.html#the-role-of-mutate-in-recoding",
+    "href": "lectures/06-slides.html#the-role-of-mutate-in-recoding",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "The Role of mutate in Recoding",
+    "text": "The Role of mutate in Recoding\nThe dplry verb mutate has many uses: create new columns or modify existing columns values.\n\n\n\n\n\n\nNote\n\n\nFor recoding, use mutate + recode or mutate + case_when, because the goal is changing the column’s values:\n\nMethod 1: mutate(Sex = recode(Sex, \"MALE\" = 1, \"FEMALE\" = 0))\n\nMethod 2: mutate(Sex = case_when(sex == \"MALE\" ~ 1, sex == \"FEMALE\" ~ 0))\n\nWhich method is “best”? It depends, but method 2 is more popular (flexible/powerful)!"
+  },
+  {
+    "objectID": "lectures/06-slides.html#rename-vs-recode-syntax-reference",
+    "href": "lectures/06-slides.html#rename-vs-recode-syntax-reference",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "Rename vs Recode: Syntax Reference",
+    "text": "Rename vs Recode: Syntax Reference\n\n\n\n\n\n\n\n\n\n\nFunction\nWhat It Changes\nSyntax + Example\nTips\n\n\n\n\nrename()\nColumn names\nrename(new_name = old_name)  rename(notes = Comments)\nNo quotes around variable names\n\n\nrecode()\nColumn values\nrecode(variable, \"old\" = new)  recode(Sex, \"MALE\" = 1)\nCheck function doc to see when quotes are needed\n\n\ncase_when()\nColumn values\ncase_when(variable == \"old\" ~ new)  case_when(Sex == \"MALE\" ~ 1)\nCheck function doc to see when quotes are needed"
+  },
+  {
+    "objectID": "lectures/06-slides.html#practice-challenge",
+    "href": "lectures/06-slides.html#practice-challenge",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "💻 Practice: Challenge",
+    "text": "💻 Practice: Challenge\nDownlod the class materials for today.\nOpen practice-dplyr-2 which includes a real-data cleaning challenge that requires you to use mutate() and case_when() to recode messy values, combine dplyr verbs, and then build a ggplot2 chart."
+  },
+  {
+    "objectID": "lectures/06-slides.html#syntactic-valid-variable-names-in-r",
+    "href": "lectures/06-slides.html#syntactic-valid-variable-names-in-r",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "Syntactic (Valid) Variable Names in R",
+    "text": "Syntactic (Valid) Variable Names in R\n\n\nValid Names in R:\n\nUse letters, numbers, and the symbols . or _\nBut cannot start with a number or symbol\n\n\nExamples of Valid Names:\nflipper_length_mm\nflipper.length.mm\nflipper.length_mm     # valid but poor style\nFlipperLengthMm       # valid but poor style"
+  },
+  {
+    "objectID": "lectures/06-slides.html#non-syntactic-invalid-variable-names-in-r",
+    "href": "lectures/06-slides.html#non-syntactic-invalid-variable-names-in-r",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "Non-Syntactic (Invalid) Variable Names in R",
+    "text": "Non-Syntactic (Invalid) Variable Names in R\n\n\nWhat Makes a Name Invalid:\n\nContains spaces or symbols\nStarts with a number or symbol\nUses reserved words (e.g., TRUE, NULL, if, function)\nType ?Reserved in the Console for the full list\n\n\nExamples of Invalid Names:\nFlipper Length (mm)\n@_flipper_length_mm\nflipper_ length_mm\nflipper-length-mm\n.flipper.length.mm"
+  },
+  {
+    "objectID": "lectures/06-slides.html#practice-syntactic-and-non-syntactic-names",
+    "href": "lectures/06-slides.html#practice-syntactic-and-non-syntactic-names",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "💻 Practice: Syntactic and Non-Syntactic Names",
+    "text": "💻 Practice: Syntactic and Non-Syntactic Names\nWhich of the following are valid names?\n\n3_religion\n#3_religion\nq3_religion\nq3.religion\nq3-religion\nq3 religion\nTRUE\n\n\n\n\n\n\n\nTip\n\n\nFor best coding style, use snake_case for all your variables names and keep them to three words maximum. Example: q3_religion"
+  },
+  {
+    "objectID": "lectures/06-slides.html#how-to-handle-non-syntactic-names-and-why-it-matters",
+    "href": "lectures/06-slides.html#how-to-handle-non-syntactic-names-and-why-it-matters",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "How to Handle Non-syntactic Names, and Why It Matters",
+    "text": "How to Handle Non-syntactic Names, and Why It Matters\nYou should avoid creating non-syntactic names, BUT you’ll often encounter them, especially in datasets not created in R (Excel or other sources). If you don’t handle them properly, R will throw errors when you try to use them.\nWhat to Do:\n1. Use backticks to refer to them (e.g., `Flipper Length (mm)`)\n2. Use rename() to change them to syntactic names\nNon-syntactic names will break code if you forget to wrape them in backticks, so renaming avoids issues."
+  },
+  {
+    "objectID": "lectures/06-slides.html#working-with-non-syntactic-names-in-practice",
+    "href": "lectures/06-slides.html#working-with-non-syntactic-names-in-practice",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "Working with Non-syntactic Names in Practice",
+    "text": "Working with Non-syntactic Names in Practice\nImagine you are working on political ideology by country, assembled by someone else. The data are in Excel and when you imported them in R they look like this:\ndf &lt;- tibble(country = c(\"Italy\", \"Germany\", \"France\", \"Italy\", \"United States\"),\n                  `4 ideology` = c(\"communism\", \"fascism\", \"anarchism\", \"fascism\", \"capitalism\"))\n\nTo use the non-syntactic variable name without changing it and without errors, you must use backticks:\nselect(df, `4 ideology`)"
+  },
+  {
+    "objectID": "lectures/06-slides.html#practice-syntactic-non-syntactic-variable-names",
+    "href": "lectures/06-slides.html#practice-syntactic-non-syntactic-variable-names",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "💻 Practice: Syntactic & Non-Syntactic Variable Names",
+    "text": "💻 Practice: Syntactic & Non-Syntactic Variable Names\nTry this in R:\n\nUse glimpse(penguins_raw) or str(penguins_raw) and identify non-syntactic variables names in this raw dataset\nPick one of them, and try accessing it with select() without backticks: what happens?\nUse rename() to give the variable a syntactic valid name\nSave the result to a new object\nVerify the name was changed and you can now access it\n\nOnce done, copy your code here to share it."
   }
 ]
