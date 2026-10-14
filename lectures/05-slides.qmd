@@ -43,13 +43,9 @@ format:
 
 ---
 
-
-OLD AGENDA
-1. Programming as Problem-Solving
-2. Operators
-3. Main `dplyr` functions
-4. Pipes, written as `%>%` or `|>`
-### Slides are in progress and will be updated before class. Check back soon!
+NOTES FOR SUMMER 26 OR FALL 27: 
+- REMOVE MUTATE, CAN TEACH IT NEXT TIME
+- KEEP QUIZ TO MAX FIRST 10 MINUTES OF LECTURE
 
 ::: {.content-hidden}
 
@@ -85,7 +81,7 @@ Now let’s learn how to filter, select, summarize, and transform it with dplyr.
 
 The [palmerpenguins package](https://allisonhorst.github.io/palmerpenguins/) includes two datasets (already installed on our R Workbench):
 
-- **penguins** with clean data of 244 penguins — we use this today!
+- **penguins** with clean data — we use this today!
 - **penguins_raw** with uncleaned version the same data
 
 ![Penguins by Allison Horst](https://allisonhorst.github.io/palmerpenguins/reference/figures/lter_penguins.png){width=90%}
@@ -97,7 +93,7 @@ The [palmerpenguins package](https://allisonhorst.github.io/palmerpenguins/) inc
 ::: {.columns}
 ::: {.column width="55%"}
 
-**Data (variables) about these 244 penguins:**  
+**Data (variables) about these 344 penguins:**  
 
 - Species: *Adelie*, *Chinstrap*, *Gentoo*  
 - Island: *Biscoe*, *Dream*, *Torgersen*  
@@ -312,16 +308,6 @@ There are many verbs in dplyr, but don't need to memorize all of them. This week
 
 
 <!--
-`function()`  | Action performed
---------------|--------------------------------------------------------
-`filter()`    | Picks observations from the data frame based on their values (operates on rows)
-`arrange()`   | Changes the order of observations, based on their values (operates on rows)
-`select()`    | Picks variables from the data frame based on their names (operates on columns)
-`rename()`    | Changes the name of columns in the data frame
-`mutate()`    | Creates new columns from existing ones
-`group_by()`  | Changes the unit of analysis from the complete data frame to individual groups
-`summarize()` | Collapses the data frame to a smaller number of rows to summarize the larger data (commonly used with mean, sum, n-distinct, etc.)
-
 
 ## American vs. British English
 
@@ -929,11 +915,11 @@ To get ready for that, we need to introduce one more topic today: **PIPES**.
 
 <!-- POLL EVERWhERE Q4 -->
 
-# 3. Pipes %>% or |> {.slide .center .middle}
+# 3. Pipes |> or %>% {.slide .center .middle}
 
 ## Pipes to Chain Commands
 
-Pipes allow you to write a sequence of operations by **passing the result of one function into the next** making your code more readable and logical. Compare these two versions of the same code to calculate the average body mass for Adelie penguins by island.
+**Pipes allow you to write a sequence of operations by passing the result of one function into the next** making your code more readable and logical. Compare these two versions of the same code to calculate the average body mass for Adelie penguins by island.
 
 **Without pipes:**
 ```r
@@ -983,11 +969,9 @@ In fact, R didn’t have pipes for a long time!
 
 ```{r no-pipes-new}
 #| echo: true
-penguins_adelie <- filter(penguins, species == "Adelie")
-penguins_adelie_island <- group_by(penguins_adelie, island)
-penguins_final <- summarize(penguins_adelie_island, 
-                            body_mass = mean(body_mass_g, na.rm = TRUE))
-print(penguins_final)
+adelie <- filter(penguins, species == "Adelie")
+adelie_island <- group_by(adelie, island)
+adelie_avg_mass_island <- summarize(adelie_island, body_mass = mean(body_mass_g, na.rm = TRUE))
 ```
 
 <br>
@@ -995,7 +979,7 @@ print(penguins_final)
 ::: {.fragment}
 ✅ This is valid code.
 
-⚠️ **Drawback: You must save each intermediate object.** This can clutter your environment, increase R memory usage, and make your code more prone to typos. Shorter names for each step might reduce typos but sacrifice readability.
+⚠️ **Drawback: You must save each intermediate object.** This can clutter your environment, increase R memory usage, and make your code more prone to typos.
 
 </br>
 :::
@@ -1020,7 +1004,7 @@ print(penguins)
 **⚠️ Drawback: It overwrites the original dataset.** If something goes wrong, you need to re-run everything.
 
 ::: {.callout-warning}
-This approach is risky — especially when working with important datasets. Always keep a copy of your original data before modifying it.
+This approach is risky, especially when working with important datasets. Always keep a copy of your original data before modifying it.
 :::
 :::
 
@@ -1033,6 +1017,7 @@ This approach is risky — especially when working with important datasets. Alwa
 ```{r no-pipes-fcomp}
 #| echo: true
 data(penguins)
+
 summarize(group_by(filter(penguins, species == "Adelie"), island), 
           body_mass = mean(body_mass_g, na.rm = TRUE))
 ```
@@ -1040,9 +1025,9 @@ summarize(group_by(filter(penguins, species == "Adelie"), island),
 <br>
 
 ::: {.fragment}
-✅ This also works, and some people like this style.
+✅ This also works.
 
-**⚠️ Drawback: It’s harder to read and debug.** You must follow it from the inside out, which makes it harder to read for humans. If something breaks, it’s difficult to isolate where the error is happening as you can’t easily inspect intermediate results.
+**⚠️ Drawback: It’s harder to read and debug.** You must read it from the inside out, which is harder for humans. If something breaks, it’s difficult to isolate where the error is happening.
 :::
 
 </br>
@@ -1064,7 +1049,7 @@ penguins |>
 ::: {.fragment}
 ✅ This is valid and readable code without the drawbacks of the previous options.
 
-**💡 Why pipes?** The pipe operator passes the result of one function to the next, making your code easier to read. Pipes emphasize **actions**, not object names and you can read the code **like a recipe:**
+**💡 Why pipes?** The pipe operator passes the result of one function to the next. Pipes emphasize sequence of **actions**, not object names and you can read the code **LIKE A RECIPE:**
 
 Start with the dataset → filter for Adelie penguins → group by island → summarize body mass
 
@@ -1077,23 +1062,7 @@ Start with the dataset → filter for Adelie penguins → group by island → su
 
 ## Common Errors with Pipes: Examples using flights data
 
-**We use a built-in dataset of all flights (n = 336,776) that departed from NYC in 2013.**
-
-```r
-library(nycflights13)
-data(flights)
-head(flights)
-```
-
-```{r}
-library(nycflights13)
-data(flights)
-head(flights)
-```
-
----
-
-## Common Errors with Pipes: Examples using flights data
+**We use a built-in dataset of flights that departed from NYC in 2013:**
 
 ```r
 library(nycflights13)
@@ -1106,14 +1075,14 @@ library(nycflights13)
 data(flights)
 glimpse(flights)
 ```
+
+
 ---
 
 ## Common Pipe Errors: Example 1
 
 #### What's wrong with this code?
 
-Before we debug it, let’s first explain what the code is trying to do conceptually.
-
 :::: {.columns}
 ::: {.column width="50%"}
 
@@ -1123,49 +1092,11 @@ Before we debug it, let’s first explain what the code is trying to do conceptu
 #| echo: true
 #| eval: false
 
-delays <- flights %>% 
-  by_dest <- group_by(dest) %>% 
+delays <- flights |> 
+  by_dest <- group_by(dest) |> 
   delay <- summarize(
     count = n(),
-    delay = mean(arr_delay, na.rm = TRUE)) %>% 
-  d <- filter(count > 20)
-```
-
-<!--
-Start with flights
-Group flights by destination airport
-For each destination, calculate:
-count = n() = number of flights to that destination
-delay = mean(arr_delay, na.rm = TRUE) = average arrival delay
-Keep only destinations with more than 20 flights
--->
-
-:::
-
-::: {.column width="50%"}
-:::
-
-::::
-
-
----
-
-## Common Pipe Errors: Example 1
-
-:::: {.columns}
-::: {.column width="50%"}
-
-#### Invalid code
-
-```{r}
-#| echo: true
-#| eval: false
-
-delays <- flights %>% 
-  by_dest <- group_by(dest) %>% 
-  delay <- summarize(
-    count = n(),
-    delay = mean(arr_delay, na.rm = TRUE)) %>% 
+    delay = mean(arr_delay, na.rm = TRUE)) |> 
   d <- filter(count > 20)
 ```
 
@@ -1177,17 +1108,20 @@ delays <- flights %>%
 ::::
 
 ::: {.callout .smaller}
+**Before we debug it, let’s understand what the code is trying to do conceptually:**
+
 - Take the `flights` dataset  
-- Group flights by destination, using the variable `dest`  
-- Count the delayed flights and store the result in a new variable called `count`  
-- Calculate the average arrival delay, using `arr_delay`, and store the result in a new variable called `delay`  
-- Remove destinations with less than 20 flights. *Question:* Why `filter(count > 20)` to remove destinations with fewer than 20 flights?
+- Group flights by destination airport, using the variable `dest`  
+- Count the delayed flights by destination, and store the result in a new object called `count`  
+- Calculate the average arrival delay, using `arr_delay`, and store in `delay`  
+- Remove destinations with less than 20 flights, and store in `d` 
 :::
 
+<!-- TIP FOR FALL 25: 
 
-<!-- TIP FOR FALL 25: change order so this is not the first example as it is harder to read than others 
+*Question:* Why `filter(count > 20)` and not `filter(count < 20)`?
 
-Answer to the question: filter() keeps only the rows where the condition is true. So this code keeps rows where count is greater than 20, effectively removing those with 20 or fewer. filter() doesn’t remove rows — it keeps the ones that match your condition.
+Answer to the question: filter() keeps only the rows where the condition is TRUE. So this code keeps rows where count is greater than 20, effectively removing those with 20 or fewer. filter() doesn’t remove rows — it keeps the ones that match your condition.
 
 -->
 
@@ -1206,11 +1140,11 @@ Answer to the question: filter() keeps only the rows where the condition is true
 #| echo: true
 #| eval: false
 
-delays <- flights %>% 
-  by_dest <- group_by(dest) %>% 
+delays <- flights |> 
+  by_dest <- group_by(dest) |> 
   delay <- summarize(
     count = n(),
-    delay = mean(arr_delay, na.rm = TRUE)) %>% 
+    delay = mean(arr_delay, na.rm = TRUE)) |> 
   d <- filter(count > 20)
 ```
 
@@ -1221,11 +1155,11 @@ delays <- flights %>%
 #### Correct code
 
 ```{r echo = TRUE}
-delays <- flights %>%
-  group_by(dest) %>%
+delays <- flights |>
+  group_by(dest) |>
   summarize(
     count = n(),
-    delay = mean(arr_delay, na.rm = TRUE)) %>%
+    delay = mean(arr_delay, na.rm = TRUE)) |>
   filter(count > 20)
 ```
 
@@ -1235,7 +1169,7 @@ delays <- flights %>%
 <br>
 
 ::: {.callout-important}
-Don’t assign anything inside a pipe. Use `<-` only at the start, if you want to save the final result. Do not use it between steps.
+Don’t assign anything inside a pipe: use `<-` only at the start, if you want to save the final result.
 :::
 
 </br>
@@ -1255,7 +1189,7 @@ Don’t assign anything inside a pipe. Use `<-` only at the start, if you want t
 #| echo: true
 #| eval: false
 
-delays <- flights %>%
+delays <- flights |>
   group_by(dest)
   summarize(
     count = n(),
@@ -1285,7 +1219,7 @@ delays <- flights %>%
 #| echo: true
 #| eval: false
 
-delays <- flights %>%
+delays <- flights |>
   group_by(dest)
   summarize(
     count = n(),
@@ -1303,11 +1237,11 @@ delays <- flights %>%
 #| echo: true
 #| eval: false
 
-delays <- flights %>%
-  group_by(dest) %>%
+delays <- flights |>
+  group_by(dest) |>
   summarize(
     count = n(),
-    delay = mean(arr_delay, na.rm = TRUE)) %>%
+    delay = mean(arr_delay, na.rm = TRUE)) |>
   filter(count > 20)
 ```
 
@@ -1317,7 +1251,7 @@ delays <- flights %>%
 <br>
 
 ::: {.callout-important}
-Each function in a pipe chain must be connected with `%>%` to keep the chain going.
+Each function in a pipe chain must be connected with `|>` to keep the chain going.
 :::
 
 </br>
@@ -1337,12 +1271,12 @@ Each function in a pipe chain must be connected with `%>%` to keep the chain goi
 #| echo: true
 #| eval: false
 
-delays <- flights %>% 
-  group_by(.data = flights, dest) %>% 
-  summarize(.data = flights,
+delays <- flights |> 
+  group_by(flights, dest) |> 
+  summarize(flights,
     count = n(),
-    delay = mean(arr_delay, na.rm = TRUE)) %>% 
-  filter(.data = flights, count > 20)
+    delay = mean(arr_delay, na.rm = TRUE)) |> 
+  filter(count > 20)
 ```
 
 :::
@@ -1367,12 +1301,12 @@ delays <- flights %>%
 #| echo: true
 #| eval: false
 
-delays <- flights %>% 
-  group_by(.data = flights, dest) %>% 
-  summarize(.data = flights,
+delays <- flights |> 
+  group_by(flights, dest) |> 
+  summarize(flights,
     count = n(),
-    delay = mean(arr_delay, na.rm = TRUE)) %>% 
-  filter(.data = flights, count > 20)
+    delay = mean(arr_delay, na.rm = TRUE)) |> 
+  filter(count > 20)
 ```
 
 :::
@@ -1385,11 +1319,11 @@ delays <- flights %>%
 #| echo: true
 #| eval: false
 
-delays <- flights %>%
-  group_by(dest) %>%
+delays <- flights |>
+  group_by(dest) |>
   summarize(
     count = n(),
-    delay = mean(arr_delay, na.rm = TRUE)) %>%
+    delay = mean(arr_delay, na.rm = TRUE)) |>
   filter(count > 20)
 ```
 
@@ -1399,7 +1333,7 @@ delays <- flights %>%
 <br>
 
 ::: {.callout-important}
-When using pipes, only reference the data frame at the start of the chain. Do not repeat `.data = flights` in every function as `%>%` automatically passes the data along.
+When using pipes, only reference the data frame at the start of the chain. Do not repeat it in every function as `|>` automatically passes the data along.
 :::
 
 </br>
@@ -1467,11 +1401,11 @@ delays <- flights +
 #| echo: true
 #| eval: false
 
-delays <- flights %>%
-  group_by(dest) %>%
+delays <- flights |>
+  group_by(dest) |>
   summarize(
     count = n(),
-    delay = mean(arr_delay, na.rm = TRUE)) %>%
+    delay = mean(arr_delay, na.rm = TRUE)) |>
   filter(count > 20)
 ```
 
@@ -1481,7 +1415,7 @@ delays <- flights %>%
 <br>
 
 ::: {.callout-important}
-The `+` sign is only for adding layers in `ggplot2`! Don’t use it to chain `dplyr` functions: use `%>%` to pipe data through a sequence of transformations.
+The `+` sign is only for adding layers in `ggplot2`! To chain `dplyr` functions, use the pipe sign: `|>` or `%>%`
 :::
 
 </br>
