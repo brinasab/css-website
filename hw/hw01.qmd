@@ -7,7 +7,7 @@ draft: false
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-# Overview
+# HW1 Overview
 
 **Due: Thursday, October 8 by 11:59 PM (Chicago Time)**
 
@@ -22,7 +22,7 @@ This assignment workflow has several steps by design. All future take-home assig
 This will work only if you have submitted your GitHub username and email (see Lecture 1). Accept the email invitation to join our GitHub organization OR simply open the assignment link below, which accepts the invitation for you. Make sure you have completed the setup under [Software Setup](../setup/index.qmd) and confirmed everything works properly.
 :::
 
-**Accessing the repo:** 
+### Accessing the repo 
 
 1. Go to [this link](https://classroom50.org/css-fall26/css/assignments/hw01/accept). The first time, click *Sign in with GitHub* and authorize Classroom 50 (the tool we use to distribute assignments).
 
@@ -35,7 +35,7 @@ If the page says *"Not a member yet"*, accept the invitation to our GitHub organ
 If it says *"This assignment isn't available to you"*, contact the instructor.
 
 
-**Cloning the repo into your Workbench:**
+### Cloning the repo into your Workbench
 
 1. Log into *Workbench* and start a new project:  
    *File > New Project > Version Control > Git*
@@ -146,7 +146,7 @@ To submit your assignment on Canvas, follow these steps:
 
 2. When you're ready to submit:
    - Copy the URL of your GitHub repository. It will look something like: `https://github.com/css-fall26/css-hw01-yourusername`
-   - Submit that URL on Canvas under HW01. Do not upload any files to Canvas. We only need the repository link.
+   - Submit that URL on Canvas under HW01. Do not upload any files to Canvas. We only need the repository link. Your repository remains private, only the instructional staff can access it.
 
 
 # Assessment

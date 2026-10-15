@@ -125,8 +125,12 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#accessing-and-cloning-your-hw01-repository" id="toc-accessing-and-cloning-your-hw01-repository" class="nav-link" data-scroll-target="#accessing-and-cloning-your-hw01-repository">Accessing and Cloning Your <code>hw01</code> Repository</a></li>
+  <li><a href="#hw1-overview" id="toc-hw1-overview" class="nav-link active" data-scroll-target="#hw1-overview">HW1 Overview</a></li>
+  <li><a href="#accessing-and-cloning-your-hw01-repository" id="toc-accessing-and-cloning-your-hw01-repository" class="nav-link" data-scroll-target="#accessing-and-cloning-your-hw01-repository">Accessing and Cloning Your <code>hw01</code> Repository</a>
+  <ul class="collapse">
+  <li><a href="#accessing-the-repo" id="toc-accessing-the-repo" class="nav-link" data-scroll-target="#accessing-the-repo">Accessing the repo</a></li>
+  <li><a href="#cloning-the-repo-into-your-workbench" id="toc-cloning-the-repo-into-your-workbench" class="nav-link" data-scroll-target="#cloning-the-repo-into-your-workbench">Cloning the repo into your Workbench</a></li>
+  </ul></li>
   <li><a href="#general-homework-workflow" id="toc-general-homework-workflow" class="nav-link" data-scroll-target="#general-homework-workflow">General Homework Workflow</a></li>
   <li><a href="#hw1-description" id="toc-hw1-description" class="nav-link" data-scroll-target="#hw1-description">HW1 Description</a>
   <ul class="collapse">
@@ -161,8 +165,8 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="overview" class="level1">
-<h1>Overview</h1>
+<section id="hw1-overview" class="level1">
+<h1>HW1 Overview</h1>
 <p><strong>Due: Thursday, October 8 by 11:59 PM (Chicago Time)</strong></p>
 <p>This first homework assignment has the following goals: to make sure your computer setup works, practice the Git/GitHub workflow, and review the basics of R syntax, Markdown, and R Markdown.</p>
 <p>This assignment workflow has several steps by design. All future take-home assignments will use a similar structure, so you will build fluency through repeated practice.</p>
@@ -182,7 +186,8 @@ Important
 <p>This will work only if you have submitted your GitHub username and email (see Lecture 1). Accept the email invitation to join our GitHub organization OR simply open the assignment link below, which accepts the invitation for you. Make sure you have completed the setup under <a href="../setup/index.html">Software Setup</a> and confirmed everything works properly.</p>
 </div>
 </div>
-<p><strong>Accessing the repo:</strong></p>
+<section id="accessing-the-repo" class="level3">
+<h3 class="anchored" data-anchor-id="accessing-the-repo">Accessing the repo</h3>
 <ol type="1">
 <li><p>Go to <a href="https://classroom50.org/css-fall26/css/assignments/hw01/accept">this link</a>. The first time, click <em>Sign in with GitHub</em> and authorize Classroom 50 (the tool we use to distribute assignments).</p></li>
 <li><p>Click <em>Accept assignment</em> to create your private <code>hw01</code> repository on GitHub. Your repository will be named <code>css-hw01-&lt;USERNAME&gt;</code>. Keep the page open until the setup checklist finishes (a few seconds).</p></li>
@@ -190,7 +195,9 @@ Important
 </ol>
 <p>If the page says <em>“Not a member yet”</em>, accept the invitation to our GitHub organization (check your email, including spam), then click <em>Check again</em>.</p>
 <p>If it says <em>“This assignment isn’t available to you”</em>, contact the instructor.</p>
-<p><strong>Cloning the repo into your Workbench:</strong></p>
+</section>
+<section id="cloning-the-repo-into-your-workbench" class="level3">
+<h3 class="anchored" data-anchor-id="cloning-the-repo-into-your-workbench">Cloning the repo into your Workbench</h3>
 <ol type="1">
 <li><p>Log into <em>Workbench</em> and start a new project:<br>
 <em>File &gt; New Project &gt; Version Control &gt; Git</em></p></li>
@@ -211,6 +218,7 @@ Important
 </ul></li>
 </ol>
 <p>You’ll use this same process to access and set up each homework assignment throughout the course.</p>
+</section>
 </section>
 <section id="general-homework-workflow" class="level1">
 <h1>General Homework Workflow</h1>
@@ -323,7 +331,7 @@ Tip
 <li><p>When you’re ready to submit:</p>
 <ul>
 <li>Copy the URL of your GitHub repository. It will look something like: <code>https://github.com/css-fall26/css-hw01-yourusername</code></li>
-<li>Submit that URL on Canvas under HW01. Do not upload any files to Canvas. We only need the repository link.</li>
+<li>Submit that URL on Canvas under HW01. Do not upload any files to Canvas. We only need the repository link. Your repository remains private, only the instructional staff can access it.</li>
 </ul></li>
 </ol>
 </section>
