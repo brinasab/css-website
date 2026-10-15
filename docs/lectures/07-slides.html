@@ -28,6 +28,72 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #24292e;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #24292e; } /* Normal */
+    code span.al { color: #ff5555; font-weight: bold; } /* Alert */
+    code span.an { color: #6a737d; } /* Annotation */
+    code span.at { color: #d73a49; } /* Attribute */
+    code span.bn { color: #005cc5; } /* BaseN */
+    code span.bu { color: #d73a49; } /* BuiltIn */
+    code span.cf { color: #d73a49; } /* ControlFlow */
+    code span.ch { color: #032f62; } /* Char */
+    code span.cn { color: #005cc5; } /* Constant */
+    code span.co { color: #6a737d; } /* Comment */
+    code span.cv { color: #6a737d; } /* CommentVar */
+    code span.do { color: #6a737d; } /* Documentation */
+    code span.dt { color: #d73a49; } /* DataType */
+    code span.dv { color: #005cc5; } /* DecVal */
+    code span.er { color: #ff5555; text-decoration: underline; } /* Error */
+    code span.ex { color: #d73a49; font-weight: bold; } /* Extension */
+    code span.fl { color: #005cc5; } /* Float */
+    code span.fu { color: #6f42c1; } /* Function */
+    code span.im { color: #032f62; } /* Import */
+    code span.in { color: #6a737d; } /* Information */
+    code span.kw { color: #d73a49; } /* Keyword */
+    code span.op { color: #24292e; } /* Operator */
+    code span.ot { color: #6f42c1; } /* Other */
+    code span.pp { color: #d73a49; } /* Preprocessor */
+    code span.re { color: #6a737d; } /* RegionMarker */
+    code span.sc { color: #005cc5; } /* SpecialChar */
+    code span.ss { color: #032f62; } /* SpecialString */
+    code span.st { color: #032f62; } /* String */
+    code span.va { color: #e36209; } /* Variable */
+    code span.vs { color: #032f62; } /* VerbatimString */
+    code span.wa { color: #ff5555; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-864c5404f4710dceefb0a9fe440f50a1.css">
   <link rel="stylesheet" href="../style/styles.css">
@@ -142,7 +208,6 @@ Sabrina Nardin, Fall 2026
 </div>
 
 </section>
-<section>
 <section id="agenda" class="title-slide slide level1 center">
 <h1>Agenda</h1>
 <div class="agenda-list">
@@ -151,10 +216,869 @@ Sabrina Nardin, Fall 2026
 <li>Factors in R</li>
 </ol>
 </div>
+<p><span style="font-size: 0.8em; color: #666;"> <em>Slides last updated on <strong>October 15, 2026</strong>. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.</em> </span></p>
+<!--
+
+### Slides are in progress and will be updated before class.
+
+::: {.content-hidden}
+
+
+UPDATE FOR FALL 2026 ON FACTORS:
+
+HW2 OPENS BEFORE I TEACH THIS CLASS ON FACTORS, REMEMBMER TO PUT A HINT IN THE ASSIGMENT INSTRUCTIONS!
+
+ADD ONE EXAMPLE WHEN THEN NEED TO PASS THE LABELS AND LEVELS NOT BY HAND USING DISTINCT() OR UNIQUE()
+SEE THIS AS EXAMPLES 
+https://github.com/css-summer26/hw03-carolinaporto/blob/main/scotus.md
+https://github.com/css-summer26/hw03-sara-jayakumar/tree/main
+-->
 </section>
-<h3 id="slides-are-in-progress-and-will-be-updated-before-class.">Slides are in progress and will be updated before class.</h3></section>
+
+<section>
+<section id="missing-data" class="title-slide slide level1 center middle">
+<h1>1. Missing Data</h1>
+
+</section>
+<section id="what-are-missing-data" class="slide level2 center">
+<h2>What Are Missing Data?</h2>
+<p>R distinguishes two types of missing data:</p>
+<ul>
+<li><strong>Explicit missing data</strong>: the missing value is recorded in the data, typically as <code>NA</code> (Not Available)</li>
+<li><strong>Implicit missing data</strong>: the missing value was never recorded in the data</li>
+</ul>
+<p>We focus on explicit missing data. For implicit missing data, see <a href="https://r4ds.hadley.nz/missing-values">R for Data Science Ch. 18</a></p>
+<!--
+- `NA` = Not Available (general-purpose missing value)  
+- `NaN` = Not a Number (typically from invalid math like `0/0` or `0 * Inf`)  
+- Both behave similarly, but `NaN` specifically signals a **computational error**
+See [Ch. 12.2.2](https://r4ds.hadley.nz/logicals#sec-na-comparison) for how `NA` behaves in comparisons.
+:::
+-->
+</section>
+<section id="how-missing-data-behave" class="slide level2 center">
+<h2>How Missing Data Behave</h2>
+<p>Any operation involving a missing value will return a missing value (see <a href="https://r4ds.hadley.nz/logicals#sec-na-comparison">Ch. 12.2.2 Missing values</a>):</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="cn">NA</span> <span class="sc">&gt;</span> <span class="dv">5</span></span>
+<span id="cb1-2"><a></a></span>
+<span id="cb1-3"><a></a><span class="fu">sum</span>(<span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="cn">NA</span>))</span>
+<span id="cb1-4"><a></a><span class="fu">sum</span>(<span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="cn">NA</span>), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-5"><a></a></span>
+<span id="cb1-6"><a></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">4</span>,<span class="cn">NA</span>))</span>
+<span id="cb1-7"><a></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="cn">NA</span>), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="common-ways-to-handle-missing-data" class="slide level2 center">
+<h2>Common Ways to Handle Missing Data</h2>
+<p>Working with (explicit) missing data is usually a <strong>decision process:</strong></p>
+<!--
+Before deciding what to do with missing data, we first need to find it. Then we can choose whether to ignore it in calculations or remove it from the dataset.
+-->
+<p>A. <code>is.na()</code> to find missing values<br>
+B. <code>na.rm = TRUE</code> to ignore missing values in calculations<br>
+C. <code>drop_na()</code> to remove missing values; use carefully</p>
+<p>Let’s examine each step…</p>
+</section>
+<section id="a.-find-missing-data-with-is.na" class="slide level2 center">
+<h2>A. Find Missing Data with is.na()</h2>
+<p><strong>Use <code>is.na()</code> to find missing values.</strong> It returns <code>TRUE</code> when a value is missing, and <code>FALSE</code> when is present.</p>
+<p>For example, this code uses <code>is.na()</code> to check for missing values in one variable from <code>penguins_raw</code></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="co"># load libries and data</span></span>
+<span id="cb2-2"><a></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-3"><a></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb2-4"><a></a><span class="fu">data</span>(penguins_raw)</span>
+<span id="cb2-5"><a></a></span>
+<span id="cb2-6"><a></a><span class="co"># check for missing using base R syntax</span></span>
+<span id="cb2-7"><a></a><span class="fu">is.na</span>(penguins_raw<span class="sc">$</span>Sex)</span>
+<span id="cb2-8"><a></a><span class="fu">sum</span>(<span class="fu">is.na</span>(penguins_raw<span class="sc">$</span>Sex))</span>
+<span id="cb2-9"><a></a><span class="fu">table</span>(<span class="fu">is.na</span>(penguins_raw<span class="sc">$</span>Sex))</span>
+<span id="cb2-10"><a></a></span>
+<span id="cb2-11"><a></a><span class="co"># check for missing data using tidyverse syntax</span></span>
+<span id="cb2-12"><a></a>penguins_raw <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="fu">sum</span>(<span class="fu">is.na</span>(Sex)))</span>
+<span id="cb2-13"><a></a>penguins_raw <span class="sc">|&gt;</span> <span class="fu">count</span>(<span class="fu">is.na</span>(Sex)) </span>
+<span id="cb2-14"><a></a>penguins_raw <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), <span class="sc">~</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(.)))) <span class="sc">|&gt;</span> <span class="fu">print</span>(<span class="at">width =</span> <span class="cn">Inf</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<!-- spend time on this code
+
+POINT 1: you can also name the resulting output
+
+POINT 2:`is.na(penguins_raw, Sex)` won't work
+`is.na()` is a base R function, not a dplyr verb. It checks the object you give it.
+So this works: `is.na(penguins_raw$Sex)` works bcs R interprets it as an object because `penguins_raw$Sex` directly selects one column
+This does not work: `is.na(penguins_raw, Sex)` because `is.na()` does not have a second argument for choosing a column.
+That's why in tidyverse code, we usually use `is.na()` inside a dplyr verb
+
+POINT 3
+penguins_raw |>
+     summarize(across(everything(), function(x) sum(is.na(x))) |>
+     print(width = Inf)
+-->
+</section>
+<section id="a.-find-missing-data-with-is.na-1" class="slide level2 center">
+<h2>A. Find Missing Data with is.na()</h2>
+<p>To pull out the rows where a value is missing, <strong>use <code>is.na()</code> inside <code>filter()</code></strong> to keep rows where a value is missing or is not missing, as follows:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="co"># keep rows where sex is missing</span></span>
+<span id="cb3-2"><a></a><span class="fu">filter</span>(penguins_raw, <span class="fu">is.na</span>(Sex)) <span class="sc">|&gt;</span> <span class="fu">View</span>()   <span class="co"># correct  </span></span>
+<span id="cb3-3"><a></a><span class="fu">filter</span>(penguins_raw, Sex <span class="sc">==</span> <span class="cn">NA</span>)  <span class="sc">|&gt;</span> <span class="fu">View</span>()   <span class="co"># incorrect</span></span>
+<span id="cb3-4"><a></a></span>
+<span id="cb3-5"><a></a><span class="co"># keep rows where sex is NOT missing</span></span>
+<span id="cb3-6"><a></a><span class="fu">filter</span>(penguins_raw, <span class="sc">!</span><span class="fu">is.na</span>(sex))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><br></p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>You cannot use <code>== NA</code> to check for missing values: <code>NA</code> means “unknown,” so R cannot evaluate it. Use <code>is.na()</code> instead.</p>
+</div>
+</div>
+</div>
+<!--
+``==` compares two known values, but `NA` means the value is unknown or missing.  
+Because R does not know what the missing value is, it cannot say whether another value is equal to it.
+-->
+<p><br></p>
+</section>
+<section id="b.-ignore-missing-data-with-na.rm-true" class="slide level2 center">
+<h2>B. Ignore Missing Data with na.rm = TRUE</h2>
+<p><strong>Use <code>na.rm = TRUE</code> to exclude missing values when performing calculations.</strong> Often used together with <code>summarize()</code> when calculating things like mean, sum, standard deviation:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>penguins_raw <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="at">avg_mass =</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">Body Mass (g)</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb4-2"><a></a>penguins_raw <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="at">sum_mass =</span> <span class="fu">sum</span>(<span class="st">`</span><span class="at">Body Mass (g)</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<!-- show the difference with and without the na.rm = TRUE and try change it to FALSE -->
+<p><br></p>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>The command <code>na.rm = TRUE</code> does not remove missing data from the variable(s), It only tells R to <strong>skip missing values for that specific calculation</strong>.</p>
+</div>
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="c.-remove-missing-data-with-drop_na" class="slide level2 center">
+<h2>C. Remove Missing Data with drop_na()</h2>
+<p><strong>Use <code>drop_na()</code> to remove rows with missing values.</strong> Either across all columns or in specific columns (safer/most common):</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>penguins_raw <span class="sc">|&gt;</span></span>
+<span id="cb5-2"><a></a>  <span class="fu">drop_na</span>(<span class="st">`</span><span class="at">Body Mass (g)</span><span class="st">`</span>) <span class="sc">|&gt;</span></span>
+<span id="cb5-3"><a></a>  <span class="fu">summarize</span>(<span class="at">avg_mass =</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">Body Mass (g)</span><span class="st">`</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<!-- 
+drop_na()  
+drop_na(`Body Mass (g)`, Sex) 
+-->
+<p><br></p>
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Warning</strong></p>
+</div>
+<div class="callout-content">
+<p>Be careful, <code>drop_na()</code> removes rows from the data you are working with. It removes the entire row, not just the missing cell. This can accidentally remove useful data from other variables in the same row. Before using it, check the variable (see previous slides).</p>
+</div>
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="practice-handling-missing-data" class="slide level2 center">
+<h2>💻 Practice: Handling Missing Data</h2>
+<ol type="1">
+<li><p><strong>First, rename:</strong> use the <code>penguins_raw</code> dataset and rename <code>Flipper Length (mm)</code> to <code>flipper_length_mm</code>. Save the result as a new dataframe; call it <code>penguins_clean</code> or <code>p</code></p></li>
+<li><p><strong>Second, check missing data:</strong> use the new dataframe for the steps below (copy and adapt code from these slides):</p>
+<ul>
+<li><em>Detect missing values:</em> use <code>is.na()</code> and <code>sum()</code> to count how many are missing in flipper length</li>
+<li><em>Exclude from calculations:</em> use <code>na.rm = TRUE</code> inside <code>mean()</code> to calculate the average flipper length</li>
+<li><em>Drop missing values:</em> use <code>drop_na()</code> to remove rows with missing values in flipper length</li>
+</ul></li>
+</ol>
+<!--
+Once done, [share your code here](https://codeshare.io/29X3QM){target="_blank"}.
+
+
+# 0. Rename
+p <- penguins_raw |> rename(flipper_length_mm = `Flipper Length (mm)`)
+
+# 1. Detect missing values
+p |> summarize(n_missing = sum(is.na(flipper_length_mm)))
+
+# 2. Exclude missing values from calculation
+p |> summarize(avg_flipper = mean(flipper_length_mm, na.rm = TRUE))
+
+# 3. Drop missing values and calculate again
+p |> drop_na(flipper_length_mm)
+-->
+</section>
+<section id="ways-to-fill-or-replace-missing-data" class="slide level2 center">
+<h2>Ways to Fill or Replace Missing Data</h2>
+<p>Beloa are the main functions in R to replace or fill missing values:</p>
+<ul>
+<li><code>replace_na()</code> – replace missing values with a specified value<br>
+</li>
+<li><code>fill()</code> – carry values forward or backward (from the package <code>tidyr</code>)<br>
+</li>
+<li><code>coalesce()</code> – return the first non-missing value across multiple columns</li>
+</ul>
+<p>See <a href="https://r4ds.hadley.nz/missing-values">Chapter 18</a> of <em>R for Data Science</em> for more.</p>
+<!-- NOTE: REMOVE THIS PART FOR CSP, KEEP FOR CSS 
+ALSO EXPAND THE EXAMPLE ON HOW TO REPLACE OR REFILL MISSING DATA
+
+## Factors and Empty Groups
+
+Example from [Chapter 18](https://r4ds.hadley.nz/missing-values) of *R for Data Science*.
+
+Create a dataset with with one variable defined as factor with two levels (yes and no):
+
+```r
+health <- tibble(
+  name   = c("Ikaia", "Oletta", "Leriah", "Dashay", "Tresaun"),
+  smoker = factor(c("no", "no", "no", "no", "no"), levels = c("yes", "no")),
+  age    = c(34, 88, 75, 47, 56)
+)
+health
+```
+
+---
+
+## Counting with Dropped vs. Retained Factor Levels
+
+Without `.drop = FALSE`, unobserved factor levels are excluded:
+
+```r
+health |> count(smoker)
+```
+
+With `.drop = FALSE`, all factor levels are preserved (keeps all groups, even those not observed in the data since here they are all non-smokers)
+
+```r
+health |> count(smoker, .drop = FALSE)
+```
+
+---
+
+## This Matters for Plotting
+
+Compare these two codes.
+
+The default behavior excludes empty levels from the plot:
+```r
+ggplot(health, aes(x = smoker)) +
+  geom_bar() +
+  scale_x_discrete()
+```
+
+Force display of all factor levels, including empty ones:
+```r
+ggplot(health, aes(x = smoker)) +
+  geom_bar() +
+  scale_x_discrete(drop = FALSE)
+```
+-->
+</section></section>
+<section>
+<section id="factors-in-r" class="title-slide slide level1 center middle">
+<h1>2. Factors in R</h1>
+
+</section>
+<section id="what-are-factors-in-r" class="slide level2 center">
+<h2>What are Factors in R?</h2>
+<p>In short <strong>a factor is a specific data structure in R</strong>.</p>
+<p>But to fully understand factors, we first need to think about <strong>variables with categories</strong>: variables whose values come from a limited set of labels.</p>
+<p>For example, the variable <code>species</code> in the <code>penguins</code> data has three possible labels or categories: <code>"Adelie"</code>, <code>"Chinstrap"</code>, and <code>"Gentoo"</code>.</p>
+</section>
+<section id="real-world-examples-of-variables-with-categories" class="slide level2 center">
+<h2>Real-world Examples of Variables with Categories</h2>
+<p>Some common examples of variables with categories are:</p>
+<ul>
+<li>Months of the year (January → December)</li>
+<li>Likert scales (Strongly Agree → Strongly Disagree)</li>
+<li>Educational attainment levels (High School → Graduate)</li>
+<li>Political parties</li>
+<li>Race/ethnicity categories</li>
+<li>Movies genre</li>
+<li>Etc.</li>
+</ul>
+<p>When we analyze data, we often want these categories to appear in a specific order. Sometimes that order is natural, such as months of the year. Other times, we define the order based on our analytic purpose. <strong>Factors in R allow us to control such order!</strong></p>
+</section>
+<section id="how-r-stores-variables-with-categories" class="slide level2 center">
+<h2>How R Stores Variables with Categories</h2>
+<div title="R Has Three Main Data Structures for Categorical Data">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>R Has Three Main Data Structures for Categorical Data</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><p><strong>Character vector</strong> used <em>often</em>: Data type for storing categorical data as plain strings (e.g., variable <code>months</code> with values “Jan”, “Feb”, “Mar”, etc.). Values have no built-in order or grouping.</p></li>
+<li><p><strong>Numeric vector</strong> used <em>occasionally</em>: Sometimes these are used to store categorical data as numbers (e.g., variable <code>months</code> with values 1, 2, 3), but lacks category labels or order.</p></li>
+<li><p><strong>Factor</strong> used <em>when order matters</em>: Data type for storing categorical data with defined levels. Values can be ordered according to the researcher needs.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="why-use-factors" class="slide level2 center">
+<h2>Why use Factors?</h2>
+<p>Let’s define a character vector (e.g., the first of the three data structures mentioned in the previous slide) with four months and sort it. Run this code in R. What do you notice?</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="co"># Define</span></span>
+<span id="cb6-2"><a></a>x1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Dec"</span>, <span class="st">"Apr"</span>, <span class="st">"Jan"</span>, <span class="st">"Mar"</span>)</span>
+<span id="cb6-3"><a></a></span>
+<span id="cb6-4"><a></a><span class="co"># Check</span></span>
+<span id="cb6-5"><a></a>x1</span>
+<span id="cb6-6"><a></a><span class="fu">class</span>(x1)</span>
+<span id="cb6-7"><a></a></span>
+<span id="cb6-8"><a></a><span class="co"># Sort</span></span>
+<span id="cb6-9"><a></a><span class="fu">sort</span>(x1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="why-use-factors-1" class="slide level2 center">
+<h2>Why use Factors?</h2>
+<p>From the output of the previous code we can see that <strong>by default, R sorts character vectors alphabetically!</strong></p>
+<p>That works in some cases, but it is not ideal for months. Months have a meaningful chronological order: January, February, March, etc. and we want to preserve it.</p>
+<p><strong>To tell R to use that order, we need to convert that character vector into a factor.</strong></p>
+</section>
+<section id="why-use-factors-2" class="slide level2 center">
+<h2>Why use Factors?</h2>
+<div class="callout callout-none no-icon callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>In the next slides, we learn two cases that you will likely encounter when working with factors:</strong></p>
+</div>
+<div class="callout-content">
+<ol type="1">
+<li>Converting a <strong>Character Vector to a Factor</strong> (most common)</li>
+<li>Converting a <strong>Numeric Vector to a Factor</strong> (sometimes needed when categories are stored as numbers)</li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="converting-a-character-vector-to-a-factor" class="slide level2 center">
+<h2>1. Converting a Character Vector to a Factor</h2>
+<p>Variables with categories are often stored in R as character vectors. By default, R sorts character vectors alphabetically. To use a different order, convert the character vector to a <em>factor</em> and define its <em>levels</em> in the order you want:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="co"># Character vector with month names</span></span>
+<span id="cb7-2"><a></a>x1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Dec"</span>, <span class="st">"Apr"</span>, <span class="st">"Jan"</span>, <span class="st">"Mar"</span>)</span>
+<span id="cb7-3"><a></a><span class="fu">class</span>(x1)</span>
+<span id="cb7-4"><a></a></span>
+<span id="cb7-5"><a></a><span class="co"># Define all set of possibile levels in desired order</span></span>
+<span id="cb7-6"><a></a>month_levels <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Jan"</span>, <span class="st">"Feb"</span>, <span class="st">"Mar"</span>, <span class="st">"Apr"</span>, <span class="st">"May"</span>, <span class="st">"Jun"</span>, </span>
+<span id="cb7-7"><a></a>                  <span class="st">"Jul"</span>, <span class="st">"Aug"</span>, <span class="st">"Sep"</span>, <span class="st">"Oct"</span>, <span class="st">"Nov"</span>, <span class="st">"Dec"</span>)</span>
+<span id="cb7-8"><a></a></span>
+<span id="cb7-9"><a></a><span class="co"># Convert to factor using those levels</span></span>
+<span id="cb7-10"><a></a>y1 <span class="ot">&lt;-</span> <span class="fu">factor</span>(x1, <span class="at">levels =</span> month_levels)</span>
+<span id="cb7-11"><a></a></span>
+<span id="cb7-12"><a></a><span class="co"># Check</span></span>
+<span id="cb7-13"><a></a>y1</span>
+<span id="cb7-14"><a></a><span class="fu">class</span>(y1)</span>
+<span id="cb7-15"><a></a><span class="fu">levels</span>(y1)</span>
+<span id="cb7-16"><a></a></span>
+<span id="cb7-17"><a></a><span class="co"># Compare sorting</span></span>
+<span id="cb7-18"><a></a><span class="fu">sort</span>(x1)  <span class="co"># Alphabetical</span></span>
+<span id="cb7-19"><a></a><span class="fu">sort</span>(y1)  <span class="co"># Chronological (by factor levels)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<!-- 
+# SHORTER CODE
+
+# Character vector with month names
+x1 <- c("Dec", "Apr", "Jan", "Mar")
+class(x1)
+
+# Convert to factor using levels
+y1 <- factor(x1, levels = c("Jan", "Mar", "Apr", "Dec"))
+
+# if you pick another order, it will follow that one!
+-->
+</section>
+<section id="converting-a-numeric-vector-to-a-factor" class="slide level2 center">
+<h2>2. Converting a Numeric Vector to a Factor</h2>
+<p>Sometimes variables with categories are stored in numeric vectors (as numbers, e.g., months as 1, 2, 12). To convert a numeric vector to a factor you need to specify <em>both levels and labels</em>:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="co"># Numeric vector with values representing months</span></span>
+<span id="cb8-2"><a></a>x2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">3</span>)</span>
+<span id="cb8-3"><a></a><span class="fu">class</span>(x2)</span>
+<span id="cb8-4"><a></a></span>
+<span id="cb8-5"><a></a><span class="co"># Define all set of possibile numeric values we expect</span></span>
+<span id="cb8-6"><a></a>month_levels <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>)</span>
+<span id="cb8-7"><a></a></span>
+<span id="cb8-8"><a></a><span class="co"># Define all labels we want to show for each value</span></span>
+<span id="cb8-9"><a></a>month_labels <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Jan"</span>, <span class="st">"Feb"</span>, <span class="st">"Mar"</span>, <span class="st">"Apr"</span>, <span class="st">"May"</span>, <span class="st">"Jun"</span>, </span>
+<span id="cb8-10"><a></a>                  <span class="st">"Jul"</span>, <span class="st">"Aug"</span>, <span class="st">"Sep"</span>, <span class="st">"Oct"</span>, <span class="st">"Nov"</span>, <span class="st">"Dec"</span>) </span>
+<span id="cb8-11"><a></a></span>
+<span id="cb8-12"><a></a><span class="co"># Convert to factor using levels and labels</span></span>
+<span id="cb8-13"><a></a>y2 <span class="ot">&lt;-</span> <span class="fu">factor</span>(x2, <span class="at">levels =</span> month_levels,</span>
+<span id="cb8-14"><a></a>                 <span class="at">labels =</span> month_labels)</span>
+<span id="cb8-15"><a></a></span>
+<span id="cb8-16"><a></a><span class="co"># Check</span></span>
+<span id="cb8-17"><a></a>y2</span>
+<span id="cb8-18"><a></a><span class="fu">class</span>(y2)</span>
+<span id="cb8-19"><a></a><span class="fu">levels</span>(y2)</span>
+<span id="cb8-20"><a></a></span>
+<span id="cb8-21"><a></a><span class="co"># Compare sorting</span></span>
+<span id="cb8-22"><a></a><span class="fu">sort</span>(x2)  <span class="co"># Numeric</span></span>
+<span id="cb8-23"><a></a><span class="fu">sort</span>(y2)  <span class="co"># Chronological (by factor levels)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<!-- 
+**Question:** Why we are defining all possible levels and labels when only four are needed here? It will work either way, but it's good practice to define the full set and order of categories.
+
+# SHORTER CODE
+
+# Define all labels we want to show for each value
+month_labels <- c("Jan", "Mar", "Apr", "Dec") 
+
+# Convert to factor using levels and labels
+y2 <- factor(x2, 
+             levels = x2,
+             labels = month_labels)
+-->
+<!--
+
+## Levels and Labels in Factors
+
+:::: {.columns}
+
+::: {.column width="50%"}
+### Levels  
+- Define all possible factor categories
+- Use to tell R the **order** of each category 
+- Use **only levels** when your input data is already human readable, as in our first example (e.g., `"Jan"`, `"Feb"`, etc.)
+:::
+
+::: {.column width="50%"}
+### Labels  
+- Define optional names for each category
+- Use to tell R **what to display** for each category  
+- Use **labels and levels** when your input data uses codes, as in our second example (e.g., `1` to mean `"Jan"`), and you want to see more human readable labels. Labels are matched to levels.
+:::
+
+::::
+
+-->
+</section>
+<section id="levels-and-labels-in-factors" class="slide level2 center">
+<h2>Levels and Labels in Factors</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="when-you-input-is-a-character-vector">When you input is a Character Vector</h3>
+<p><strong>Example values</strong>: <code>"Jan"</code>, <code>"May"</code>, <code>"Oct"</code></p>
+<ul>
+<li>Already human-readable</li>
+<li>(Often) only want to control the order<br>
+</li>
+<li>Convert to factor using only <strong><code>levels</code></strong> to order and label</li>
+<li>Example: <code>"May"</code> stays <code>"May"</code></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<h3 id="when-you-input-is-a-numeric-vector">When you input is a Numeric Vector</h3>
+<p><strong>Example values</strong>: <code>1</code>, <code>7</code>, <code>12</code></p>
+<ul>
+<li>Not already human-readable</li>
+<li>Want to control the order &amp; add readable labels</li>
+<li>Convert to factor using <strong><code>levels</code></strong> to order &amp; <strong><code>labels</code></strong> to label</li>
+<li>Example: <code>1</code> becomes <code>"Jan"</code>, <code>2</code> becomes <code>"Feb"</code>, etc.</li>
+</ul>
+</div></div>
+<!--
+## Summary of Levels and Labels in Factors
+
+
+| **Type**           | **What It Represents**              | **Levels** — Store & Sort By                 | **Labels** — Display Names                    | **Example**                                              |
+|--------------------|-------------------------------------|------------------------------------------------|------------------------------------------------|----------------------------------------------------------|
+| Character Vector   | Categorical names (`"Jan"`)   | To control order (e.g., Jan, Feb, ..., Dec)   | Not needed — values are already readable       | `factor(x1, levels = month_names)`                      |
+| Numeric Vector     | Coded categories (`1`)   | To match internal codes (e.g., 1 = Jan,..., 12 = Dec) | To assign readable labels to codes (e.g., "Jan", ...) | `factor(x2, levels = 1:12, labels = month_names)`       |
+
+-->
+</section>
+<section id="levels-and-labels-in-factors-examples" class="slide level2 center">
+<h2>Levels and Labels in Factors: Examples</h2>
+<p>Before you run the code below in R, take a moment to guess the output of lines 5 and 12). What do you expect each code chunk to return, and why?</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="co"># Example 1 with Input as Character Vector</span></span>
+<span id="cb9-2"><a></a>a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Low"</span>, <span class="st">"High"</span>, <span class="st">"Medium"</span>, <span class="st">"Low"</span>)</span>
+<span id="cb9-3"><a></a>b <span class="ot">&lt;-</span> <span class="fu">factor</span>(a, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Low"</span>, <span class="st">"Medium"</span>, <span class="st">"High"</span>))</span>
+<span id="cb9-4"><a></a>b</span>
+<span id="cb9-5"><a></a><span class="fu">sort</span>(b)</span>
+<span id="cb9-6"><a></a></span>
+<span id="cb9-7"><a></a><span class="co"># Example 2 with Input as Numeric vector</span></span>
+<span id="cb9-8"><a></a>i <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>)</span>
+<span id="cb9-9"><a></a>j <span class="ot">&lt;-</span> <span class="fu">factor</span>(i, <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>),</span>
+<span id="cb9-10"><a></a>               <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Low"</span>, <span class="st">"Medium"</span>, <span class="st">"High"</span>))</span>
+<span id="cb9-11"><a></a>j</span>
+<span id="cb9-12"><a></a><span class="fu">sort</span>(j)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<!--
+# Note on Example 1
+
+If you write labels rather then levels you get a wrong output!
+And you can use both levels and labels also here but not needed
+c <- factor(a, levels = c("Low", "Medium", "High"),
+               labels = c("L", "M", "H"))
+               
+- Clear mapping: 1 → "Low", 2 → "Medium", 3 → "High"
+- Labels are matched to levels, not to raw values
+-->
+</section>
+<section id="practice-1-character-vector-factor" class="slide level2 center">
+<h2>💻 Practice 1: Character Vector → Factor</h2>
+<p>You are working with a <strong>character vector</strong>. Your goal is to convert it into a factor so, when you sort it, months follow their chronological order rather than alphabetical order.</p>
+<p>The code below is not correct. Run it in R, identify the problem, and fix it:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="co"># Define a character vector representing months</span></span>
+<span id="cb10-2"><a></a>m <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Dec"</span>, <span class="st">"Apr"</span>, <span class="st">"Jan"</span>, <span class="st">"Mar"</span>)</span>
+<span id="cb10-3"><a></a><span class="fu">class</span>(m)</span>
+<span id="cb10-4"><a></a></span>
+<span id="cb10-5"><a></a><span class="co"># Attempt</span></span>
+<span id="cb10-6"><a></a>mf <span class="ot">&lt;-</span> <span class="fu">factor</span>(m, </span>
+<span id="cb10-7"><a></a>            <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>),</span>
+<span id="cb10-8"><a></a>            <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Jan"</span>, <span class="st">"Feb"</span>, <span class="st">"Mar"</span>, <span class="st">"Apr"</span>, <span class="st">"May"</span>, <span class="st">"Jun"</span>,</span>
+<span id="cb10-9"><a></a>                       <span class="st">"Jul"</span>, <span class="st">"Aug"</span>, <span class="st">"Sep"</span>, <span class="st">"Oct"</span>, <span class="st">"Nov"</span>, <span class="st">"Dec"</span>))</span>
+<span id="cb10-10"><a></a>mf</span>
+<span id="cb10-11"><a></a></span>
+<span id="cb10-12"><a></a><span class="co"># Compare sorting</span></span>
+<span id="cb10-13"><a></a><span class="fu">sort</span>(m)  </span>
+<span id="cb10-14"><a></a><span class="fu">sort</span>(mf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<!--
+
+## Solution 1: Character Vector → Factor
+
+The input vector is made of characters ("Jan", "Feb"...) but the levels are given as numbers (1 to 12). R cannot match character values to numeric levels. The levels must match the actual values in the input vector.
+
+```r
+mf <- factor(m, 
+             levels = c("Jan", "Feb", "Mar", "Apr", "May", "Jun",
+                        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"))
+mf
+sort(mf)
+```
+-->
+</section>
+<section id="practice-2-numeric-vector-factor" class="slide level2 center">
+<h2>💻 Practice 2: Numeric Vector → Factor</h2>
+<p>You are working with a <strong>numeric vector</strong> representing months as numbers. Your goal is the same: convert it into a factor, so when you sort it, months are in chronological order.</p>
+<p>None of the attempts below is correct. Run each in R, explain why each does not work, and write one solution that works:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="co"># Define a numeric vector representing months</span></span>
+<span id="cb11-2"><a></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">1</span>)</span>
+<span id="cb11-3"><a></a><span class="fu">class</span>(x)</span>
+<span id="cb11-4"><a></a></span>
+<span id="cb11-5"><a></a>   </span>
+<span id="cb11-6"><a></a><span class="co"># Attempt 1</span></span>
+<span id="cb11-7"><a></a>y1 <span class="ot">&lt;-</span> <span class="fu">factor</span>(x, <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>), </span>
+<span id="cb11-8"><a></a>                <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Jan"</span>, <span class="st">"Mar"</span>, <span class="st">"Apr"</span>, <span class="st">"Dec"</span>))</span>
+<span id="cb11-9"><a></a>              </span>
+<span id="cb11-10"><a></a><span class="co"># Attempt 2</span></span>
+<span id="cb11-11"><a></a>y2 <span class="ot">&lt;-</span> <span class="fu">factor</span>(x, <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>),</span>
+<span id="cb11-12"><a></a>                <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Jan"</span>, <span class="st">"Mar"</span>, <span class="st">"Apr"</span>, <span class="st">"Dec"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<!--
+
+## Solution 2: Numeric Vector → Factor
+
+- Attempt 1: mismatch between the number of labels and the levels. R throws an error.
+
+- Attempt 2: R doesn't throw an error, but the code is incorrect because it forces levels 1 to 4, even though the input vector has values like 12. Since 12 isn’t among the defined levels, it becomes `NA`, leading to incorrect matches.
+
+You can fix the code from the previous slide in the following ways:
+
+```r
+# Numeric vector representing months
+x <- c(12, 4, 1, 3, 1)
+class(x)
+
+# Option 1 (recommended)
+month_labels <- c("Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec")
+month_levels = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)
+y1 <- factor(x, levels = month_levels,  
+                labels = month_labels)
+class(y1)
+
+# Option 2 (works but not recommended, why?)
+y2 <- factor(x, levels = c(1, 3, 4, 12),
+                labels = c("Jan", "Mar", "Apr", "Dec"))
+
+```
+
+Option 1: creates a factor with all 12 months as possible levels, even if only 4 are used. Best option because it preserves the full structure of the variable.
+
+Option 2: only keeps levels that appear in the data. Correct but incomplete, fails if new values (e.g. 5) appear later.
+
+If you don’t specify `levels`, R will use the unique values in the data — so mismatches can lead to warnings or incorrect labeling. 
+
+Tip: to avoid problems, specify both `levels` and `labels` explicitly.
+-->
+</section>
+<section id="apply-these-concepts-to-a-dataframe-scorecard" class="slide level2 center">
+<h2>Apply these concepts to a dataframe: scorecard</h2>
+<p>In most of your work, you deal with dataframes. We worked with the <code>scorecard</code> data to practice <code>ggplot2</code>. Now we use the same data to learn how we can use factors in a dataframe.</p>
+<p>Load libraries and explore data:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb12-2"><a></a><span class="fu">library</span>(rcis)</span>
+<span id="cb12-3"><a></a><span class="fu">data</span>(scorecard)</span>
+<span id="cb12-4"><a></a></span>
+<span id="cb12-5"><a></a><span class="fu">glimpse</span>(scorecard)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="our-task" class="slide level2 center">
+<h2>💻 Our Task</h2>
+<h3 id="plot-the-total-number-of-schools-in-the-u.s.-by-school-type-and-reorder-the-bars">Plot the total number of schools in the U.S. by school type AND reorder the bars</h3>
+<p>We use a bar chart, which takes each category of the categorical variable <code>type</code> and automatically applies a frequency count to aggregate the data:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="fu">ggplot</span>(scorecard, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> type)) <span class="sc">+</span></span>
+<span id="cb13-2"><a></a>  <span class="fu">geom_bar</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Question we are going to answer: How can we reorder the bars?</strong></p>
+<p><em>Tip: this is the same task asked in HW2!</em></p>
+</section>
+<section id="approach-1-reorder-bars-manually-with-factor" class="slide level2 center">
+<h2>Approach 1: Reorder bars manually with <em>factor()</em></h2>
+<p>This is the approach we used in the previous slide. It more technical, but it gives you full control because you manually define the order of the factor levels.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>s <span class="ot">&lt;-</span> scorecard <span class="sc">|&gt;</span></span>
+<span id="cb14-2"><a></a>  <span class="fu">mutate</span>(<span class="at">type =</span> <span class="fu">factor</span>(type,</span>
+<span id="cb14-3"><a></a>                       <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Private, nonprofit"</span>, <span class="st">"Public"</span>, <span class="st">"Private, for-profit"</span>)))</span>
+<span id="cb14-4"><a></a></span>
+<span id="cb14-5"><a></a><span class="fu">ggplot</span>(s, <span class="fu">aes</span>(<span class="at">x =</span> type)) <span class="sc">+</span></span>
+<span id="cb14-6"><a></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Remember:</p>
+<ul>
+<li>check the column type (character or numeric) before transforming to factor using <code>factor()</code> as shown in the previous examples</li>
+<li>use it inside <code>mutate()</code> since you are working on column of a dataframe (and not a standalone vector like in the previous examples)</li>
+</ul>
+</section>
+<section id="approach-2-reorder-the-bars-using-tidyverse-fct_relevel" class="slide level2 center">
+<h2>Approach 2: Reorder the bars using tidyverse <em>fct_relevel()</em></h2>
+<p><a href="https://forcats.tidyverse.org/reference/fct_relevel.html"><code>fct_relevel()</code></a>: allows to reorder factor levels by hand; this function behave similarly to <code>factor()</code></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>scorecard <span class="sc">|&gt;</span> </span>
+<span id="cb15-2"><a></a>  <span class="fu">mutate</span>(<span class="at">type =</span> <span class="fu">fct_relevel</span>(type, </span>
+<span id="cb15-3"><a></a>                           <span class="st">"Private, nonprofit"</span>, <span class="st">"Public"</span>, <span class="st">"Private, for-profit"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb15-4"><a></a><span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> type)) <span class="sc">+</span></span>
+<span id="cb15-5"><a></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Note: you can write code also by “piping” the results of the <code>dplyr</code> code into <code>ggplot2</code> code, as illustrated here.</p>
+</section>
+<section id="approach-3-reorder-the-bars-using-tidyverse-fct_infreq" class="slide level2 center">
+<h2>Approach 3: Reorder the bars using tidyverse <em>fct_infreq()</em></h2>
+<p><a href="https://forcats.tidyverse.org/reference/fct_inorder.html"><code>fct_infreq()</code></a> sorts bars automatically by how common each category is (most to least frequent)</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>scorecard <span class="sc">|&gt;</span></span>
+<span id="cb16-2"><a></a>  <span class="fu">mutate</span>(<span class="at">type =</span> <span class="fu">fct_infreq</span>(type)) <span class="sc">|&gt;</span></span>
+<span id="cb16-3"><a></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> type)) <span class="sc">+</span></span>
+<span id="cb16-4"><a></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="the-forcats-package" class="slide level2 center">
+<h2>The “forcats” Package</h2>
+<div title="Using factor() or a function from forcats?">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Using factor() or a function from forcats?</strong></p>
+</div>
+<div class="callout-content">
+<p>The example from Approach 1 uses <code>factor()</code>, the base R function for creating and managing factors. It is worth understanding because it shows the basic logic: a factor stores category labels together with an order of levels.</p>
+<p>But because factors are so common in data analysis, the tidyverse includes a package called <code>forcats</code>, which provides simpler and more flexible tools for working with factors. Methods 2 and 3 from the previous slides use two <code>forcats</code> functions.</p>
+<p>You are welcome to use the <code>forcats</code> tools, but learning <code>factor()</code> first helps you understand what’s happening behind the scenes.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-forcats-package-1" class="slide level2 center">
+<h2>The “forcats” Package</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 42%">
+<col style="width: 42%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Function</th>
+<th>What it does</th>
+<th>When to use</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>fct_relevel()</code></td>
+<td>Manually sets the order of levels</td>
+<td>When you need full manual control (similar to <code>factor(..., levels = ...)</code> in base R)</td>
+</tr>
+<tr class="even">
+<td><code>fct_infreq()</code></td>
+<td>Reorders factor levels by frequency (most to least common)</td>
+<td>When you want categories ordered by how often they appear</td>
+</tr>
+<tr class="odd">
+<td><code>fct_reorder()</code></td>
+<td>Reorders levels based on another variable (e.g., a numeric value)</td>
+<td>Ideal for ordering bars by a summary statistic in <code>ggplot2</code></td>
+</tr>
+</tbody>
+</table>
+<p>For more functions, see the <a href="https://forcats.tidyverse.org/">forcats documentation</a></p>
+</section>
+<section id="challenge-exercise-plot-tips-by-weekday" class="slide level2 center">
+<h2>💻 Challenge Exercise: Plot Tips by Weekday</h2>
+<p>In this exercise, you learn two things:</p>
+<ul>
+<li><p>to correctly use <code>stat = identity</code> with bar plots in <code>ggplot2</code></p></li>
+<li><p>to control the order of categories in bar plots, using both <code>factor()</code> and the <code>forcats</code> function called <code>fct_relevel()</code></p></li>
+</ul>
+</section>
+<section id="create-the-data" class="slide level2 center">
+<h2>Create the Data</h2>
+<p>Copy and run the code below to create this dataset:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb17-2"><a></a></span>
+<span id="cb17-3"><a></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb17-4"><a></a>  <span class="at">week =</span> <span class="fu">c</span>(<span class="st">"Mon"</span>, <span class="st">"Wed"</span>, <span class="st">"Fri"</span>, <span class="st">"Wed"</span>, <span class="st">"Thu"</span>, <span class="st">"Sat"</span>, <span class="st">"Sat"</span>),</span>
+<span id="cb17-5"><a></a>  <span class="at">tip =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">12</span>, <span class="dv">20</span>, <span class="dv">8</span>, <span class="dv">25</span>, <span class="dv">25</span>, <span class="dv">30</span>)</span>
+<span id="cb17-6"><a></a>)</span>
+<span id="cb17-7"><a></a></span>
+<span id="cb17-8"><a></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Our Goal:</strong> Create a bar plot with days of the <code>week</code> on the x-axis and the total <code>tip</code> amount on the y-axis (e.g., Saturday should display a bar with a height of $55, etc.).</p>
+</section>
+<section id="whats-wrong-with-this-plot" class="slide level2 center">
+<h2>What’s Wrong With This Plot?</h2>
+<p>Try this code. What does the height of each bar represent?</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> week)) <span class="sc">+</span></span>
+<span id="cb18-2"><a></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><fragment></fragment></p>
+<div title="Why the bars do not show the actual tip amounts?">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Why the bars do not show the actual tip amounts?</strong></p>
+</div>
+<div class="callout-content">
+<p>Why aren’t the bars showing the actual tip amounts?<br>
+- Because by default, <code>geom_bar()</code> uses <code>stat = "count"</code> to count how many rows fall into each category and puts those counts on the y-axis - To plot the actual values (not counts), use <code>stat = "identity"</code> with both a x and y</p>
+</div>
+</div>
+</div>
+</div>
+<p></p>
+</section>
+<section id="fix-the-y-axis-on-this-bar-plot" class="slide level2 center">
+<h2>Fix the y-axis on this bar plot</h2>
+<p>To fix this plot, we need to change the default <code>stat</code> from count to identity and manually specify both the <code>x</code> and <code>y</code> aesthetics. <em>See the <a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">documentation</a> or type <code>?geom_bar</code> in your R Console.</em></p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> week, <span class="at">y =</span> tip)) <span class="sc">+</span></span>
+<span id="cb19-2"><a></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb19-3"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Tips by Weekday"</span>, <span class="at">x =</span> <span class="st">"Weekday"</span>, <span class="at">y =</span> <span class="st">"Tip ($)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This is much better, but we still do not have the bars nicely ordered….</p>
+</section>
+<section id="fix-the-order-of-the-bars-using-factor" class="slide level2 center">
+<h2>Fix the order of the bars using factor()</h2>
+<p>First, use base R’s <code>factor()</code> to control the order of weekdays.</p>
+<p>Replace the blank with the correct weekday order in the code below:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>df <span class="sc">|&gt;</span></span>
+<span id="cb20-2"><a></a>  <span class="fu">mutate</span>(<span class="at">week =</span> <span class="fu">factor</span>(week, <span class="at">levels =</span> _____ )) <span class="sc">|&gt;</span></span>
+<span id="cb20-3"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> week, <span class="at">y =</span> tip)) <span class="sc">+</span></span>
+<span id="cb20-4"><a></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb20-5"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Tips by Weekday"</span>, <span class="at">x =</span> <span class="st">"Weekday"</span>, <span class="at">y =</span> <span class="st">"Tip ($)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="do-the-same-but-using-fct_relevel" class="slide level2 center">
+<h2>Do the same but using fct_relevel()</h2>
+<p>Now, make the same plot using <a href="https://forcats.tidyverse.org/reference/fct_relevel.html"><code>fct_relevel()</code></a></p>
+<p>Replace the correct weekday order in the code below:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>df <span class="sc">|&gt;</span></span>
+<span id="cb21-2"><a></a>  <span class="fu">mutate</span>(<span class="at">week =</span> <span class="fu">fct_relevel</span>(week, ______ )) <span class="sc">|&gt;</span></span>
+<span id="cb21-3"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> week, <span class="at">y =</span> tip)) <span class="sc">+</span></span>
+<span id="cb21-4"><a></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb21-5"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Tips by Weekday"</span>, <span class="at">x =</span> <span class="st">"Weekday"</span>, <span class="at">y =</span> <span class="st">"Tip ($)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<!--
+
+Note: Leave out for CSP, bring back for CSS class. The actual code gives what I want (Sat is 55 etc) so unsure this is actually needed
+
+## Group and Summarize
+
+Now try grouping by weekday and summing the tips before plotting. Use either `factor()` or `fct_relevel()`.
+
+```r
+df |>
+  mutate(week = factor(week, days)) |>   # factor() or fct_relevel()
+  group_by(week) |>
+  summarize(total_tip = sum(tip)) |>
+  ggplot(aes(x = week, y = total_tip)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Total Tips by Weekday", x = "Weekday", y = "Total Tip ($)")
+```
+
+Add this on slides: Keep these tricks in mind for the homework assignments, especially HW3 (e.g., how to change a variable into a factor and manually pass labels for your graphs; and how to reorder a variable chronologically (here Mon to Sat) for plotting purposes)
+
+Consider putting this challenge in the practice exercises for today as well
+
+For the dplyr part: add in the Rmd file demo an example of what happens if you calculate the mean of a boolean or logical vectors (T and F), say that T are interpreted as 1 and F are 0 for R; this is useful again for HW3!  
+-->
+</section>
+<section id="solutions" class="slide level2 center">
+<h2>Solutions</h2>
+<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="co"># With factor</span></span>
+<span id="cb22-2"><a></a>days <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Mon"</span>, <span class="st">"Wed"</span>, <span class="st">"Thu"</span>, <span class="st">"Fri"</span>, <span class="st">"Sat"</span>)</span>
+<span id="cb22-3"><a></a>df <span class="sc">|&gt;</span></span>
+<span id="cb22-4"><a></a>  <span class="fu">mutate</span>(<span class="at">week =</span> <span class="fu">factor</span>(week, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Mon"</span>, <span class="st">"Tue"</span>, <span class="st">"Wed"</span>, <span class="st">"Thu"</span>, <span class="st">"Fri"</span>, <span class="st">"Sat"</span>, <span class="st">"Sun"</span>))) <span class="sc">|&gt;</span></span>
+<span id="cb22-5"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> week, <span class="at">y =</span> tip)) <span class="sc">+</span></span>
+<span id="cb22-6"><a></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb22-7"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Tips by Weekday"</span>, <span class="at">x =</span> <span class="st">"Weekday"</span>, <span class="at">y =</span> <span class="st">"Tip ($)"</span>)</span>
+<span id="cb22-8"><a></a></span>
+<span id="cb22-9"><a></a><span class="co"># With fct_relevel</span></span>
+<span id="cb22-10"><a></a>days <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Mon"</span>, <span class="st">"Wed"</span>, <span class="st">"Thu"</span>, <span class="st">"Fri"</span>, <span class="st">"Sat"</span>)</span>
+<span id="cb22-11"><a></a>df <span class="sc">|&gt;</span></span>
+<span id="cb22-12"><a></a>  <span class="fu">mutate</span>(<span class="at">week =</span> <span class="fu">fct_relevel</span>(week, days)) <span class="sc">|&gt;</span></span>
+<span id="cb22-13"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> week, <span class="at">y =</span> tip)) <span class="sc">+</span></span>
+<span id="cb22-14"><a></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb22-15"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Tips by Weekday"</span>, <span class="at">x =</span> <span class="st">"Weekday"</span>, <span class="at">y =</span> <span class="st">"Tip ($)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-none no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p><strong>Q: Why don’t we use <code>labels</code> in <code>factor()</code>?</strong> Because the values (<code>"Mon"</code>, etc.) are already readable. You don’t need to change them, unless you want different names (e.g., <code>"Monday"</code>, etc.).</p>
+<p><strong>Q: Why doesn’t <code>days</code> include all 7 days of the week?</strong> We should include all possible levels when using <code>factor()</code>. But <code>fct_relevel()</code> behave differently and does not need it.</p>
+</div>
+</div>
+</div>
+<!--
+Note the c() is the standard way of creating a vector 
+but fct_relevel() accepts multiple strings directly via ..., so you can skip c() and write directly fct_relevel(week, "Mon", "Wed", "Thu", "Fri", "Sat"_
+Both versions are valid
+
+FOR CSS CLASS: add one example with fct_reorder() as it is the most straightforward application
+-->
+</section>
+<section id="practice" class="slide level2 center">
+<h2>💻 Practice</h2>
+<p>Download today’s in-class exercises from the website for more practice on working with factors.</p>
+<p>Review Questions:</p>
+<ul>
+<li>What happens when you don’t set the factor order?</li>
+<li>Which approach among <code>factor()</code> or <code>fct_relevel()</code> do you prefer and why? Check the <code>forcats</code> package documentation for more functions, especially <code>fct_reorder()</code> which is straightforward to use</li>
+<li>Why was <code>stat = "identity"</code> necessary for this kind of plot?</li>
+</ul>
+</section>
+<section id="recap-what-we-learned-today" class="slide level2 center">
+<h2>Recap: What We Learned Today</h2>
+<ul>
+<li>What factors are and how to convert character or numeric vectors to factors<br>
+</li>
+<li>How to control the order of categories using <code>levels</code> and <code>labels</code><br>
+</li>
+<li>How to fix common <code>geom_bar()</code> plotting issues (e.g., bar heights and order)</li>
+</ul>
+</section>
+<section id="to-print-these-slides-as-pdf" class="slide level2 center">
+<h2>To print these slides as pdf</h2>
+<p>Click on the three lines located on the bottom-left corner of these slides &gt; Tools &gt; PDF Export Mode &gt; Print as a Pdf</p>
+
+
+</section></section>
     </div>
-  </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
   <script src="../site_libs/revealjs/dist/reveal.js"></script>

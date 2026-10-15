@@ -23,10 +23,6 @@ format:
 2. Factors in R 
 :::
 
-### Slides are in progress and will be updated before class.
-
-::: {.content-hidden}
-
 <span style="font-size: 0.8em; color: #666;">
 *Slides last updated on **`r format(Sys.Date(), '%B %d, %Y')`**. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.*
 </span>
@@ -41,6 +37,12 @@ library(knitr)
 
 
 <!--
+
+### Slides are in progress and will be updated before class.
+
+::: {.content-hidden}
+
+
 UPDATE FOR FALL 2026 ON FACTORS:
 
 HW2 OPENS BEFORE I TEACH THIS CLASS ON FACTORS, REMEMBMER TO PUT A HINT IN THE ASSIGMENT INSTRUCTIONS!
@@ -223,19 +225,19 @@ It removes the entire row, not just the missing cell. This can accidentally remo
 
 ## 💻 Practice: Handling Missing Data
 
-Let's practice...
+1. **First, rename:** use the `penguins_raw` dataset and rename `Flipper Length (mm)` to `flipper_length_mm`. Save the result as a new dataframe; call it `penguins_clean` or `p`
 
-- First, **rename:** use the `penguins_raw` dataset and rename `Flipper Length (mm)` to `flipper_length_mm`. Save the result as a new dataframe (call it `penguins_clean` or `p`)
+2. **Second, check missing data:** use the new dataframe for the steps below (copy and adapt code from these slides): 
 
-- Then, use the new dataframe for the steps below (copy/adapt code from these slides):  
-  - **Detect missing values:** use `is.na()` and `sum()` to count how many are missing in flipper length
-  - **Exclude from calculations:** use `na.rm = TRUE` inside `mean()` to calculate the average flipper length
-  - **Drop missing values:** use `drop_na()` to remove rows with missing values in flipper length
-
-Once done, [share your code here](https://codeshare.io/29X3QM){target="_blank"}.
+    - *Detect missing values:* use `is.na()` and `sum()` to count how many are missing in flipper length
+    - *Exclude from calculations:* use `na.rm = TRUE` inside `mean()` to calculate the average flipper length
+    - *Drop missing values:* use `drop_na()` to remove rows with missing values in flipper length
 
 
 <!--
+Once done, [share your code here](https://codeshare.io/29X3QM){target="_blank"}.
+
+
 # 0. Rename
 p <- penguins_raw |> rename(flipper_length_mm = `Flipper Length (mm)`)
 
@@ -322,7 +324,7 @@ ggplot(health, aes(x = smoker)) +
 
 ## What are Factors in R?
 
-At the most basic level **a factor is a specific data structure in R**.
+In short **a factor is a specific data structure in R**.
 
 But to fully understand factors, we first need to think about **variables with categories**: variables whose values come from a limited set of labels.
 
@@ -348,15 +350,13 @@ When we analyze data, we often want these categories to appear in a specific ord
 
 ## How R Stores Variables with Categories
 
-:::{.callout-note title="R Data Structures for Categorical Data"}
+:::{.callout-note title="R Has Three Main Data Structures for Categorical Data"}
 
-R has three main data structures to store variables with categories:
+- **Character vector** used *often*: Data type for storing categorical data as plain strings (e.g., variable `months` with values "Jan", "Feb", "Mar", etc.). Values have no built-in order or grouping.
 
-- **Character vector (default):** Data type for storing categorical data as plain strings (e.g., variable `months` with values "Jan", "Feb", "Mar", etc.). Values have no built-in order or grouping.
+- **Numeric vector** used *occasionally*: Sometimes these are used to store categorical data as numbers (e.g., variable `months` with values 1, 2, 3), but lacks category labels or order.
 
-- **Numeric vector (occasionally):** Sometimes these are used to store categorical data as numbers (e.g., variable `months` with values 1, 2, 3), but lacks category labels or order.
-
-- **Factor (preferred when order matters):** Data type for storing categorical data with defined levels. Values can be ordered according to the researcher needs. 
+- **Factor** used *when order matters*: Data type for storing categorical data with defined levels. Values can be ordered according to the researcher needs. 
 
 :::
 
@@ -486,7 +486,7 @@ y2 <- factor(x2,
              labels = month_labels)
 -->
 
----
+<!--
 
 ## Levels and Labels in Factors
 
@@ -507,6 +507,8 @@ y2 <- factor(x2,
 :::
 
 ::::
+
+-->
 
 ---
 
@@ -607,7 +609,7 @@ sort(m)
 sort(mf)
 ```
 
----
+<!--
 
 ## Solution 1: Character Vector → Factor
 
@@ -620,6 +622,7 @@ mf <- factor(m,
 mf
 sort(mf)
 ```
+-->
 
 ---
 
@@ -643,7 +646,8 @@ y1 <- factor(x, levels = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12),
 y2 <- factor(x, levels = c(1, 2, 3, 4),
                 labels = c("Jan", "Mar", "Apr", "Dec"))
 ```
----
+
+<!--
 
 ## Solution 2: Numeric Vector → Factor
 
@@ -658,20 +662,18 @@ You can fix the code from the previous slide in the following ways:
 x <- c(12, 4, 1, 3, 1)
 class(x)
 
-# Option 1 (reccomended)
+# Option 1 (recommended)
 month_labels <- c("Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec")
 month_levels = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)
 y1 <- factor(x, levels = month_levels,  
                 labels = month_labels)
 class(y1)
 
-# Option 2 (works but not reccomended, why?)
+# Option 2 (works but not recommended, why?)
 y2 <- factor(x, levels = c(1, 3, 4, 12),
                 labels = c("Jan", "Mar", "Apr", "Dec"))
 
 ```
-
-<!--
 
 Option 1: creates a factor with all 12 months as possible levels, even if only 4 are used. Best option because it preserves the full structure of the variable.
 
@@ -698,28 +700,26 @@ glimpse(scorecard)
 ```
 ---
 
-## Task: Plot the total number of schools in the U.S. by school type
+## 💻 Our Task 
 
-This is the same question we did in class.
- 
-Since `type` is a categorical variable, we use a bar chart, which takes each category `"Public"`, `"Private nonprofit"`, `"Private for profit"` and automatically applies a frequency count to aggregate the data.
+### Plot the total number of schools in the U.S. by school type AND reorder the bars
+
+We use a bar chart, which takes each category of the categorical variable `type` and automatically applies a frequency count to aggregate the data:
 
 ```r
 ggplot(scorecard, mapping = aes(x = type)) +
   geom_bar() 
 ```
 
-<br>
+**Question we are going to answer: How can we reorder the bars?** 
 
-### Our goal: reorder the bars!
-
-</br>
+*Tip: this is the same task asked in HW2!*
 
 ---
 
-## Method 1: Reorder bars manually with *factor()*
+## Approach 1: Reorder bars manually with *factor()*
 
-This is the method we used in the previous slide. It  more technical, but it gives you full control because you manually define the order of the factor levels.
+This is the approach we used in the previous slide. It  more technical, but it gives you full control because you manually define the order of the factor levels.
 
 ```r
 s <- scorecard |>
@@ -738,7 +738,7 @@ Remember:
 
 ---
 
-## Method 2: Reorder the bars using tidyverse *fct_relevel()*
+## Approach 2: Reorder the bars using tidyverse *fct_relevel()*
 
 [`fct_relevel()`](https://forcats.tidyverse.org/reference/fct_relevel.html): allows to reorder factor levels by hand; this function behave similarly to `factor()`
 
@@ -755,7 +755,7 @@ Note: you can write code also by "piping" the results of the `dplyr` code into `
 
 ---
 
-## Method 3: Reorder the bars using tidyverse *fct_infreq()*
+## Approach 3: Reorder the bars using tidyverse *fct_infreq()*
 
 [`fct_infreq()`](https://forcats.tidyverse.org/reference/fct_inorder.html) sorts bars automatically by how common each category is (most to least frequent)
 
@@ -772,7 +772,7 @@ ggplot(aes(x = type)) +
 
 :::{.callout-note title="Using factor() or a function from forcats?"}
 
-The example from Method 1 uses `factor()`, the base R function for creating and managing factors. It is worth understanding because it shows the basic logic: a factor stores category labels together with an order of levels.
+The example from Approach 1 uses `factor()`, the base R function for creating and managing factors. It is worth understanding because it shows the basic logic: a factor stores category labels together with an order of levels.
 
 But because factors are so common in data analysis, the tidyverse includes a package called `forcats`, which provides simpler and more flexible tools for working with factors. Methods 2 and 3 from the previous slides use two `forcats` functions.
 
@@ -953,15 +953,16 @@ FOR CSS CLASS: add one example with fct_reorder() as it is the most straightforw
 
 ---
 
-## Reflections
+## 💻 Practice
 
-:::{.callout-tip}
+Download today's in-class exercises from the website for more practice on working with factors.
+ 
+Review Questions:
+
 - What happens when you don’t set the factor order?
-- Which method among `factor()` or `fct_relevel()` do you prefer and why? Check the `forcats` package documentation for more functions, especially `fct_reorder()` which is straightforward to use
+- Which approach among `factor()` or `fct_relevel()` do you prefer and why? Check the `forcats` package documentation for more functions, especially `fct_reorder()` which is straightforward to use
 - Why was `stat = "identity"` necessary for this kind of plot?
-:::
 
-Want more practice? Download today's in-class materials for more practice exercises on working with factors!
 
 ---
 
@@ -975,4 +976,4 @@ Want more practice? Download today's in-class materials for more practice exerci
 
 ## To print these slides as pdf
 
-Click on the icon bottom-left corner (the three lines) \> Tools \> PDF Export Mode \> Print as a Pdf
+Click on the three lines located on the bottom-left corner of these slides \> Tools \> PDF Export Mode \> Print as a Pdf
