@@ -22,7 +22,7 @@ This will work only if you have submitted your GitHub username and email (see Le
 
 ### Accessing the repo
 
-1. Go to [this link](https://classroom50.org/css-fall26/css/assignments/hw01/accept). The first time, click *Sign in with GitHub* and authorize Classroom 50 (the tool we use to distribute assignments).
+1. Go to [this link](https://classroom50.org/css-fall26/css/assignments/hw02/accept). The first time, click *Sign in with GitHub* and authorize Classroom 50 (the tool we use to distribute assignments).
 
 2. Click *Accept assignment* to create your private `hw02` repository on GitHub. Your repository will be named `css-hw02-<USERNAME>`. Keep the page open until the setup checklist finishes (a few seconds).
 
