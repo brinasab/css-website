@@ -620,14 +620,14 @@
     "href": "lectures/07-home.html",
     "title": "Lecture 7: Missing Data; Factors",
     "section": "",
-    "text": "Date: October 19, 2026\nTopics: Missing Data; Factors\nSlides: View Slides\nCode: To be posted before class"
+    "text": "Date: October 19, 2026\nTopics: Missing Data; Factors\nSlides: View Slides\nCode: No in-class code for this section"
   },
   {
     "objectID": "lectures/07-home.html#info-and-materials",
     "href": "lectures/07-home.html#info-and-materials",
     "title": "Lecture 7: Missing Data; Factors",
     "section": "",
-    "text": "Date: October 19, 2026\nTopics: Missing Data; Factors\nSlides: View Slides\nCode: To be posted before class"
+    "text": "Date: October 19, 2026\nTopics: Missing Data; Factors\nSlides: View Slides\nCode: No in-class code for this section"
   },
   {
     "objectID": "lectures/07-home.html#learning-objectives",
@@ -2854,5 +2854,12 @@
     "title": "Computing for the Social Sciences: Lecture 7",
     "section": "💻 Our Task",
     "text": "💻 Our Task\nPlot the total number of schools in the U.S. by school type AND reorder the bars\nWe use a bar chart, which takes each category of the categorical variable type and automatically applies a frequency count to aggregate the data:\nggplot(scorecard, mapping = aes(x = type)) +\n  geom_bar() \nQuestion we are going to answer: How can we reorder the bars?\nTip: this is the same task asked in HW2!"
+  },
+  {
+    "objectID": "lectures/07-slides.html#approach-1-cont.-get-levels-and-labels-from-the-data",
+    "href": "lectures/07-slides.html#approach-1-cont.-get-levels-and-labels-from-the-data",
+    "title": "Computing for the Social Sciences: Lecture 7",
+    "section": "Approach 1 (cont.): Get Levels and Labels from the Data",
+    "text": "Approach 1 (cont.): Get Levels and Labels from the Data\nWith many categories (e.g., 50 states, 100 country codes) typing level by hand does not work. Instead, let R pull the levels and labels from the data with distinct().\nExample: survey data where education is stored as a numeric code, with its label in a second column.\nsurvey &lt;- tibble(\n  id        = 1:6,\n  edu_code  = c(3, 1, 5, 2, 4, 3),\n  edu_label = c(\"Bachelor\", \"Less than HS\", \"Doctorate\",\n                \"High school\", \"Master's\", \"Bachelor\"))\n\n# Step 1: build a lookup table with each code next to its label, sorted by code\nedu_lookup &lt;- survey |&gt;\n  distinct(edu_code, edu_label) |&gt;\n  arrange(edu_code)\n\n# Step 2: use its columns as levels and labels (no typing!)\nsurvey &lt;- survey |&gt;\n  mutate(edu = factor(edu_code,\n                      levels = pull(edu_lookup, edu_code),\n                      labels = pull(edu_lookup, edu_label)))\n\nlevels(survey$edu)"
   }
 ]

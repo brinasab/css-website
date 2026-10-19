@@ -738,6 +738,55 @@ Remember:
 
 ---
 
+## Approach 1 (cont.): Get Levels and Labels from the Data
+
+With many categories (e.g., 50 states, 100 country codes) typing level by hand does not work. Instead, **let R pull the levels and labels from the data** with `distinct()`.
+
+Example: survey data where education is stored as a numeric code, with its label in a second column.
+
+```r
+survey <- tibble(
+  id        = 1:6,
+  edu_code  = c(3, 1, 5, 2, 4, 3),
+  edu_label = c("Bachelor", "Less than HS", "Doctorate",
+                "High school", "Master's", "Bachelor"))
+
+# Step 1: build a lookup table with each code next to its label, sorted by code
+edu_lookup <- survey |>
+  distinct(edu_code, edu_label) |>
+  arrange(edu_code)
+
+# Step 2: use its columns as levels and labels (no typing!)
+survey <- survey |>
+  mutate(edu = factor(edu_code,
+                      levels = pull(edu_lookup, edu_code),
+                      labels = pull(edu_lookup, edu_label)))
+
+levels(survey$edu)
+```
+<!--
+
+## Why distinct() and Not unique() on Each Column?
+
+You could try to get levels and labels with `unique()` on each column separately:
+
+```r
+# looks reasonable, but gives WRONG labels
+survey |>
+  mutate(edu = factor(edu_code,
+                      levels = sort(unique(edu_code)),
+                      labels = unique(edu_label)))
+```
+
+R gives no error, but code `1` now shows as `"Bachelor's"`! We sorted the codes (1, 2, 3, ...) but the labels stayed in the order they first appear in the data. Labels are matched to levels **by position**, so they end up on the wrong codes.
+
+::: {.callout-tip title="Tip"}
+`distinct(edu_code, edu_label)` keeps each code and its label together in the same row, so sorting the codes moves the labels with them. `unique()` works fine for a single column, for example `levels = sort(unique(edu_code))` when you only need levels.
+:::
+-->
+
+---
+
 ## Approach 2: Reorder the bars using tidyverse *fct_relevel()*
 
 [`fct_relevel()`](https://forcats.tidyverse.org/reference/fct_relevel.html): allows to reorder factor levels by hand; this function behave similarly to `factor()`
