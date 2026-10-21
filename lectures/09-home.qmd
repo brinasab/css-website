@@ -27,8 +27,16 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Learning Objectives
 
-- Importing and Exporting Data into R
-- Managing Relational Data (e.g., linking and merging related tables)
+Today, we will start with the ungraded quiz, then cover regular expressions (see last lecture). We will then go over the exam format and have a Q&A session.
+
+In the second part of class, we will learn how to import and export data in R, and briefly introduce relational data.
+
+
+## Before Class
+
+- Download last lecture's class materials (if you haven't already) using the purple `usethis::` code at the top of [Lecture 8](08-home.qmd).
+- Read the `regex.Rmd` tutorial and complete the practice exercises
+- Bring any questions to class
 
 
 ## Readings

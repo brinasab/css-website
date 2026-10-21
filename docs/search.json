@@ -690,7 +690,7 @@
     "href": "lectures/09-home.html#learning-objectives",
     "title": "Lecture 9: Importing Data with readr; Relational Data with dplyr",
     "section": "Learning Objectives",
-    "text": "Learning Objectives\n\nImporting and Exporting Data into R\nManaging Relational Data (e.g., linking and merging related tables)"
+    "text": "Learning Objectives\nToday, we will start with the ungraded quiz, then cover regular expressions (see last lecture). We will then go over the exam format and have a Q&A session.\nIn the second part of class, we will learn how to import and export data in R, and briefly introduce relational data."
   },
   {
     "objectID": "lectures/09-home.html#readings",
@@ -3099,5 +3099,12 @@
     "title": "Computing for the Social Sciences: Lecture 8",
     "section": "Separating",
     "text": "Separating\nhttps://tidyr.tidyverse.org/reference/separate.html\n\n\n\n\ntable3\n\n# A tibble: 6 × 3\n  country      year rate             \n  &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;            \n1 Afghanistan  1999 745/19987071     \n2 Afghanistan  2000 2666/20595360    \n3 Brazil       1999 37737/172006362  \n4 Brazil       2000 80488/174504898  \n5 China        1999 212258/1272915272\n6 China        2000 213766/1280428583\n\n\n\n\ntidy_table3 &lt;- separate(data = table3,\n                        col = rate,\n                        into = c(\"cases\",\"population\"),\n                        convert = TRUE)\n\ntidy_table3 &lt;- mutate(tidy_table3, \n                      rate = cases / population)"
+  },
+  {
+    "objectID": "lectures/09-home.html#before-class",
+    "href": "lectures/09-home.html#before-class",
+    "title": "Lecture 9: Importing Data with readr; Relational Data with dplyr",
+    "section": "Before Class",
+    "text": "Before Class\n\nDownload last lecture’s class materials (if you haven’t already) using the purple usethis:: code at the top of Lecture 8.\nRead the regex.Rmd tutorial and complete the practice exercises\nBring any questions to class"
   }
 ]
