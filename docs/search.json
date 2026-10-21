@@ -648,14 +648,14 @@
     "href": "lectures/08-home.html",
     "title": "Lecture 8: Tidy Data with tidyr; Regex with stringr",
     "section": "",
-    "text": "Date: October 21, 2026\nTopics: Tidy Data with tidyr; Regex with stringr\nSlides: To be posted before class\nCode: To be posted before class"
+    "text": "Date: October 21, 2026\nTopics: Tidy Data with tidyr; Regex with stringr\nSlides: View Slides\nCode: usethis::use_course(\"css-materials/tidydata-regex\")"
   },
   {
     "objectID": "lectures/08-home.html#info-and-materials",
     "href": "lectures/08-home.html#info-and-materials",
     "title": "Lecture 8: Tidy Data with tidyr; Regex with stringr",
     "section": "",
-    "text": "Date: October 21, 2026\nTopics: Tidy Data with tidyr; Regex with stringr\nSlides: To be posted before class\nCode: To be posted before class"
+    "text": "Date: October 21, 2026\nTopics: Tidy Data with tidyr; Regex with stringr\nSlides: View Slides\nCode: usethis::use_course(\"css-materials/tidydata-regex\")"
   },
   {
     "objectID": "lectures/08-home.html#learning-objectives",
@@ -2811,7 +2811,7 @@
     "href": "lectures/07-slides.html#approach-1-reorder-bars-manually-with-factor",
     "title": "Computing for the Social Sciences: Lecture 7",
     "section": "Approach 1: Reorder bars manually with factor()",
-    "text": "Approach 1: Reorder bars manually with factor()\nThis is the approach we used in the previous slide. It more technical, but it gives you full control because you manually define the order of the factor levels.\ns &lt;- scorecard |&gt;\n  mutate(type = factor(type,\n                       levels = c(\"Private, nonprofit\", \"Public\", \"Private, for-profit\")))\n\nggplot(s, aes(x = type)) +\n  geom_bar()\nRemember:\n\ncheck the column type (character or numeric) before transforming to factor using factor() as shown in the previous examples\nuse it inside mutate() since you are working on column of a dataframe (and not a standalone vector like in the previous examples)"
+    "text": "Approach 1: Reorder bars manually with factor()\nThis is the approach we used in the previous slide. It more technical, but it gives you full control because you manually define the order of the factor levels.\ns &lt;- scorecard |&gt;\n  mutate(type = factor(type,\n                       levels = c(\"Private, nonprofit\", \"Public\", \"Private, for-profit\")))\n\nggplot(s, aes(x = type)) +\n  geom_bar()\nRemember:\n\ncheck the column type (character or numeric) before transforming to factor using factor()\nthe order of the bars come from levels, here typed by hand\nuse it inside mutate() since you are working on column of a dataframe (and not a standalone vector like in the previous examples)"
   },
   {
     "objectID": "lectures/07-slides.html#approach-2-reorder-the-bars-using-tidyverse-fct_relevel",
@@ -2861,5 +2861,243 @@
     "title": "Computing for the Social Sciences: Lecture 7",
     "section": "Approach 1 (cont.): Get Levels and Labels from the Data",
     "text": "Approach 1 (cont.): Get Levels and Labels from the Data\nWith many categories (e.g., 50 states, 100 country codes) typing level by hand does not work. Instead, let R pull the levels and labels from the data with distinct().\nExample: survey data where education is stored as a numeric code, with its label in a second column.\nsurvey &lt;- tibble(\n  id        = 1:6,\n  edu_code  = c(3, 1, 5, 2, 4, 3),\n  edu_label = c(\"Bachelor\", \"Less than HS\", \"Doctorate\",\n                \"High school\", \"Master's\", \"Bachelor\"))\n\n# Step 1: build a lookup table with each code next to its label, sorted by code\nedu_lookup &lt;- survey |&gt;\n  distinct(edu_code, edu_label) |&gt;\n  arrange(edu_code)\n\n# Step 2: use its columns as levels and labels (no typing!)\nsurvey &lt;- survey |&gt;\n  mutate(edu = factor(edu_code,\n                      levels = pull(edu_lookup, edu_code),\n                      labels = pull(edu_lookup, edu_label)))\n\nlevels(survey$edu)"
+  },
+  {
+    "objectID": "lectures/08-slides.html#tidy-data",
+    "href": "lectures/08-slides.html#tidy-data",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Tidy Data",
+    "text": "Tidy Data\n“Tidy data” is a particular way to organize data.\n\nUseful because:\n\nstandardized: every tidy dataset follows the same rules\n\nconsistent: tidy data can be used directly by many tidyverse packages without extra manipulation\n\nclear: tidy data are easier to read, understand, and work with"
+  },
+  {
+    "objectID": "lectures/08-slides.html#tidy-data-three-principles",
+    "href": "lectures/08-slides.html#tidy-data-three-principles",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Tidy Data: Three Principles",
+    "text": "Tidy Data: Three Principles\n\n\nIllustrations from Tidy Data for reproducibility, efficiency, and collaboration by Julia Lowndes & Allison Horst"
+  },
+  {
+    "objectID": "lectures/08-slides.html#tidy-datasets-are-all-alike",
+    "href": "lectures/08-slides.html#tidy-datasets-are-all-alike",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Tidy Datasets Are All Alike",
+    "text": "Tidy Datasets Are All Alike\n\n\nIllustrations from Tidy Data for reproducibility, efficiency, and collaboration by Julia Lowndes & Allison Horst"
+  },
+  {
+    "objectID": "lectures/08-slides.html#tidy-datasets-are-all-alike-1",
+    "href": "lectures/08-slides.html#tidy-datasets-are-all-alike-1",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Tidy Datasets Are All Alike",
+    "text": "Tidy Datasets Are All Alike\n\n\nIllustrations from the blog Tidy Data for reproducibility, efficiency, and collaboration by Julia Lowndes and Allison Horst"
+  },
+  {
+    "objectID": "lectures/08-slides.html#tidying-untidy-data",
+    "href": "lectures/08-slides.html#tidying-untidy-data",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Tidying untidy data",
+    "text": "Tidying untidy data\nMost real-world data IS NOT stored in a tidy format!\n\nMany datasets are designed to make data entry, not analysis, easier\n\nTidy data principles take time and practice to master\n\n\n\n\n\n\n\nTip\n\n\nWhen working with the tidyverse (ggplot2, dplyr, etc.), start by putting your data in tidy format. Most tidyverse functions assume data are tidy"
+  },
+  {
+    "objectID": "lectures/08-slides.html#tidying-untidy-data-1",
+    "href": "lectures/08-slides.html#tidying-untidy-data-1",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Tidying Untidy Data",
+    "text": "Tidying Untidy Data\nYou are ready to start a project and loaded some data into R, but they are untidy!\nWhat should you do to tidy them up?"
+  },
+  {
+    "objectID": "lectures/08-slides.html#tidying-untidy-data-2",
+    "href": "lectures/08-slides.html#tidying-untidy-data-2",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Tidying Untidy Data",
+    "text": "Tidying Untidy Data\n\n\nFirst, Diagnose the data\n\nIdentify the variables\nIdentify the observations\nSpot what’s untidy\n\nMultiple variables in one column\n\nVariable values used as column names\n\nVariable names stored in rows\nEtc.\n\n\n\nSecond, Fix it with tidyr\n\nPut each variable in its own column\nPut each observation in its own row\nEnsure each cell holds a single value"
+  },
+  {
+    "objectID": "lectures/08-slides.html#things-you-can-do-with-the-tidyr-package",
+    "href": "lectures/08-slides.html#things-you-can-do-with-the-tidyr-package",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Things You Can Do with the tidyr Package",
+    "text": "Things You Can Do with the tidyr Package\nTidyr documentation\n\nPivoting\n\npivot_longer() makes the dataset longer by increasing rows\n\npivot_wider() makes the dataset wider by increasing columns\n\nSeparating\n\nseparate() splits one column into multiple columns\n\nUniting\n\nunite() combines multiple columns into one\n\n\n\n\n\n\n\n\nNote\n\n\nThe tidyr package includes many other functions, but we focus on the most important. Each behaves a bit differently, so be sure to check the documentation for details on their arguments."
+  },
+  {
+    "objectID": "lectures/08-slides.html#example",
+    "href": "lectures/08-slides.html#example",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Example",
+    "text": "Example\nWe’ll illustrate these tidying tasks using one of the datasets from the readings (Chapter 5). We are going to see different (untidy) ways to organize this dataset, and how to use tidyr to organize each of htem\nThe dataset is longitudinal, with four variables:\n\ncountry\n\nyear\n\ncases (number of tuberculosis cases)\npopulation"
+  },
+  {
+    "objectID": "lectures/08-slides.html#pivot-longer",
+    "href": "lectures/08-slides.html#pivot-longer",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Pivot Longer",
+    "text": "Pivot Longer\nThis data shows country, years, and cases. Why is this untidy and how can we tidy it?\n\ntable4a\n\n# A tibble: 3 × 3\n  country     `1999` `2000`\n  &lt;chr&gt;        &lt;dbl&gt;  &lt;dbl&gt;\n1 Afghanistan    745   2666\n2 Brazil       37737  80488\n3 China       212258 213766\n\n\n\n\n\n“Each variable must have its own column”: column names must be variables names, not variables values\n“Each observation must have its own row”: here we have one row for every country, but this is panel data, so we should have the country-year pair to define one observation, not just country"
+  },
+  {
+    "objectID": "lectures/08-slides.html#pivot-longer-1",
+    "href": "lectures/08-slides.html#pivot-longer-1",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Pivot Longer",
+    "text": "Pivot Longer\nhttps://tidyr.tidyverse.org/reference/pivot_longer.html\n\n\n\n\ntable4a\n\n# A tibble: 3 × 3\n  country     `1999` `2000`\n  &lt;chr&gt;        &lt;dbl&gt;  &lt;dbl&gt;\n1 Afghanistan    745   2666\n2 Brazil       37737  80488\n3 China       212258 213766\n\n\n\n\npivot_longer(data = table4a,\n             cols = c(`1999`, `2000`),\n             names_to = \"year\",\n             values_to = \"cases\")\n\n# A tibble: 6 × 3\n  country     year   cases\n  &lt;chr&gt;       &lt;chr&gt;  &lt;dbl&gt;\n1 Afghanistan 1999     745\n2 Afghanistan 2000    2666\n3 Brazil      1999   37737\n4 Brazil      2000   80488\n5 China       1999  212258\n6 China       2000  213766"
+  },
+  {
+    "objectID": "lectures/08-slides.html#pivot-wider",
+    "href": "lectures/08-slides.html#pivot-wider",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Pivot Wider",
+    "text": "Pivot Wider\nThis data shows country, years, cases, and population. Why is this untidy and how can we tidy it?\n\ntable2\n\n# A tibble: 12 × 4\n   country      year type            count\n   &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt;\n 1 Afghanistan  1999 cases             745\n 2 Afghanistan  1999 population   19987071\n 3 Afghanistan  2000 cases            2666\n 4 Afghanistan  2000 population   20595360\n 5 Brazil       1999 cases           37737\n 6 Brazil       1999 population  172006362\n 7 Brazil       2000 cases           80488\n 8 Brazil       2000 population  174504898\n 9 China        1999 cases          212258\n10 China        1999 population 1272915272\n11 China        2000 cases          213766\n12 China        2000 population 1280428583\n\n\n\n\n“Each variable must have its own column”: the current values of type are actually variables names\n“Each observation must have its own row”: here an observation is a country in a year, which is correct, but each observation is spread across two rows"
+  },
+  {
+    "objectID": "lectures/08-slides.html#pivot-wider-1",
+    "href": "lectures/08-slides.html#pivot-wider-1",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Pivot Wider",
+    "text": "Pivot Wider\nhttps://tidyr.tidyverse.org/reference/pivot_wider.html\n\n\n\n\ntable2\n\n# A tibble: 12 × 4\n   country      year type            count\n   &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt;\n 1 Afghanistan  1999 cases             745\n 2 Afghanistan  1999 population   19987071\n 3 Afghanistan  2000 cases            2666\n 4 Afghanistan  2000 population   20595360\n 5 Brazil       1999 cases           37737\n 6 Brazil       1999 population  172006362\n 7 Brazil       2000 cases           80488\n 8 Brazil       2000 population  174504898\n 9 China        1999 cases          212258\n10 China        1999 population 1272915272\n11 China        2000 cases          213766\n12 China        2000 population 1280428583\n\n\n\n\npivot_wider(data = table2,\n            names_from = type,\n            values_from = count)\n\n# A tibble: 6 × 4\n  country      year  cases population\n  &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;\n1 Afghanistan  1999    745   19987071\n2 Afghanistan  2000   2666   20595360\n3 Brazil       1999  37737  172006362\n4 Brazil       2000  80488  174504898\n5 China        1999 212258 1272915272\n6 China        2000 213766 1280428583"
+  },
+  {
+    "objectID": "lectures/08-slides.html#separating",
+    "href": "lectures/08-slides.html#separating",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Separating",
+    "text": "Separating\nThis data shows country, years, and rate. Why is this untidy and how can we tidy it?\n\ntable3\n\n# A tibble: 6 × 3\n  country      year rate             \n  &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;            \n1 Afghanistan  1999 745/19987071     \n2 Afghanistan  2000 2666/20595360    \n3 Brazil       1999 37737/172006362  \n4 Brazil       2000 80488/174504898  \n5 China        1999 212258/1272915272\n6 China        2000 213766/1280428583"
+  },
+  {
+    "objectID": "lectures/08-slides.html#separating-1",
+    "href": "lectures/08-slides.html#separating-1",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Separating",
+    "text": "Separating\nhttps://tidyr.tidyverse.org/reference/separate.html\n\n\n\n\ntable3\n\n# A tibble: 6 × 3\n  country      year rate             \n  &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;            \n1 Afghanistan  1999 745/19987071     \n2 Afghanistan  2000 2666/20595360    \n3 Brazil       1999 37737/172006362  \n4 Brazil       2000 80488/174504898  \n5 China        1999 212258/1272915272\n6 China        2000 213766/1280428583\n\n\n\n\nseparate(data = table3,\n         col = rate,\n         into = c(\"cases\",\"population\"),\n         convert = TRUE)\n\n# A tibble: 6 × 4\n  country      year  cases population\n  &lt;chr&gt;       &lt;dbl&gt;  &lt;int&gt;      &lt;int&gt;\n1 Afghanistan  1999    745   19987071\n2 Afghanistan  2000   2666   20595360\n3 Brazil       1999  37737  172006362\n4 Brazil       2000  80488  174504898\n5 China        1999 212258 1272915272\n6 China        2000 213766 1280428583"
+  },
+  {
+    "objectID": "lectures/08-slides.html#uniting",
+    "href": "lectures/08-slides.html#uniting",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Uniting",
+    "text": "Uniting\nThis data shows country, years (as century and year), and rate. Why is this untidy and how can we tidy it?\n\ntable5\n\n# A tibble: 6 × 4\n  country     century year  rate             \n  &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;            \n1 Afghanistan 19      99    745/19987071     \n2 Afghanistan 20      00    2666/20595360    \n3 Brazil      19      99    37737/172006362  \n4 Brazil      20      00    80488/174504898  \n5 China       19      99    212258/1272915272\n6 China       20      00    213766/1280428583"
+  },
+  {
+    "objectID": "lectures/08-slides.html#uniting-1",
+    "href": "lectures/08-slides.html#uniting-1",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Uniting",
+    "text": "Uniting\nhttps://tidyr.tidyverse.org/reference/unite.html\n\n\n\n\ntable5\n\n# A tibble: 6 × 4\n  country     century year  rate             \n  &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;            \n1 Afghanistan 19      99    745/19987071     \n2 Afghanistan 20      00    2666/20595360    \n3 Brazil      19      99    37737/172006362  \n4 Brazil      20      00    80488/174504898  \n5 China       19      99    212258/1272915272\n6 China       20      00    213766/1280428583\n\n\n\n\nunite(data = table5,\n      col = \"year\", century, year)\n\n# A tibble: 6 × 3\n  country     year  rate             \n  &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt;            \n1 Afghanistan 19_99 745/19987071     \n2 Afghanistan 20_00 2666/20595360    \n3 Brazil      19_99 37737/172006362  \n4 Brazil      20_00 80488/174504898  \n5 China       19_99 212258/1272915272\n6 China       20_00 213766/1280428583"
+  },
+  {
+    "objectID": "lectures/08-slides.html#uniting-2",
+    "href": "lectures/08-slides.html#uniting-2",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Uniting",
+    "text": "Uniting\n\n\n\ntable5\n\n# A tibble: 6 × 4\n  country     century year  rate             \n  &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;            \n1 Afghanistan 19      99    745/19987071     \n2 Afghanistan 20      00    2666/20595360    \n3 Brazil      19      99    37737/172006362  \n4 Brazil      20      00    80488/174504898  \n5 China       19      99    212258/1272915272\n6 China       20      00    213766/1280428583\n\n\n\n\nunite(data = table5,\n      col = \"year\", century, year,\n      sep = \"\") # remove underscore\n\n# A tibble: 6 × 3\n  country     year  rate             \n  &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt;            \n1 Afghanistan 1999  745/19987071     \n2 Afghanistan 2000  2666/20595360    \n3 Brazil      1999  37737/172006362  \n4 Brazil      2000  80488/174504898  \n5 China       1999  212258/1272915272\n6 China       2000  213766/1280428583"
+  },
+  {
+    "objectID": "lectures/08-slides.html#uniting-3",
+    "href": "lectures/08-slides.html#uniting-3",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Uniting",
+    "text": "Uniting\n\n\n\ntable5\n\n# A tibble: 6 × 4\n  country     century year  rate             \n  &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;            \n1 Afghanistan 19      99    745/19987071     \n2 Afghanistan 20      00    2666/20595360    \n3 Brazil      19      99    37737/172006362  \n4 Brazil      20      00    80488/174504898  \n5 China       19      99    212258/1272915272\n6 China       20      00    213766/1280428583\n\n\n\n\nunite(data = table5,\n      col = \"year\", century, year,\n      sep = \"\") |&gt;\n  mutate(year = as.integer(year)) # store as numeric\n\n# A tibble: 6 × 3\n  country      year rate             \n  &lt;chr&gt;       &lt;int&gt; &lt;chr&gt;            \n1 Afghanistan  1999 745/19987071     \n2 Afghanistan  2000 2666/20595360    \n3 Brazil       1999 37737/172006362  \n4 Brazil       2000 80488/174504898  \n5 China        1999 212258/1272915272\n6 China        2000 213766/1280428583"
+  },
+  {
+    "objectID": "lectures/08-slides.html#use-pipes-to-chain-tidyr-functions",
+    "href": "lectures/08-slides.html#use-pipes-to-chain-tidyr-functions",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Use Pipes to Chain tidyr functions",
+    "text": "Use Pipes to Chain tidyr functions\n\n\n\ntable5\n\n# A tibble: 6 × 4\n  country     century year  rate             \n  &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;            \n1 Afghanistan 19      99    745/19987071     \n2 Afghanistan 20      00    2666/20595360    \n3 Brazil      19      99    37737/172006362  \n4 Brazil      20      00    80488/174504898  \n5 China       19      99    212258/1272915272\n6 China       20      00    213766/1280428583\n\n\n\n\nunite(data = table5,\n      col = \"year\", century, year,\n      sep = \"\") |&gt;\n  mutate(year = as.integer(year)) |&gt;\n  separate(col = rate,\n           into = c(\"cases\", \"population\"),\n           convert = TRUE)\n\n# A tibble: 6 × 4\n  country      year  cases population\n  &lt;chr&gt;       &lt;int&gt;  &lt;int&gt;      &lt;int&gt;\n1 Afghanistan  1999    745   19987071\n2 Afghanistan  2000   2666   20595360\n3 Brazil       1999  37737  172006362\n4 Brazil       2000  80488  174504898\n5 China        1999 212258 1272915272\n6 China        2000 213766 1280428583"
+  },
+  {
+    "objectID": "lectures/08-slides.html#practice-tidying-data",
+    "href": "lectures/08-slides.html#practice-tidying-data",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "💻 Practice Tidying Data",
+    "text": "💻 Practice Tidying Data\nDownload today’s in-class exercises from the website."
+  },
+  {
+    "objectID": "lectures/08-slides.html#introduction",
+    "href": "lectures/08-slides.html#introduction",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Introduction",
+    "text": "Introduction\nThese are strings:\nstring1 &lt;- \"This is a string\"\n\nstring2 &lt;- 'If I want to include a \"quote\" inside a string, I use single quotes'\nToday we focus on methods for manipulating strings: regular expressions!"
+  },
+  {
+    "objectID": "lectures/08-slides.html#string-and-character-vector",
+    "href": "lectures/08-slides.html#string-and-character-vector",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "String and Character Vector",
+    "text": "String and Character Vector\nA string is a sequence of characters (a piece of text) enclosed in either double \" or single quotes '. Strings can include letters, numbers, symbols, and whitespace characters.\nstring &lt;- \"Ciao, my name is Sabrina and I am 99 years old!!\"\nclass(string)\nlength(string)"
+  },
+  {
+    "objectID": "lectures/08-slides.html#string-and-character-vector-1",
+    "href": "lectures/08-slides.html#string-and-character-vector-1",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "String and Character Vector",
+    "text": "String and Character Vector\nA character vector is a collection of strings: each element of the vector is a string!\nchar_vect &lt;- c(\"Ciao come stai?\", \"Ciao\", \"Hello\", \"etc.\") \nclass(char_vect)\nlength(char_vect)\nThus single string, like in the previous examples, is also a character vector of length one.\nWe use character vectors when we need to handle multiple pieces of text together (e.g., when we handle multiple strings vs. only one)."
+  },
+  {
+    "objectID": "lectures/08-slides.html#regular-expressions-definitions-and-uses",
+    "href": "lectures/08-slides.html#regular-expressions-definitions-and-uses",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Regular Expressions: definitions and uses",
+    "text": "Regular Expressions: definitions and uses\nRegular expressions (“regex” or “regexes”) are strings containing normal characters and/or special meta-characters. They describe a specific pattern to match in a given text.\nMore formally, regex: * is a language on its own right * used for pattern matching * adopted by many programming languages, such as R, Python, and others!\nExample:\nemail_pattern &lt;- \"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,}\""
+  },
+  {
+    "objectID": "lectures/08-slides.html#regular-expressions-definitions-and-uses-1",
+    "href": "lectures/08-slides.html#regular-expressions-definitions-and-uses-1",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Regular Expressions: definitions and uses",
+    "text": "Regular Expressions: definitions and uses\nRegular expressions are powerful! They allow us to find patterns in any task that deals with text, such as NLP (Natural Language Processing) or data-cleaning tasks that involve text.\nFor example, you can use regular expressions to:\n\nExtract specific elements from texts (e.g., find words that include a given set of letters, find all past tenses in a text, etc.)\nPerform textual substitutions (e.g. find and replace HTML tags after you scraped a page)\nVerify text format (e.g. “Is this email/phone-number/address valid?”)"
+  },
+  {
+    "objectID": "lectures/08-slides.html#the-stringr-package-in-r",
+    "href": "lectures/08-slides.html#the-stringr-package-in-r",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "The stringr() package in R",
+    "text": "The stringr() package in R\nToday we learn about the package stringr and regular expressions!\nWhen you use regular expressions, most likely you will need to use your them together with one of the functions from the stringr() package.\nThis package includes several functions that let you: detect matches in a string, count the number of matches, extract them, replace them with other values, split a string based on a match, etc."
+  },
+  {
+    "objectID": "lectures/08-slides.html#the-stringr-package-in-r-1",
+    "href": "lectures/08-slides.html#the-stringr-package-in-r-1",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "The stringr() package in R",
+    "text": "The stringr() package in R\nFundamental stringr() functions and their use:\n\nstr_view() return the first regex match\nstr_view_all() return all regex matches (deprecated in the last version of stringr)\nstr_detect(): detect matches in a string\nstr_count(): count the number of matches\nstr_extract() and str_extract_all(): extract matches\nstr_replace() and str_replace_all(): replace matches\nstr_split(): split a string based on a match"
+  },
+  {
+    "objectID": "lectures/08-slides.html#resources",
+    "href": "lectures/08-slides.html#resources",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Resources",
+    "text": "Resources\n\nstringr() documentation and cheatsheet\nChapter 15 by Rochelle Terman, explains stringr() (using the R for Data Science textbook)\nRead Chapter 14 “Strings” in “R for Data Science” 2nd Edition (read it all, but especially 14.4 “Extracting data from strings”).\nRead Chapter 17 from R Programming for Data Science. This book covers the entire range of regular expressions packages and functions: you do not need to understand everything, focus on the big picture. In-class we talk about stringr()\nFor more in-depth info on regular expressions check this excellent tutorial"
+  },
+  {
+    "objectID": "lectures/08-slides.html#practice-regular-expressions",
+    "href": "lectures/08-slides.html#practice-regular-expressions",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "💻 Practice Regular Expressions",
+    "text": "💻 Practice Regular Expressions\nDownload today’s class material from the website to learn more about regular expression and stringr()"
+  },
+  {
+    "objectID": "lectures/08-slides.html#to-print-these-slides-as-pdf",
+    "href": "lectures/08-slides.html#to-print-these-slides-as-pdf",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "To print these slides as pdf",
+    "text": "To print these slides as pdf\nClick on the three lines located on the bottom-left corner of these slides &gt; Tools &gt; PDF Export Mode &gt; Print as a Pdf"
+  },
+  {
+    "objectID": "lectures/08-slides.html#tidy-data-is-a-particular-way-to-organize-data",
+    "href": "lectures/08-slides.html#tidy-data-is-a-particular-way-to-organize-data",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Tidy Data is a particular way to organize data",
+    "text": "Tidy Data is a particular way to organize data\n\nUseful because:\n\nstandardized: every tidy dataset follows the same rules\n\nconsistent: tidy data can be used directly by many tidyverse packages without extra manipulation\n\nclear: tidy data are easier to read, understand, and work with"
+  },
+  {
+    "objectID": "lectures/08-slides.html#examples",
+    "href": "lectures/08-slides.html#examples",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Examples",
+    "text": "Examples\nThese examples come from the readings (Chapter 5). We are going to see different (untidy) ways to organize this dataset, and show how to use tidyr to organize each of htem\nThe dataset we use is longitudinal, with four variables:\n\ncountry\n\nyear\n\ncases (number of tuberculosis cases)\npopulation"
+  },
+  {
+    "objectID": "lectures/08-slides.html#separating-2",
+    "href": "lectures/08-slides.html#separating-2",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Separating",
+    "text": "Separating\nhttps://tidyr.tidyverse.org/reference/separate.html\n\n\n\n\ntable3\n\n# A tibble: 6 × 3\n  country      year rate             \n  &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;            \n1 Afghanistan  1999 745/19987071     \n2 Afghanistan  2000 2666/20595360    \n3 Brazil       1999 37737/172006362  \n4 Brazil       2000 80488/174504898  \n5 China        1999 212258/1272915272\n6 China        2000 213766/1280428583\n\n\n\n\ntidy_table3 &lt;- separate(data = table3,\n                        col = rate,\n                        into = c(\"cases\",\"population\"),\n                        convert = TRUE)\n\ntidy_table3 &lt;- mutate(tidy_table3, \n                      rate = cases / population)"
   }
 ]

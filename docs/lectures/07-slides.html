@@ -216,7 +216,7 @@ Sabrina Nardin, Fall 2026
 <li>Factors in R</li>
 </ol>
 </div>
-<p><span style="font-size: 0.8em; color: #666;"> <em>Slides last updated on <strong>October 19, 2026</strong>. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.</em> </span></p>
+<p><span style="font-size: 0.8em; color: #666;"> <em>Slides last updated on <strong>October 20, 2026</strong>. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.</em> </span></p>
 <!--
 
 ### Slides are in progress and will be updated before class.
@@ -840,9 +840,24 @@ Tip: to avoid problems, specify both `levels` and `labels` explicitly.
 <span id="cb14-6"><a></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Remember:</p>
 <ul>
-<li>check the column type (character or numeric) before transforming to factor using <code>factor()</code> as shown in the previous examples</li>
+<li>check the column type (character or numeric) before transforming to factor using <code>factor()</code></li>
+<li>the order of the bars come from <code>levels</code>, here typed by hand</li>
 <li>use it inside <code>mutate()</code> since you are working on column of a dataframe (and not a standalone vector like in the previous examples)</li>
+<li></li>
 </ul>
+<!--
+# Step 1: count each type, largest first, and pull the names in that order
+type_order <- scorecard |>
+  count(type, sort = TRUE) |>
+  pull(type)
+
+# Step 2: use that order as the levels
+s <- scorecard |>
+  mutate(type = factor(type, levels = type_order))
+
+ggplot(s, aes(x = type)) +
+  geom_bar()
+-->
 </section>
 <section id="approach-1-cont.-get-levels-and-labels-from-the-data" class="slide level2 center">
 <h2>Approach 1 (cont.): Get Levels and Labels from the Data</h2>
@@ -867,24 +882,14 @@ Tip: to avoid problems, specify both `levels` and `labels` explicitly.
 <span id="cb15-17"><a></a></span>
 <span id="cb15-18"><a></a><span class="fu">levels</span>(survey<span class="sc">$</span>edu)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <!--
+# Step 3: sort and count
+order <- survey |> count(edu, sort = TRUE) |> pull(edu)
+survey <- survey |> mutate(edu_sorted = factor(edu, levels = order))
 
-## Why distinct() and Not unique() on Each Column?
-
-You could try to get levels and labels with `unique()` on each column separately:
-
-```r
-# looks reasonable, but gives WRONG labels
-survey |>
-  mutate(edu = factor(edu_code,
-                      levels = sort(unique(edu_code)),
-                      labels = unique(edu_label)))
-```
-
-R gives no error, but code `1` now shows as `"Bachelor's"`! We sorted the codes (1, 2, 3, ...) but the labels stayed in the order they first appear in the data. Labels are matched to levels **by position**, so they end up on the wrong codes.
-
-::: {.callout-tip title="Tip"}
-`distinct(edu_code, edu_label)` keeps each code and its label together in the same row, so sorting the codes moves the labels with them. `unique()` works fine for a single column, for example `levels = sort(unique(edu_code))` when you only need levels.
-:::
+# Step 4: plot
+ggplot(survey, aes(x = edu_sorted)) +
+  geom_bar() +
+  labs(x = "Education", y = "Count")
 -->
 </section>
 <section id="approach-2-reorder-the-bars-using-tidyverse-fct_relevel" class="slide level2 center">

@@ -23,9 +23,11 @@ format:
 2. Strings and Regular Expressions with stringr
 :::
 
+<!--
 ### Slides are in progress and will be updated before class.
 
 ::: {.content-hidden}
+-->
 
 <span style="font-size: 0.8em; color: #666;">
 *Slides last updated on **`r format(Sys.Date(), '%B %d, %Y')`**. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.*
@@ -44,9 +46,7 @@ library(knitr)
 
 --- 
 
-## Tidy Data
-
-### "Tidy data" is a particular way to organize data.
+## Tidy Data is a particular way to organize data
 
 <br>
 
@@ -66,7 +66,7 @@ include_graphics(path = "08-pics/tidydata_1.jpg")
 ```
 
 ::: {.footnote}
-Illustrations from the blog [*Tidy Data for reproducibility, efficiency, and collaboration*](https://www.openscapes.org/blog/2020/10/12/tidy-data/) by Julia Lowndes and Allison Horst
+Illustrations from [*Tidy Data for reproducibility, efficiency, and collaboration*](https://www.openscapes.org/blog/2020/10/12/tidy-data/) by Julia Lowndes & Allison Horst
 :::
 
 <!-- 
@@ -89,7 +89,7 @@ include_graphics(path = "08-pics/tidydata_2.jpg")
 ```
 
 ::: {.footnote}
-Illustrations from the blog [*Tidy Data for reproducibility, efficiency, and collaboration*](https://www.openscapes.org/blog/2020/10/12/tidy-data/) by Julia Lowndes and Allison Horst
+Illustrations from [*Tidy Data for reproducibility, efficiency, and collaboration*](https://www.openscapes.org/blog/2020/10/12/tidy-data/) by Julia Lowndes & Allison Horst
 :::
 
 <!-- pause think you are starting a research project and you have data as top or bottom; which one you want to be and why? -->
@@ -112,27 +112,22 @@ Illustrations from the blog [*Tidy Data for reproducibility, efficiency, and col
 
 ## Tidying untidy data
 
-::: {.callout-important}
-It might sound counter intuitive, but most real-world data IS NOT stored in a tidy format!
+*Most real-world data IS NOT stored in a tidy format!*
 
-**Why?**  
 1. Many datasets are designed to make data entry, not analysis, easier  
 2. Tidy data principles take time and practice to master
-:::
-
-<br>
 
 ::: {.callout-tip}
-When working with the **tidyverse** (`ggplot2`, `dplyr`, etc.),  **start by putting your data in tidy format.**  Most tidyverse functions assume data are tidy!
+When working with the **tidyverse** (`ggplot2`, `dplyr`, etc.),  **start by putting your data in tidy format.**  Most tidyverse functions assume data are tidy
 :::
-
-</br>
 
 ---
 
 ## Tidying Untidy Data
 
-### OK, you are ready to start a project and loaded some data into R, but they are untidy! What should you do to tidy them up?
+You are ready to start a project and loaded some data into R, but they are untidy!
+
+What should you do to tidy them up?
 
 ---
 
@@ -181,11 +176,11 @@ The tidyr package includes many other functions, but we focus on the most import
 
 ---
 
-## Example
+## Examples
 
-We’ll illustrate these tidying tasks using one of the datasets from the readings ([Chapter 5](https://r4ds.hadley.nz/data-tidy)). We are going to see different (untidy) ways to organize this dataset, and how to use `tidyr` to organize each of htem
+These examples come from the readings ([Chapter 5](https://r4ds.hadley.nz/data-tidy)). We are going to see different (untidy) ways to organize this dataset, and show how to use `tidyr` to organize each of htem
 
-The dataset is longitudinal, with four variables:  
+The dataset we use is longitudinal, with four variables:  
 
 - `country`  
 - `year`  
@@ -203,7 +198,7 @@ table1
 
 ## Pivot Longer
 
-Why is this dataset untidy? How can we tidy it?
+This data shows country, years, and cases. Why is this untidy and how can we tidy it?
 
 ```{r, echo = TRUE}
 table4a
@@ -212,7 +207,7 @@ table4a
 <br>
 
 ::: {.fragment}
-- *"Each variable must have its own column"*: column names must be variables names, not variables values (here 1999 and 2000 are values of the year variable)
+- *"Each variable must have its own column"*: column names must be variables names, not variables values
 - *"Each observation must have its own row"*: here we have one row for every country, but this is panel data, so we should have the country-year pair to define one observation, not just country
 :::
 
@@ -247,7 +242,7 @@ pivot_longer(data = table4a,
 
 <!--
 We can reshape and tidy this data using `pivot_longer` form tidyr, which takes four main arguments:
-- data: data we are reshaping -- notice we go from a 3by3 to a 6by3 dataframe
+- data: data we are reshaping -- note we go from a 3by3 to a 6by3 dataframe
 - cols: name of the columns in the original data that we want to change -- aka columns to use to make this pivot; note the use of back ticks! and we need to use two columns, thus we use the vector syntax with c() for concatenate
 - names_to column: new column we wish to create from column names
 - values_to column: new column we wish to create and fill with values
@@ -257,7 +252,7 @@ We can reshape and tidy this data using `pivot_longer` form tidyr, which takes f
 
 ## Pivot Wider
 
-Why is this dataset untidy? How can we tidy it?
+This data shows country, years, cases, and population. Why is this untidy and how can we tidy it?
 
 ```{r, echo = TRUE}
 table2
@@ -302,7 +297,7 @@ pivot_wider(data = table2,
 
 ## Separating
 
-Why is this dataset untidy? How can we tidy it?
+This data shows country, years, and rate. Why is this untidy and how can we tidy it?
 
 ```{r echo = TRUE}
 table3
@@ -342,9 +337,50 @@ the original data are coded as chr but we want them as integer; if you do not co
 
 ---
 
+## Separating
+
+<https://tidyr.tidyverse.org/reference/separate.html>
+
+<br>
+
+::: {.columns}
+::: {.column width="45%"}
+```{r, echo = TRUE}
+table3
+```
+:::
+
+::: {.column width="45%"}
+```{r, echo = TRUE}
+tidy_table3 <- separate(data = table3,
+                        col = rate,
+                        into = c("cases","population"),
+                        convert = TRUE)
+
+tidy_table3 <- mutate(tidy_table3, 
+                      rate = cases / population)
+```
+:::
+:::
+
+
+</br> 
+
+<!-- CAN ALSO WRITE AS 
+table3 |>
+  separate(
+    col = rate,
+    into = c("cases", "population"),
+    convert = TRUE
+  ) |>
+  mutate(rate = cases / population)
+-->
+
+---
+
 ## Uniting
 
-Why is this dataset untidy? How can we tidy it?
+This data shows country, years (as century and year), and rate. Why is this untidy and how can we tidy it?
 
 ```{r, echo = TRUE}
 table5
@@ -458,7 +494,7 @@ include_graphics(path = "https://media.giphy.com/media/fCUCbWXe9JONVsJSUd/giphy.
 Download today's in-class exercises from the website.
 
 
-# 1. Strings and Regular Expressions with stringr {.inverse .middle}
+# 2. Strings and Regular Expressions with stringr  {.slide .center .middle}
 
 --- 
 
@@ -585,3 +621,8 @@ Fundamental `stringr()` functions and their use:
 
 Download today's class material from the website to learn more about regular expression and `stringr()`
 
+---
+
+## To print these slides as pdf
+
+Click on the three lines located on the bottom-left corner of these slides \> Tools \> PDF Export Mode \> Print as a Pdf
