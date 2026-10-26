@@ -28,6 +28,72 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #24292e;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #24292e; } /* Normal */
+    code span.al { color: #ff5555; font-weight: bold; } /* Alert */
+    code span.an { color: #6a737d; } /* Annotation */
+    code span.at { color: #d73a49; } /* Attribute */
+    code span.bn { color: #005cc5; } /* BaseN */
+    code span.bu { color: #d73a49; } /* BuiltIn */
+    code span.cf { color: #d73a49; } /* ControlFlow */
+    code span.ch { color: #032f62; } /* Char */
+    code span.cn { color: #005cc5; } /* Constant */
+    code span.co { color: #6a737d; } /* Comment */
+    code span.cv { color: #6a737d; } /* CommentVar */
+    code span.do { color: #6a737d; } /* Documentation */
+    code span.dt { color: #d73a49; } /* DataType */
+    code span.dv { color: #005cc5; } /* DecVal */
+    code span.er { color: #ff5555; text-decoration: underline; } /* Error */
+    code span.ex { color: #d73a49; font-weight: bold; } /* Extension */
+    code span.fl { color: #005cc5; } /* Float */
+    code span.fu { color: #6f42c1; } /* Function */
+    code span.im { color: #032f62; } /* Import */
+    code span.in { color: #6a737d; } /* Information */
+    code span.kw { color: #d73a49; } /* Keyword */
+    code span.op { color: #24292e; } /* Operator */
+    code span.ot { color: #6f42c1; } /* Other */
+    code span.pp { color: #d73a49; } /* Preprocessor */
+    code span.re { color: #6a737d; } /* RegionMarker */
+    code span.sc { color: #005cc5; } /* SpecialChar */
+    code span.ss { color: #032f62; } /* SpecialString */
+    code span.st { color: #032f62; } /* String */
+    code span.va { color: #e36209; } /* Variable */
+    code span.vs { color: #032f62; } /* VerbatimString */
+    code span.wa { color: #ff5555; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-864c5404f4710dceefb0a9fe440f50a1.css">
   <link rel="stylesheet" href="../style/styles.css">
@@ -142,19 +208,666 @@ Sabrina Nardin, Fall 2026
 </div>
 
 </section>
-<section>
 <section id="agenda" class="title-slide slide level1 center">
 <h1>Agenda</h1>
 <div class="agenda-list">
 <ol type="1">
+<li>Exam 1 Overview</li>
 <li>Importing &amp; Exporting Data in R</li>
 <li>Relational Data</li>
 </ol>
 </div>
+<!--
+### Slides are in progress and will be updated before class.
+
+::: {.content-hidden}
+-->
+<p><span style="font-size: 0.8em; color: #666;"> <em>Slides last updated on <strong>October 26, 2026</strong>. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.</em> </span></p>
 </section>
-<h3 id="slides-are-in-progress-and-will-be-updated-before-class.">Slides are in progress and will be updated before class.</h3></section>
+
+<section>
+<section id="exam-1-overview" class="title-slide slide level1 center middle">
+<h1>1. Exam 1 Overview</h1>
+
+</section>
+<section id="when-and-where" class="slide level2 center">
+<h2>When and Where</h2>
+<p><strong>Wednesday, October 28, 2026 during class (same room)</strong></p>
+<ul>
+<li><strong>11:30 – 11:45:</strong> logistics, mid-quarter survey, questions</li>
+<li><strong>11:45 – 1:15:</strong> exam (90 minutes)</li>
+</ul>
+<p><br></p>
+<p>The <code>lubridate</code> intro slides will be posted, but I’ll go over them next week (instead of after the exam), so you have extra time for the exam and can leave once you’re done.</p>
+<p><br></p>
+</section>
+<section id="exam-rules" class="slide level2 center">
+<h2>Exam Rules</h2>
+<p><strong>Topics:</strong> Lectures 1–9 (inclusive).</p>
+<p><strong>The exam is on Canvas:</strong> you’ll take it on your laptop in locked-screen mode. Bring your laptop fully charged, plus your charger. You must be physically in the classroom to take the exam.</p>
+<p><strong>Closed-book:</strong> no notes, textbooks, phones, or other materials. Only the exam and your computer are allowed. We’ll provide scratch paper; please bring a pen.</p>
+<p><strong>Make-up and absence policy:</strong> see the <a href="https://brinasab.github.io/css-website/syllabus.html#deadlines-and-late-submissions-policies">syllabus</a></p>
+</section>
+<section id="exam-format" class="slide level2 center">
+<h2>Exam Format</h2>
+<p><strong>90 minutes and 18 points total</strong></p>
+<ul>
+<li>About <strong>32–38 multiple-choice questions</strong> (75–80% of the grade)</li>
+<li><strong>3 short open-ended questions</strong> (20–25% of the grade)</li>
+</ul>
+</section>
+<section id="exam-format-1" class="slide level2 center">
+<h2>Exam Format</h2>
+<h3 id="multiple-choice-questions">Multiple-Choice Questions</h3>
+<ul>
+<li><p><strong>Classic multiple choice:</strong> choose the correct answer from four options, just like the ungraded exam prep quizzes we’ve done in class (e.g., spot the typo, predict the output)</p></li>
+<li><p><strong>True/false:</strong> multiple choice with only two options (we have done a few in the exam prep quizzes)</p></li>
+<li><p><strong>Matching:</strong> pair code snippets with their descriptions or outputs (e.g., match a <code>dplyr</code> function to what it does, fill in the missing part of <code>ggplot2</code> code, put lines of code in the right order)</p></li>
+</ul>
+</section>
+<section id="exam-format-2" class="slide level2 center">
+<h2>Exam Format</h2>
+<h3 id="open-ended-questions">Open-Ended Questions</h3>
+<p>There will be three short open-ended questions.</p>
+<p>For example, you might be asked to write <code>dplyr</code> code to transform a dataset, write <code>ggplot2</code> code to make a graph, or identify a problem and lay out the logical steps to solve it (using pseudo-code).</p>
+<p>You won’t be able to run code during the exam, so you’ll write it directly in Canvas.</p>
+<p>Partial credit is possible. Small typos, like a missing parenthesis or mispell a variable name, won’t cost you points. Logic errors will, like writing steps in the wrong order, choosing the wrong function or graph, forgetting to start from the dataset, or leaving out a pipe.</p>
+</section>
+<section id="how-to-prepare" class="slide level2 center">
+<h2>How to Prepare</h2>
+<ol type="1">
+<li><p><strong>Review class materials:</strong> the required slides and in-class code (downloaded with the <code>usethis::</code> code shown in purple). Use the readings as additional source.</p></li>
+<li><p><strong>Use Homework 1 and 2 as practice:</strong> re-run your code and make sure you understand each step. We plan to post grades before the exam.</p></li>
+<li><p><strong>Redo the in-class exam prep quizzes:</strong> exam questions will be similar.</p></li>
+<li><p><strong>Use AI strategically:</strong> once you’ve done steps 1–3, (if you want to) ask AI to generate extra practice questions of different types and difficulty levels. I advice agains starting directly with AI.</p></li>
+</ol>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>Writing and running code yourself, revisiting your mistakes, and explaining <em>why</em> an answer is correct can all help you prepare.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="after-the-exam" class="slide level2 center">
+<h2>After the Exam</h2>
+<p><strong>Your multiple-choice score</strong> will show up on Canvas right after you submit. The open-ended questions are graded by hand, so your full score will come later.</p>
+<p><strong>You won’t be able to see the exam questions</strong> on Canvas afterward, BUT we would be more than happy to go over your exam with you! Come to office hours (mine or TAs) and we’ll review it together. Best via booked appointment than drop-in OHs</p>
+</section></section>
+<section>
+<section id="importing-exporting-data-in-r" class="title-slide slide level1 center middle">
+<h1>2. Importing &amp; Exporting Data in R</h1>
+<!-- MOVE SOME OF THESE STUFF IN APPENDIX AND COVER THIS IN 15 MIN MAX IN CLASS -->
+</section>
+<section id="importing-files-into-r" class="slide level2 center">
+<h2>Importing files into R</h2>
+<p>To load files with data into R, we need <strong>importing functions</strong></p>
+<p>There are several importing functions. The best one depends on the <strong>type of file</strong> we want to import. For an overview, see today’s reading: <a href="https://r4ds.hadley.nz/data-import.html">R for Data Science, Chapter 7</a></p>
+<p>The most common type of file you will encounter is a <strong>CSV file</strong> (comma-separated values), so we will focus on the function that imports it: <code>read_csv()</code></p>
+</section>
+<section id="importing-csv-files-into-r" class="slide level2 center">
+<h2>Importing CSV files into R</h2>
+<p>To import CSV files into R, there are two functions. They are very similar, but use the second:</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">read.csv</span>(<span class="st">"file.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Built into R (e.g., comes from base R)</li>
+<li>Common in older code</li>
+<li>Uses a period <code>read.csv()</code></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">read_csv</span>(<span class="st">"file.csv"</span>) ✅</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>From <a href="https://readr.tidyverse.org/">readr</a> (e.g., comes from the tidyverse)</li>
+<li>Faster and common in newer code</li>
+<li>Uses an underscore <code>read_csv()</code></li>
+</ul>
+</div></div>
+<p><em>Type <code>?read.csv()</code> and <code>?read_csv()</code> in your Console for more info.</em></p>
+<!--
+`read_csv()` in this course because is more recent, faster, and does not automatically changes data types (e.g., does not convert characters into factors automatically).
+
+`read.csv` is a special case of `read.table`, while `read_csv` is special case of `read_delim`. Look them up to check the differences -- r 
+
+difference between using one ? and ?? in searching for doc
+the ? find the exact match
+the ?? finds the general match
+-->
+</section>
+<section id="the-function-read_csv" class="slide level2 center">
+<h2>The function read_csv()</h2>
+<p>The <code>read_csv()</code> function has many arguments. The <strong>file argument is required</strong> because R needs to know where the file is. A few options to pass it:</p>
+<!-- FALL 26 
+DO THIS AS SIMULATION TAKE THE testdata.csv AND DO getwd() WHEN IN HOME THEN MOVE IT TO SPECIFIC PROJ FODLER TO SHOW DIFFERNCES
+-->
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">library</span>(readr)</span>
+<span id="cb3-2"><a></a></span>
+<span id="cb3-3"><a></a><span class="co"># Option 1 (not best): Use the full file path (workbench example)</span></span>
+<span id="cb3-4"><a></a><span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"/home/nardin/testdata.csv"</span>)</span>
+<span id="cb3-5"><a></a></span>
+<span id="cb3-6"><a></a><span class="co"># Option 2 (best!): Use only a relative path</span></span>
+<span id="cb3-7"><a></a><span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"testdata.csv"</span>)</span>
+<span id="cb3-8"><a></a></span>
+<span id="cb3-9"><a></a><span class="co"># Check your current working directory</span></span>
+<span id="cb3-10"><a></a><span class="fu">getwd</span>()</span>
+<span id="cb3-11"><a></a></span>
+<span id="cb3-12"><a></a><span class="co"># Option 3 (not best): Choose the file manually</span></span>
+<span id="cb3-13"><a></a><span class="co"># Not recommended for reproducible code</span></span>
+<span id="cb3-14"><a></a><span class="fu">read_csv</span>(<span class="at">file =</span> <span class="fu">file.choose</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<!--
+
+```r
+library(readr)
+
+# load data into my local R Studio, specifying the path
+read_csv(file = "/Users/Sabrina Nardin/Desktop/testdata.csv")
+
+# load data into my Workbench, specifying the path
+read_csv(file = "/home/nardin/testdata.csv")
+
+# load data into my Workbench) without specifying the path 
+# where does R look for this file?
+read_csv("testdata.csv")
+
+# load data if you are not sure where it is located (not recommended)
+read_csv(file = file.choose())
+```
+
+Make sure the file is located in the given path and you are typing the path correctly. Let's practice!
+
+-->
+</section>
+<section id="practice-load-data-in-r" class="slide level2 center">
+<h2>💻 Practice: Load Data in R</h2>
+<p>Complete these steps:</p>
+<ol type="1">
+<li><p>Use the example <code>testdata.csv</code> file included in today’s class materials. Or create your own file four columns (<code>id</code>, <code>name</code>, <code>age</code>, <code>food</code>); if you do that, save it on your desktop with a <code>csv</code> extension, and upload it to Workbench</p></li>
+<li><p>Open Workbench and check your current working directory by typing <code>getwd()</code> in the Console.</p></li>
+<li><p>Run <code>library(tidyverse)</code> and import the data into R using <code>read_csv()</code>. If you do not provide a path, R looks in your working directory by default.</p></li>
+<li><p>Complete the short exercises in the next slides.</p></li>
+</ol>
+</section>
+<section id="common-arguments-of-read_csv" class="slide level2 center">
+<h2>Common Arguments of read_csv()</h2>
+<p>The <code>read_csv()</code> function has many arguments. In the next slides, we will focus on the ones that address common import issues: file paths, column names, column types, and missing values.</p>
+<p>You can see the full list of arguments of this function in the <a href="https://readr.tidyverse.org/reference/read_delim.html">readr documentation</a>.</p>
+</section>
+<section class="slide level2 center">
+
+<p>Let’s start by using <code>read_csv()</code> with the data you just created <code>testdata.csv</code> without changing any of the arguments. Like this:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"testdata.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>YOUR TURN:</strong> Run this code in your Console to import the data into R. What do you notice?</p>
+<!--
+This file is a good example of messy data!
+type of column is shown at the top, e.g. id is double, name is char, but so is age, which should not be. Why so? the "na" is interpret as a character rather than missing data and all column values are forced to character.
+-->
+</section>
+<section class="slide level2 center">
+
+<h3 id="modify-the-col_types-argument">Modify the col_types argument</h3>
+<p>By default, <code>read_csv()</code> guesses the column types:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"testdata.csv"</span>, <span class="at">col_types =</span> <span class="cn">NULL</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>But we can also tell R what each column type should be:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="co"># Option 1: spell out each column type</span></span>
+<span id="cb6-2"><a></a><span class="fu">read_csv</span>(</span>
+<span id="cb6-3"><a></a>  <span class="at">file =</span> <span class="st">"testdata.csv"</span>,</span>
+<span id="cb6-4"><a></a>  <span class="at">col_types =</span> <span class="fu">cols</span>(</span>
+<span id="cb6-5"><a></a>    <span class="at">id =</span> <span class="fu">col_integer</span>(),</span>
+<span id="cb6-6"><a></a>    <span class="at">name =</span> <span class="fu">col_character</span>(),</span>
+<span id="cb6-7"><a></a>    <span class="at">age =</span> <span class="fu">col_integer</span>(),</span>
+<span id="cb6-8"><a></a>    <span class="at">food =</span> <span class="fu">col_character</span>() ))</span>
+<span id="cb6-9"><a></a></span>
+<span id="cb6-10"><a></a><span class="co"># Option 2: use a shortcut</span></span>
+<span id="cb6-11"><a></a><span class="fu">read_csv</span>(</span>
+<span id="cb6-12"><a></a>  <span class="at">file =</span> <span class="st">"testdata.csv"</span>,</span>
+<span id="cb6-13"><a></a>  <span class="at">col_types =</span> <span class="st">"icic"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>YOUR TURN:</strong> Choose one option and run it in your Console. What do you notice about the imported data?</p>
+<!-- all columns types have been converted to the datatype we specified. R is also guessing that the na in age is actually missing data and so converts it as such, but we get a warning message; type problems() to see more
+-->
+</section>
+<section class="slide level2 center">
+
+<h3 id="modify-the-na-argument">Modify the na argument</h3>
+<p>By default, <code>read_csv()</code> treats empty cells and <code>"NA"</code> as missing values:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"testdata.csv"</span>, <span class="at">na =</span> <span class="fu">c</span>(<span class="st">""</span>, <span class="st">"NA"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>But we can add other values that should count as missing by costumizing what goes into the vector <code>c()</code>:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">read_csv</span>(</span>
+<span id="cb8-2"><a></a>  <span class="at">file =</span> <span class="st">"testdata.csv"</span>,</span>
+<span id="cb8-3"><a></a>  <span class="at">col_types =</span> <span class="st">"icic"</span>,</span>
+<span id="cb8-4"><a></a>  <span class="at">na =</span> <span class="fu">c</span>(<span class="st">""</span>, <span class="st">"NA"</span>, <span class="st">"na"</span>, <span class="st">"None"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>YOUR TURN:</strong> Run this code in your Console. What do you notice about the imported data?</p>
+<!-- 
+We can customize which values R treats as missing data.
+Here, we expanded the set of missing values to include "", "NA", "na", and "None".
+This is useful because real datasets often use different codes for missing data.
+-->
+</section>
+<section class="slide level2 center">
+
+<h3 id="modify-the-col_names-argument">Modify the col_names argument</h3>
+<p>By default, <code>read_csv()</code> treats the first row as column names:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"testdata.csv"</span>, <span class="at">col_names =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>But we can tell R that the file does <strong>not</strong> have column names:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"testdata.csv"</span>, <span class="at">col_names =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>YOUR TURN:</strong> Run this code in your Console. What do you notice about the imported data?</p>
+<!-- 
+The first row is no longer read as column names.
+Instead, it becomes part of the data, and R creates default column names such as X1, X2, X3, and X4.
+-->
+</section>
+<section class="slide level2 center">
+
+<h3 id="modify-the-skip-argument">Modify the skip argument</h3>
+<p>By default, <code>read_csv()</code> starts reading from the first row:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"testdata.csv"</span>, <span class="at">skip =</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>But we can tell R to skip rows at the top of the file:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"testdata.csv"</span>, <span class="at">skip =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>YOUR TURN:</strong> Run the code in your Console. What do you notice about the imported data?</p>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>Use <code>skip</code> when your CSV has extra or messy rows at the top!</p>
+</div>
+</div>
+</div>
+<!-- 
+R skips the first 2 rows and starts reading the file from row 3.
+This can be useful when a CSV file has extra notes, titles, or messy rows at the top.
+If `skip` does not work, check that you are using `read_csv()` from readr, not `read.csv()` from base R.
+-->
+</section>
+<section id="takeaways-from-using-read_csv" class="slide level2 center">
+<h2>Takeaways from using read_csv()</h2>
+<p>Importing files correctly matters because small import mistakes can create problems later.</p>
+<p>When something does not import correctly, the first thing to do is to check the function <code>read_csv()</code> arguments: there are many options that can help you tell R exactly how to read your file!</p>
+</section>
+<section id="key-concepts-for-importing-files" class="slide level2 center">
+<h2>Key Concepts for importing files</h2>
+<p><strong>let’s talk about a few related concepts about importing data…</strong></p>
+<p>In the next slides, we will introduce the following terms:</p>
+<ul>
+<li><strong>Working directory</strong></li>
+<li><strong>Relative path</strong></li>
+<li><strong>Absolute path</strong></li>
+<li><strong>RStudio project</strong></li>
+</ul>
+</section>
+<section id="working-directory-where-r-looks-first" class="slide level2 center">
+<h2>Working directory: where R looks first</h2>
+<p><strong>Working directory: the folder where R looks for files by default.</strong></p>
+<p>For example, this code only works if <code>testdata.csv</code> is located in your current working directory:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="fu">read_csv</span>(<span class="st">"testdata.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>To check your current working, use:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="working-directory-where-r-looks-first-1" class="slide level2 center">
+<h2>Working directory: where R looks first</h2>
+<p>If R says it “cannot find” a file, ask yourself: <strong>Is the file in the folder where R is looking?</strong></p>
+<p>If the answer is <strong>no</strong>, you have two options:</p>
+<ol type="1">
+<li>Move the file into the folder shown by <code>getwd()</code></li>
+<li>Update the path so R knows where to find the file. When you do that, get into the habit of using a <strong>relative path</strong></li>
+</ol>
+</section>
+<section id="relative-path-vs.-absolute-path" class="slide level2 center">
+<h2>Relative path vs.&nbsp;Absolute path</h2>
+<p>Both are used to tell R where the file you want to load into R is located:</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="relative-path">Relative path ✅</h3>
+<p>Starts from the current working directory:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">read_csv</span>(<span class="st">"testdata.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If the file is inside a folder, a relative path looks is:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">read_csv</span>(<span class="st">"data/testdata.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Best practice for reproducibility and shared code.</p>
+</div><div class="column" style="width:50%;">
+<h3 id="absolute-path">Absolute path</h3>
+<p>Gives the full location on one computer:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">read_csv</span>(<span class="st">"/home/nardin/testdata.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>These paths can get long and hard to share. Avoid!</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">read_csv</span>(<span class="st">"C:/Users/Sabrina/Desktop/css-website/lectures/lecture9/data/testdata.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+</section>
+<section id="why-we-prefer-relative-paths" class="slide level2 center">
+<h2>Why we prefer Relative paths</h2>
+<p><strong>Relative path</strong> means relative to (e.g., it starts from) your R project folder. Relative paths make your code easier to share and re-run.</p>
+<p><strong>Absolute path</strong> means you specify the entire path to reach the file, independent from specific folders.</p>
+<p><br></p>
+<h3 id="how-do-i-make-sure-i-am-using-a-relative-path-correctly">How do I make sure I am using a relative path correctly?</h3>
+<ol type="1">
+<li><p>Check where R is looking for a file using <code>getwd()</code>. Then make sure your file is in that location</p></li>
+<li><p>OR use RStudio Projects! (next slide)</p></li>
+</ol>
+<p><br></p>
+</section>
+<section id="rstudio-projects-make-using-relative-file-paths-easier" class="slide level2 center">
+<h2>RStudio Projects make using relative file paths easier!</h2>
+<p>An <strong>RStudio Project</strong> is a folder that contains a <code>.Rproj</code> file.</p>
+<p>When you open the <code>.Rproj</code> file, RStudio automatically sets the working directory to that project folder.</p>
+<p>This makes relative paths easier to use.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb19-1"><a></a>homework-05/</span>
+<span id="cb19-2"><a></a>├── homework-05.Rproj</span>
+<span id="cb19-3"><a></a>├── homework-05.rmd</span>
+<span id="cb19-4"><a></a>└── data/</span>
+<span id="cb19-5"><a></a>    └── testdata.csv</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If you open <code>homework-05.Rproj</code>, R will automatically start from the <code>homework-05</code> folder as your default working directory.</p>
+<p>Then you can import the data using <code>read_csv("data/testdata.csv")</code></p>
+<!--
+Instructor note:
+For HW3, students will receive a folder with a .Rproj file.
+The main message is: open the correct project first, then use a relative path.
+
+You can also manually set your directory to an absolute path, for example using `setwd()` but that is not the best approach for reproducible. Use relative paths instead!
+-->
+</section>
+<section class="slide level2 center">
+
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>RStudio Projects <code>.Rproj</code></strong></p>
+</div>
+<div class="callout-content">
+<p>RStudio Projects automatically set the working directory for you, based on your active project:</p>
+<ul>
+<li>ensures portability across computers and a reliable behavior!</li>
+<li>you do not need to set the working directory manually</li>
+<li><em>but</em> you do need to check in which project you are working</li>
+</ul>
+</div>
+</div>
+</div>
+<p><strong>Example:</strong> Each <em>homework</em> and <em>in-class exercise</em> folder in this course contains a <code>.Rproj</code> file. When you open that project in RStudio, the working directory is automatically set to that folder.</p>
+<p><strong>Tip:</strong> If you switch to another project, RStudio automatically updates the default working directory for you. Always check which project you’re working in.</p>
+<!-- for HW3, released tmr, we are asking to load data, we will be giving you a rproj like in HW2, so all you have to do to load teh data is to be in the correct project and then use a relative path with the name of the data.csv
+-->
+</section>
+<section id="practice-create-an-rstudio-project" class="slide level2 center">
+<h2>💻 Practice: Create an RStudio Project</h2>
+<p>Step 1: Open RStudio and navigate to the top-left menu. Then File &gt; New Project…</p>
+<p>Step 2: Choose New Directory, then select New Project</p>
+<p>Step 3: Name your project and save it.</p>
+<p>Step 4: Click Create Project. RStudio will open a new session within your project environment. Done!</p>
+<p>Step 5: Let’s test it. In your new project, create a new R script or R Markdown document. Inside it type and run <code>getwd()</code>. What do you notice?</p>
+</section>
+<section id="other-readr-functions-to-import-data" class="slide level2 center">
+<h2>Other readr functions to import data</h2>
+<p>The <code>readr</code> package include several functions to load into R almost all possible file formats that you might encounter (when given an option though, choose a CSV over other formats).</p>
+<p>For example:</p>
+<ul>
+<li><strong>Comma separated csv</strong> use <code>read_csv()</code> from the <code>readr</code> package</li>
+<li><strong>Semi column separated csv</strong> use <code>read_csv2()</code>from the <code>readr</code> package</li>
+<li><strong>Tab separated files</strong> use <code>read_tsv()</code>from the <code>readr</code> package</li>
+<li><strong>RDS</strong> use <code>readRDS()</code> or <code>read_rds()</code></li>
+<li><strong>Excel</strong> use <code>read_excel()</code> from the <code>readxl</code> package</li>
+<li><strong>SAS/SPSS/Stata</strong> use the <code>haven</code> package (several functions)</li>
+</ul>
+<p>Cheat Sheet for <code>readr</code>: <strong>Help &gt; Cheat Sheets &gt; Browse Cheat Sheets</strong></p>
+<!--
+
+## Using haven with SAS
+
+```r
+library(haven)
+
+read_sas(data_file = system.file("examples", "iris.sas7bdat",
+  package = "haven"
+))
+```
+-->
+</section>
+<section id="using-haven-with-spss-or-stata" class="slide level2 center">
+<h2>Using haven with SPSS or Stata</h2>
+<p>SPSS:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="fu">read_sav</span>(<span class="at">file =</span> <span class="fu">system.file</span>(<span class="st">"examples"</span>, <span class="st">"iris.sav"</span>,</span>
+<span id="cb20-2"><a></a>  <span class="at">package =</span> <span class="st">"haven"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Stata:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="fu">read_dta</span>(<span class="at">file =</span> <span class="fu">system.file</span>(<span class="st">"examples"</span>, <span class="st">"iris.dta"</span>,</span>
+<span id="cb21-2"><a></a>  <span class="at">package =</span> <span class="st">"haven"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="exporting-data-with-write_csv" class="slide level2 center">
+<h2>Exporting data with write_csv()</h2>
+<p>So far we talked about <strong>IMPORTING DATA</strong> into R with <code>read_csv()</code> from <code>readr</code></p>
+<p>But <code>readr</code> has also several functions for <strong>EXPORTING DATA</strong> back to your computer. The most common is <code>write_csv()</code> which <strong>generates csv files from R data frames</strong>.</p>
+<p>Minimal Example:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="co"># import</span></span>
+<span id="cb22-2"><a></a>test <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"testdata.csv"</span>, <span class="at">col_types =</span> (<span class="st">"icic"</span>), <span class="at">na =</span> <span class="fu">c</span>(<span class="st">""</span>, <span class="st">"NA"</span>, <span class="st">"na"</span>, <span class="st">"None"</span>))</span>
+<span id="cb22-3"><a></a></span>
+<span id="cb22-4"><a></a><span class="co"># then you write your data analysis and visualization code etc.</span></span>
+<span id="cb22-5"><a></a></span>
+<span id="cb22-6"><a></a><span class="co"># once done, export </span></span>
+<span id="cb22-7"><a></a><span class="fu">write_csv</span>(test, <span class="at">file =</span> <span class="st">"testdata_cleaned.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section></section>
+<section>
+<section id="relational-data-with-dplyr" class="title-slide slide level1 center middle">
+<h1>3. Relational Data with dplyr</h1>
+<p>I will leave this topic off the exam, but you’ll need it for Assignment 3, which opens Thursday, 10/29.</p>
+</section>
+<section id="definition-of-relational-data" class="slide level2 center">
+<h2>Definition of Relational Data</h2>
+<p><strong>Relational Data</strong> are typically organized in <em>relational databases</em> set of multiple “tables” that are linked based on data common to them. You can think of a single “table” as a single dataframe.</p>
+<p><strong>These tables provide meaningful insights only when combined together!</strong></p>
+<p>Answers to research questions are not defined by one in a single table; rather, they emerge from the relationships among tables.</p>
+<!--
+why you want to do so? e.g. store data in different tables?
+Data you need for the analysis is not and cannot be stored in one single table but it is split across tables; usually two but potentially more
+-->
+</section>
+<section id="our-focus" class="slide level2 center">
+<h2>Our Focus</h2>
+<p>There are several software and languages to deal with relational databases. For an overview, see <a href="https://r4ds.hadley.nz/databases">“Chapter 21 Databases”</a> from our book.</p>
+<p><strong>R allows us to work with tables using the <code>dplyr</code> package. That’s our focus!</strong></p>
+<!-- dplyr for relational data focuses on joining tables; it is basically merging data and no really needing sql terminology and concepts (e.g., table, attributes, relations) but there is value in using them, as explained in the assigned readings from today, which is Ch 19 joins from the book
+
+So we do a mini theoretical intro to relational databases logic and terminology and then we move to dplyr
+-->
+</section>
+<section id="we-use-the-flights-example-from-the-readings" class="slide level2 center">
+<h2>We use the flights example from the readings</h2>
+<p>We use data from <code>library(nycflights13)</code> in <a href="https://r4ds.hadley.nz/joins">“Chapter 19 Joins”</a> from “R for Data Science” 2nd Ed.</p>
+<p>This database has five tables (e.g., five distinct datasets):</p>
+<ul>
+<li><code>flights</code> info about flights, identified by multiple variables<br>
+</li>
+<li><code>airlines</code> each airplane company name, identified by the abbreviated <code>career</code> code<br>
+</li>
+<li><code>airports</code> info about each airport, identified by the <code>faa</code> code<br>
+</li>
+<li><code>planes</code> info about each plane, identified by its <code>tailnum</code> number<br>
+</li>
+<li><code>weather</code> info about the weather at each NYC airport for each hour, identified by various variables</li>
+</ul>
+<p>Load the data into R with <code>library(nycflights13)</code></p>
+</section>
+<section id="we-use-the-flights-example-from-the-readings-1" class="slide level2 center">
+<h2>We use the flights example from the readings</h2>
+<p>Visual representation of the relations among the 5 tables in <code>nycflights13</code>:</p>
+
+<img data-src="09-pics/relational-nycflights.png" style="width:60.0%" class="r-stretch"><p>To understand diagrams like this, remember that each relation concerns a <strong>pair of tables</strong>.</p>
+<!--
+
+### Formal definitions 
+
+A **KEY** of a table is a one or a subset of columns (formally called "attributes"). Two types of keys:
+
+* **PRIMARY KEY**
+uniquely identifies an observation in its own table; e.g., `tailnum` is the primary key of the `planes` table; a primary key can be one or multiple columns.
+
+* **FOREIGN KEY**
+matches the primary key of another table; e.g., `tailnum` is a foreign key in the `flights` table (it links each flight to a unique plane by matching the tantalum primary key from the planes table
+
+A variable can be both a primary key and a foreign key. For example, origin is part of the weather primary key, and is also a foreign key for the airports table. 
+
+
+A **RELATION** is defined between **pairs of tables**: primary key + foreign key in another table.
+
+
+Relations can be
+* one-to-one
+* one-to-many: each flight has one plane, but each plane has many flights
+* many-to-many
+-->
+</section>
+<section id="in-pratice-when-using-dplyr-to-work-with-relational-data-we-have" class="slide level2 center">
+<h2>In pratice… when using dplyr to work with relational data, we have:</h2>
+<h3 id="mutating-joins">1. Mutating joins</h3>
+<h3 id="filtering-joins">2. Filtering joins</h3>
+</section>
+<section id="mutating-joins-1" class="slide level2 center">
+<h2>1. Mutating joins</h2>
+<p>This group includes:</p>
+<ul>
+<li><p><strong>inner join</strong>: keeps observations that appear in both tables</p></li>
+<li><p><strong>outer join</strong>: keeps observations that appear in at least one of the tables</p>
+<ul>
+<li><strong>left join</strong>: keeps all observations in left table<br>
+</li>
+<li><strong>right join</strong>: keeps all observations in right table<br>
+</li>
+<li><strong>full join</strong>: keeps all observations</li>
+</ul></li>
+</ul>
+</section>
+<section id="inner_join" class="slide level2 center">
+<h2>inner_join()</h2>
+<p>Keeps obs. that appear in both tables, identified by keys (colored numbers). Unmatched rows are dropped.</p>
+<div class="columns">
+<div class="column" style="width:35%;">
+<p><img data-src="09-pics/join-setup.png" style="width:90.0%"></p>
+</div><div class="column" style="width:55%;">
+<p><br> <br> <img data-src="09-pics/join-inner.png" style="width:100.0%"> <br> <br></p>
+</div></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="co"># inner_join examples</span></span>
+<span id="cb23-2"><a></a><span class="fu">inner_join</span>(x, y, <span class="at">by =</span> <span class="st">"key"</span>)</span>
+<span id="cb23-3"><a></a>x <span class="sc">|&gt;</span> <span class="fu">inner_join</span>(y, <span class="at">by =</span> <span class="st">"key"</span>) <span class="co"># same but with pipe</span></span>
+<span id="cb23-4"><a></a></span>
+<span id="cb23-5"><a></a><span class="co"># if the join columns have different names</span></span>
+<span id="cb23-6"><a></a><span class="fu">inner_join</span>(x, y, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"a"</span> <span class="ot">=</span> <span class="st">"b"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<!-- by convention, x is assigned as the first dataframe or left one, and y as the second or right one; 
+
+the by argument specifies that we are joining it based on the key column (which you cannot see from the slide but its the column name of the colored columns in each x and y). Compare this to the left_join() operation which is another form of mutating join
+-->
+</section>
+<section id="left_join" class="slide level2 center">
+<h2>left_join()</h2>
+<p>Keeps all obs. in the left table (x), even if there is not a match in the right table (y).</p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p><img data-src="09-pics/join-setup.png" style="width:90.0%"></p>
+</div><div class="column" style="width:55%;">
+<p><br> <img data-src="09-pics/join-outer-left.png" style="width:100.0%"> <br></p>
+</div></div>
+<p><br></p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a><span class="fu">left_join</span>(x, y, <span class="at">by =</span> <span class="st">"key"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><br></p>
+</section>
+<section id="right_join" class="slide level2 center">
+<h2>right_join()</h2>
+<p>Keeps all obse. in the right table (y), even if there is not a match in the left table (x).</p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p><img data-src="09-pics/join-setup.png" style="width:90.0%"></p>
+</div><div class="column" style="width:55%;">
+<p><br> <img data-src="09-pics/join-outer-right.png" style="width:100.0%"> <br></p>
+</div></div>
+<p><br></p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a><span class="fu">right_join</span>(x, y, <span class="at">by =</span> <span class="st">"key"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><br></p>
+<!-- same thing as left join but reversing the order of the data frame or table
+typically right join is utilized less because by convention we think at the left or x table as the primary  data for these kind of operations 
+-->
+</section>
+<section id="full_join" class="slide level2 center">
+<h2>full_join()</h2>
+<p>Keeps all obs., matches and non-matches (e.g., more missing values).</p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p><img data-src="09-pics/join-setup.png" style="width:90.0%"></p>
+</div><div class="column" style="width:55%;">
+<p><br> <img data-src="09-pics/join-outer-full.png" style="width:100.0%"> <br></p>
+</div></div>
+<p><br></p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a><span class="fu">full_join</span>(x, y, <span class="at">by =</span> <span class="st">"key"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><br></p>
+</section>
+<section id="venn-diagram" class="slide level2 center">
+<h2>Venn Diagram</h2>
+
+<img data-src="09-pics/join-venn.png" style="width:60.0%" class="r-stretch"></section>
+<section id="filtering-joins-1" class="slide level2 center">
+<h2>Filtering joins</h2>
+<p>Other than mutating joins, <code>dplyr</code> has filtering joins;</p>
+<ul>
+<li><strong>semi_join</strong>: keeps all observations in x that have a match in y</li>
+<li><strong>anti_join</strong> drops all observations in x that have a match in y</li>
+</ul>
+<p>Essentially these function use information from the second data frame (y) to filter observations from the first data frame (x).</p>
+</section>
+<section id="semi_join" class="slide level2 center">
+<h2>semi_join()</h2>
+<p>Keeps all obs. in x that have a match in y. Only keeps columns from the first table you pass in the code (x).</p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p><img data-src="09-pics/join-setup.png" style="width:90.0%"></p>
+</div><div class="column" style="width:55%;">
+<p><br> <br> <img data-src="09-pics/join-semi.png" style="width:100.0%"> <br> <br></p>
+</div></div>
+<p><br></p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a><span class="fu">semi_join</span>(x, y, <span class="at">by =</span> <span class="st">"key"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><br></p>
+</section>
+<section id="anti_join" class="slide level2 center">
+<h2>anti_join()</h2>
+<p>Drops all obs. in x that have a match in y. Only keeps columns from the first table you pass in the code (x).</p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p><img data-src="09-pics/join-setup.png" style="width:90.0%"></p>
+</div><div class="column" style="width:55%;">
+<p><br> <br> <img data-src="09-pics/join-anti.png" style="width:100.0%"> <br> <br></p>
+</div></div>
+<p><br></p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a><span class="fu">anti_join</span>(x, y, <span class="at">by =</span> <span class="st">"key"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><br></p>
+</section>
+<section id="practice-working-with-relational-data-with-dplyr" class="slide level2 center">
+<h2>💻 Practice working with relational data with dplyr</h2>
+<p>Download today’s in-class materials from the website for more practice!</p>
+</section>
+<section id="recap-what-we-learned-today" class="slide level2 center">
+<h2>Recap: What We Learned Today</h2>
+<ul>
+<li>How to import data with <code>read_csv</code> and export data using <code>write_csv</code></li>
+<li>How to work with relational data using <code>dplyr</code></li>
+</ul>
+</section>
+<section id="to-print-these-slides-as-pdf" class="slide level2 center">
+<h2>To print these slides as pdf</h2>
+<p>Click on the icon bottom-left corner (the three lines) &gt; Tools &gt; PDF Export Mode &gt; Print as a Pdf</p>
+
+
+</section></section>
     </div>
-  </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
   <script src="../site_libs/revealjs/dist/reveal.js"></script>

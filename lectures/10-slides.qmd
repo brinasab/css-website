@@ -38,6 +38,41 @@ ADD INTRO TO EXAM 1 AND LOGISTICS HERE
 
 # 1. Exam 1
 
+## Quiz Format & Time Management
+
+
+**90 minutes | 18 points total**
+
+CHANGE INTO FINAL OPTIOSN 
+- Approximately **32-38 multiple-choice questions** (75-80% of grade)
+- **3 open-ended questions** (20-25% of grade)
+
+### Manage Your Time Wisely
+
+- Read the open-ended questions first.
+- Aim for **~1 minute per multiple-choice question**.
+- Reserve **10–12 minutes per open-ended question**.
+- If you're stuck, move on and come back later.
+- Leave a few minutes to review your answers.
+
+
+### Time: 60 minutes 
+
+- You may use pen and paper to make notes or plan your answers
+- Once you submit, you may not reopen the quiz or view questions
+- Do not open R, notes, or class materials while others are still working
+- If you finish early, you can leave. Or if you want to check in about the final project, wait until the exam is over
+- Remember to sign the attendance sheet before leaving!
+
+---
+
+## Exam Grades 
+
+- Grades will be posted within one week
+- You won’t see feedback or correct answers after submitting, but you are welcome, and encouraged, to ask for feedback during office hours or by appointment
+
+### Good luck and thanks for this quarter together!
+
 
 # 2. Manipulating Dates with Lubridate {.slide .center .middle}
 

@@ -28,7 +28,7 @@ knitr::opts_chunk$set(echo = FALSE)
 ## Learning Objectives
 
 * In-class Exam 1 
-* Introduce `lubridate` to manipulate dates in R (after the exam, ~30 min)
+* Introduce `lubridate` to manipulate dates in R: slides will be posted, but we will go over them next week (instead of after the exam). 
 
   
 ## Readings
