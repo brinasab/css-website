@@ -80,8 +80,8 @@ Student learning in this course will be assessed as follows:
 | Assignment 3                       | 15      | Points-Based   |
 | Assignment 4                       | 15      | Points-Based   |
 | Assignment 5 (Final Project)       | 15      | Points-Based   |
-| In-Class Short Exam 1              | 18      | Points-Based   |
-| In-Class Short Exam 2              | 18      | Points-Based   |
+| In-Class Exam 1                    | 18      | Points-Based   |
+| In-Class Exam 2                    | 18      | Points-Based   |
 | *Optional Oral Exam*             | Grade Adj.| Points-Based   |
 | **Total**                          | **100** |                |
 
