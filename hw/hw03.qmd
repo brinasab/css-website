@@ -11,14 +11,16 @@ knitr::opts_chunk$set(echo = FALSE)
 
 **Due: Friday, November 6 by 11:59 PM (Chicago Time)**
 
-In the previous assignment, you practiced working with `dplyr` and `ggplot2` using a clean and relatively small dataset. This assignment expands on the previous one by introducing a more realistic research context in computational social science: you’ll practice cleaning, wrangling, and exploring a larger and messier dataset. This assignment reinforces skills you already practiced in HW2 and provides opportunity to practice new concepts from more recent weeks.
+In the previous assignment, you practiced working with `dplyr` and `ggplot2` using a clean and relatively small dataset. This assignment expands on the previous one by introducing a more realistic research context in computational social science: you’ll practice cleaning, wrangling, and exploring a larger and messier dataset. 
+
+This assignment reinforces skills you already practiced in HW2 and provides an opportunity to practice we have covered in more recent weeks.
 
 
 # Accessing and Cloning Your `hw03` Repository
 
 ### Accessing the repo
 
-1. Go to [this link](https://classroom50.org/css-fall26/css/assignments/hw03/accept). The first time, click *Sign in with GitHub* and authorize Classroom 50 (the tool we use to distribute assignments).
+1. Go to **[this link](https://classroom50.org/css-fall26/css/assignments/hw03/accept)**. The first time, click *Sign in with GitHub* and authorize Classroom 50 (the tool we use to distribute assignments).
 
 2. Click *Accept assignment* to create your private `hw03` repository on GitHub. Your repository will be named `css-hw03-<USERNAME>`. Keep the page open until the setup checklist finishes (a few seconds).
 
