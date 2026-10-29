@@ -13,7 +13,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 In the previous assignment, you practiced working with `dplyr` and `ggplot2` using a clean and relatively small dataset. This assignment expands on the previous one by introducing a more realistic research context in computational social science: you’ll practice cleaning, wrangling, and exploring a larger and messier dataset. 
 
-This assignment reinforces skills you already practiced in HW2 and provides an opportunity to practice we have covered in more recent weeks.
+This assignment reinforces skills you already practiced in HW2 and provides an opportunity to practice new content from recent weeks.
 
 
 # Accessing and Cloning Your `hw03` Repository
