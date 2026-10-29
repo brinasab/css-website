@@ -9,57 +9,61 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # Overview
 
-**Due: Thursday, November 6th by 11:59 PM (Chicago Time)**
+**Due: Friday, November 6 by 11:59 PM (Chicago Time)**
 
-In the previous assignment, you practiced working with `dplyr` and `ggplot2` using a clean and relatively small dataset. This assignment builds and expands on the previous assignment by introducing a more realistic research context in computational social science: you’ll practice cleaning, wrangling, and exploring a larger and more messy dataset.
+In the previous assignment, you practiced working with `dplyr` and `ggplot2` using a clean and relatively small dataset. This assignment expands on the previous one by introducing a more realistic research context in computational social science: you’ll practice cleaning, wrangling, and exploring a larger and messier dataset. This assignment reinforces skills you already practiced in HW2 and provides opportunity to practice new concepts from more recent weeks.
 
 
 # Accessing and Cloning Your `hw03` Repository
 
-**Accessing the repo:** 
+### Accessing the repo
 
-1. Go at [this link](https://classroom.github.com/a/UKzDKiqD) to accept the invitation and create your private `hw03` repository on GitHub. Your repository will be named `hw03-<USERNAME>` and will be ready within a few seconds. 
+1. Go to [this link](https://classroom50.org/css-fall26/css/assignments/hw03/accept). The first time, click *Sign in with GitHub* and authorize Classroom 50 (the tool we use to distribute assignments).
 
-2. Once the repository has been created, click the link provided to access it.
+2. Click *Accept assignment* to create your private `hw03` repository on GitHub. Your repository will be named `css-hw03-<USERNAME>`. Keep the page open until the setup checklist finishes (a few seconds).
+
+3. Click *Open repository* to access it.
+
+If the page says *"Not a member yet"*, accept the invitation to our GitHub organization (check your email, including spam), then click *Check again*. If it says *"This assignment isn't available to you"*, contact the instructor.
 
 
-**Cloning the repo into your Workbench:**
+### Cloning the repo into your Workbench
 
 1. Log into *Workbench* and start a new project:  
    *File > New Project > Version Control > Git*
 
 2. In the *Repository URL* field:
    - Paste the URL of your GitHub repository. To find the URL, go to your `hw03` repo on GitHub, click the green Code button, and copy the SSH or HTTPS link (use the method you configured during setup: Workbench users must select SSH).
-   - The project name should auto-fill. If not, type `hw03-<USERNAME>` manually.
+   - The project name should auto-fill. If not, type the same name manually (it should match the GitHub repo name).
 
 3. Choose where to save the project directory locally. *Tip:* Avoid moving folders after cloning them.  
-
-4. Check the box *"Open in new session"* (recommended for keeping projects separate and organized)
+4. Check the box *"Open in new session"* (recommended for keeping projects organized).
 
 5. Click *Create Project*. This will:
    - Create a new folder on your machine  
    - Initialize a Git repository linked to GitHub  
    - Open an RStudio Project in a new session
 
+You’ll use this same process to access and set up each homework assignment throughout the course.
+
 
 # General Homework Workflow
 
-See [Homework 1](hw01.qmd) for details. The workflow is the same for all assignments (e.g., accept the repo, edit the files, save, then Pull – Stage – Commit – Push).
+See [Homework 1](hw01.qmd) for details. The workflow is the same for all assignments.
 
 
-# Assignment Description
+# HW3 Description
 
 ### The U.S. Supreme Court dataset
 
-For this assignment you will work with data from the U.S. Supreme Court. The [Supreme Court Database](http://scdb.wustl.edu/about.php) contains information on every published decision of the U.S. Supreme Court since its creation in 1791. It is one of the most widely used databases in the study of judicial politics.
+For this assignment you will work with data from the U.S. Supreme Court. The Supreme Court Database (see <http://scdb.wustl.edu/about.php> and <https://scdb.la.psu.edu/>) contains information on every published decision of the U.S. Supreme Court since 1791. It is one of the most widely used databases in the study of judicial politics.
 
-In the `hw03` repository, you will find two data files: `scdb-case.csv`
-and `scdb-vote.csv`. These contain the exact same data you would obtain if you downloaded the files from the original website, but reformatted to be stored as *relational data* files. That is:
+In the `hw03` repository, you will find two data files: `scdb-case.csv` and `scdb-vote.csv`. These contain the exact same data you would obtain if you downloaded the files from the original website, but reformatted to be stored as *relational data* files. That is:
 
 - `scdb-case.csv` contains all *case-level* variables (one row for every case and one column for every variable)
 - `scdb-vote.csv` contains all *vote-level* variables (one row for every vote by a justice in every case and one column for every variable)
 
-The current data contain information on every case decided from the 1791-2020 terms. Terms run from October through June, so the 2020 term contains cases decided from October 2020 - June 2021. There are several variables to explore, and we encourage you to do so, but these are the main ones you will need to answer most prompts:
+The current data contain information on every case decided from the 1791-2020 terms. Note that terms run from October through June, so the 2020 term contains cases decided from October 2020 - June 2021. There are several variables to explore, and we encourage you to do so, but these are the main ones you will need to answer most prompts:
 
 * `caseIssuesId`
 * `chief`
@@ -76,7 +80,7 @@ The current data contain information on every case decided from the 1791-2020 te
 * `minVotes`
 * `term`
 
-Read the [documentation](http://scdb.wustl.edu/documentation.php) to see how these variables are coded and familiarize yourself with the data.
+Read the documentation(<http://scdb.wustl.edu/documentation.php> or <https://scdb.la.psu.edu/online-codebook/>) to see how these variables are coded and familiarize yourself with the data.
 
 
 ### Answer the questions
@@ -85,37 +89,40 @@ Your repository includes specific and open-ended questions. Answer all of them.
 
 ::: {.callout-note}
 
-- The questions—especially the open-ended ones—are designed to help you think like a programmer and data analyst. They won’t walk you through every step but encourage you to apply what you’ve learned and work independently. Translating what a question asks into code by breaking it down in smaller pieces is one important learning goal of this course.
+- The questions, especially the open-ended ones, are designed to help you think like a programmer and data analyst. They won’t walk you through every step but encourage you to apply what you’ve learned and work independently. Translating what a question asks into code by breaking it down in smaller pieces is one important learning goal of this exercise
 
-- This homework is designed to be completed over multiple sessions—it will feel overwhelming otherwise. Start early, and remember to save, commit, and push your work regularly.
+- This homework is designed to be completed over multiple sessions. Start early, and remember to save, commit, and push your work regularly.
 
-- Do not use AI tools to generate R code from scratch or to think for you; that defeats the purpose of the assignment and violates our class policy on plagiarism. You may use AI to debug (after trying on your own) or look up how functions work (check course materials first). Only submit code you fully understand. Reach out if you have questions, we are here to help!
+- Do not use AI tools to generate R code from scratch or think for you. You may use it to debug (after trying on your own) or look up how functions work, but check course materials first. Only submit code you fully understand. Reach out if you have questions, we are here to help!
 :::
 
+*Acknowledgments:* The original version of this homework assignment was developed by Benjamin Soltoff. Subsequent implementations, grading rubrics, and updates were developed by Sabrina Nardin.
 
-# Formatting Guide
+
+# Formatting Guide for All Homework
 
 See [Homework 2](hw02.qmd) for details. The formatting expectations are the same for all assignments.
 
 
-# Submit the Assignment
+# How to Submit this Assignment
 
 To submit your assignment on Canvas, follow these steps:
 
-1. Before the deadline, push the final version of your work to your GitHub repository. *Tip:* don’t wait until the end to make your first commit—commit, stage, and push your work regularly as you go.
+1. Before the deadline, push the final version of your work to your GitHub repository. *Tip:* don’t wait until the end to make your first commit; instead stage, commit, and push your work regularly as you go.
 
-   Your GitHub repository should include (make sure to stage-commit-push all these files):
+   Your GitHub repository should include:
    - `scotus.Rmd`: main file you will work on
    - `scotus.md`: you will generate this file from the `.Rmd` by simply knitting it
-   - the folder that contains all the graphs that you generated in your `.Rmd` (we need this to be able to see your graphs and grade your homework)
-
+   - `scotus_files/`: the folder that contains all the graphs that you generated in your `.Rmd` 
+   
 2. When you're ready to submit:
-   - Copy the URL of your GitHub repository. It will look something like: `https://github.com/css-fall25/hw03-yourusername`
-   - Submit that URL on Canvas under HW03. Do not upload any files to Canvas. We only need the repository link.
+   - Copy the URL of your GitHub repository. It will look something like: `https://github.com/css-fall26/css-hw03-yourusername`
+   - Submit that URL on Canvas under HW02. Do not upload any files to Canvas. We only need the repository link. Your repository remains private, only the instructional staff can access it.
 
 
 # Assessment
 
-All homework assignments are evaluated using [this rubric](https://docs.google.com/spreadsheets/d/1RAgv09Wn62X7-xsSb5bGBmEqAMFKh_om/edit?usp=sharing&ouid=112534119211880791899&rtpof=true&sd=true). Refer to it to assess your work before submitting. For more, see the *Assessment* section of the Syllabus.
+All homework assignments are evaluated using [this rubric](https://docs.google.com/spreadsheets/d/1N2J2yvOz-hEo6ZXq0qjcaGhnVFB__naF/edit?usp=sharing&ouid=112534119211880791899&rtpof=true&sd=true), accessible using a UChicago account. For more, see the *Assessment* section of the Syllabus. 
+
 
 

@@ -126,15 +126,19 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#accessing-and-cloning-your-hw03-repository" id="toc-accessing-and-cloning-your-hw03-repository" class="nav-link" data-scroll-target="#accessing-and-cloning-your-hw03-repository">Accessing and Cloning Your <code>hw03</code> Repository</a></li>
+  <li><a href="#accessing-and-cloning-your-hw03-repository" id="toc-accessing-and-cloning-your-hw03-repository" class="nav-link" data-scroll-target="#accessing-and-cloning-your-hw03-repository">Accessing and Cloning Your <code>hw03</code> Repository</a>
+  <ul class="collapse">
+  <li><a href="#accessing-the-repo" id="toc-accessing-the-repo" class="nav-link" data-scroll-target="#accessing-the-repo">Accessing the repo</a></li>
+  <li><a href="#cloning-the-repo-into-your-workbench" id="toc-cloning-the-repo-into-your-workbench" class="nav-link" data-scroll-target="#cloning-the-repo-into-your-workbench">Cloning the repo into your Workbench</a></li>
+  </ul></li>
   <li><a href="#general-homework-workflow" id="toc-general-homework-workflow" class="nav-link" data-scroll-target="#general-homework-workflow">General Homework Workflow</a></li>
-  <li><a href="#assignment-description" id="toc-assignment-description" class="nav-link" data-scroll-target="#assignment-description">Assignment Description</a>
+  <li><a href="#hw3-description" id="toc-hw3-description" class="nav-link" data-scroll-target="#hw3-description">HW3 Description</a>
   <ul class="collapse">
   <li><a href="#the-u.s.-supreme-court-dataset" id="toc-the-u.s.-supreme-court-dataset" class="nav-link" data-scroll-target="#the-u.s.-supreme-court-dataset">The U.S. Supreme Court dataset</a></li>
   <li><a href="#answer-the-questions" id="toc-answer-the-questions" class="nav-link" data-scroll-target="#answer-the-questions">Answer the questions</a></li>
   </ul></li>
-  <li><a href="#formatting-guide" id="toc-formatting-guide" class="nav-link" data-scroll-target="#formatting-guide">Formatting Guide</a></li>
-  <li><a href="#submit-the-assignment" id="toc-submit-the-assignment" class="nav-link" data-scroll-target="#submit-the-assignment">Submit the Assignment</a></li>
+  <li><a href="#formatting-guide-for-all-homework" id="toc-formatting-guide-for-all-homework" class="nav-link" data-scroll-target="#formatting-guide-for-all-homework">Formatting Guide for All Homework</a></li>
+  <li><a href="#how-to-submit-this-assignment" id="toc-how-to-submit-this-assignment" class="nav-link" data-scroll-target="#how-to-submit-this-assignment">How to Submit this Assignment</a></li>
   <li><a href="#assessment" id="toc-assessment" class="nav-link" data-scroll-target="#assessment">Assessment</a></li>
   </ul>
 </nav>
@@ -163,27 +167,33 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="overview" class="level1">
 <h1>Overview</h1>
-<p><strong>Due: Thursday, November 6th by 11:59 PM (Chicago Time)</strong></p>
-<p>In the previous assignment, you practiced working with <code>dplyr</code> and <code>ggplot2</code> using a clean and relatively small dataset. This assignment builds and expands on the previous assignment by introducing a more realistic research context in computational social science: you’ll practice cleaning, wrangling, and exploring a larger and more messy dataset.</p>
+<p><strong>Due: Friday, November 6 by 11:59 PM (Chicago Time)</strong></p>
+<p>In the previous assignment, you practiced working with <code>dplyr</code> and <code>ggplot2</code> using a clean and relatively small dataset. This assignment expands on the previous one by introducing a more realistic research context in computational social science: you’ll practice cleaning, wrangling, and exploring a larger and messier dataset. This assignment reinforces skills you already practiced in HW2 and provides opportunity to practice new concepts from more recent weeks.</p>
 </section>
 <section id="accessing-and-cloning-your-hw03-repository" class="level1">
 <h1>Accessing and Cloning Your <code>hw03</code> Repository</h1>
-<p><strong>Accessing the repo:</strong></p>
+<section id="accessing-the-repo" class="level3">
+<h3 class="anchored" data-anchor-id="accessing-the-repo">Accessing the repo</h3>
 <ol type="1">
-<li><p>Go at <a href="https://classroom.github.com/a/UKzDKiqD">this link</a> to accept the invitation and create your private <code>hw03</code> repository on GitHub. Your repository will be named <code>hw03-&lt;USERNAME&gt;</code> and will be ready within a few seconds.</p></li>
-<li><p>Once the repository has been created, click the link provided to access it.</p></li>
+<li><p>Go to <a href="https://classroom50.org/css-fall26/css/assignments/hw03/accept">this link</a>. The first time, click <em>Sign in with GitHub</em> and authorize Classroom 50 (the tool we use to distribute assignments).</p></li>
+<li><p>Click <em>Accept assignment</em> to create your private <code>hw03</code> repository on GitHub. Your repository will be named <code>css-hw03-&lt;USERNAME&gt;</code>. Keep the page open until the setup checklist finishes (a few seconds).</p></li>
+<li><p>Click <em>Open repository</em> to access it.</p></li>
 </ol>
-<p><strong>Cloning the repo into your Workbench:</strong></p>
+<p>If the page says <em>“Not a member yet”</em>, accept the invitation to our GitHub organization (check your email, including spam), then click <em>Check again</em>. If it says <em>“This assignment isn’t available to you”</em>, contact the instructor.</p>
+</section>
+<section id="cloning-the-repo-into-your-workbench" class="level3">
+<h3 class="anchored" data-anchor-id="cloning-the-repo-into-your-workbench">Cloning the repo into your Workbench</h3>
 <ol type="1">
 <li><p>Log into <em>Workbench</em> and start a new project:<br>
 <em>File &gt; New Project &gt; Version Control &gt; Git</em></p></li>
 <li><p>In the <em>Repository URL</em> field:</p>
 <ul>
 <li>Paste the URL of your GitHub repository. To find the URL, go to your <code>hw03</code> repo on GitHub, click the green Code button, and copy the SSH or HTTPS link (use the method you configured during setup: Workbench users must select SSH).</li>
-<li>The project name should auto-fill. If not, type <code>hw03-&lt;USERNAME&gt;</code> manually.</li>
+<li>The project name should auto-fill. If not, type the same name manually (it should match the GitHub repo name).</li>
 </ul></li>
-<li><p>Choose where to save the project directory locally. <em>Tip:</em> Avoid moving folders after cloning them.</p></li>
-<li><p>Check the box <em>“Open in new session”</em> (recommended for keeping projects separate and organized)</p></li>
+<li><p>Choose where to save the project directory locally. <em>Tip:</em> Avoid moving folders after cloning them.<br>
+</p></li>
+<li><p>Check the box <em>“Open in new session”</em> (recommended for keeping projects organized).</p></li>
 <li><p>Click <em>Create Project</em>. This will:</p>
 <ul>
 <li>Create a new folder on your machine<br>
@@ -193,22 +203,24 @@ ul.task-list li input[type="checkbox"] {
 <li>Open an RStudio Project in a new session</li>
 </ul></li>
 </ol>
+<p>You’ll use this same process to access and set up each homework assignment throughout the course.</p>
+</section>
 </section>
 <section id="general-homework-workflow" class="level1">
 <h1>General Homework Workflow</h1>
-<p>See <a href="../hw/hw01.html">Homework 1</a> for details. The workflow is the same for all assignments (e.g., accept the repo, edit the files, save, then Pull – Stage – Commit – Push).</p>
+<p>See <a href="../hw/hw01.html">Homework 1</a> for details. The workflow is the same for all assignments.</p>
 </section>
-<section id="assignment-description" class="level1">
-<h1>Assignment Description</h1>
+<section id="hw3-description" class="level1">
+<h1>HW3 Description</h1>
 <section id="the-u.s.-supreme-court-dataset" class="level3">
 <h3 class="anchored" data-anchor-id="the-u.s.-supreme-court-dataset">The U.S. Supreme Court dataset</h3>
-<p>For this assignment you will work with data from the U.S. Supreme Court. The <a href="http://scdb.wustl.edu/about.php">Supreme Court Database</a> contains information on every published decision of the U.S. Supreme Court since its creation in 1791. It is one of the most widely used databases in the study of judicial politics.</p>
+<p>For this assignment you will work with data from the U.S. Supreme Court. The Supreme Court Database (see <a href="http://scdb.wustl.edu/about.php" class="uri">http://scdb.wustl.edu/about.php</a> and <a href="https://scdb.la.psu.edu/" class="uri">https://scdb.la.psu.edu/</a>) contains information on every published decision of the U.S. Supreme Court since 1791. It is one of the most widely used databases in the study of judicial politics.</p>
 <p>In the <code>hw03</code> repository, you will find two data files: <code>scdb-case.csv</code> and <code>scdb-vote.csv</code>. These contain the exact same data you would obtain if you downloaded the files from the original website, but reformatted to be stored as <em>relational data</em> files. That is:</p>
 <ul>
 <li><code>scdb-case.csv</code> contains all <em>case-level</em> variables (one row for every case and one column for every variable)</li>
 <li><code>scdb-vote.csv</code> contains all <em>vote-level</em> variables (one row for every vote by a justice in every case and one column for every variable)</li>
 </ul>
-<p>The current data contain information on every case decided from the 1791-2020 terms. Terms run from October through June, so the 2020 term contains cases decided from October 2020 - June 2021. There are several variables to explore, and we encourage you to do so, but these are the main ones you will need to answer most prompts:</p>
+<p>The current data contain information on every case decided from the 1791-2020 terms. Note that terms run from October through June, so the 2020 term contains cases decided from October 2020 - June 2021. There are several variables to explore, and we encourage you to do so, but these are the main ones you will need to answer most prompts:</p>
 <ul>
 <li><code>caseIssuesId</code></li>
 <li><code>chief</code></li>
@@ -225,7 +237,7 @@ ul.task-list li input[type="checkbox"] {
 <li><code>minVotes</code></li>
 <li><code>term</code></li>
 </ul>
-<p>Read the <a href="http://scdb.wustl.edu/documentation.php">documentation</a> to see how these variables are coded and familiarize yourself with the data.</p>
+<p>Read the documentation(<a href="http://scdb.wustl.edu/documentation.php" class="uri">http://scdb.wustl.edu/documentation.php</a> or <a href="https://scdb.la.psu.edu/online-codebook/" class="uri">https://scdb.la.psu.edu/online-codebook/</a>) to see how these variables are coded and familiarize yourself with the data.</p>
 </section>
 <section id="answer-the-questions" class="level3">
 <h3 class="anchored" data-anchor-id="answer-the-questions">Answer the questions</h3>
@@ -241,39 +253,40 @@ Note
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><p>The questions—especially the open-ended ones—are designed to help you think like a programmer and data analyst. They won’t walk you through every step but encourage you to apply what you’ve learned and work independently. Translating what a question asks into code by breaking it down in smaller pieces is one important learning goal of this course.</p></li>
-<li><p>This homework is designed to be completed over multiple sessions—it will feel overwhelming otherwise. Start early, and remember to save, commit, and push your work regularly.</p></li>
-<li><p>Do not use AI tools to generate R code from scratch or to think for you; that defeats the purpose of the assignment and violates our class policy on plagiarism. You may use AI to debug (after trying on your own) or look up how functions work (check course materials first). Only submit code you fully understand. Reach out if you have questions, we are here to help!</p></li>
+<li><p>The questions, especially the open-ended ones, are designed to help you think like a programmer and data analyst. They won’t walk you through every step but encourage you to apply what you’ve learned and work independently. Translating what a question asks into code by breaking it down in smaller pieces is one important learning goal of this exercise</p></li>
+<li><p>This homework is designed to be completed over multiple sessions. Start early, and remember to save, commit, and push your work regularly.</p></li>
+<li><p>Do not use AI tools to generate R code from scratch or think for you. You may use it to debug (after trying on your own) or look up how functions work, but check course materials first. Only submit code you fully understand. Reach out if you have questions, we are here to help!</p></li>
 </ul>
 </div>
 </div>
+<p><em>Acknowledgments:</em> The original version of this homework assignment was developed by Benjamin Soltoff. Subsequent implementations, grading rubrics, and updates were developed by Sabrina Nardin.</p>
 </section>
 </section>
-<section id="formatting-guide" class="level1">
-<h1>Formatting Guide</h1>
+<section id="formatting-guide-for-all-homework" class="level1">
+<h1>Formatting Guide for All Homework</h1>
 <p>See <a href="../hw/hw02.html">Homework 2</a> for details. The formatting expectations are the same for all assignments.</p>
 </section>
-<section id="submit-the-assignment" class="level1">
-<h1>Submit the Assignment</h1>
+<section id="how-to-submit-this-assignment" class="level1">
+<h1>How to Submit this Assignment</h1>
 <p>To submit your assignment on Canvas, follow these steps:</p>
 <ol type="1">
-<li><p>Before the deadline, push the final version of your work to your GitHub repository. <em>Tip:</em> don’t wait until the end to make your first commit—commit, stage, and push your work regularly as you go.</p>
-<p>Your GitHub repository should include (make sure to stage-commit-push all these files):</p>
+<li><p>Before the deadline, push the final version of your work to your GitHub repository. <em>Tip:</em> don’t wait until the end to make your first commit; instead stage, commit, and push your work regularly as you go.</p>
+<p>Your GitHub repository should include:</p>
 <ul>
 <li><code>scotus.Rmd</code>: main file you will work on</li>
 <li><code>scotus.md</code>: you will generate this file from the <code>.Rmd</code> by simply knitting it</li>
-<li>the folder that contains all the graphs that you generated in your <code>.Rmd</code> (we need this to be able to see your graphs and grade your homework)</li>
+<li><code>scotus_files/</code>: the folder that contains all the graphs that you generated in your <code>.Rmd</code></li>
 </ul></li>
 <li><p>When you’re ready to submit:</p>
 <ul>
-<li>Copy the URL of your GitHub repository. It will look something like: <code>https://github.com/css-fall25/hw03-yourusername</code></li>
-<li>Submit that URL on Canvas under HW03. Do not upload any files to Canvas. We only need the repository link.</li>
+<li>Copy the URL of your GitHub repository. It will look something like: <code>https://github.com/css-fall26/css-hw03-yourusername</code></li>
+<li>Submit that URL on Canvas under HW02. Do not upload any files to Canvas. We only need the repository link. Your repository remains private, only the instructional staff can access it.</li>
 </ul></li>
 </ol>
 </section>
 <section id="assessment" class="level1">
 <h1>Assessment</h1>
-<p>All homework assignments are evaluated using <a href="https://docs.google.com/spreadsheets/d/1RAgv09Wn62X7-xsSb5bGBmEqAMFKh_om/edit?usp=sharing&amp;ouid=112534119211880791899&amp;rtpof=true&amp;sd=true">this rubric</a>. Refer to it to assess your work before submitting. For more, see the <em>Assessment</em> section of the Syllabus.</p>
+<p>All homework assignments are evaluated using <a href="https://docs.google.com/spreadsheets/d/1N2J2yvOz-hEo6ZXq0qjcaGhnVFB__naF/edit?usp=sharing&amp;ouid=112534119211880791899&amp;rtpof=true&amp;sd=true">this rubric</a>, accessible using a UChicago account. For more, see the <em>Assessment</em> section of the Syllabus.</p>
 
 
 </section>
