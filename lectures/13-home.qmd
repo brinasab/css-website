@@ -1,9 +1,9 @@
 ---
-title: "Lecture 13: Control Flow with Loops"
+title: "Lecture 13: Control Flow with Conditionals"
 date: 2026-11-09
-summary: "Writing For Loops"
+summary: "Writing conditionals with if, else, and else if"
 url_slides: 13-slides.qmd
-url_code: css-materials/loops
+url_code: css-materials/if-else
 page-layout: full
 draft: false
 ---
@@ -11,6 +11,7 @@ draft: false
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
+
 
 ## Info and Materials
 
@@ -21,19 +22,23 @@ knitr::opts_chunk$set(echo = FALSE)
 
 <!--
 * **Slides**: [View Slides]({{< meta url_slides >}})
-* **Code**: No in-class code to download
 * **Code**: `usethis::use_course("{{< meta url_code >}}")`
 -->
 
+
 ## Learning Objectives
 
-- Understand how for loops work
-- Learn how to track and save results during a loop (e.g., running totals)
-- Recognize the difference between looping over indexes and over elements
-- Use for loop with if-else statements and within dataframes
+- Define control structures and why they matter
+- Introduce one type of control structure: conditional statements
+
+
+<!--
+## Before Class
+
+- Complete the practice from last lecture 
+-->
+
 
 ## Readings
 
-- ["Chapter 27.5 For Loops"](https://r4ds.hadley.nz/base-R.html#for-loops). This reading provides an high level overview, the slides unpack the details.
-- ["Chapter 26 Iteration"](https://r4ds.hadley.nz/iteration) from "R for Data Science" 2nd Edition.
-
+* [Chapter 13 “Control Structures”](https://bookdown.org/rdpeng/rprogdatascience/control-structures.html) in "R programming for Data Science" (Notice this is not our regular book!)

@@ -1,9 +1,9 @@
 ---
-title: "Lecture 14: Control Flow with Loops (cont.); Functions"
+title: "Lecture 14: Control Flow with Loops"
 date: 2026-11-11
-summary: "Finish Loops; Introduce Functions"
+summary: "Writing For Loops"
 url_slides: 14-slides.qmd
-url_code: css-materials/functions
+url_code: css-materials/loops
 page-layout: full
 draft: false
 ---
@@ -21,31 +21,19 @@ knitr::opts_chunk$set(echo = FALSE)
 
 <!--
 * **Slides**: [View Slides]({{< meta url_slides >}})
+* **Code**: No in-class code to download
 * **Code**: `usethis::use_course("{{< meta url_code >}}")`
 -->
 
-<!-- `usethis::use_course("css-materials/functions")` -->
-
 ## Learning Objectives
 
-**Loops (cont. from last lecture):**
-
-- Alternatives to for loops in R: `map()`, `across()`, and `apply()`
-- Introduce while loops
-
-**Functions:**  
-
-- Define functions and their purposes  
-- Understand the difference between built-in and user-written functions  
-- Learn the syntax of user-written functions  
-
-
-## Before class
-
-- Review [Lecture 13](https://brinasab.github.io/css-website/lectures/13-home.html)
-
+- Understand how for loops work
+- Learn how to track and save results during a loop (e.g., running totals)
+- Recognize the difference between looping over indexes and over elements
+- Use for loop with if-else statements and within dataframes
 
 ## Readings
 
-* Loops: See previous lecture
-* Functions: [Chapter 15 "Functions"](https://r4ds.hadley.nz/functions) in "R for Data Science" 2nd Edition
+- ["Chapter 27.5 For Loops"](https://r4ds.hadley.nz/base-R.html#for-loops). This reading provides an high level overview, the slides unpack the details.
+- ["Chapter 26 Iteration"](https://r4ds.hadley.nz/iteration) from "R for Data Science" 2nd Edition.
+

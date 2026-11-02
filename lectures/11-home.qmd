@@ -16,8 +16,8 @@ knitr::opts_chunk$set(echo = FALSE)
 
 * **Date**: {{< meta date >}}
 * **Topics**: {{< meta summary >}}
-* **Slides**: To be posted before class
-* **Code**: To be posted before class
+* **Slides**: None today
+* **Code**: None today
 
 <!--
 * **Slides**: [View Slides]({{< meta url_slides >}})
@@ -26,10 +26,13 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Learning Objectives
 
-- Understand what Base R is, and how it differs from the Tidyverse
-- Identify R data types and structures  
-- Explore R vectors 
-- Subset data using Base R syntax
+Today's Agenda: 
+
+- Mid-Term Survey: results and implemented changes
+- Lubridate: see Lecture 10 slides
+- Relational Data: see Lecture 9 slides
+- Assignment 3: in-class check-in
+- Data Structures, Data Types, Base R: preview today if time allows; full session on this topic next class
 
 
 ## Readings

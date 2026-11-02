@@ -8,7 +8,7 @@
 
 <meta name="dcterms.date" content="2026-11-16">
 
-<title>Lecture 15: Functions (cont.); Reproducible Workflow – css-website</title>
+<title>Lecture 15: Control Flow with Loops (cont.); Functions – css-website</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -138,7 +138,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Lecture 15: Functions (cont.); Reproducible Workflow</h1>
+<h1 class="title">Lecture 15: Control Flow with Loops (cont.); Functions</h1>
 </div>
 
 
@@ -165,54 +165,44 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="info-and-materials">Info and Materials</h2>
 <ul>
 <li><strong>Date</strong>: November 16, 2026</li>
-<li><strong>Topics</strong>: Finish Functions; Tips for Reproducible Workflow</li>
+<li><strong>Topics</strong>: Finish Loops; Introduce Functions</li>
 <li><strong>Slides</strong>: To be posted before class</li>
 <li><strong>Code</strong>: To be posted before class</li>
 </ul>
 <!--
 * **Slides**: [View Slides](15-slides.qmd)
-* **Code**: No in-class code to download
 * **Code**: `usethis::use_course("css-materials/functions")`
 -->
-<!-- `usethis::use_course("css-materials/functions-bugs")`
-usethis::use_course("css-materials/deep-dive-reproducible-git-rmd")`
--->
+<!-- `usethis::use_course("css-materials/functions")` -->
 </section>
 <section id="learning-objectives" class="level2">
 <h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
-<p><strong>Functions (cont. from last lecture):</strong></p>
+<p><strong>Loops (cont. from last lecture):</strong></p>
 <ul>
-<li>Review and continue the lecture on Functions</li>
+<li>Alternatives to for loops in R: <code>map()</code>, <code>across()</code>, and <code>apply()</code></li>
+<li>Introduce while loops</li>
 </ul>
-<p><strong>Reproducible Workflow:</strong></p>
+<p><strong>Functions:</strong></p>
 <ul>
-<li>Define a project-oriented workflow in R and identify best R procedures</li>
-<li>Expand our current knowledge of R Markdown</li>
-<li>Learn the basics of Git/GitHub via terminal/command line</li>
+<li>Define functions and their purposes<br>
+</li>
+<li>Understand the difference between built-in and user-written functions<br>
+</li>
+<li>Learn the syntax of user-written functions</li>
 </ul>
 </section>
 <section id="before-class" class="level2">
 <h2 class="anchored" data-anchor-id="before-class">Before class</h2>
 <ul>
-<li>Review <a href="https://brinasab.github.io/css-website/lectures/14-home.html">Lecture 14</a></li>
+<li>Review <a href="https://brinasab.github.io/css-website/lectures/13-home.html">Lecture 13</a></li>
 </ul>
 </section>
 <section id="readings" class="level2">
 <h2 class="anchored" data-anchor-id="readings">Readings</h2>
 <ul>
-<li>Functions: see the previous lecture</li>
-<li><a href="http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510">Good Enough Practices in Scientific Computing</a></li>
-<li>Chapters 1, 2, 3, 7 in <a href="https://rstats.wtf/">What They Forgot to Teach You About R</a></li>
-<li>Chapters 27 “R Markdown”, 28 “Graphics for communication”, and 29 “R Markdown formats” in <a href="http://r4ds.had.co.nz">R for Data Science 1st Edition</a></li>
-<li>Article on <a href="https://www.tidyverse.org/articles/2017/12/workflow-vs-script/">Project-oriented workflow</a></li>
+<li>Loops: See previous lecture</li>
+<li>Functions: <a href="https://r4ds.hadley.nz/functions">Chapter 15 “Functions”</a> in “R for Data Science” 2nd Edition</li>
 </ul>
-<!--
-Optional readings on debugging:
-
-* "Debugging R code" in [What They Forgot to Teach You About R](https://rstats.wtf/debugging-r)
-* [21.6 Dealing with failure in *R for Data Science*](http://r4ds.had.co.nz/iteration.html#dealing-with-failure)
-* [How to read an R help page](http://socviz.co/appendix.html#how-to-read-an-r-help-page)
--->
 
 
 </section>

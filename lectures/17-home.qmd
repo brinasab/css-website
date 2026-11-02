@@ -1,9 +1,9 @@
 ---
-title: "Lecture 17: Web-Scraping 2"
+title: "Lecture 17: TBD"
 date: 2026-11-30
-summary: "Web-Scraping 2"
-url_slides: 17-slides.qmd
-url_code: css-materials/scraping
+summary: "To be determined based on class interests"
+#url_slides: 17-slides.qmd
+#url_code: css-materials/scraping
 page-layout: full
 draft: false
 ---
@@ -26,16 +26,6 @@ knitr::opts_chunk$set(echo = FALSE)
 
 <!-- `usethis::use_course("css-materials/getting-data-from-web-part2")` -->
 
-## Learning Objectives
-
-* Continue the topi of web-scraping from previous lecture
-* **Before Class:** Install the SelectorGadget, see [last class slides](https://brinasab.github.io/css-website/lectures/16-slides.html#/selectorgadget)
-
-
 <!-- TO EVALUATE FALL 2025:
 * Introduce "rectangling" in R (e.g., unnesting nested lists) -->
 
-
-## Readings
-
-* See previous lecture

@@ -1,7 +1,7 @@
 ---
-title: "Lecture 18: Exam 2; Final Project Check-In"
+title: "Lecture 18: Exam 2"
 date: 2026-12-02
-summary: "Exam 2; Final Project Check-In"
+summary: "Exam 2"
 url_slides: 18-slides.qmd
 #url_code: css-materials/
 page-layout: full
@@ -27,5 +27,5 @@ knitr::opts_chunk$set(echo = FALSE)
 ## Learning Objectives
 
 * In-class Exam 2
-* Final Project Check-Ins & Questions (after the exam, ~30 min)
+* 1:20-1:50 PM: Final Project Check-Ins & Questions (optional, email Sabrina if interested)
 
