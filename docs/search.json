@@ -2804,7 +2804,7 @@
     "href": "lectures/11-home.html#learning-objectives",
     "title": "Lecture 11: Data Structures and Base R",
     "section": "Learning Objectives",
-    "text": "Learning Objectives\nToday’s Agenda:\n\nMid-Term Survey: results and implemented changes\nLubridate: see Lecture 10 slides\nRelational Data: see Lecture 9 slides\nAssignment 3: in-class check-in\nData Structures, Data Types, Base R: preview today if time allows; full session on this topic next class"
+    "text": "Learning Objectives\nToday’s Agenda:\n\nMid-Term Survey: results and implemented changes\nLubridate: see Lecture 10 slides\nRelational Data: see Lecture 9 slides; download the practice exercises from usethis::use_course(\"css-materials/relational-data\")\nAssignment 3: in-class check-in\nData Structures, Data Types, Base R: preview today if time allows; full session on this topic next class"
   },
   {
     "objectID": "lectures/11-home.html#readings",

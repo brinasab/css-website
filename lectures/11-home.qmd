@@ -30,7 +30,7 @@ Today's Agenda:
 
 - Mid-Term Survey: results and implemented changes
 - Lubridate: see Lecture 10 slides
-- Relational Data: see Lecture 9 slides
+- Relational Data: see Lecture 9 slides; download the practice exercises from `usethis::use_course("css-materials/relational-data")`
 - Assignment 3: in-class check-in
 - Data Structures, Data Types, Base R: preview today if time allows; full session on this topic next class
 
