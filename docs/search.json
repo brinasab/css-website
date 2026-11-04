@@ -256,7 +256,7 @@
     "href": "lectures/12-home.html#learning-objectives",
     "title": "Lecture 12: Data Structures and Base R",
     "section": "Learning Objectives",
-    "text": "Learning Objectives\n\nUnderstand what Base R is, and how it differs from the Tidyverse\nIdentify R data types and structures\n\nExplore R vectors\nSubset data using Base R syntax"
+    "text": "Learning Objectives\n\nUnderstand what Base R is, and how it differs from the Tidyverse\nIdentify R data types and structures\n\nExplore R vectors\nSubset data using Base R syntax!"
   },
   {
     "objectID": "lectures/12-home.html#readings",
