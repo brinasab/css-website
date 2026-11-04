@@ -2788,28 +2788,28 @@
   {
     "objectID": "lectures/11-home.html",
     "href": "lectures/11-home.html",
-    "title": "Lecture 11: Data Structures and Base R",
+    "title": "Lecture 11: Review Session",
     "section": "",
-    "text": "Date: November 2, 2026\nTopics: Intro to Data Structures, Data Types, and Base R\nSlides: None today\nCode: None today"
+    "text": "Date: November 2, 2026\nTopics: \nSlides: None today\nCode: None today"
   },
   {
     "objectID": "lectures/11-home.html#info-and-materials",
     "href": "lectures/11-home.html#info-and-materials",
-    "title": "Lecture 11: Data Structures and Base R",
+    "title": "Lecture 11: Review Session",
     "section": "",
-    "text": "Date: November 2, 2026\nTopics: Intro to Data Structures, Data Types, and Base R\nSlides: None today\nCode: None today"
+    "text": "Date: November 2, 2026\nTopics: \nSlides: None today\nCode: None today"
   },
   {
     "objectID": "lectures/11-home.html#learning-objectives",
     "href": "lectures/11-home.html#learning-objectives",
-    "title": "Lecture 11: Data Structures and Base R",
+    "title": "Lecture 11: Review Session",
     "section": "Learning Objectives",
     "text": "Learning Objectives\nToday’s Agenda:\n\nMid-Term Survey: results and implemented changes\nLubridate: see Lecture 10 slides\nRelational Data: see Lecture 9 slides; download the practice exercises from usethis::use_course(\"css-materials/relational-data\")\nAssignment 3: in-class check-in\nData Structures, Data Types, Base R: preview today if time allows; full session on this topic next class"
   },
   {
     "objectID": "lectures/11-home.html#readings",
     "href": "lectures/11-home.html#readings",
-    "title": "Lecture 11: Data Structures and Base R",
+    "title": "Lecture 11: Review Session",
     "section": "Readings",
     "text": "Readings\n\nChapter 20 “Vectors” in “R for Data Science” 1st Edition. I recommend starting with the 1st Edition, which I find it clearer on this topic, but if you prefer you can instead use Chapter 12 “Logical Vectors” and Chapter 13 “Numbers” from the 2nd Edition. Choose whichever version works best for you.\nChapter 27 “A field guide to base R” in “R for Data Science” 2nd Edition."
   },

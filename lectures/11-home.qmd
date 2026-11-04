@@ -1,9 +1,9 @@
 ---
-title: "Lecture 11: Data Structures and Base R"
+title: "Lecture 11: Review Session"
 date: 2026-11-02
-summary: "Intro to Data Structures, Data Types, and Base R"
+summary: ""
 url_slides: 11-slides.qmd
-url_code: css-materials/subsetting  # check and expand?
+url_code: 
 page-layout: full
 draft: false
 ---
