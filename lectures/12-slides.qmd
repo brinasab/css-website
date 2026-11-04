@@ -25,9 +25,6 @@ format:
 4. Subset Data Structures with Base R
 :::
 
-### Slides are in progress and will be updated before class.
-
-::: {.content-hidden}
 
 <span style="font-size: 0.8em; color: #666;">
 *Slides last updated on **`r format(Sys.Date(), '%B %d, %Y')`**. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.*
@@ -76,7 +73,7 @@ The **Tidyverse** is often the most intuitive place to start learning R and you�
 
 ## Today we start a new module on Base R
 
-What you will learn in these lectures (this and next week):
+What you will learn (this and next week):
 
 - Differences and similarities between [Base R](https://brinasab.github.io/css-website/lectures/) and Tidyverse
 - R data types and data structures
@@ -141,8 +138,8 @@ and key programming tools like loops, etc.
 
 ## How Base R and the Tidyverse Work Together
 
-- The **tidyverse is built on base R** — it doesn’t replace it  
-- You can **combine base R and tidyverse** functions in your code  
+- The **tidyverse is built on base R**, it doesn’t replace it  
+- Which means you can **combine base R and tidyverse** in your code
 - Why we learn both? You'll often see **both styles** in real-world scripts and examples  
 
 <br>

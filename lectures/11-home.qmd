@@ -1,7 +1,7 @@
 ---
 title: "Lecture 11: Review Session"
 date: 2026-11-02
-summary: ""
+summary: "Catch up on topics from last week; see agenda below"
 url_slides: 11-slides.qmd
 url_code: 
 page-layout: full

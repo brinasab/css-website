@@ -7,7 +7,7 @@ draft: false
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-# Overview
+# HW3 Overview
 
 **Due: Friday, November 6 by 11:59 PM (Chicago Time)**
 
@@ -49,7 +49,7 @@ If the page says *"Not a member yet"*, accept the invitation to our GitHub organ
 You’ll use this same process to access and set up each homework assignment throughout the course.
 
 
-# General Homework Workflow
+### General Homework Workflow
 
 See [Homework 1](hw01.qmd) for details. The workflow is the same for all assignments.
 
