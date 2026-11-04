@@ -3,7 +3,7 @@ title: "Lecture 12: Data Structures and Base R"
 date: 2026-11-04
 summary: "Intro to Data Structures, Data Types, and Base R"
 url_slides: 12-slides.qmd
-url_code: css-materials/subsetting  # check and expand?
+url_code: css-materials/subsetting
 page-layout: full
 draft: false
 ---
@@ -16,12 +16,12 @@ knitr::opts_chunk$set(echo = FALSE)
 
 * **Date**: {{< meta date >}}
 * **Topics**: {{< meta summary >}}
-* **Slides**: To be posted before class
-* **Code**: To be posted before class
-
-<!--
 * **Slides**: [View Slides]({{< meta url_slides >}})
 * **Code**: `usethis::use_course("{{< meta url_code >}}")`
+
+<!--
+* **Slides**: To be posted before class
+* **Code**: To be posted before class
 -->
 
 ## Learning Objectives

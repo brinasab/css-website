@@ -353,77 +353,121 @@ we come back to functions next week
 </div>
 <p><br></p>
 </section>
-<section id="example-code-in-base-r" class="slide level2 center">
-<h2>Example Code in Base R</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># create two dataframes</span></span>
-<span id="cb1-2"><a></a></span>
-<span id="cb1-3"><a></a>twitter <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb1-4"><a></a>  <span class="at">user     =</span> <span class="fu">c</span>(<span class="st">"alice"</span>,<span class="st">"bob"</span>,<span class="st">"carlos"</span>,<span class="st">"diana"</span>,<span class="st">"emily"</span>,<span class="st">"lucia"</span>,<span class="st">"gina"</span>, <span class="st">"rick"</span>),</span>
-<span id="cb1-5"><a></a>  <span class="at">likes    =</span> <span class="fu">c</span>(<span class="dv">45</span>, <span class="dv">80</span>, <span class="dv">22</span>, <span class="dv">130</span>, <span class="dv">55</span>, <span class="dv">60</span>, <span class="dv">15</span>, <span class="dv">30</span>),</span>
-<span id="cb1-6"><a></a>  <span class="at">retweets =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">25</span>,  <span class="dv">5</span>,  <span class="dv">50</span>, <span class="dv">12</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">58</span>),</span>
-<span id="cb1-7"><a></a>  <span class="at">language =</span> <span class="fu">c</span>(<span class="st">"en"</span>,<span class="st">"es"</span>,<span class="st">"en"</span>,<span class="st">"en"</span>,<span class="st">"fr"</span>,<span class="st">"en"</span>,<span class="st">"en"</span>, <span class="st">"en"</span>),</span>
-<span id="cb1-8"><a></a>  <span class="at">state    =</span> <span class="fu">c</span>(<span class="st">"CA"</span>,<span class="st">"TX"</span>,<span class="st">"TX"</span>,<span class="st">"NY"</span>,<span class="st">"IL"</span>,<span class="st">"CA"</span>,<span class="st">"IL"</span>, <span class="st">"AZ"</span>),</span>
-<span id="cb1-9"><a></a>  <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb1-10"><a></a></span>
-<span id="cb1-11"><a></a>state_lookup <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb1-12"><a></a>  <span class="at">state  =</span> <span class="fu">c</span>(<span class="st">"CA"</span>,<span class="st">"TX"</span>,<span class="st">"NY"</span>,<span class="st">"IL"</span>,<span class="st">"AZ"</span>),</span>
-<span id="cb1-13"><a></a>  <span class="at">region =</span> <span class="fu">c</span>(<span class="st">"West"</span>,<span class="st">"South"</span>,<span class="st">"Northeast"</span>,<span class="st">"Midwest"</span>,<span class="st">"West"</span>),</span>
-<span id="cb1-14"><a></a>  <span class="at">vote =</span> <span class="fu">c</span>(<span class="st">"Dem"</span>, <span class="st">"Rep"</span>, <span class="st">"Dem"</span>, <span class="st">"Dem"</span>, <span class="st">"Rep"</span>),</span>
-<span id="cb1-15"><a></a>  <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="example-data-student-exam-scores" class="slide level2 center">
+<h2>Example Data: Student Exam Scores</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>students <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb1-2"><a></a>  <span class="at">name  =</span> <span class="fu">c</span>(<span class="st">"Ana"</span>, <span class="st">"Ben"</span>, <span class="st">"Cleo"</span>, <span class="st">"Dev"</span>, <span class="st">"Eli"</span>, <span class="st">"Fay"</span>, <span class="st">"Gus"</span>, <span class="st">"Hana"</span>),</span>
+<span id="cb1-3"><a></a>  <span class="at">major =</span> <span class="fu">c</span>(<span class="st">"Econ"</span>, <span class="st">"Soc"</span>, <span class="st">"Econ"</span>, <span class="st">"Soc"</span>, <span class="st">"PoliSci"</span>, <span class="st">"PoliSci"</span>, <span class="st">"Econ"</span>, <span class="st">"Soc"</span>),</span>
+<span id="cb1-4"><a></a>  <span class="at">hours =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">8</span>, <span class="dv">6</span>, <span class="dv">4</span>, <span class="dv">7</span>, <span class="dv">1</span>, <span class="dv">4</span>),</span>
+<span id="cb1-5"><a></a>  <span class="at">score =</span> <span class="fu">c</span>(<span class="dv">85</span>, <span class="dv">70</span>, <span class="dv">92</span>, <span class="dv">88</span>, <span class="dv">75</span>, <span class="dv">90</span>, <span class="dv">60</span>, <span class="dv">80</span>)</span>
+<span id="cb1-6"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Our task:</strong> Keep only students who studied <em>4 or more hours</em>, then compute their <em>average score</em>.</p>
 </section>
-<section id="example-code-in-base-r-1" class="slide level2 center">
-<h2>Example Code in Base R</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="co"># create new variables in twitter df with total engagement</span></span>
-<span id="cb2-2"><a></a>twitter<span class="sc">$</span>tot_likes_retweets <span class="ot">&lt;-</span> twitter<span class="sc">$</span>likes <span class="sc">+</span> twitter<span class="sc">$</span>retweets</span>
+<section id="base-r-solution" class="slide level2 center">
+<h2>Base R Solution</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="co"># Step 1: filter rows</span></span>
+<span id="cb2-2"><a></a>studied <span class="ot">&lt;-</span> students[students<span class="sc">$</span>hours <span class="sc">&gt;=</span> <span class="dv">4</span>, ]  <span class="co"># df[rows, columns] </span></span>
 <span id="cb2-3"><a></a></span>
-<span id="cb2-4"><a></a><span class="co"># create a logical variable TRUE / FALSE for high engagement</span></span>
-<span id="cb2-5"><a></a>twitter<span class="sc">$</span>high_engagement <span class="ot">&lt;-</span> twitter<span class="sc">$</span>tot_likes_retweets <span class="sc">&gt;=</span> <span class="dv">80</span></span>
+<span id="cb2-4"><a></a><span class="co"># Step 2: average score</span></span>
+<span id="cb2-5"><a></a><span class="fu">mean</span>(studied<span class="sc">$</span>score, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb2-6"><a></a></span>
-<span id="cb2-7"><a></a><span class="co"># create a new df with only rows that match both of these conditions</span></span>
-<span id="cb2-8"><a></a><span class="co"># df[rows, columns]: code below says [keep selected rows, all columns]</span></span>
-<span id="cb2-9"><a></a>tw <span class="ot">&lt;-</span> twitter[twitter<span class="sc">$</span>language <span class="sc">==</span> <span class="st">"en"</span> <span class="sc">&amp;</span> twitter<span class="sc">$</span>high_engagement <span class="sc">==</span> <span class="cn">TRUE</span>, ]</span>
-<span id="cb2-10"><a></a></span>
-<span id="cb2-11"><a></a><span class="co"># bring in the second df using merge</span></span>
-<span id="cb2-12"><a></a>tw_full <span class="ot">&lt;-</span> <span class="fu">merge</span>(tw, state_lookup, <span class="at">by =</span> <span class="st">"state"</span>, <span class="at">all =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb2-13"><a></a></span>
-<span id="cb2-14"><a></a><span class="co"># compute sum of likes + retweets</span></span>
-<span id="cb2-15"><a></a><span class="fu">sum</span>(tw_full<span class="sc">$</span>tot_likes_retweets)</span>
-<span id="cb2-16"><a></a></span>
-<span id="cb2-17"><a></a><span class="co"># or compute sum of likes + retweets by each category of vote </span></span>
-<span id="cb2-18"><a></a><span class="fu">tapply</span>(tw_full<span class="sc">$</span>tot_likes_retweets, tw_full<span class="sc">$</span>vote, sum)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-7"><a></a><span class="co"># Or in one line</span></span>
+<span id="cb2-8"><a></a><span class="fu">mean</span>(students<span class="sc">$</span>score[students<span class="sc">$</span>hours <span class="sc">&gt;=</span> <span class="dv">4</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="rewriting-the-same-code-with-the-tidyverse" class="slide level2 center">
-<h2>Rewriting the Same Code with the Tidyverse</h2>
+<section id="tidyverse-solution" class="slide level2 center">
+<h2>Tidyverse Solution</h2>
 <div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb3-2"><a></a></span>
-<span id="cb3-3"><a></a>twitter <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb3-4"><a></a>  <span class="at">user     =</span> <span class="fu">c</span>(<span class="st">"alice"</span>,<span class="st">"bob"</span>,<span class="st">"carlos"</span>,<span class="st">"diana"</span>,<span class="st">"emily"</span>,<span class="st">"lucia"</span>,<span class="st">"gina"</span>,<span class="st">"rick"</span>),</span>
-<span id="cb3-5"><a></a>  <span class="at">likes    =</span> <span class="fu">c</span>(<span class="dv">45</span>, <span class="dv">80</span>, <span class="dv">22</span>, <span class="dv">130</span>, <span class="dv">55</span>, <span class="dv">60</span>, <span class="dv">15</span>, <span class="dv">30</span>),</span>
-<span id="cb3-6"><a></a>  <span class="at">retweets =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">25</span>,  <span class="dv">5</span>,  <span class="dv">50</span>, <span class="dv">12</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">58</span>),</span>
-<span id="cb3-7"><a></a>  <span class="at">language =</span> <span class="fu">c</span>(<span class="st">"en"</span>,<span class="st">"es"</span>,<span class="st">"en"</span>,<span class="st">"en"</span>,<span class="st">"fr"</span>,<span class="st">"en"</span>,<span class="st">"en"</span>,<span class="st">"en"</span>),</span>
-<span id="cb3-8"><a></a>  <span class="at">state    =</span> <span class="fu">c</span>(<span class="st">"CA"</span>,<span class="st">"TX"</span>,<span class="st">"TX"</span>,<span class="st">"NY"</span>,<span class="st">"IL"</span>,<span class="st">"CA"</span>,<span class="st">"IL"</span>,<span class="st">"AZ"</span>))</span>
-<span id="cb3-9"><a></a></span>
-<span id="cb3-10"><a></a>state_lookup <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb3-11"><a></a>  <span class="at">state  =</span> <span class="fu">c</span>(<span class="st">"CA"</span>,<span class="st">"TX"</span>,<span class="st">"NY"</span>,<span class="st">"IL"</span>,<span class="st">"AZ"</span>),</span>
-<span id="cb3-12"><a></a>  <span class="at">region =</span> <span class="fu">c</span>(<span class="st">"West"</span>,<span class="st">"South"</span>,<span class="st">"Northeast"</span>,<span class="st">"Midwest"</span>,<span class="st">"West"</span>),</span>
-<span id="cb3-13"><a></a>  <span class="at">vote   =</span> <span class="fu">c</span>(<span class="st">"Dem"</span>,<span class="st">"Rep"</span>,<span class="st">"Dem"</span>,<span class="st">"Dem"</span>,<span class="st">"Rep"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="rewriting-the-same-code-with-the-tidyverse-1" class="slide level2 center">
-<h2>Rewriting the Same Code with the Tidyverse</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>tw_full <span class="ot">&lt;-</span> twitter <span class="sc">|&gt;</span></span>
-<span id="cb4-2"><a></a>  <span class="fu">mutate</span>(</span>
-<span id="cb4-3"><a></a>    <span class="at">tot_likes_retweets =</span> likes <span class="sc">+</span> retweets,</span>
-<span id="cb4-4"><a></a>    <span class="at">high_engagement =</span> tot_likes_retweets <span class="sc">&gt;=</span> <span class="dv">80</span>) <span class="sc">|&gt;</span></span>
-<span id="cb4-5"><a></a>  <span class="fu">filter</span>(language <span class="sc">==</span> <span class="st">"en"</span> <span class="sc">&amp;</span> high_engagement <span class="sc">==</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
-<span id="cb4-6"><a></a>  <span class="fu">inner_join</span>(state_lookup, <span class="at">by =</span> <span class="st">"state"</span>)</span>
-<span id="cb4-7"><a></a></span>
-<span id="cb4-8"><a></a>tw_full <span class="sc">|&gt;</span></span>
-<span id="cb4-9"><a></a>  <span class="fu">summarise</span>(<span class="at">sum_inter =</span> <span class="fu">sum</span>(tot_likes_retweets))</span>
-<span id="cb4-10"><a></a></span>
-<span id="cb4-11"><a></a>tw_full <span class="sc">|&gt;</span></span>
-<span id="cb4-12"><a></a>  <span class="fu">group_by</span>(vote) <span class="sc">|&gt;</span></span>
-<span id="cb4-13"><a></a>  <span class="fu">summarise</span>(<span class="at">sum_inter_by_vote =</span> <span class="fu">sum</span>(tot_likes_retweets))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-3"><a></a>students <span class="sc">|&gt;</span></span>
+<span id="cb3-4"><a></a>  <span class="fu">filter</span>(hours <span class="sc">&gt;=</span> <span class="dv">4</span>) <span class="sc">|&gt;</span></span>
+<span id="cb3-5"><a></a>  <span class="fu">summarise</span>(<span class="at">avg_score =</span> <span class="fu">mean</span>(score, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <!--
+
+## Example Code in Base R
+
+```r
+# create two dataframes
+
+twitter <- data.frame(
+  user     = c("alice","bob","carlos","diana","emily","lucia","gina", "rick"),
+  likes    = c(45, 80, 22, 130, 55, 60, 15, 30),
+  retweets = c(10, 25,  5,  50, 12, 20, 30, 58),
+  language = c("en","es","en","en","fr","en","en", "en"),
+  state    = c("CA","TX","TX","NY","IL","CA","IL", "AZ"),
+  stringsAsFactors = FALSE)
+
+state_lookup <- data.frame(
+  state  = c("CA","TX","NY","IL","AZ"),
+  region = c("West","South","Northeast","Midwest","West"),
+  vote = c("Dem", "Rep", "Dem", "Dem", "Rep"),
+  stringsAsFactors = FALSE)
+```
+
+---
+
+## Example Code in Base R
+
+```r
+# create new variables in twitter df with total engagement
+twitter$tot_likes_retweets <- twitter$likes + twitter$retweets
+
+# create a logical variable TRUE / FALSE for high engagement
+twitter$high_engagement <- twitter$tot_likes_retweets >= 80
+
+# create a new df with only rows that match both of these conditions
+# df[rows, columns]: code below says [keep selected rows, all columns]
+tw <- twitter[twitter$language == "en" & twitter$high_engagement == TRUE, ]
+
+# bring in the second df using merge
+tw_full <- merge(tw, state_lookup, by = "state", all = FALSE)
+
+# compute sum of likes + retweets
+sum(tw_full$tot_likes_retweets)
+
+# or compute sum of likes + retweets by each category of vote 
+tapply(tw_full$tot_likes_retweets, tw_full$vote, sum)
+```
+
+---
+
+## Rewriting the Same Code with the Tidyverse
+
+```r
+library(tidyverse)
+
+twitter <- tibble(
+  user     = c("alice","bob","carlos","diana","emily","lucia","gina","rick"),
+  likes    = c(45, 80, 22, 130, 55, 60, 15, 30),
+  retweets = c(10, 25,  5,  50, 12, 20, 30, 58),
+  language = c("en","es","en","en","fr","en","en","en"),
+  state    = c("CA","TX","TX","NY","IL","CA","IL","AZ"))
+
+state_lookup <- tibble(
+  state  = c("CA","TX","NY","IL","AZ"),
+  region = c("West","South","Northeast","Midwest","West"),
+  vote   = c("Dem","Rep","Dem","Dem","Rep"))
+```
+
+---
+
+## Rewriting the Same Code with the Tidyverse
+
+```r
+tw_full <- twitter |>
+  mutate(
+    tot_likes_retweets = likes + retweets,
+    high_engagement = tot_likes_retweets >= 80) |>
+  filter(language == "en" & high_engagement == TRUE) |>
+  inner_join(state_lookup, by = "state")
+
+tw_full |>
+  summarise(sum_inter = sum(tot_likes_retweets))
+
+tw_full |>
+  group_by(vote) |>
+  summarise(sum_inter_by_vote = sum(tot_likes_retweets))
+```
+
 A tibble behaves like a data frame, but it prints more nicely and is more predictable in tidyverse workflows.
 Inside mutate(), this condition creates a logical variable; inside filter(), conditions keep row
 -->
@@ -435,13 +479,13 @@ Inside mutate(), this condition creates a logical variable; inside filter(), con
 </section>
 <section id="r-data-types-and-data-structures-1" class="slide level2 center">
 <h2>R Data Types and Data Structures</h2>
-<p>Data Types and Data Structures are the fundamentals of R: the “ABC” of how R stores and organizes data. They are part of Base R syntax.</p>
+<p>Data Types and Data Structures are the fundamentals of R: the “ABC” of how R stores and organizes data. They are part of R’s core language, so everything you do in R, including the tidyverse, builds on them.</p>
 <ul>
-<li><strong>Data Type</strong> — what kind of value it is<br>
-</li>
-<li><strong>Data Structure</strong> — how values are stored and organized</li>
+<li><strong>Data Type</strong> — what kind of value it is (e.g., numeric, character, logical)</li>
+<li><strong>Data Structure</strong> — how values are stored and organized(e.g., vector, list, data frame)</li>
 </ul>
 <p>We explore each and explain how they relate!</p>
+<!-- *A factor is a special case: R stores categories as integers with labels attached. -->
 </section>
 <section id="r-data-types" class="slide level2 center">
 <h2>R Data Types</h2>
@@ -458,7 +502,7 @@ Inside mutate(), this condition creates a logical variable; inside filter(), con
 </ul></li>
 <li><p><strong>Character</strong> – text or strings (always in quotes): <code>"hello"</code></p></li>
 <li><p><strong>Logical</strong> – TRUE or FALSE values: <code>TRUE</code>, <code>FALSE</code></p></li>
-<li><p><strong>Factor</strong> – categorical values with levels: <code>"low"</code>, <code>"medium"</code></p></li>
+<li><p><strong>Factor</strong> – <em>special case</em> categorical values with levels: <code>"low"</code>, <code>"medium"</code></p></li>
 </ul>
 </blockquote>
 <p><br></p>
@@ -480,14 +524,18 @@ Inside mutate(), this condition creates a logical variable; inside filter(), con
 <code>l &lt;- list(num = 1:3, name = c("Sabrina", "Laura"))</code></p></li>
 </ul>
 </blockquote>
-<!-- Vectors, also called (Atomic) Vectors are the most important data structure in R -->
+<!-- Vectors, also called (Atomic) Vectors are the most important data structure in R 
+Array is a matrix with more than 2d rarely used in social sciences
+Factor is a data value but also a data strucutre on its own 
+Same for tibble 
+-->
 </section>
 <section id="how-data-types-and-data-structures-relate" class="slide level2 center">
 <h2>How Data Types and Data Structures Relate</h2>
 <p>Every single element in R has a data type. That element is stored inside a larger data structure.</p>
 <p>Examples:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)      <span class="co"># a vector (structure) of three elements, all numeric values (type) </span></span>
-<span id="cb5-2"><a></a>y <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">"a"</span>, <span class="dv">5</span>)    <span class="co"># a list (structure) of two elements, one character and one numeric value (type)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)      <span class="co"># a vector (structure) of three elements, all numeric values (type) </span></span>
+<span id="cb4-2"><a></a>y <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">"a"</span>, <span class="dv">5</span>)    <span class="co"># a list (structure) of two elements, one character and one numeric value (type)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <!-- In R, every single value (like "apple" or 3.14 or TRUE) has exactly one data type — it might be a character, numeric, logical, etc. This stays true even when that value is part of a larger structure, like a vector, list, or data frame. <br>
 
 To work with data types (numeric, character, logical, etc.) in R, we need to store them inside a data structure (vector, list, etc.)!
@@ -572,30 +620,30 @@ Use **vectors** and **matrices** when your data is uniform. Use **data frames** 
 <section id="practice" class="slide level2 center">
 <h2>💻 Practice</h2>
 <p>Run the code below to create several different R objects. Inspect each object by running both <code>class()</code> and <code>str()</code> on it. Pay attention to the output, and note any questions you have:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="co"># create multiple vectors</span></span>
-<span id="cb6-2"><a></a>num_v <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>)</span>
-<span id="cb6-3"><a></a>char_v <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"hello"</span>, <span class="st">"ciao"</span>, <span class="st">"hey"</span>)</span>
-<span id="cb6-4"><a></a>f_v <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"low"</span>, <span class="st">"medium"</span>, <span class="st">"high"</span>))</span>
-<span id="cb6-5"><a></a>test <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"hello"</span>, <span class="dv">1</span>, <span class="dv">2</span>)</span>
-<span id="cb6-6"><a></a></span>
-<span id="cb6-7"><a></a><span class="co"># create two matrices</span></span>
-<span id="cb6-8"><a></a>num_m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">5</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb6-9"><a></a>char_m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>, <span class="st">"d"</span>), <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb6-10"><a></a></span>
-<span id="cb6-11"><a></a><span class="co"># create one dataframe</span></span>
-<span id="cb6-12"><a></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb6-13"><a></a>  <span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,</span>
-<span id="cb6-14"><a></a>  <span class="at">name =</span> <span class="fu">c</span>(<span class="st">"Dave"</span>, <span class="st">"Ashley"</span>, <span class="st">"Rik"</span>),</span>
-<span id="cb6-15"><a></a>  <span class="at">age =</span> <span class="fu">c</span>(<span class="dv">15</span>, <span class="dv">17</span>, <span class="dv">20</span>)) </span>
-<span id="cb6-16"><a></a></span>
-<span id="cb6-17"><a></a><span class="co"># create one list</span></span>
-<span id="cb6-18"><a></a>l <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
-<span id="cb6-19"><a></a>  <span class="at">num_v =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>),</span>
-<span id="cb6-20"><a></a>  <span class="at">m =</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb6-21"><a></a>  <span class="at">another_num_v =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>),</span>
-<span id="cb6-22"><a></a>  <span class="at">char_v =</span> <span class="fu">c</span>(<span class="st">"Sabrina"</span>, <span class="st">"Zach"</span>),</span>
-<span id="cb6-23"><a></a>  <span class="at">d =</span> <span class="fu">tibble</span>(<span class="at">var_1 =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>),</span>
-<span id="cb6-24"><a></a>              <span class="at">var_2 =</span> <span class="fu">c</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="co"># create multiple vectors</span></span>
+<span id="cb5-2"><a></a>num_v <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>)</span>
+<span id="cb5-3"><a></a>char_v <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"hello"</span>, <span class="st">"ciao"</span>, <span class="st">"hey"</span>)</span>
+<span id="cb5-4"><a></a>f_v <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"low"</span>, <span class="st">"medium"</span>, <span class="st">"high"</span>))</span>
+<span id="cb5-5"><a></a>test <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"hello"</span>, <span class="dv">1</span>, <span class="dv">2</span>)</span>
+<span id="cb5-6"><a></a></span>
+<span id="cb5-7"><a></a><span class="co"># create two matrices</span></span>
+<span id="cb5-8"><a></a>num_m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">5</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb5-9"><a></a>char_m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>, <span class="st">"d"</span>), <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb5-10"><a></a></span>
+<span id="cb5-11"><a></a><span class="co"># create one dataframe</span></span>
+<span id="cb5-12"><a></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb5-13"><a></a>  <span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,</span>
+<span id="cb5-14"><a></a>  <span class="at">name =</span> <span class="fu">c</span>(<span class="st">"Dave"</span>, <span class="st">"Ashley"</span>, <span class="st">"Rik"</span>),</span>
+<span id="cb5-15"><a></a>  <span class="at">age =</span> <span class="fu">c</span>(<span class="dv">15</span>, <span class="dv">17</span>, <span class="dv">20</span>)) </span>
+<span id="cb5-16"><a></a></span>
+<span id="cb5-17"><a></a><span class="co"># create one list</span></span>
+<span id="cb5-18"><a></a>l <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb5-19"><a></a>  <span class="at">num_v =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>),</span>
+<span id="cb5-20"><a></a>  <span class="at">m =</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb5-21"><a></a>  <span class="at">another_num_v =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>),</span>
+<span id="cb5-22"><a></a>  <span class="at">char_v =</span> <span class="fu">c</span>(<span class="st">"Sabrina"</span>, <span class="st">"Zach"</span>),</span>
+<span id="cb5-23"><a></a>  <span class="at">d =</span> <span class="fu">tibble</span>(<span class="at">var_1 =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>),</span>
+<span id="cb5-24"><a></a>              <span class="at">var_2 =</span> <span class="fu">c</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <!-- explore code
 call it to see how it looks like 
 run class() for each to see the datatype
@@ -606,7 +654,8 @@ etc.
 <section id="why-this-matters-when-to-use-each-data-structure" class="slide level2 center">
 <h2>Why This Matters: When to Use Each Data Structure</h2>
 <h3 id="data-frames-first">Data Frames first!</h3>
-<p>So far, we’ve been working mostly with data frames, technically with tibbles, the tidyverse version of them. Data frames are the best structure for working with real-world tabular data in R, why?</p>
+<p>So far, we’ve been working mostly with data frames (technically with tibbles, the tidyverse version of them)</p>
+<p>Data frames are the best structure for working with real-world tabular data in R, why?</p>
 <ul>
 <li>Can store columns of different data types (e.g., character, numeric, logical)</li>
 <li>Work easily with <code>dplyr</code>, <code>ggplot2</code>, and other tidyverse packages</li>
@@ -635,28 +684,28 @@ etc.
 </section>
 <section id="example-of-filtering-rows-in-a-dataframe-using-logical-vectors" class="slide level2 center">
 <h2>Example of filtering rows in a dataframe using logical vectors</h2>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="co"># load libraries and data</span></span>
-<span id="cb7-2"><a></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb7-3"><a></a><span class="fu">library</span>(palmerpenguins)</span>
-<span id="cb7-4"><a></a><span class="fu">data</span>(penguins)</span>
-<span id="cb7-5"><a></a></span>
-<span id="cb7-6"><a></a><span class="co"># use dplyr filter() to get penguins where body mass is greater than 4000 grams</span></span>
-<span id="cb7-7"><a></a>filtered_penguins <span class="ot">&lt;-</span> penguins <span class="sc">|&gt;</span> <span class="fu">filter</span>(body_mass_g <span class="sc">&gt;</span> <span class="dv">4000</span>)</span>
-<span id="cb7-8"><a></a><span class="fu">head</span>(filtered_penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="co"># load libraries and data</span></span>
+<span id="cb6-2"><a></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb6-3"><a></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb6-4"><a></a><span class="fu">data</span>(penguins)</span>
+<span id="cb6-5"><a></a></span>
+<span id="cb6-6"><a></a><span class="co"># use dplyr filter() to get penguins where body mass is greater than 4000 grams</span></span>
+<span id="cb6-7"><a></a>filtered_penguins <span class="ot">&lt;-</span> penguins <span class="sc">|&gt;</span> <span class="fu">filter</span>(body_mass_g <span class="sc">&gt;</span> <span class="dv">4000</span>)</span>
+<span id="cb6-8"><a></a><span class="fu">head</span>(filtered_penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="example-of-filtering-rows-in-a-dataframe-using-logical-vectors-1" class="slide level2 center">
 <h2>Example of filtering rows in a dataframe using logical vectors</h2>
 <p>Let’s analyze the previous code to see what’s happening under the hood: R defines a logical vector and applies it to the <code>penguins</code> dataframe:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="co"># use base R to get the column we need: gives a logical vector</span></span>
-<span id="cb8-2"><a></a>filter_vector <span class="ot">&lt;-</span> penguins<span class="sc">$</span>body_mass_g <span class="sc">&gt;</span> <span class="dv">4000</span></span>
-<span id="cb8-3"><a></a></span>
-<span id="cb8-4"><a></a><span class="co"># check its structure</span></span>
-<span id="cb8-5"><a></a><span class="fu">is.vector</span>(filter_vector)</span>
-<span id="cb8-6"><a></a><span class="fu">class</span>(filter_vector) </span>
-<span id="cb8-7"><a></a></span>
-<span id="cb8-8"><a></a><span class="co"># use this vector to manually filter the dataframe using base R</span></span>
-<span id="cb8-9"><a></a><span class="co"># df[rows, columns]: code below says [rows to keep, all columns]</span></span>
-<span id="cb8-10"><a></a>filtered_p <span class="ot">&lt;-</span> penguins[filter_vector, ] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="co"># use base R to get the column we need: gives a logical vector</span></span>
+<span id="cb7-2"><a></a>filter_vector <span class="ot">&lt;-</span> penguins<span class="sc">$</span>body_mass_g <span class="sc">&gt;</span> <span class="dv">4000</span></span>
+<span id="cb7-3"><a></a></span>
+<span id="cb7-4"><a></a><span class="co"># check its structure</span></span>
+<span id="cb7-5"><a></a><span class="fu">is.vector</span>(filter_vector)</span>
+<span id="cb7-6"><a></a><span class="fu">class</span>(filter_vector) </span>
+<span id="cb7-7"><a></a></span>
+<span id="cb7-8"><a></a><span class="co"># use this vector to manually filter the dataframe using base R</span></span>
+<span id="cb7-9"><a></a><span class="co"># df[rows, columns]: code below says [rows to keep, all columns]</span></span>
+<span id="cb7-10"><a></a>filtered_p <span class="ot">&lt;-</span> penguins[filter_vector, ] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <!-- 
 sum(filter_vector, na.rm = T)
 sum(is.na(filter_vector)) 
@@ -672,27 +721,27 @@ filtered_p |> drop_na(body_mass_g)
 <h2>A particular vector: Scalar</h2>
 <p>In math a scalar is defined as a single real number but <strong>in R, a scalar is simply a vector of length one</strong></p>
 <p>Let’s try this code:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="co"># set up a vector x of length 10</span></span>
-<span id="cb9-2"><a></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">10</span>)</span>
-<span id="cb9-3"><a></a>x</span>
-<span id="cb9-4"><a></a></span>
-<span id="cb9-5"><a></a><span class="co"># add 100 to x using the long way</span></span>
-<span id="cb9-6"><a></a>x <span class="sc">+</span> <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">100</span>, <span class="dv">100</span>, <span class="dv">100</span>, <span class="dv">100</span>, <span class="dv">100</span>, <span class="dv">100</span>, <span class="dv">100</span>, <span class="dv">100</span>, <span class="dv">100</span>)</span>
-<span id="cb9-7"><a></a></span>
-<span id="cb9-8"><a></a><span class="co"># add 100 to x using the "R" way: vector recycling!</span></span>
-<span id="cb9-9"><a></a>x <span class="sc">+</span> <span class="dv">100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="co"># set up a vector x of length 10</span></span>
+<span id="cb8-2"><a></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">10</span>)</span>
+<span id="cb8-3"><a></a>x</span>
+<span id="cb8-4"><a></a></span>
+<span id="cb8-5"><a></a><span class="co"># add 100 to x using the long way</span></span>
+<span id="cb8-6"><a></a>x <span class="sc">+</span> <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">100</span>, <span class="dv">100</span>, <span class="dv">100</span>, <span class="dv">100</span>, <span class="dv">100</span>, <span class="dv">100</span>, <span class="dv">100</span>, <span class="dv">100</span>, <span class="dv">100</span>)</span>
+<span id="cb8-7"><a></a></span>
+<span id="cb8-8"><a></a><span class="co"># add 100 to x using the "R" way: vector recycling!</span></span>
+<span id="cb8-9"><a></a>x <span class="sc">+</span> <span class="dv">100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="vector-recycling-in-r" class="slide level2 center">
 <h2>Vector Recycling in R</h2>
 <p>Let’s see another example. We define two numeric vectors <code>x1</code> and <code>x2</code>:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="co"># x1 is sequence of numbers from 1 to 2</span></span>
-<span id="cb10-2"><a></a>x1 <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">1</span>, <span class="at">to =</span> <span class="dv">2</span>)</span>
-<span id="cb10-3"><a></a></span>
-<span id="cb10-4"><a></a><span class="co"># x2 is a sequence of numbers from 1 to 10</span></span>
-<span id="cb10-5"><a></a>x2 <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">1</span>, <span class="at">to =</span> <span class="dv">10</span>)</span>
-<span id="cb10-6"><a></a></span>
-<span id="cb10-7"><a></a><span class="co"># what happens if we add them?</span></span>
-<span id="cb10-8"><a></a>x1 <span class="sc">+</span> x2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="co"># x1 is sequence of numbers from 1 to 2</span></span>
+<span id="cb9-2"><a></a>x1 <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">1</span>, <span class="at">to =</span> <span class="dv">2</span>)</span>
+<span id="cb9-3"><a></a></span>
+<span id="cb9-4"><a></a><span class="co"># x2 is a sequence of numbers from 1 to 10</span></span>
+<span id="cb9-5"><a></a>x2 <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">1</span>, <span class="at">to =</span> <span class="dv">10</span>)</span>
+<span id="cb9-6"><a></a></span>
+<span id="cb9-7"><a></a><span class="co"># what happens if we add them?</span></span>
+<span id="cb9-8"><a></a>x1 <span class="sc">+</span> x2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>What happens? The shorter vector <code>x1</code> is duplicated five times in order to match the length of the longer vector <code>x2.</code> The same behavior happens for other operations like subtraction, multiplication, logical comparison, etc.</p>
 <div class="callout callout-warning callout-titled callout-style-default">
 <div class="callout-body">
@@ -724,9 +773,9 @@ filtered_p |> drop_na(body_mass_g)
 </div>
 </div>
 <p><strong>Why It Matters:</strong> Vector recycling can cause unexpected results. Check if recycling is what you want R to do — if not, adjust the vector lengths manually, like this:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>x1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="fu">rep</span>(<span class="dv">0</span>, <span class="dv">7</span>))</span>
-<span id="cb11-2"><a></a></span>
-<span id="cb11-3"><a></a>x1 <span class="sc">+</span> x2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>x1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="fu">rep</span>(<span class="dv">0</span>, <span class="dv">7</span>))</span>
+<span id="cb10-2"><a></a></span>
+<span id="cb10-3"><a></a>x1 <span class="sc">+</span> x2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section></section>
 <section>
 <section id="subset-data-structures-with-base-r" class="title-slide slide level1 center middle">
@@ -747,63 +796,93 @@ filtered_p |> drop_na(body_mass_g)
 </section>
 <section id="subsetting-vectors" class="slide level2 center">
 <h2>Subsetting Vectors</h2>
-<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>v <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>)</span>
-<span id="cb12-2"><a></a></span>
-<span id="cb12-3"><a></a>v[<span class="dv">2</span>]         <span class="co"># 20 (2nd element)</span></span>
-<span id="cb12-4"><a></a>v[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)]   <span class="co"># 10 and 30</span></span>
-<span id="cb12-5"><a></a>v[<span class="sc">-</span><span class="dv">1</span>]        <span class="co"># all but the first</span></span>
-<span id="cb12-6"><a></a>v[v <span class="sc">&gt;</span> <span class="dv">25</span>]    <span class="co"># elements greater than 25</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>v <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>)</span>
+<span id="cb11-2"><a></a></span>
+<span id="cb11-3"><a></a>v[<span class="dv">2</span>]         <span class="co"># 20 (2nd element)</span></span>
+<span id="cb11-4"><a></a>v[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)]   <span class="co"># 10 and 30</span></span>
+<span id="cb11-5"><a></a>v[<span class="sc">-</span><span class="dv">1</span>]        <span class="co"># all but the first</span></span>
+<span id="cb11-6"><a></a>v[v <span class="sc">&gt;</span> <span class="dv">25</span>]    <span class="co"># elements greater than 25</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Vectors are 1D — you just specify positions or logical tests in <code>[ ]</code></p>
 </section>
 <section id="subsetting-matrices" class="slide level2 center">
 <h2>Subsetting Matrices</h2>
-<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb13-2"><a></a></span>
-<span id="cb13-3"><a></a>m[<span class="dv">1</span>, <span class="dv">2</span>]           <span class="co"># value at row 1, column 2</span></span>
-<span id="cb13-4"><a></a>m[ , <span class="dv">3</span>]           <span class="co"># entire 3rd column</span></span>
-<span id="cb13-5"><a></a>m[<span class="dv">2</span>,  ]           <span class="co"># entire 2nd row</span></span>
-<span id="cb13-6"><a></a>m[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>]       <span class="co"># top-right submatrix (rows 1–2, cols 2–3)</span></span>
-<span id="cb13-7"><a></a>m[ , <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)]     <span class="co"># columns 1 and 3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb12-2"><a></a></span>
+<span id="cb12-3"><a></a>m[<span class="dv">1</span>, <span class="dv">2</span>]           <span class="co"># value at row 1, column 2</span></span>
+<span id="cb12-4"><a></a>m[ , <span class="dv">3</span>]           <span class="co"># entire 3rd column</span></span>
+<span id="cb12-5"><a></a>m[<span class="dv">2</span>,  ]           <span class="co"># entire 2nd row</span></span>
+<span id="cb12-6"><a></a>m[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>]       <span class="co"># top-right submatrix (rows 1–2, cols 2–3)</span></span>
+<span id="cb12-7"><a></a>m[ , <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)]     <span class="co"># columns 1 and 3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Matrices are 2D: use <code>[row, column]</code></p>
 </section>
 <section id="subsetting-lists" class="slide level2 center">
 <h2>Subsetting Lists</h2>
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>my_list <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
-<span id="cb14-2"><a></a>  <span class="at">a =</span> <span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>),</span>
-<span id="cb14-3"><a></a>  <span class="at">b =</span> <span class="fu">c</span>(<span class="st">"hello"</span>, <span class="st">"ciao"</span>),</span>
-<span id="cb14-4"><a></a>  <span class="at">c =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb14-5"><a></a></span>
-<span id="cb14-6"><a></a>my_list[<span class="dv">1</span>]         <span class="co"># first element of my_list, by position; returns a list</span></span>
-<span id="cb14-7"><a></a>my_list[[<span class="dv">1</span>]]       <span class="co"># content of the first element: 20, 30, 40; returns a vector</span></span>
-<span id="cb14-8"><a></a>my_list[[<span class="dv">1</span>]][<span class="dv">1</span>]    <span class="co"># first value of the first element: 20</span></span>
-<span id="cb14-9"><a></a></span>
-<span id="cb14-10"><a></a>my_list[<span class="dv">2</span>]         <span class="co"># second element of my_list, by position; returns a list</span></span>
-<span id="cb14-11"><a></a>my_list[<span class="st">"b"</span>]       <span class="co"># second element of my_list, by name; returns a list</span></span>
-<span id="cb14-12"><a></a>my_list<span class="sc">$</span>b          <span class="co"># content of the second element, only works by name not by position; returns a vector</span></span>
-<span id="cb14-13"><a></a>my_list[[<span class="st">"c"</span>]]     <span class="co"># returns content of "c": TRUE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>my_list <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb13-2"><a></a>  <span class="at">a =</span> <span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>),</span>
+<span id="cb13-3"><a></a>  <span class="at">b =</span> <span class="fu">c</span>(<span class="st">"hello"</span>, <span class="st">"ciao"</span>),</span>
+<span id="cb13-4"><a></a>  <span class="at">c =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb13-5"><a></a></span>
+<span id="cb13-6"><a></a>my_list[<span class="dv">1</span>]         <span class="co"># first element of my_list, by position; returns a list</span></span>
+<span id="cb13-7"><a></a>my_list[[<span class="dv">1</span>]]       <span class="co"># content of the first element: 20, 30, 40; returns a vector</span></span>
+<span id="cb13-8"><a></a>my_list[[<span class="dv">1</span>]][<span class="dv">1</span>]    <span class="co"># first value of the first element: 20</span></span>
+<span id="cb13-9"><a></a></span>
+<span id="cb13-10"><a></a>my_list[<span class="dv">2</span>]         <span class="co"># second element of my_list, by position; returns a list</span></span>
+<span id="cb13-11"><a></a>my_list[<span class="st">"b"</span>]       <span class="co"># second element of my_list, by name; returns a list</span></span>
+<span id="cb13-12"><a></a>my_list<span class="sc">$</span>b          <span class="co"># content of the second element, only works by name not by position; returns a vector</span></span>
+<span id="cb13-13"><a></a>my_list[[<span class="st">"c"</span>]]     <span class="co"># returns content of "c": TRUE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Remember: use <code>[ ]</code> to extract a sublist from the original list, and <code>[[ ]]</code> or <code>$</code> to extract actual elements.</p>
 <p>What do <code>my_list[["b"]][1]</code> and <code>my_list[[2]][1]</code> return? And what about <code>my_list[["b"]][3]</code> and why?</p>
 </section>
 <section id="subsetting-data-frames" class="slide level2 center">
 <h2>Subsetting Data Frames</h2>
-<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb15-2"><a></a>  <span class="at">name =</span> <span class="fu">c</span>(<span class="st">"Alex"</span>, <span class="st">"Betty"</span>, <span class="st">"Chad"</span>, <span class="st">"J"</span>),</span>
-<span id="cb15-3"><a></a>  <span class="at">age =</span> <span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">21</span>, <span class="dv">22</span>, <span class="dv">23</span>))</span>
-<span id="cb15-4"><a></a></span>
-<span id="cb15-5"><a></a>df[<span class="dv">1</span>, ]            <span class="co"># first row (all columns)</span></span>
-<span id="cb15-6"><a></a>df[ , <span class="dv">1</span>]           <span class="co"># first column by index</span></span>
-<span id="cb15-7"><a></a>df[ , <span class="st">"name"</span>]      <span class="co"># first column by label</span></span>
-<span id="cb15-8"><a></a>df<span class="sc">$</span>name            <span class="co"># same as above</span></span>
-<span id="cb15-9"><a></a>df[[<span class="st">"name"</span>]]       <span class="co"># same as above</span></span>
-<span id="cb15-10"><a></a></span>
-<span id="cb15-11"><a></a>df[<span class="dv">1</span>, <span class="dv">2</span>]           <span class="co"># single value at row 1, column 2</span></span>
-<span id="cb15-12"><a></a>df[<span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>, <span class="st">"name"</span>]    <span class="co"># values in rows 2 and 3 of column name</span></span>
-<span id="cb15-13"><a></a></span>
-<span id="cb15-14"><a></a>df[df<span class="sc">$</span>age <span class="sc">&gt;</span> <span class="dv">20</span>, ]            <span class="co"># filter rows where age &gt; 20</span></span>
-<span id="cb15-15"><a></a>df[df<span class="sc">$</span>name <span class="sc">==</span> <span class="st">"J"</span>, ]         <span class="co"># filter rows where name is "J"</span></span>
-<span id="cb15-16"><a></a>df[df<span class="sc">$</span>age <span class="sc">==</span> <span class="fu">max</span>(df<span class="sc">$</span>age), ]  <span class="co"># filter rows with highest age</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb14-2"><a></a>  <span class="at">name =</span> <span class="fu">c</span>(<span class="st">"Alex"</span>, <span class="st">"Betty"</span>, <span class="st">"Chad"</span>, <span class="st">"J"</span>),</span>
+<span id="cb14-3"><a></a>  <span class="at">age =</span> <span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">21</span>, <span class="dv">22</span>, <span class="dv">23</span>))</span>
+<span id="cb14-4"><a></a></span>
+<span id="cb14-5"><a></a>df[<span class="dv">1</span>, ]            <span class="co"># first row (all columns)</span></span>
+<span id="cb14-6"><a></a>df[ , <span class="dv">1</span>]           <span class="co"># first column by index</span></span>
+<span id="cb14-7"><a></a>df[ , <span class="st">"name"</span>]      <span class="co"># first column by label</span></span>
+<span id="cb14-8"><a></a>df<span class="sc">$</span>name            <span class="co"># same as above</span></span>
+<span id="cb14-9"><a></a>df[[<span class="st">"name"</span>]]       <span class="co"># same as above</span></span>
+<span id="cb14-10"><a></a></span>
+<span id="cb14-11"><a></a>df[<span class="dv">1</span>, <span class="dv">2</span>]           <span class="co"># single value at row 1, column 2</span></span>
+<span id="cb14-12"><a></a>df[<span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>, <span class="st">"name"</span>]    <span class="co"># values in rows 2 and 3 of column name</span></span>
+<span id="cb14-13"><a></a></span>
+<span id="cb14-14"><a></a>df[df<span class="sc">$</span>age <span class="sc">&gt;</span> <span class="dv">20</span>, ]            <span class="co"># filter rows where age &gt; 20</span></span>
+<span id="cb14-15"><a></a>df[df<span class="sc">$</span>name <span class="sc">==</span> <span class="st">"J"</span>, ]         <span class="co"># filter rows where name is "J"</span></span>
+<span id="cb14-16"><a></a>df[df<span class="sc">$</span>age <span class="sc">==</span> <span class="fu">max</span>(df<span class="sc">$</span>age), ]  <span class="co"># filter rows with highest age</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Each column of a data frame is a vector of a specific data type (e.g., numeric, character, etc.)</p>
 <p>As a whole, a data frame behaves similarly to a list: it contains multiple elements of different data types (like a list), but all elements must be the same length (unlike a list).</p>
+</section>
+<section id="subsetting-a-data-frame-vs" class="slide level2 center">
+<h2>Subsetting a Data Frame: [ ] vs [[ ]]</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="base-r-1">Base R</h3>
+<ul>
+<li><code>[ ]</code> keeps the result as a data frame</li>
+<li><code>[[ ]]</code> extracts the actual vector</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<h3 id="tidyverse-1">Tidyverse</h3>
+<ul>
+<li><code>select()</code> keeps the result as a data frame</li>
+<li><code>pull()</code> extracts the actual vector</li>
+</ul>
+</div></div>
+</section>
+<section id="subsetting-a-data-frame-examples" class="slide level2 center">
+<h2>Subsetting a Data Frame: Examples</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="base-r-2">Base R</h3>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>students[<span class="st">"score"</span>]     <span class="co"># data frame</span></span>
+<span id="cb15-2"><a></a>students[[<span class="st">"score"</span>]]   <span class="co"># vector</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<h3 id="tidyverse-2">Tidyverse</h3>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>students <span class="sc">|&gt;</span> <span class="fu">select</span>(score)  <span class="co"># data frame</span></span>
+<span id="cb16-2"><a></a>students <span class="sc">|&gt;</span> <span class="fu">pull</span>(score)    <span class="co"># vector</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
 <!--
 
 FOR FALL 26: ADD A COUPLE OF SLIDES ON DIRECT APPLICATION OF SUBSETTING A DF AND HOW YOU WOULD DO IT BOTH IN BASE R AND IN TIDYVRESE

@@ -164,7 +164,7 @@ GitHub does not allow files larger than 100MB. If you try to push one, you’ll 
 -   If your data is well under 100MB, include it in your repo.\
 -   If it is close to or above 100MB, **do not** include it in your repo. Instead, store it outside GitHub (e.g., Google Drive, remember to give us access) and include a link to it in your `README.md`.
 
-### My idea that doesn’t quite fit the description 
+### My idea that doesn’t quite fit the description, what are my options? 
 
 You’re welcome to propose a small variation on this project, as long as the core of the assignment stays the same. For example, you might want to use web scraping to get your data, do some text analysis, take on a larger data cleaning task, or run some statistical analyses beyond descriptive statistics. If this sounds like you, email me your idea **by Sunday, November 15**, and we’ll meet in Week 8 to make a plan. 
 
