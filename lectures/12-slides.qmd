@@ -31,11 +31,16 @@ format:
 </span>
 
 
-<!-- NOTE TO IMPROVE THESE SLIDES FOR CSS:
-Add all data structures and data types
+<!-- FALL 2026 NOTES TO IMPROVE THESE SLIDES :
+
 More functions to explore them and key commands for each data str
 See https://swcarpentry.github.io/r-novice-inflammation/13-supp-data-structures.html
 and https://libraryguides.mcgill.ca/c.php?g=699776&p=4968544
+
+More concrete application of vector recyclicng with real case scenario
+
+Change the slides on subsetting with df and age vs students and score
+
 -->
 
 # 1. Base R & the Tidyverse {.slide .center .middle}
