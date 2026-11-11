@@ -3385,14 +3385,14 @@
     "href": "lectures/14-slides.html#tracing-execution-in-a-for-loop",
     "title": "Computing for the Social Sciences: Lecture 14",
     "section": "Tracing Execution in a For Loop",
-    "text": "Tracing Execution in a For Loop\nCopy this code in R and run it. What does it print?\n\nfor (i in c(1, 2, 3)) {\n  print(i)\n  print(\"Hello\")\n  my_sum &lt;- 100 + i\n  print(my_sum)\n  print(paste(\"End of Loop\", i)) }\n\n\n\n\n\n\n\n\n\n💻 Your Turn: Predict what happens\n\n\n\nFor each change below, start from the original code and clear the environment with rm(list = ls())\n\nAdd another print(my_sum) right before my_sum &lt;- 100 + i. What happens?\nAdd my_sum &lt;- my_sum + i and print(my_sum) right before the last line. What happens?"
+    "text": "Tracing Execution in a For Loop\nCopy this code in R and run it. What does it print?\n\nfor (i in c(1, 2, 3)) {\n  print(i)\n  print(\"Hello\")\n  my_sum &lt;- 100 + i\n  print(my_sum)\n  print(paste(\"End of Loop\", i)) }\n\n\n\n\n\n\n\n\n\n\n💻 Your Turn: Predict what happens\n\n\nFor each change below, start from the original code and clear the environment with rm(list = ls())\n\nAdd another print(my_sum) right before my_sum &lt;- 100 + i. What happens?\nAdd my_sum &lt;- my_sum + i and print(my_sum) right before the last line. What happens?"
   },
   {
     "objectID": "lectures/14-slides.html#tracing-execution-in-a-for-loop-1",
     "href": "lectures/14-slides.html#tracing-execution-in-a-for-loop-1",
     "title": "Computing for the Social Sciences: Lecture 14",
     "section": "Tracing Execution in a For Loop",
-    "text": "Tracing Execution in a For Loop\nSame code but my_sum is now defined outside the loop. Clear the environment and run the code:\n\nmy_sum &lt;- 0\nfor (i in c(1, 2, 3)) {\n  print(i)\n  print(\"Hello\")\n  my_sum &lt;- my_sum + i\n  print(my_sum)\n  print(paste(\"End of Loop\", i)) }\n\n\n\n\n\n\n\n\n\n💻 Your Turn: Predict what happens\n\n\n\n\nLook at the code and predict its output. Then run the code to check.\nClear the environment. Comment out my_sum &lt;- my_sum + i and run the again What happens?"
+    "text": "Tracing Execution in a For Loop\nSame code but my_sum is now defined outside the loop. Clear the environment and run the code:\n\nmy_sum &lt;- 0\nfor (i in c(1, 2, 3)) {\n  print(i)\n  print(\"Hello\")\n  my_sum &lt;- my_sum + i\n  print(my_sum)\n  print(paste(\"End of Loop\", i)) }\n\n\n\n\n\n\n\n\n\n\n💻 Your Turn: Predict what happens\n\n\n\nLook at the code and predict its output. Then run the code to check.\nClear the environment. Comment out my_sum &lt;- my_sum + i and run the again What happens?"
   },
   {
     "objectID": "lectures/14-slides.html#accumulating-a-running-total",
@@ -3406,7 +3406,7 @@
     "href": "lectures/14-slides.html#saving-results-from-a-for-loop",
     "title": "Computing for the Social Sciences: Lecture 14",
     "section": "Saving Results from a For Loop",
-    "text": "Saving Results from a For Loop\nTo save all intermediate sum values instead of just the last one, we need to store them in an output vector with one slot per loop iteration. Like this:\n\nmy_sum &lt;- 0\noutput &lt;- vector(mode = \"integer\", length = 3)  # new!\n\nfor (i in c(1,2,3)) {\n  my_sum &lt;- my_sum + i\n  #print(my_sum)\n  output[i] &lt;- my_sum     # new!\n  #print(output)\n}\n\noutput\n\n\n\n\n\n\n\noutput[i] &lt;- my_sum\n\n\n\nWhen i = 1, my_sum = 0 + 1 = 1 → store 1 in output[1] → output becomes: 1 0 0\nWhen i = 2, my_sum = 1 + 2 = 3 → store 3 in output[2] → output becomes: 1 3 0\nWhen i = 3, my_sum = 3 + 3 = 6 → store 6 in output[3] → output becomes: 1 3 6\nThis saves the running total at each position i in the vector output!"
+    "text": "Saving Results from a For Loop\nTo save all intermediate sum values instead of just the last one, we need to store them in an output vector with one slot per loop iteration. Like this:\n\nmy_sum &lt;- 0\noutput &lt;- vector(mode = \"integer\", length = 3)  # new!\n\nfor (i in c(1,2,3)) {\n  my_sum &lt;- my_sum + i\n  #print(my_sum)\n  output[i] &lt;- my_sum     # new!\n  #print(output)\n}\n\noutput\n\n\n\n\n\n\n\n\noutput[i] &lt;- my_sum\n\n\nWhen i = 1, my_sum = 0 + 1 = 1 → store 1 in output[1] → output becomes: 1 0 0\nWhen i = 2, my_sum = 1 + 2 = 3 → store 3 in output[2] → output becomes: 1 3 0\nWhen i = 3, my_sum = 3 + 3 = 6 → store 6 in output[3] → output becomes: 1 3 6\nThis saves the running total at each position i in the vector output!"
   },
   {
     "objectID": "lectures/14-slides.html#saving-results-from-a-for-loop-1",
@@ -3420,7 +3420,7 @@
     "href": "lectures/14-slides.html#saving-results-from-a-for-loop-2",
     "title": "Computing for the Social Sciences: Lecture 14",
     "section": "Saving Results from a For Loop",
-    "text": "Saving Results from a For Loop\n\nmy_sum &lt;- 0\noutput &lt;- vector(mode = \"integer\", length = 3)\n\nfor (i in c(1, 4, 6)) {\n  my_sum &lt;- my_sum + i\n  #print(my_sum)\n  output[i] &lt;- my_sum \n  #print(output)\n}\n\noutput\n\n\n\n\n\n\n\nWhat Happens in Each Iteration of this Loop\n\n\n\nWhen i = 1 → my_sum = 0 + 1 = 1 → store 1 in output[1] → output becomes: 1 0 0\nWhen i = 4 → my_sum = 1 + 4 = 5 → store 5 in output[4] → output becomes: 1 0 0 5\nWhen i = 6 → my_sum = 5 + 6 = 11 → store 11 in output[6] → output becomes: 1 0 0 5 NA 11\nThis does not look right! Why?\nTo see why, we need to understand the difference between looping over elements vs. indexes…"
+    "text": "Saving Results from a For Loop\n\nmy_sum &lt;- 0\noutput &lt;- vector(mode = \"integer\", length = 3)\n\nfor (i in c(1, 4, 6)) {\n  my_sum &lt;- my_sum + i\n  #print(my_sum)\n  output[i] &lt;- my_sum \n  #print(output)\n}\n\noutput\n\n\n\n\n\n\n\n\nWhat Happens in Each Iteration of this Loop\n\n\nWhen i = 1 → my_sum = 0 + 1 = 1 → store 1 in output[1] → output becomes: 1 0 0\nWhen i = 4 → my_sum = 1 + 4 = 5 → store 5 in output[4] → output becomes: 1 0 0 5\nWhen i = 6 → my_sum = 5 + 6 = 11 → store 11 in output[6] → output becomes: 1 0 0 5 NA 11\nThis does not look right! Why?\nTo see why, we need to understand the difference between looping over elements vs. indexes…"
   },
   {
     "objectID": "lectures/14-slides.html#elements-vs.-indexes-why-it-matters",
@@ -3490,14 +3490,14 @@
     "href": "lectures/14-slides.html#why-outputi-and-penguinsi-1",
     "title": "Computing for the Social Sciences: Lecture 14",
     "section": "Why output[i] and penguins[[i]]?",
-    "text": "Why output[i] and penguins[[i]]?\n\nis.vector(penguins[[3]])           # TRUE (the raw vector)\nis.data.frame(penguins[3])         # TRUE (a 1-col tibble/data frame)\n\nmean(penguins[[3]], na.rm = TRUE)  # works, correct type (vector)\nmean(penguins[3], na.rm = TRUE)    # error, wrong type (1-col tibble)\n\n\n\n\n\n\n\n\nWith data frames: [[ ]] returns the column itself as a vector; [ ] returns a one-column data frame\nWith vectors: [] and [[ ]] behave the same, but is best to use [] when subsetting vectors"
+    "text": "Why output[i] and penguins[[i]]?\n\nis.vector(penguins[[3]])           # TRUE (the raw vector)\nis.data.frame(penguins[3])         # TRUE (a 1-col tibble/data frame)\n\nmean(penguins[[3]], na.rm = TRUE)  # works, correct type (vector)\nmean(penguins[3], na.rm = TRUE)    # error, wrong type (1-col tibble)\n\n\n\n\n\nWith data frames: [[ ]] returns the column itself as a vector; [ ] returns a one-column data frame\nWith vectors: [] and [[ ]] behave the same, but is best to use [] when subsetting vectors"
   },
   {
     "objectID": "lectures/14-slides.html#coming-next-week-beyond-for-loops-with-data-frames",
     "href": "lectures/14-slides.html#coming-next-week-beyond-for-loops-with-data-frames",
     "title": "Computing for the Social Sciences: Lecture 14",
     "section": "Coming Next Week: Beyond For Loops with Data frames",
-    "text": "Coming Next Week: Beyond For Loops with Data frames\nFor loops make iteration explicit and are an important programming tool. You will encounter them in many programming languages.\nBut R is a VECTORIZED language, built to operate on a whole column at once rather than element by element.\nThat means it has functions that can do the same job as a for loop, just in a way that fits R’s strengths better. Next week we’ll explore them:\n\nacross() (dplyr): apply a function to many columns in one line\nmap() (purrr): apply a function to every element of a list or column\napply() family (base R): the classic vectorized alternative to for loops"
+    "text": "Coming Next Week: Beyond For Loops with Data frames\nFor loops make iteration explicit and are an important programming tool. You will encounter them in many programming languages, so it is worth learning them.\n\n\n\n\n\n\n\n\nBUT R IS A VECTORIZED LANGUAGE\n\n\n\nit is built to operate on a whole vector (or column of a data frame) at once\nit has functions that can do the same job as a for loop, but in a way that fits R’s strengths better\n\nacross() from dplyr: apply a function to many columns in one line\nmap() from purrr: apply a function to every element of a list or column\napply() family of functions from base R: the classic vectorized alternative to for loops"
   },
   {
     "objectID": "lectures/14-slides.html#recap-what-we-learned-today",
@@ -3532,14 +3532,14 @@
     "href": "lectures/14-slides.html#values-vs.-indexes-why-it-matters",
     "title": "Computing for the Social Sciences: Lecture 14",
     "section": "Values vs. Indexes: Why It Matters",
-    "text": "Values vs. Indexes: Why It Matters\nRun these examples and spot the differences:\n\n# Version A: Looping over elements/values\nx &lt;- c(1, 4, 6)\nfor (i in x) {\n  print(i)        # value\n}    \n\n# Version B: Looping over indexes\nx &lt;- c(1, 4, 6)\nfor (i in 1:length(x)) {\n  print(i)        # index\n  print(x[i])     # value at that index\n}\n\n\n\n\n\n\n\ni and x[i]\n\n\n\ni is the loop’s index or “counter” and it just counts positions, so it should always go 1, 2, 3, 4, etc.\nx[i] is the element or value of the vector x at position i and can be any value"
+    "text": "Values vs. Indexes: Why It Matters\nRun these examples and spot the differences:\n\n# Version A: Looping over elements/values\nx &lt;- c(1, 4, 6)\nfor (i in x) {\n  print(i)        # value\n}    \n\n# Version B: Looping over indexes\nx &lt;- c(1, 4, 6)\nfor (i in 1:length(x)) {\n  print(i)        # index\n  print(x[i])     # value at that index\n}\n\n\n\n\n\n\n\n\ni and x[i]\n\n\ni is the loop’s index or “counter” and it just counts positions, so it should always be 1, 2, 3, 4, etc.\nx[i] is the element or value of the vector x at position i and can be any value"
   },
   {
     "objectID": "lectures/14-slides.html#values-vs.-indexes-why-it-matters-1",
     "href": "lectures/14-slides.html#values-vs.-indexes-why-it-matters-1",
     "title": "Computing for the Social Sciences: Lecture 14",
     "section": "Values vs. Indexes: Why It Matters",
-    "text": "Values vs. Indexes: Why It Matters\nLet’s see what happens to our previous codes when we save the output instead of just printing:\n\n\n\n❌ Version A\n\nx &lt;- c(1, 4, 6)\nmy_sum &lt;- 0\noutput &lt;- vector(mode = \"integer\", \n                 length = length(x))\n\n# looping over elements\nfor (i in x) {\n  print(paste(\"Current i is:\", i))\n  my_sum &lt;- my_sum + i\n  print(paste(\"Current sum is:\", my_sum))\n  output[i] &lt;- my_sum\n}\n\noutput\n\n\n\n\n✅ Version B\n\nx &lt;- c(1, 4, 6)\nmy_sum &lt;- 0\noutput &lt;- vector(mode = \"integer\", \n                 length = length(x))\n\n# looping over indexes\nfor (i in 1:length(x)) {\n  print(paste(\"Current i is:\", i))\n  my_sum &lt;- my_sum + x[i]\n  print(paste(\"Current sum is:\", my_sum))\n  output[i] &lt;- my_sum\n}\n\noutput"
+    "text": "Values vs. Indexes: Why It Matters\nLet’s see what happens to our previous codes when we save the output instead of just printing:\n\n\n❌ Version A\n\nx &lt;- c(1, 4, 6)\nmy_sum &lt;- 0\noutput &lt;- vector(mode = \"integer\", \n                 length = length(x))\n\n# looping over elements\nfor (i in x) {\n  print(paste(\"Current i is:\", i))\n  my_sum &lt;- my_sum + i\n  print(paste(\"Current sum is:\", my_sum))\n  output[i] &lt;- my_sum\n}\n\noutput\n\n\n✅ Version B\n\nx &lt;- c(1, 4, 6)\nmy_sum &lt;- 0\noutput &lt;- vector(mode = \"integer\", \n                 length = length(x))\n\n# looping over indexes\nfor (i in 1:length(x)) {\n  print(paste(\"Current i is:\", i))\n  my_sum &lt;- my_sum + x[i]\n  print(paste(\"Current sum is:\", my_sum))\n  output[i] &lt;- my_sum\n}\n\noutput"
   },
   {
     "objectID": "lectures/14-slides.html#use-seq_along-for-index-looping",
@@ -3553,14 +3553,14 @@
     "href": "lectures/14-slides.html#best-to-loop-over-values-or-indexes",
     "title": "Computing for the Social Sciences: Lecture 14",
     "section": "Best to loop over Values or Indexes?",
-    "text": "Best to loop over Values or Indexes?\nIt depends on what you need to do:\n\nLoop over values if you only need the values\nLoop over indexes if you need both the values and the position\nWhen in doubt, loop over indexes\n\n\n\n\n\n\n\n\nAdvantages of looping over indexes vs. elements/values\n\n\n\n\ni always counts 1, 2, 3, …, no matter what values x contains (e.g., 2, 4, 5)\nYou can access both the position i and the value at that position x[i]\nYou can loop over multiple vectors of the same length at once (e.g., x[i] and y[i])"
+    "text": "Best to loop over Values or Indexes?\nIt depends on what you need to do:\n\nLoop over values if you only need the values\nLoop over indexes if you need both the values and the position\nWhen in doubt, loop over indexes\n\n\n\n\n\n\n\n\n\nAdvantages of looping over indexes vs. elements/values\n\n\n\ni always counts 1, 2, 3, …, no matter what values x contains (e.g., 2, 4, 5)\nYou can access both the position i and the value at that position x[i]\nYou can loop over multiple vectors of the same length at once (e.g., x[i] and y[i])"
   },
   {
     "objectID": "lectures/14-slides.html#use-seq_along-when-you-loop-over-indexes",
     "href": "lectures/14-slides.html#use-seq_along-when-you-loop-over-indexes",
     "title": "Computing for the Social Sciences: Lecture 14",
     "section": "Use seq_along() when you loop over Indexes",
-    "text": "Use seq_along() when you loop over Indexes\nWhen you loop over indexes use seq_along() vs 1:length(x), as shown below. Both work but seq_along() is best practice:\n\n# Looping over indexes with 1:length(x)\nx &lt;- c(1, 4, 6)\nfor (i in 1:length(x)) {\n  print(i)        \n  print(x[i]) \n}   \n\n# Looping over indexes with seq_along()\nx &lt;- c(1, 4, 6)\nfor (i in seq_along(x)) {\n  print(i)\n  print(x[i]) \n}"
+    "text": "Use seq_along() when you loop over Indexes\nWhen you loop over indexes use seq_along() rather 1:length(x), as shown below. Both work but seq_along() is best practice:\n\n# Looping over indexes with 1:length(x)\nx &lt;- c(1, 4, 6)\nfor (i in 1:length(x)) {\n  print(i)        \n  print(x[i]) \n}   \n\n# Looping over indexes with seq_along()\nx &lt;- c(1, 4, 6)\nfor (i in seq_along(x)) {\n  print(i)\n  print(x[i]) \n}"
   },
   {
     "objectID": "lectures/15-slides.html",
@@ -3575,5 +3575,12 @@
     "title": "Computing for the Social Sciences: Lecture 14",
     "section": "",
     "text": "Intro to For Loops\nTracking and Saving For Loops Output\nLooping Over Values/Elements vs. Indexes\nBuilding on Last Lecture: if/else + For Loops\nUsing For Loops with Data frames\n\n\n\n Slides last updated on November 11, 2026. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos."
+  },
+  {
+    "objectID": "lectures/14-slides.html#coming-next-week-beyond-for-loops",
+    "href": "lectures/14-slides.html#coming-next-week-beyond-for-loops",
+    "title": "Computing for the Social Sciences: Lecture 14",
+    "section": "Coming Next Week: Beyond For Loops",
+    "text": "Coming Next Week: Beyond For Loops\nFor loops make iteration explicit and are an important programming tool. You will encounter them in many programming languages, so it is worth learning them…\n\n\n\n\n\n\n\n\n…BUT R IS A VECTORIZED LANGUAGE\n\n\n\nmany functions operate on a whole vector (or column) at once, like ifelse() so no loop is needed\nwhen you do need to repeat a task, R has functions that do the same job as a for loop, but more concisely\n\nacross() from dplyr: applies a function to many columns inside mutate() or summarise()\nmap() from purrr: applies a function to every element of a list or vector\napply() family of functions from base R: the classic base-R alternative to for loops"
   }
 ]

@@ -304,7 +304,7 @@ When `i = 1` → `my_sum = 0 + 1 = 1` → store `1` in `output[1]` → output be
 
 When `i = 4` → `my_sum = 1 + 4 = 5` → store `5` in `output[4]` → output becomes: `1 0 0 5`
 
-When `i = 6` → `my_sum = 5 + 6 = 11` → store 11 in `output[6]` → output becomes: `1 0 0 5 NA 11`
+When `i = 6` → `my_sum = 5 + 6 = 11` → store `11` in `output[6]` → output becomes: `1 0 0 5 NA 11`
 
 **This does not look right! Why?**   
 To see why, we need to understand the difference between looping over elements vs. indexes...
@@ -340,7 +340,7 @@ for (i in 1:length(x)) {
 
 ::: {.callout-note .fragment .small title="`i` and `x[i]`"}
 
-`i` is the loop's **index** or "counter" and it just counts positions, so it should always go 1, 2, 3, 4, etc.  
+`i` is the loop's **index** or "counter" and it just counts positions, so it should always be 1, 2, 3, 4, etc.  
 `x[i]` is the **element** or value of the vector `x` at position `i` and can be any value
 
 :::
@@ -405,7 +405,7 @@ output
 
 ## Use seq_along() when you loop over Indexes
 
-When you loop over indexes use `seq_along()` vs `1:length(x)`, as shown below. Both work but `seq_along()` is best practice:
+When you loop over indexes use `seq_along()` rather `1:length(x)`, as shown below. Both work but `seq_along()` is best practice:
 
 ```{r echo = TRUE, results = "hide"}
 
@@ -557,7 +557,7 @@ for (i in seq_along(daily_sales)) {
 
 ---
 
-This is code from our last lecture:
+This is code from our last lecture using the vectorized `ifelse()` function:
 ```{r, echo = TRUE, results = "hide"}
 numbers <- c(10, 6, 7)
 ifelse(numbers %% 2 == 1, 
@@ -796,17 +796,21 @@ The first approach does not preallocate by creating an empty space to store the 
 
 ---
 
-## Coming Next Week: Beyond For Loops with Data frames
+## Coming Next Week: Beyond For Loops
 
-For loops make iteration explicit and are an important programming tool. You will encounter them in many programming languages.
+For loops make iteration explicit and are an important programming tool. You will encounter them in many programming languages, so it is worth learning them...
 
-**But R is a VECTORIZED language, built to operate on a whole column at once rather than element by element.** 
+::: {.fragment}
+::: {.callout-tip title="...BUT R IS A VECTORIZED LANGUAGE"}
+- many functions operate on a whole vector (or column) at once, like `ifelse()` so no loop is needed
+- when you *do* need to repeat a task, R has functions that *do the same job as a for loop, but more concisely*
+  - `across()` from dplyr: applies a function to many columns inside `mutate()` or `summarise()`
+  - `map()` from purrr: applies a function to every element of a list or vector
+  - `apply()` family of functions from base R: the classic base-R alternative to for loops
+:::
+:::
 
-That means it has functions that can do the *same job* as a for loop, just in a way that fits R's strengths better. Next week we'll explore them:
 
-- `across()` (dplyr): apply a function to many columns in one line
-- `map()` (purrr): apply a function to every element of a list or column
-- `apply()` family (base R): the classic vectorized alternative to for loops
 
 ---
 
