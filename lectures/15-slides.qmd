@@ -551,6 +551,20 @@ apply(penguins, 2, mean, na.rm = TRUE)
 **Takeaway:** with data frames of mixed types, select the numeric columns first — or use `sapply()`/`lapply()`, which work column by column without converting to a matrix.
 -->
 
+---
+
+## For loops best practices
+
+CHECK THIS SLIDE NEW FALL 26
+
+1. When in doubt, loop over indexes, so you can access both `i` and `x[i]`; loop over values only when you just need the values.
+
+2. When you loop over indexes use `seq_along()` vs `1:length(x)` 
+
+3. Pre allocate your output
+
+4. Prefer vectorized code when possibile (more on this next time!)
+
 
 # 2. While Loops {.slide .center .middle}
 
