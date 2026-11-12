@@ -1,5 +1,5 @@
 ---
-title: "HW01: Test software setup and file editing"
+title: "HW1: Test software setup and file editing"
 draft: false
 ---
 
