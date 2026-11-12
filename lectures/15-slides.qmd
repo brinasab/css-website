@@ -25,22 +25,35 @@ format:
 3. Introduction to Functions
 :::
 
+<!--
 ### Slides are in progress and will be updated before class.
 
 ::: {.content-hidden}
+-->
 
 <span style="font-size: 0.8em; color: #666;">
 *Slides last updated on **`r format(Sys.Date(), '%B %d, %Y')`**. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.*
 </span>
 
+<!--
+REMEMBER FOR MONDAY FALL 26:
+- REMINDER FINAL PROEJCT CHECK IN WITH ME THIS WEEK IF IDEA DOES NOT FIT OR    ARE UNSURE (SAY DESCR GOOD STEP)
+- HW4 IN-CLASS REVIEW
+- PREP QUIZ ON FOR LOOPS 
+
+NEXT CLASS (BEFORE BREAK!)
+- Oral Exam details
+- Decide what to do for final class before exam
+- No TAs OHs during break, Im available Mon and Tue (OHs or appt)
+-->
 
 # 1. Alternatives to For Loops in R {.slide .center .middle}
 
 ---
 
-## Last Lecture: we used a for loop with a dataframe
+## Last Lecture: for loop with a dataframe
 
-In [lecture ](https://brinasab.github.io/css-website-summer/lectures/16-slides.html#/using-for-loops-with-data-frames) we learned how to apply a for loop to calculate mean value of several columns in a dataframe. Like this:
+In [lecture 14](https://brinasab.github.io/css-website/lectures/14-home.html) we learned how to apply a for loop to calculate mean value of several columns in a dataframe:
 
 ```{r echo = TRUE, results = "hide"}
 library(tidyverse)
@@ -49,15 +62,11 @@ library(palmerpenguins)
 output <- vector(mode = "double", length = ncol(penguins))
 
 for (i in seq_along(penguins)) {
-  #print(i)
-  #print(penguins[i])
   output[i] <- mean(penguins[[i]], na.rm = TRUE)
 }
 
 output
 ```
-
-Let's examine this code...
 
 - `i` will index each column
 - `output[i]` saves the results in the output vector at the correct position
@@ -65,33 +74,33 @@ Let's examine this code...
 
 ---
 
-## Last Lecture we ended with this slide
+## Last Lecture: we ended with this slide
 
-For loops make iteration explicit and are an important programming tool. You will encounter them in many programming languages.
+For loops make iteration explicit and are an important programming tool. You will encounter them in many programming languages, so it is worth learning them...
 
-**But R is a VECTORIZED language, built to operate on a whole dataframe column at once rather than element by element.** 
-
-That means it has functions that can do the *same job* as a for loop, just in a way that fits R's strengths better. Next week we'll explore them:
-
-- `across()` (dplyr): apply a function to many columns in one line
-- `map()` (purrr): apply a function to every element of a list or column
-- `apply()` family (base R): the classic vectorized alternative to for loops
+::: {.fragment}
+::: {.callout-tip title="...BUT R IS A VECTORIZED LANGUAGE"}
+- many functions operate on a whole vector (or column) at once, like `ifelse()` so no loop is needed
+- when you *do* need to repeat a task, R has functions that *do the same job as a for loop, but more concisely*
+  - `across()` from dplyr: applies a function to many columns inside `mutate()` or `summarise()`
+  - `map()` from purrr: applies a function to every element of a list or vector
+  - `apply()` family of functions from base R: the classic base-R alternative to for loops
+:::
+:::
 
 ---
 
-## Why We Even Learn Loops in R?
+## Why We Even Learn For Loops in R?
 
-Many tasks in R can and should be done **without writing a for loop**. 
+**Many tasks in R can and should be done without writing a for loop** 
 
-So why do we even learn loops in R? Because understanding loops is important:
+**So why do we even learn loops in R?** 
 
 - to build logic and control flow skills
-- for non-vectorized tasks**, like row-by-row operations
+- for non-vectorized tasks, like row-by-row operations
 - to build more complex workflows
 - to be able to read and understand other people code
 - for general literacy on programming
-
-> Even if you don’t use loops every day, knowing how they work will strengthen your skills as coder.
 
 <!--
 
@@ -122,16 +131,15 @@ for (i in seq_len(nrow(data))) {
 
 ---
 
-
 ## Three Main Alternatives to For Loops in R
 
 **When working with dataframes**, R provides the following alternatives to for loop:
 
 | Function Family        | Package     | Best Used For                                  | Docs |
 |------------------------|-------------|------------------------------------------------|-------------|
-| `map_*()`              | purrr     | Applying functions to elements of lists or columns | [map docs](https://purrr.tidyverse.org/reference/map.html) |
-| `across()`             | dplyr     | Applying the same function to multiple columns inside `mutate()` or `summarize()` | [across docs](https://dplyr.tidyverse.org/reference/across.html) |
-| `*apply()`             | base R      | Row/column-wise operations on matrices or data frames | [apply docs](https://stat.ethz.ch/R-manual/R-devel/library/base/html/apply.html) |
+| `map_*()`              | purrr     | Applying functions to elements of lists or columns | [map](https://purrr.tidyverse.org/reference/map.html) |
+| `across()`             | dplyr     | Applying the same function to multiple columns inside `mutate()` or `summarize()` | [across](https://dplyr.tidyverse.org/reference/across.html) |
+| `*apply()`             | base R      | Row/column-wise operations on matrices or data frames | [apply](https://stat.ethz.ch/R-manual/R-devel/library/base/html/apply.html) |
 
 <br>
 
@@ -553,17 +561,17 @@ apply(penguins, 2, mean, na.rm = TRUE)
 
 ---
 
-## For loops best practices
+## For Loops in : Best Practices
 
-CHECK THIS SLIDE NEW FALL 26
+CHECK THIS SLIDE NEW FALL 26 + EXPLAIN WHY PREALLOCATION WITH AN EXAMPLE
 
 1. When in doubt, loop over indexes, so you can access both `i` and `x[i]`; loop over values only when you just need the values.
 
 2. When you loop over indexes use `seq_along()` vs `1:length(x)` 
 
-3. Pre allocate your output
+3. Pre allocate your output vector
 
-4. Prefer vectorized code when possibile (more on this next time!)
+4. Prefer vectorized code when possible (Options 1 to 3 we learned today)
 
 
 # 2. While Loops {.slide .center .middle}

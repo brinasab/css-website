@@ -42,7 +42,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Before class
 
-- Review [Lecture 13](https://brinasab.github.io/css-website/lectures/13-home.html)
+- Review [Lecture 14](https://brinasab.github.io/css-website/lectures/14-home.html)
 
 
 ## Readings
