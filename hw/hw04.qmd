@@ -1,5 +1,5 @@
 ---
-title: "HW04: Programming Skills"
+title: "HW4: Programming Skills"
 draft: false
 ---
 
@@ -7,66 +7,63 @@ draft: false
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-# Overview
+# HW4 Overview
 
-**Due: ~~Thursday, November 20~~ Friday, November 21 by 11:59 PM (Chicago Time)**
+**Due: Friday, November 20 (11:59 PM Chicago Time) **
 
-In this last assignment, you will practice the programming techniques from Lectures 10–14 and review core tools from earlier in the course. Part 1 includes guided exercises with a built-in dataset. Part 2 applies and extends those skills in a more realistic social science setting, where you work with many raw CSV files and assemble them into a usable dataset.
-
-
-# Accessing and Cloning Your `hw04` Repository
-
-**Accessing the repo:** 
-
-1. Go at [this link](https://classroom.github.com/a/sG7VKBdb) to accept the invitation and create your private `hw04` repository on GitHub. Your repository will be named `hw04-<USERNAME>` and will be ready within a few seconds. 
-
-2. Once the repository has been created, click the link provided to access it.
+In this last assignment before the final project, you will practice the programming techniques from Lectures 12–15.
 
 
-**Cloning the repo into your Workbench:**
+### Accessing the repo
+
+1. Go to **[this link](https://classroom50.org/css-fall26/css/assignments/hw04/accept)**. The first time, click *Sign in with GitHub* and authorize Classroom 50 (the tool we use to distribute assignments).
+
+2. Click *Accept assignment* to create your private `hw04` repository on GitHub. Your repository will be named `css-hw04-<USERNAME>`. Keep the page open until the setup checklist finishes (a few seconds).
+
+3. Click *Open repository* to access it.
+
+If the page says *"Not a member yet"*, accept the invitation to our GitHub organization (check your email, including spam), then click *Check again*. If it says *"This assignment isn't available to you"*, contact the instructor.
+
+
+### Cloning the repo into your Workbench
 
 1. Log into *Workbench* and start a new project:  
    *File > New Project > Version Control > Git*
 
 2. In the *Repository URL* field:
    - Paste the URL of your GitHub repository. To find the URL, go to your `hw04` repo on GitHub, click the green Code button, and copy the SSH or HTTPS link (use the method you configured during setup: Workbench users must select SSH).
-   - The project name should auto-fill. If not, type `hw04-<USERNAME>` manually.
+   - The project name should auto-fill. If not, type the same name manually (it should match the GitHub repo name).
 
 3. Choose where to save the project directory locally. *Tip:* Avoid moving folders after cloning them.  
-
-4. Check the box *"Open in new session"* (recommended for keeping projects separate and organized)
+4. Check the box *"Open in new session"* (recommended for keeping projects organized).
 
 5. Click *Create Project*. This will:
    - Create a new folder on your machine  
    - Initialize a Git repository linked to GitHub  
    - Open an RStudio Project in a new session
 
-
-# General Homework Workflow
-
-See [Homework 1](hw01.qmd) for details. The workflow is the same for all assignments (e.g., accept the repo, edit the files, save, then Pull – Stage – Commit – Push).
+You’ll use this same process to access and set up each homework assignment throughout the course.
 
 
-# Assignment Description
+### General Homework Workflow
 
-This homework assignment has two parts, each with its own Rmd file:
+See [Homework 1](hw01.qmd) for details. The workflow is the same for all assignments.
 
-**PART 1:** Practice programming in R by applying the techniques we covered in this module (Lectures 10–14) through guided exercises using a built-in dataset. Use the file `hw4_part1.Rmd`
 
-**PART 2:** Practice programming in R and review previous content (tidyr, dplyr, ggplot2, etc.) using a real, complex social science dataset. Use the file `hw4_part2.Rmd`
+# HW4 Description
 
+In this homework assignment, you will practice the programming concepts we covered in recent lectures through guided exercises. All the details can be found in this repository.
 
 ::: {.callout-note}
 
-- The questions—especially the open-ended ones—are designed to help you think like a programmer and data analyst. They won’t walk you through every step but encourage you to apply what you’ve learned and work independently. Translating what a question asks into code by breaking it down in smaller pieces is one important learning goal of this course.
+- Homework for this class are designed to be completed over multiple sessions. Start early, and remember to save, commit, and push your work regularly.
 
-- This homework is designed to be completed over multiple sessions—it will feel overwhelming otherwise. Start early, and remember to save, commit, and push your work regularly.
+- Do not use AI tools to generate R code from scratch or to think for you; that defeats the purpose of the assignment and violates our class policy on plagiarism. You may use AI to debug after trying on your own. Only submit code you fully understand. Reach out if you have questions, we are here to help!
 
-- Do not use AI tools to generate R code from scratch or to think for you; that defeats the purpose of the assignment and violates our class policy on plagiarism. You may use AI to debug (after trying on your own) or look up how functions work (check course materials first). Only submit code you fully understand. Reach out if you have questions, we are here to help!
 :::
 
 
-# Formatting Guide
+# Formatting Guide for All Homework
 
 See [Homework 2](hw02.qmd) for details. The formatting expectations are the same for all assignments.
 
@@ -75,20 +72,20 @@ See [Homework 2](hw02.qmd) for details. The formatting expectations are the same
 
 To submit your assignment on Canvas, follow these steps:
 
-1. Before the deadline, push the final version of your work to your GitHub repository. *Tip:* don’t wait until the end to make your first commit—commit, stage, and push your work regularly as you go.
+1. Before the deadline, push the final version of your work to your GitHub repository. *Tip:* don’t wait until the end to make your first commit; instead stage, commit, and push your work regularly as you go.
 
-   Your GitHub repository should include (make sure to stage-commit-push all these files):
-   - `hw4_part1.Rmd` and `hw4_part2.Rmd` main files you will work on
-   - `hw4_part1.md` and `hw4_part2.md`: you will generate these file from the `.Rmd` by simply knitting each of them
-   - the folder that contains all the graphs that you generated in your `.Rmd` (we need this to be able to see your graphs and grade your homework)
+   Your GitHub repository should include:
+   - `programming.Rmd`: main file you will work on
+   - `programming.md`: you will generate this file from the `.Rmd` by simply knitting it
+   - the folder that contains the graphs that you generated in your `.Rmd`, if any
 
 2. When you're ready to submit:
-   - Copy the URL of your GitHub repository. It will look something like: `https://github.com/css-fall25/hw04-yourusername`
-   - Submit that URL on Canvas under HW04. Do not upload any files to Canvas. We only need the repository link.
+   - Copy the URL of your GitHub repository. It will look something like: `https://github.com/css-fall26/css-hw04-yourusername`
+   - Submit that URL on Canvas under HW04. Do not upload any files to Canvas. We only need the repository link. Your repository remains private, only the instructional staff can access it.
 
 
 # Assessment
 
-All homework assignments are evaluated using [this rubric](https://docs.google.com/spreadsheets/d/1RAgv09Wn62X7-xsSb5bGBmEqAMFKh_om/edit?usp=sharing&ouid=112534119211880791899&rtpof=true&sd=true). Refer to it to assess your work before submitting. For more, see the *Assessment* section of the Syllabus.
+All homework assignments are evaluated using [this rubric](https://docs.google.com/spreadsheets/d/1N2J2yvOz-hEo6ZXq0qjcaGhnVFB__naF/edit?usp=sharing&ouid=112534119211880791899&rtpof=true&sd=true), accessible using a UChicago account. For more, see the *Assessment* section of the Syllabus. 
 
 
