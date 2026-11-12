@@ -52,13 +52,13 @@ See [Homework 1](hw01.qmd) for details. The workflow is the same for all assignm
 
 # HW4 Description
 
-In this homework assignment, you will practice the programming concepts we covered in recent lectures through guided exercises. All the details can be found in this repository.
+In this homework assignment, you will practice the programming concepts we covered in recent lectures through guided exercises. **All details can be found in the homework repository.**
 
 ::: {.callout-note}
 
 - Homework for this class are designed to be completed over multiple sessions. Start early, and remember to save, commit, and push your work regularly.
 
-- Do not use AI tools to generate R code from scratch or to think for you; that defeats the purpose of the assignment and violates our class policy on plagiarism. You may use AI to debug after trying on your own. Only submit code you fully understand. Reach out if you have questions, we are here to help!
+- Do not use AI tools to generate R code from scratch or to think for you; that defeats the purpose of the assignment and violates our class policy on plagiarism. Only submit code you fully understand. Reach out if you have questions, we want to help!
 
 :::
 
