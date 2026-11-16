@@ -532,13 +532,11 @@ apply(penguins, 2, mean, na.rm = TRUE)
 
 ## For Loops in : Best Practices
 
-CHECK THIS SLIDE NEW FALL 26 + EXPLAIN WHY PREALLOCATION WITH AN EXAMPLE
-
 1. When in doubt, loop over indexes, so you can access both `i` and `x[i]`; loop over values only when you just need the values.
 
 2. When you loop over indexes use `seq_along()` vs `1:length(x)` 
 
-3. Pre allocate your output vector
+3. Pre allocate your output vector (best practice, saves R memory)
 
 4. Prefer vectorized code when possible (Options 1 to 3 we learned today)
 
@@ -871,7 +869,7 @@ total   # Error: object 'total' not found
 
 ## 💻 Practice writing functions 
 
-**Download the class materials from the website (see Lecture 18 homepage): complete QUESTION 1 and QUESTION 2. Once done, share your code [here](https://codeshare.io/5QJvWx)**
+**Download the class materials from the website (see Lecture 18 homepage): complete QUESTION 1 and QUESTION 2.**
 
 ---
 

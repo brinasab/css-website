@@ -700,11 +700,10 @@ apply(penguins, 2, mean, na.rm = TRUE)
 </section>
 <section id="for-loops-in-best-practices" class="slide level2 center">
 <h2>For Loops in : Best Practices</h2>
-<p>CHECK THIS SLIDE NEW FALL 26 + EXPLAIN WHY PREALLOCATION WITH AN EXAMPLE</p>
 <ol type="1">
 <li><p>When in doubt, loop over indexes, so you can access both <code>i</code> and <code>x[i]</code>; loop over values only when you just need the values.</p></li>
 <li><p>When you loop over indexes use <code>seq_along()</code> vs <code>1:length(x)</code></p></li>
-<li><p>Pre allocate your output vector</p></li>
+<li><p>Pre allocate your output vector (best practice, saves R memory)</p></li>
 <li><p>Prefer vectorized code when possible (Options 1 to 3 we learned today)</p></li>
 </ol>
 </section></section>
@@ -957,7 +956,7 @@ Note:
 </section>
 <section id="practice-writing-functions" class="slide level2 center">
 <h2>💻 Practice writing functions</h2>
-<p><strong>Download the class materials from the website (see Lecture 18 homepage): complete QUESTION 1 and QUESTION 2. Once done, share your code <a href="https://codeshare.io/5QJvWx">here</a></strong></p>
+<p><strong>Download the class materials from the website (see Lecture 18 homepage): complete QUESTION 1 and QUESTION 2.</strong></p>
 </section>
 <section id="the-return-statements" class="slide level2 center">
 <h2>The return statement(s)</h2>

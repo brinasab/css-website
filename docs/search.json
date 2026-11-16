@@ -3847,7 +3847,7 @@
     "href": "lectures/15-slides.html#practice-writing-functions",
     "title": "Computing for the Social Sciences: Lecture 15",
     "section": "💻 Practice writing functions",
-    "text": "💻 Practice writing functions\nDownload the class materials from the website (see Lecture 18 homepage): complete QUESTION 1 and QUESTION 2. Once done, share your code here"
+    "text": "💻 Practice writing functions\nDownload the class materials from the website (see Lecture 18 homepage): complete QUESTION 1 and QUESTION 2."
   },
   {
     "objectID": "lectures/15-slides.html#the-return-statements",
@@ -3959,7 +3959,7 @@
     "href": "lectures/15-slides.html#for-loops-in-best-practices",
     "title": "Computing for the Social Sciences: Lecture 15",
     "section": "For Loops in : Best Practices",
-    "text": "For Loops in : Best Practices\nCHECK THIS SLIDE NEW FALL 26 + EXPLAIN WHY PREALLOCATION WITH AN EXAMPLE\n\nWhen in doubt, loop over indexes, so you can access both i and x[i]; loop over values only when you just need the values.\nWhen you loop over indexes use seq_along() vs 1:length(x)\nPre allocate your output vector\nPrefer vectorized code when possible (Options 1 to 3 we learned today)"
+    "text": "For Loops in : Best Practices\n\nWhen in doubt, loop over indexes, so you can access both i and x[i]; loop over values only when you just need the values.\nWhen you loop over indexes use seq_along() vs 1:length(x)\nPre allocate your output vector (best practice, saves R memory)\nPrefer vectorized code when possible (Options 1 to 3 we learned today)"
   },
   {
     "objectID": "lectures/15-slides.html#last-lecture-we-ended-saying-there-are-alternatives-to-for-loops-in-r",
