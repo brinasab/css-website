@@ -151,14 +151,14 @@
     "href": "lectures/15-home.html",
     "title": "Lecture 15: Control Flow with Loops (cont.); Functions",
     "section": "",
-    "text": "Date: November 16, 2026\nTopics: Finish Loops; Introduce Functions\nSlides: To be posted before class\nCode: To be posted before class"
+    "text": "Date: November 16, 2026\nTopics: Finish Loops; Introduce Functions\nSlides: View Slides\nCode: usethis::use_course(\"css-materials/functions\")"
   },
   {
     "objectID": "lectures/15-home.html#info-and-materials",
     "href": "lectures/15-home.html#info-and-materials",
     "title": "Lecture 15: Control Flow with Loops (cont.); Functions",
     "section": "",
-    "text": "Date: November 16, 2026\nTopics: Finish Loops; Introduce Functions\nSlides: To be posted before class\nCode: To be posted before class"
+    "text": "Date: November 16, 2026\nTopics: Finish Loops; Introduce Functions\nSlides: View Slides\nCode: usethis::use_course(\"css-materials/functions\")"
   },
   {
     "objectID": "lectures/15-home.html#learning-objectives",
@@ -3960,5 +3960,12 @@
     "title": "Computing for the Social Sciences: Lecture 15",
     "section": "For Loops in : Best Practices",
     "text": "For Loops in : Best Practices\nCHECK THIS SLIDE NEW FALL 26 + EXPLAIN WHY PREALLOCATION WITH AN EXAMPLE\n\nWhen in doubt, loop over indexes, so you can access both i and x[i]; loop over values only when you just need the values.\nWhen you loop over indexes use seq_along() vs 1:length(x)\nPre allocate your output vector\nPrefer vectorized code when possible (Options 1 to 3 we learned today)"
+  },
+  {
+    "objectID": "lectures/15-slides.html#last-lecture-we-ended-saying-there-are-alternatives-to-for-loops-in-r",
+    "href": "lectures/15-slides.html#last-lecture-we-ended-saying-there-are-alternatives-to-for-loops-in-r",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "Last Lecture: we ended saying there are alternatives to for loops in R",
+    "text": "Last Lecture: we ended saying there are alternatives to for loops in R\nFor loops make iteration explicit and are an important programming tool. You will encounter them in many programming languages, so it is worth learning them…\nBut R has many functions that do the same job as a for loop, but more concisely: across, map, apply"
   }
 ]

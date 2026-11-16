@@ -74,21 +74,13 @@ output
 
 ---
 
-## Last Lecture: we ended with this slide
+## Last Lecture: we ended saying there are alternatives to for loops in R
 
 For loops make iteration explicit and are an important programming tool. You will encounter them in many programming languages, so it is worth learning them...
 
-::: {.fragment}
-::: {.callout-tip title="...BUT R IS A VECTORIZED LANGUAGE"}
-- many functions operate on a whole vector (or column) at once, like `ifelse()` so no loop is needed
-- when you *do* need to repeat a task, R has functions that *do the same job as a for loop, but more concisely*
-  - `across()` from dplyr: applies a function to many columns inside `mutate()` or `summarise()`
-  - `map()` from purrr: applies a function to every element of a list or vector
-  - `apply()` family of functions from base R: the classic base-R alternative to for loops
-:::
-:::
+But R has many functions that do the same job as a for loop, but more concisely: across, map, apply
 
----
+<!--
 
 ## Why We Even Learn For Loops in R?
 
@@ -102,30 +94,7 @@ For loops make iteration explicit and are an important programming tool. You wil
 - to be able to read and understand other people code
 - for general literacy on programming
 
-<!--
-
-SO WHY A FOR LOOP ?? 
-
-The honest answer for a dataframe-column context is closer to:
-
-1. You'll read loops in other people's/older code, even if you rarely write them yourself for this kind of task — that's a literacy argument, not a capability one.
-
-2. across() only fits when the tidy-select + one-function pattern fits. The moment the task per column is a genuinely custom, multi-step, branching procedure (rather than "apply this one function"), a loop becomes clearer than contorting it into across().
-
-3. The real can't-do-it-with-across() cases tend to live outside single-dataframe, column-independent tasks — R4DS's own examples for "why iterate" are things like reading in many files, fitting many models and saving each one, or writing out many objects — tasks with side effects, not a column transformation.
-
-Given that, I'd suggest replacing the running-total-over-columns slide with something more defensible — want me to draft a slide built around one of R4DS's actual examples (e.g., looping to read/fit/save several things), or would you rather just soften the claim to "loops are the general tool and you'll need to recognize them in the wild," without insisting on a dataframe-specific counterexample?
-
-ALso add example or looping over rows
-
-data <- data.frame(
-  name = c("Alice", "Bob", "Carlos"),
-  score = c(85, 92, 78)
-)
-
-for (i in seq_len(nrow(data))) {
-  print(data[i, ])
-}
+Consider replacing the running-total-over-columns slide with something more defensible like built around one of R4DS's actual examples (e.g., looping to read/fit/save several things)
 
 -->
 

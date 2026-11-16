@@ -222,7 +222,7 @@ Sabrina Nardin, Fall 2026
 
 ::: {.content-hidden}
 -->
-<p><span style="font-size: 0.8em; color: #666;"> <em>Slides last updated on <strong>November 12, 2026</strong>. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.</em> </span></p>
+<p><span style="font-size: 0.8em; color: #666;"> <em>Slides last updated on <strong>November 16, 2026</strong>. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.</em> </span></p>
 <!--
 REMEMBER FOR MONDAY FALL 26:
 - REMINDER FINAL PROEJCT CHECK IN WITH ME THIS WEEK IF IDEA DOES NOT FIT OR    ARE UNSURE (SAY DESCR GOOD STEP)
@@ -262,70 +262,25 @@ NEXT CLASS (BEFORE BREAK!)
 <li><code>penguins[[i]]</code> ` pulls out the column’s values as a plain vector</li>
 </ul>
 </section>
-<section id="last-lecture-we-ended-with-this-slide" class="slide level2 center">
-<h2>Last Lecture: we ended with this slide</h2>
+<section id="last-lecture-we-ended-saying-there-are-alternatives-to-for-loops-in-r" class="slide level2 center">
+<h2>Last Lecture: we ended saying there are alternatives to for loops in R</h2>
 <p>For loops make iteration explicit and are an important programming tool. You will encounter them in many programming languages, so it is worth learning them…</p>
-<div class="fragment">
-<div title="...BUT R IS A VECTORIZED LANGUAGE">
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>…BUT R IS A VECTORIZED LANGUAGE</strong></p>
-</div>
-<div class="callout-content">
-<ul>
-<li>many functions operate on a whole vector (or column) at once, like <code>ifelse()</code> so no loop is needed</li>
-<li>when you <em>do</em> need to repeat a task, R has functions that <em>do the same job as a for loop, but more concisely</em>
-<ul>
-<li><code>across()</code> from dplyr: applies a function to many columns inside <code>mutate()</code> or <code>summarise()</code></li>
-<li><code>map()</code> from purrr: applies a function to every element of a list or vector</li>
-<li><code>apply()</code> family of functions from base R: the classic base-R alternative to for loops</li>
-</ul></li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="why-we-even-learn-for-loops-in-r" class="slide level2 center">
-<h2>Why We Even Learn For Loops in R?</h2>
-<p><strong>Many tasks in R can and should be done without writing a for loop</strong></p>
-<p><strong>So why do we even learn loops in R?</strong></p>
-<ul>
-<li>to build logic and control flow skills</li>
-<li>for non-vectorized tasks, like row-by-row operations</li>
-<li>to build more complex workflows</li>
-<li>to be able to read and understand other people code</li>
-<li>for general literacy on programming</li>
-</ul>
+<p>But R has many functions that do the same job as a for loop, but more concisely: across, map, apply</p>
 <!--
 
-SO WHY A FOR LOOP ?? 
+## Why We Even Learn For Loops in R?
 
-The honest answer for a dataframe-column context is closer to:
+**Many tasks in R can and should be done without writing a for loop** 
 
-1. You'll read loops in other people's/older code, even if you rarely write them yourself for this kind of task — that's a literacy argument, not a capability one.
+**So why do we even learn loops in R?** 
 
-2. across() only fits when the tidy-select + one-function pattern fits. The moment the task per column is a genuinely custom, multi-step, branching procedure (rather than "apply this one function"), a loop becomes clearer than contorting it into across().
+- to build logic and control flow skills
+- for non-vectorized tasks, like row-by-row operations
+- to build more complex workflows
+- to be able to read and understand other people code
+- for general literacy on programming
 
-3. The real can't-do-it-with-across() cases tend to live outside single-dataframe, column-independent tasks — R4DS's own examples for "why iterate" are things like reading in many files, fitting many models and saving each one, or writing out many objects — tasks with side effects, not a column transformation.
-
-Given that, I'd suggest replacing the running-total-over-columns slide with something more defensible — want me to draft a slide built around one of R4DS's actual examples (e.g., looping to read/fit/save several things), or would you rather just soften the claim to "loops are the general tool and you'll need to recognize them in the wild," without insisting on a dataframe-specific counterexample?
-
-ALso add example or looping over rows
-
-data <- data.frame(
-  name = c("Alice", "Bob", "Carlos"),
-  score = c(85, 92, 78)
-)
-
-for (i in seq_len(nrow(data))) {
-  print(data[i, ])
-}
+Consider replacing the running-total-over-columns slide with something more defensible like built around one of R4DS's actual examples (e.g., looping to read/fit/save several things)
 
 -->
 </section>
