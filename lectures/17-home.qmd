@@ -1,9 +1,9 @@
 ---
-title: "Lecture 17: TBD"
+title: "Lecture 17: Reproducible Workflow; Exam Review"
 date: 2026-11-30
-summary: "To be determined based on class interests"
-#url_slides: 17-slides.qmd
-#url_code: css-materials/scraping
+summary: "Reproducible Workflow; Exam Review"
+url_slides: 17-slides.qmd
+url_code: css-materials/deep-dive-reproducible-git-rmd
 page-layout: full
 draft: false
 ---
@@ -23,6 +23,23 @@ knitr::opts_chunk$set(echo = FALSE)
 * **Slides**: [View Slides]({{< meta url_slides >}})
 * **Code**: `usethis::use_course("{{< meta url_code >}}")`
 -->
+
+## Learning Objectives
+
+* Reproducible Workflow:
+  * Define a project-oriented workflow in R and identify best R procedures
+  * Expand our current knowledge of R Markdown
+  * Basics of Git/GitHub via terminal/command line 
+
+* Exam 2 Review
+
+## Readings
+
+* [Good Enough Practices in Scientific Computing](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510)
+* Chapters 1, 2, 3, 7 in [What They Forgot to Teach You About R](https://rstats.wtf/)
+* Chapters 27 "R Markdown", 28 "Graphics for communication", and 29 "R Markdown formats" in [R for Data Science 1st Edition](http://r4ds.had.co.nz)
+* Article on [Project-oriented workflow](https://www.tidyverse.org/articles/2017/12/workflow-vs-script/)
+
 
 <!-- `usethis::use_course("css-materials/getting-data-from-web-part2")` -->
 

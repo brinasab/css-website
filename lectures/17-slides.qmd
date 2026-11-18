@@ -1,0 +1,621 @@
+---
+title: "Computing for the Social Sciences: Lecture 17"
+subtitle: "Topics: Reproducible Workflow; Exam 2 Review"
+author: "Sabrina Nardin, Fall 2026"
+format:
+  revealjs:
+    theme: simple
+    slide-number: true
+    incremental: false
+    css: ../style/styles.css
+    code-overflow: wrap
+    highlight-style: github
+    ratio: 16:9
+    chalkboard: true
+    toc: false
+    center: true
+---
+
+# Agenda {.center}
+
+::: {.agenda-list}
+1. Reproducible Workflow
+    1. Tips to improve your R workflow
+    2. Deep-dive into R Markdown
+    3. Using Git and GitHub with the command line
+    
+2. Exam 2 Review
+:::
+
+<!--
+### Slides are in progress and will be updated before class.
+::: {.content-hidden}
+-->
+
+<span style="font-size: 0.8em; color: #666;">
+*Slides last updated on **`r format(Sys.Date(), '%B %d, %Y')`**. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.*
+</span>
+
+
+# 1.1 Tips to improve your R workflow {.slide .center .middle}
+
+---
+
+## Main Idea: Reproducibilty
+
+### Reproducibility means that you, or anyone else, can re-run your analysis from scratch and get the same results!
+
+--- 
+
+## Main Idea: Reproducibilty
+
+The tips in the next slides all serve one principle:
+
+::: {.callout-tip title="Don't preserve the workspace. Preserve the code that creates the workspace"}
+Your scripts are the product. Everything else (objects in memory, console history, current session) is disposable. For more see Bryan & Hester, [*What They Forgot to Teach You About R*](https://rstats.wtf/).
+:::
+
+---
+
+## Tip 1: Start every session with a clean, empty workspace
+
+When you run an R session, your **workspace** includes everything created during that session:
+
+- packages you loaded with `library()`
+- all user-created objects (data, vectors, functions, models, ...)
+
+By default, R offers to *save* this workspace when you quit and *restore* it when you return. This is convenient in the short run, but not in the long run.  
+
+---
+
+## Tip 1: How?
+
+When closing a session, R asks: *"Do you want to save your workspace?"* → **Answer No.**
+
+Even better, change the defaults so R never asks again: **Tools → Global Options → General**
+
+- Uncheck "Restore .RData into workspace at startup"
+- Set "Save workspace to .RData on exit" to **Never**
+
+<!--
+::: {.callout-tip}
+You can also run `usethis::use_blank_slate()` to apply these settings for you.
+:::
+-->
+
+---
+
+## Tip 1: Why?
+
+A restored workspace can hide objects you forgot about or that your current script never creates:
+
+- objects created by *other* scripts may still be lurking
+- packages or data may be loaded that your script never loads
+- you may have modified objects directly in the Console without updating the script
+
+If your script only "works" because of leftovers in the workspace, it is silently broken. That hurts reproducibility
+
+<!-- When everything lives in the code, you, and anyone else, can rebuild the entire workspace from scratch, on any machine, at any time. -->
+
+---
+
+## Tip 2: Use a project-based workflow and relative paths
+
+In this class, we use a project-based workflow **by creating an `.Rproj` file in every repo!** 
+Value of this approach:
+
+- keeps all files for one project together in one folder
+- sets the working directory automatically, so **relative paths just work**
+- lets you switch between projects (or open several) without confusion
+
+::: {.callout-note}
+If you complete HW5, remember to create `.Rproj` file in your repo: see [these slides from Lecture 10](https://brinasab.github.io/css-website-summer/lectures/10-slides.html#/rstudio-projects-make-using-relative-file-paths-easier).
+:::
+
+---
+
+## Tip 2: Use a project-based workflow and relative paths
+
+**Avoid this pattern:**
+
+```r
+# fragile: works only on this computer, only today
+setwd("/Users/sabrina/Documents/css/hw5/data")
+df <- read_csv("survey.csv")
+```
+
+An absolute path or a path hard-wired like this example will not work on anyone else's computer, or on yours a year from now.
+
+Rely on the project root using the `.Rproj` folders. For more tips, explore the [`here` package](https://here.r-lib.org/) builds paths from the top-level project folder, no matter which script or subfolder you are in.
+
+<!--
+```r
+# robust: relative to the .Rproj folder, works anywhere
+library(here)
+df <- read_csv(here("data", "survey.csv"))
+```
+-->
+
+
+---
+
+## Tip 3: Treat raw data as read-only
+
+Your raw data files are your starting point: never edit them by hand, and never let a script overwrite them.
+
+- keep raw files in their own folder (e.g., `data/raw/`) and treat it as untouchable
+- do all cleaning **in a script**, so every change is recorded and repeatable
+- save cleaned/processed versions to a separate folder (e.g., `data/processed/`)
+
+::: {.callout-tip}
+## Test
+If you deleted everything in `data/processed/`, could you regenerate it by re-running your scripts on the raw data? If yes, your pipeline is reproducible. See Wilson et al. (2017), [*Good Enough Practices in Scientific Computing*](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510)
+:::
+
+---
+
+## Tip 4: Build debugging skills
+
+#### What debugging tips have you learned so far from working in R?
+
+Please share your answer [here](https://docs.google.com/document/d/1MW33dXvphyRLD08EluOZJGEa-cUK6p-I9uF9IGcX-S8/edit?usp=sharing)
+
+---
+
+## Tip 4: Build debugging skills
+
+We can think about degugging as a process...
+
+#### Step 1. Realize that you have a bug: 
+
+- a bug can be syntactic (like a typo) 
+- or conceptual (a misunderstanding of R's rules)
+
+<!--
+We all encounter both types of bugs. Fixing the latter requires time and experience, but we can address syntactic bugs faster by improving our coding style!
+-->
+
+---
+
+## Tip 4: Build debugging skills
+
+#### Step 2. Figure out where it is:
+
+- read your code out loud
+- use `print()` statements to check each line
+- use `class()` to check the data structure you are working with
+- run one piece of code at a time
+- if it comes from misuse of a specific function, check its documentation with `?function_name`
+- ask AI to identify it and explain why
+- take a break!
+
+#### Step 3. Fix it!
+
+Then re-run the *whole* script in a fresh session to confirm 
+
+More in ["Debugging R code"](https://rstats.wtf/debugging-r) from *What They Forgot to Teach You About R*
+
+---
+
+## Tip 5: Read and understand what R tells you
+
+R communicates in three distinct ways, and they are **not** all bad news:
+
+- **Errors** stop your code. R could not do what you asked: this must be fixed.
+
+- **Warnings** let the code run, but R flags that something may be off. Check the result before trusting it.
+
+- **Messages** are informative. Nothing is wrong, R is just telling you what it did.
+
+---
+
+## Tip 5: Read and understand what R tells you
+
+```r
+log("a")
+#> Error in log("a"): non-numeric argument to mathematical function
+```
+Errors: code stopped, fix it
+
+```r
+log(-1)
+#> Warning message: NaNs produced
+```
+Warning: code ran, but the result is `NaN` (check your input)
+
+<!--
+log(-1) has no answer in the real numbers. But from R's perspective, the call itself is legitimate: log() expects a number, and you gave it a number. So R can carry out the computation — it just produces NaN ("Not a Number"), which is a real value in R that represents an undefined mathematical result. The code ran and returned something, so R warns you rather than stopping.
+-->
+```r
+library(tidyverse)
+#> ── Attaching core tidyverse packages ──────────────
+```
+Message: nothing is wrong, but useful info
+
+<!--
+For example, plotting with geom_smooth() prints a message because it automatically decides which smoothing algorithm to use (default depends on sample size):
+
+```{r echo = TRUE, out.width = "35%"}
+library(tidyverse)
+ggplot(diamonds, aes(carat, price)) +
+  geom_point() +
+  geom_smooth()
+```
+-->
+
+---
+
+## Tip 6: Restart R often (Session → Restart R)
+
+Stuck with a bug, but you're 100% sure the code is correct? Restart R:
+
+- More reliable than `rm(list = ls())` or the broom icon. Those only delete user objects; packages you loaded, options you changed, and other session state all survive invisibly
+- restarting keeps RStudio open but clears everything underneath, giving you a truly clean session
+- if your script still works after a restart, run top to bottom, that's evidence it is reproducible
+
+::: {.callout-note}
+Restart early, restart often. If restarting feels costly, that is a sign your workflow depends on hidden state, exactly what Tips 1 and 2 prevent.
+:::
+
+---
+
+## Tip 7: Use code auto-formatting in RStudio
+
+Consistent style makes bugs easier to see (yours *and* others). RStudio helps:
+
+- option 1: `Code > Reformat Code` (Shift + Cmd/Ctrl + A)
+- option 2: `Code > Reindent Lines` (Cmd/Ctrl + I)
+- option 3: install the [`styler`](http://styler.r-lib.org/) package for more on restyling
+
+Open an R script and try this out:
+
+```r
+ y<-10
+  if (y < 20) {
+x <- "Too low" }
+else {
+  x <-"Too high"}
+```
+
+---
+
+## Recap: habits for reproducible work
+
+1. Start every session with a **clean, empty workspace**
+2. Use a **project-based** workflow (`.Rproj` in every repo)
+3. Treat raw data as **read-only**; clean it with scripts
+4. Build **debugging** skills
+5. Distinguish **errors, warnings, and messages**
+6. **Restart R** often
+7. **Auto-format** your code
+
+::: {.callout-important}
+**FINAL TEST: Close R, reopen the project, run your script top to bottom. Does it work?**
+:::
+
+---
+
+## Resources for reproducible work
+
+- Bryan & Hester, [*What They Forgot to Teach You About R*](https://rstats.wtf/) on clean workspaces, safe paths, debugging
+- Bryan, ["Project-oriented workflow"](https://www.tidyverse.org/blog/2017/12/workflow-vs-script/) (tidyverse blog)
+- Wickham, Çetinkaya-Rundel & Grolemund, [*R for Data Science*, "Workflow: scripts and projects"](https://r4ds.hadley.nz/workflow-scripts.html)
+- Wilson et al. (2017), [*Good Enough Practices in Scientific Computing*](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510), for general tips on the topic of reproducibility
+- The [`here`](https://here.r-lib.org/) and [`styler`](http://styler.r-lib.org/) packages
+
+
+# 1.2. Deep-dive into R Markdown {.slide .center .middle}
+
+---
+
+## R Markdown Recap
+
+**R Markdown is a file format (with extension `.Rmd`) that:**
+
+- combines R code, using code chunks, and text in a single document
+- makes it easy to create reproducible reports, analyses, and presentations
+- you might hear about Quarto (with extension `.qmd`): a newer alternative to R Markdown (if you learn R Markdown, you can quickly adjust to Quarto)
+
+---
+
+## R Markdown Recap
+
+### Three Main Components
+
+1.  **YAML header** for document title, author, output format, etc. Insert it at the top between `---`
+
+2.  **Text** regular Markdown for headers, lists, links, etc.
+
+3.  **Code chunks** for code. Insert it with triple backticks ```` ``` ````
+
+::: {.fragment .setup-box .callout-tip title="Code Chunk Tips"}
+**Three ways to insert a code chunk in your R Markdown:**
+
+-   Use the RStudio toolbar\
+-   Type manually ```` ```{r} ```` and ```` ``` ````
+-   Use a shortcut
+    -   Mac: ⌘ + ⌥ + I\
+    -   Windows: Ctrl + Alt + I
+:::
+
+---
+
+## R Markdown vs R Script
+
+### When to use a script vs. a Rmd
+
+- When you want to experiment, test functions, debug code
+
+- When you do not need to communicate output or results to others
+
+- For scripts that need to run top-to-bottom without narrative
+
+- For larger projects where you could have some code in R scripts (e.g., data cleaning, analysis pipelines, tests, etc.), and others (e.g., the final-narrated versions) in a Rmd file
+
+---
+
+## R Markdown: What We Know
+
+* Inserting a YAML Header with basic elements
+* Formatting text (italics, bold, etc.)
+* Formatting titles 
+* Inserting lists (ordered and unordered)
+* Inserting images, tables, and hyperlinks
+* Rendering a Rmd into pdf, html, md, etc.
+
+---
+
+## R Markdown: What We Learn Today
+
+* How the knitting process works
+* Inline code
+* Code chunks names
+* Code chunks options
+* Global options
+* New YAML header elements
+
+---
+
+## R Markdown: The Knitting Process
+
+When you "knit" your document, the following sequential things happen, as [illustarated here](https://bookdown.org/yihui/rmarkdown-cookbook/rmarkdown-process.html)
+
+1.  R Markdown sends the `.Rmd` file to `knitr` http://yihui.name/knitr/
+
+2.  Knitr executes all of the code chunks and creates a new plain Markdown `.md` file which includes the code and its output
+
+3.  This plain Markdown file is then converted by `pandoc` into any number of output types including html, PDF, Word document, etc.: http://pandoc.org/
+
+---
+
+## R Markdown: Inline Code - How it looks like in your Rmd
+
+````{verbatim, echo = TRUE}
+---
+title: "Gun deaths"
+author: "Sabrina Nardin"
+output: html_document
+---
+
+```{r setup, include = FALSE}
+library(tidyverse)
+library(rcis)
+```
+
+## Gun deaths by age
+
+The `gun_deaths` dataset includes data for `r nrow(gun_deaths)` individuals killed by guns.
+
+```{r youth, echo = FALSE}
+youth <- gun_deaths %>% filter(age <= 65)
+```
+
+We have `r nrow(youth)` individuals who are 65 or younger. 
+Only `r nrow(gun_deaths) - nrow(youth)` are older than 65.
+
+````
+
+---
+
+## R Markdown: Inline Code - How is rendered once knitted
+
+```{r youth, include = FALSE}
+library(tidyverse)
+library(rcis)
+youth <- gun_deaths |> filter(age <= 65)
+```
+
+The `gun_deaths` dataset includes data for `r nrow(gun_deaths)` individuals killed by guns.
+
+We have `r nrow(youth)` individuals who are 65 or younger. 
+Only `r nrow(gun_deaths) - nrow(youth)` are older than 65.
+
+---
+
+## R Markdown: Code Chunks Names
+
+A named code chunk:
+````{verbatim, lang = 'markdown', echo = TRUE}
+```{r youth-distribution}
+# code goes here
+```
+````
+
+Advantages:
+
+1. Easier to navigate to specific chunks (using the drop-down code navigator in the script editor). Note: Two code chunks should not have the same name.
+
+1. Graphics produced by the chunks have useful names
+
+1. Use it with `cache = TRUE` to avoid re-performing expensive computations on every run 
+
+::: {.callout-tip}
+`cache = TRUE` saves a chunk's output to a file on memory. On future renders, R checks if the code chunk has changed; if not, R skips re-running the chunk and reuses the cached results (see Ch. 27 R for Data Science)
+:::
+
+---
+
+## R Markdown: Code Chunk Options {.center}
+
+Check:
+
+- Lecture 2 
+- [This table](https://r4ds.had.co.nz/r-markdown.html#chunk-options) and [options](http://yihui.name/knitr/options/) for more.
+
+---
+
+## R Markdown: Global Options
+
+Use global chunk options when you want the same settings to apply to ALL code chunks in your R Markdown file.
+
+Global options are defined in a code chunk at the top of your Rmd file with `knitr::opts_chunk$set()` 
+
+For example, if you want to hide the code by default in your entire Rmd:
+
+```r
+knitr::opts_chunk$set(
+  echo = FALSE    # shows results but hide codes 
+)
+```
+
+---
+
+## R Markdown: New YAML Header Elements
+
+````{verbatim, echo = TRUE}
+---
+title: "Gun deaths"
+author: "Sabrina Nardin"
+output: html_document
+---
+````
+
+---
+
+## YAML Header: Table of Contents
+
+````{verbatim, echo = TRUE}
+---
+title: "Gun deaths"
+author: "Sabrina Nardin"
+output: 
+  html_document
+    toc: true
+    toc_depth: 2
+---
+````
+
+---
+
+## YAML Header: Apparence and Style
+
+````{verbatim, echo = TRUE}
+---
+title: "Gun deaths"
+author: "Sabrina Nardin"
+output: 
+  html_document
+    theme: readable
+    fig_width: 8
+    fig_height: 6
+---
+````
+
+---
+
+## YAML Header: How to add a date
+
+Add a date as a simple string, and manually modify it every time we modify our file:
+````{verbatim, echo = TRUE}
+---
+title: "Gun deaths"
+output: html_document
+date: "December 1, 2025"
+---
+````
+
+But we can also add it automatically with lubridate:
+````{verbatim, echo = TRUE}
+---
+title: "Gun deaths"
+output: html_document
+date: "`r lubridate::today()`"
+---
+````
+
+---
+
+## YAML Header: How to add a date
+
+Or with Sys.Date with default format year/month/day
+````{verbatim, echo = TRUE}
+---
+title: "Gun deaths"
+output: html_document
+date: "`r Sys.Date()`"
+---
+````
+
+Or with Sys.time which is more flexible
+````{verbatim, echo = TRUE}
+---
+title: "Gun deaths"
+output: html_document
+date: "`r format (Sys.time(), '%d, %B, %Y')`"
+---
+````
+
+<!--
+`Sys.time` returns an absolute date-time value which can be converted to various time zones, and it more easily is customizable. This format says we want the date as: numeric day, full name of the month, and full (4-digit) year, but it can be changed
+-->
+
+---
+
+## 💻 Practice with Rmd
+
+Download today's class materials and complete the tutorial!
+
+---
+
+## R Markdown More Info and Tips
+
+For final project (HW5), experiment with a few of the R Markdown options covered in these slides or in [R for Data Science 1st Edition](http://r4ds.had.co.nz):
+
+- Chapter 27 "R Markdown"
+- Chapter 28 "Graphics for communication"
+- Chapter 29 "R Markdown formats" 
+
+
+# 1.3. Git/Github from the command line {.slide .center .middle}
+
+## Why
+
+So far we have been using 
+
+We can do the same with the command line
+
+
+---
+
+## How to
+
+Slide with side by side comparison
+
+
+---
+
+## Tutorial
+
+Download the **Git/Github from the command line tutorial from [HERE](https://drive.google.com/file/d/1cY48ez1rirI4qDhNccWqzisRfAigi4fB/view?usp=sharing)** 
+
+# 2. Exam 2 Review  {.slide .center .middle}
+
+---
+
+
+---
+
+## To print these slides as pdf
+
+Click on the icon bottom-left corner (the three lines) \> Tools \> PDF Export Mode \> Print as a Pdf
+
