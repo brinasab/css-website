@@ -3707,7 +3707,7 @@
     "href": "lectures/15-slides.html#option-3-replacing-for-loops-with-apply-functions-4",
     "title": "Computing for the Social Sciences: Lecture 15",
     "section": "Option 3: Replacing for loops with apply() functions",
-    "text": "Option 3: Replacing for loops with apply() functions\n\n# Use numeric columns from penguins dataset\nnum_data &lt;- penguins[ , 3:6]\n\n# apply(): function across columns (MARGIN = 2)\napply(num_data, 2, mean, na.rm = TRUE)\n\n# lapply(): list output\nlapply(num_data, mean, na.rm = TRUE)\n\n# sapply(): simplified vector output\nsapply(num_data, mean, na.rm = TRUE)\n\n# vapply(): safe version of sapply()\nvapply(num_data, mean, na.rm = TRUE, FUN.VALUE = numeric(1))\n\n\n\n\n\n\n\nTips for the apply() Family\n\n\n\n\napply() works best with matrix-like structures\n\nlapply() is list-safe, but sapply() is more concise\nvapply() avoids surprises (e.g. unpredictable output type) by enforcing output type (here returns a single numeric value)"
+    "text": "Option 3: Replacing for loops with apply() functions\n\n# Use numeric columns from penguins dataset\nnum_data &lt;- penguins[ , 3:6]\n\n# apply(): function across columns (MARGIN = 2)\napply(num_data, 2, mean, na.rm = TRUE)\n\n# lapply(): list output\nlapply(num_data, mean, na.rm = TRUE)\n\n# sapply(): simplified vector output\nsapply(num_data, mean, na.rm = TRUE)\n\n# vapply(): safe version of sapply()\nvapply(num_data, mean, na.rm = TRUE, FUN.VALUE = numeric(1))\n\n\n\n\n\n\n\nTips for the apply() Family\n\n\n\napply() works best with matrix-like structures\n\nlapply() is list-safe, but sapply() is more concise\nvapply() avoids surprises (e.g. unpredictable output type) by enforcing output type (here returns a single numeric value)"
   },
   {
     "objectID": "lectures/15-slides.html#option-3-practice-using-functions-from-the-apply-family",
@@ -3763,7 +3763,7 @@
     "href": "lectures/15-slides.html#while-loop-uses",
     "title": "Computing for the Social Sciences: Lecture 15",
     "section": "While Loop Uses",
-    "text": "While Loop Uses\nWhile Loops are useful when you don’t know in advance how many times to iterate: you want the loop to continue until a condition is met.\n\nExample use cases:\n\nKeep looping until you get three heads in a row from random coin flips\n\nKeep accepting user input until you reach a target number of responses\n\nWhile loops are important but less common than for loops, especially for the types of tasks we do in this course."
+    "text": "While Loop Uses\nWhile Loops are useful when you don’t know in advance how many times to iterate: you want the loop to continue until a condition is met.\nExample use cases:\n\nKeep looping until you get three heads in a row from random coin flips\n\nKeep accepting user input until you reach a target number of responses\n\nWhile loops are important but less common than for loops, especially for the types of tasks we do in this course."
   },
   {
     "objectID": "lectures/15-slides.html#from-using-to-writing-functions",
@@ -3854,7 +3854,7 @@
     "href": "lectures/15-slides.html#the-return-statements",
     "title": "Computing for the Social Sciences: Lecture 15",
     "section": "The return statement(s)",
-    "text": "The return statement(s)\nIf you do not write return the function returns the value of the last expression evaluated.\n\n\nImplicit return\n\nmy_sum &lt;- function(vector) {\n  total &lt;- 0\n  for (i in seq_along(vector)) {\n    total &lt;- total + vector[i]\n  }\n  total\n}\n\n\nExplicit return (best practice)\n\nmy_sum &lt;- function(vector) {\n  total &lt;- 0\n  for (i in seq_along(vector)) {\n    total &lt;- total + vector[i]\n  }\n  return(total)\n}\n\n\n\nRemember that any code after return will be ignored! Let’s see how…"
+    "text": "The return statement(s)\nIf you do not write return the function returns the value of the last expression evaluated.\n\n\nImplicit return\n\nmy_sum &lt;- function(vector) {\n  total &lt;- 0\n  for (i in seq_along(vector)) {\n    total &lt;- total + vector[i]\n  }\n  total\n}\n\n\nExplicit return (best practice)\n\nmy_sum &lt;- function(vector) {\n  total &lt;- 0\n  for (i in seq_along(vector)) {\n    total &lt;- total + vector[i]\n  }\n  return(total)\n}\n\n\nRemember that any code after return will be ignored! Let’s see how…"
   },
   {
     "objectID": "lectures/15-slides.html#write-multiple-return-statements-example-1",
@@ -3945,7 +3945,7 @@
     "href": "lectures/15-slides.html#last-lecture-for-loop-with-a-dataframe",
     "title": "Computing for the Social Sciences: Lecture 15",
     "section": "Last Lecture: for loop with a dataframe",
-    "text": "Last Lecture: for loop with a dataframe\nIn lecture 14 we learned how to apply a for loop to calculate mean value of several columns in a dataframe:\n\nlibrary(tidyverse)\n\nWarning: package 'tidyverse' was built under R version 4.5.3\n\n\nWarning: package 'ggplot2' was built under R version 4.5.3\n\n\nWarning: package 'tidyr' was built under R version 4.5.3\n\n\nWarning: package 'purrr' was built under R version 4.5.3\n\n\nWarning: package 'dplyr' was built under R version 4.5.3\n\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.2.1     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   4.0.3     ✔ tibble    3.3.0\n✔ lubridate 1.9.4     ✔ tidyr     1.3.2\n✔ purrr     1.2.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(palmerpenguins)\n\n\nAttaching package: 'palmerpenguins'\n\nThe following objects are masked from 'package:datasets':\n\n    penguins, penguins_raw\n\noutput &lt;- vector(mode = \"double\", length = ncol(penguins))\n\nfor (i in seq_along(penguins)) {\n  output[i] &lt;- mean(penguins[[i]], na.rm = TRUE)\n}\n\nWarning in mean.default(penguins[[i]], na.rm = TRUE): argument is not numeric\nor logical: returning NA\n\n\nWarning in mean.default(penguins[[i]], na.rm = TRUE): argument is not numeric\nor logical: returning NA\nWarning in mean.default(penguins[[i]], na.rm = TRUE): argument is not numeric\nor logical: returning NA\n\noutput\n\n\ni will index each column\noutput[i] saves the results in the output vector at the correct position\npenguins[[i]] ` pulls out the column’s values as a plain vector"
+    "text": "Last Lecture: for loop with a dataframe\nIn lecture 14 we learned how to apply a for loop to calculate mean value of several columns in a dataframe:\n\nlibrary(tidyverse)\nlibrary(palmerpenguins)\n\noutput &lt;- vector(mode = \"double\", length = ncol(penguins))\n\nfor (i in seq_along(penguins)) {\n  output[i] &lt;- mean(penguins[[i]], na.rm = TRUE)\n}\n\noutput\n\n\ni will index each column\noutput[i] saves the results in the output vector at the correct position\npenguins[[i]] ` pulls out the column’s values as a plain vector"
   },
   {
     "objectID": "lectures/15-slides.html#why-we-even-learn-for-loops-in-r",
