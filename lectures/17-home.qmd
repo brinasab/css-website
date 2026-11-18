@@ -38,7 +38,7 @@ knitr::opts_chunk$set(echo = FALSE)
 * [Good Enough Practices in Scientific Computing](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510)
 * Chapters 1, 2, 3, 7 in [What They Forgot to Teach You About R](https://rstats.wtf/)
 * Chapters 27 "R Markdown", 28 "Graphics for communication", and 29 "R Markdown formats" in [R for Data Science 1st Edition](http://r4ds.had.co.nz)
-* Article on [Project-oriented workflow](https://www.tidyverse.org/articles/2017/12/workflow-vs-script/)
+* Article on [Project-oriented workflow](https://tidyverse.org/blog/2017/12/workflow-vs-script/)
 
 
 <!-- `usethis::use_course("css-materials/getting-data-from-web-part2")` -->
