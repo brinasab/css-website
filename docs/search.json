@@ -100,37 +100,37 @@
   {
     "objectID": "lectures/17-home.html",
     "href": "lectures/17-home.html",
-    "title": "Lecture 17: TBD",
+    "title": "Lecture 17: Reproducible Workflow; Exam Review",
     "section": "",
-    "text": "Date: November 30, 2026\nTopics: To be determined based on class interests\nSlides: To be posted before class\nCode: To be posted before class"
+    "text": "Date: November 30, 2026\nTopics: Reproducible Workflow; Exam Review\nSlides: To be posted before class\nCode: To be posted before class"
   },
   {
     "objectID": "lectures/17-home.html#info-and-materials",
     "href": "lectures/17-home.html#info-and-materials",
-    "title": "Lecture 17: TBD",
+    "title": "Lecture 17: Reproducible Workflow; Exam Review",
     "section": "",
-    "text": "Date: November 30, 2026\nTopics: To be determined based on class interests\nSlides: To be posted before class\nCode: To be posted before class"
+    "text": "Date: November 30, 2026\nTopics: Reproducible Workflow; Exam Review\nSlides: To be posted before class\nCode: To be posted before class"
   },
   {
     "objectID": "lectures/16-home.html",
     "href": "lectures/16-home.html",
-    "title": "Lecture 16: Functions (cont.); Reproducible Workflow",
+    "title": "Lecture 16: Functions (cont.)",
     "section": "",
-    "text": "Date: November 18, 2026\nTopics: Finish Functions; Tips for Reproducible Workflow\nSlides: To be posted before class\nCode: To be posted before class"
+    "text": "Date: November 18, 2026\nTopics: Finish Functions\nSlides: View Slides\nCode: usethis::use_course(\"css-materials/functions\")"
   },
   {
     "objectID": "lectures/16-home.html#info-and-materials",
     "href": "lectures/16-home.html#info-and-materials",
-    "title": "Lecture 16: Functions (cont.); Reproducible Workflow",
+    "title": "Lecture 16: Functions (cont.)",
     "section": "",
-    "text": "Date: November 18, 2026\nTopics: Finish Functions; Tips for Reproducible Workflow\nSlides: To be posted before class\nCode: To be posted before class"
+    "text": "Date: November 18, 2026\nTopics: Finish Functions\nSlides: View Slides\nCode: usethis::use_course(\"css-materials/functions\")"
   },
   {
     "objectID": "lectures/16-home.html#learning-objectives",
     "href": "lectures/16-home.html#learning-objectives",
-    "title": "Lecture 16: Functions (cont.); Reproducible Workflow",
+    "title": "Lecture 16: Functions (cont.)",
     "section": "Learning Objectives",
-    "text": "Learning Objectives\nFunctions (cont. from last lecture):\n\nReview and continue the lecture on Functions\n\nReproducible Workflow:\n\nDefine a project-oriented workflow in R and identify best R procedures\nExpand our current knowledge of R Markdown\nExtra materials (optional): basics of Git/GitHub via terminal/command line"
+    "text": "Learning Objectives\n\nReview and continue the lecture on Functions"
   },
   {
     "objectID": "lectures/16-home.html#before-class",
@@ -2426,7 +2426,7 @@
     "href": "hw/hw05-project.html",
     "title": "Final Project",
     "section": "",
-    "text": "HW5 Final Project Overview\nDue: Sunday, December 06 by 11:59 PM (Chicago Time)\nIn this final assignment, you’ll apply the skills learned in the course to a topic of your choice.\n\nAccessing the repo\n\nGo to this link. The first time, click Sign in with GitHub and authorize Classroom 50 (the tool we use to distribute assignments).\nClick Accept assignment to create your private hw05 repository on GitHub. Your repository will be named css-hw05-&lt;USERNAME&gt;. Keep the page open until the setup checklist finishes (a few seconds).\nClick Open repository to access it.\n\nIf the page says “Not a member yet”, accept the invitation to our GitHub organization (check your email, including spam), then click Check again. If it says “This assignment isn’t available to you”, contact the instructor.\n\n\nCloning the repo into your Workbench\n\nLog into Workbench and start a new project:\nFile &gt; New Project &gt; Version Control &gt; Git\nIn the Repository URL field:\n\nPaste the URL of your GitHub repository. To find the URL, go to your hw05 repo on GitHub, click the green Code button, and copy the SSH or HTTPS link (use the method you configured during setup: Workbench users must select SSH).\nThe project name should auto-fill. If not, type the same name manually (it should match the GitHub repo name).\n\nChoose where to save the project directory locally. Tip: Avoid moving folders after cloning them.\nCheck the box “Open in new session” (recommended for keeping projects organized).\nClick Create Project. This will:\n\nCreate a new folder on your machine\n\nInitialize a Git repository linked to GitHub\n\nOpen an RStudio Project in a new session\n\n\nYou’ll use this same process to access and set up each homework assignment throughout the course.\n\n\n\n\n\n\nNote\n\n\n\nThe repo you clone for hw05 (your final project) is intentionally empty: you will need to add your own data and code, and push them. See the instructions below for what to submit. Remember to include the knitted .md file(s)!.\n\n\n\n\nGeneral Homework Workflow\nSee Homework 1 for details. The workflow is the same for all assignments.\n\n\n\nAssignment Description\nThe main goal of the final project is to apply the skills learned in the course to a topic of your choice. Your task is to find data, ask one or more research questions, and answer them descriptively using data and code.\nThe sections below walk you through the details of each part of the assignment and its main deliverables.\n\n1. Report Instructions\n\n1.1 Report Format\n\nFormat: the report must be written using a .Rmd file, knitted to.md and .pdf\nThe report must include: Written text, code chunks, code outputs (tables, plots, descriptive stats). Not all code you write is required to go in your report: you may place extra code in a separate R script or Rmd file. If so, mention this in your README.md.\nAudience: Write your report as if you were preparing a polished analysis for either an academic audience or a professional industry setting.\nLength: Aim for 800-900 words (minimum 700, maximum 1000).\nUse of R Markdown Syntax: Use clear headings and subheadings and include a table of contents. Include some of the advanced R Markdown tools covered in class (Lecture 16).\n\n\n\n1.2 Report Required Sections\nSpecifically, your report should include the following sections:\n\nProject description\n\nStart by explaining what your project is about, its goals, and why it matters.\nDescribe the dataset (number of observations, time period, key variables, data source). Store the data in your repo, if smaller than 100 MB; if larger, see below.\nState one or more research questions, ideally with social science relevance.\nState one or more hypothesis or describe what you expect to find and why.\n\nDescriptive statistics and plots\n\nInclude tables (format them with kable) and descriptive statistics (counts, percentages, mean, median, contingency tables, etc.).\nInclude 4 or 5 well-designed plots with clear titles, labels, scales, etc. Use different types of plots (do not use the same plot more than once). Ensure each one matches the underlying variable types.\nUse code to transform or prepare variables for your plots and analyses when needed (e.g., recoding, standardizing, creating new variables, joining relational tabels, etc.).\nDescribe the main findings of each graph: highlight patterns, discuss possible relationships between variables, note limitations, and suggest directions for future research. We want to hear your explanation and interpretation of the analyses!\nYou are not expected to include statistical models since we did not cover them in the course. Excellent projects can rely entirely on descriptive statistics and the types of plots you did in HW2 and HW3. If you’d like to add models (e.g., regression, ANOVA, etc.), check with me first (see FAQs below).\n\n\n\n\n\n2. Code Instructions\nThis course has a strong coding component, so the quality and organization of your code are an important part of the project. Specifically:\n\nLibrary Loading and Data Import\n\nLoad all required libraries and import your data once, at the top of your Rmd. Do not reload libraries elsewhere.\nStore the data as .csv into a sub-folder; if data files are larger than 100MB, store somewhere else (see below for details)\n\nData Cleaning, Wrangling, and Tidying\n\nInclude code needed to prepare your data (renaming, recoding, aggregating, tidying data, joining data etc.). The amount of cleaning will depend on your project, but all projects must include some.\nIf your code for data prep and cleaning is extensive, place it in a separate script or Rmd file (see below).\n\nData Analysis and Plots\n\nInclude dplyr code for exploring the data with descriptive statistics (summaries, counts, percentages, mean, median, contingency tables, etc.).\nInclude ggplot2 code for 4–5 well-designed plots. Use a variety of plot types and match each to the variable types. If your dataset requires little cleaning, we expect more complex and refined visualizations.\n\nSpecific Programming Techniques\n\nInclude at least one user-defined function\nInclude either a loop (or a map/across/apply alternative) OR a conditional statement. If you can’t find a place to use them in your project, check in with us and we’ll help you find one.\n\nCode Organization\n\nInclude only relevant output (e.g., show the head of your dataset, not the full dataset) and follow coding practices from class: clean style, reproducible workflow, and Markdown formatting. Prefer tidyverse functions over base R, where applicable (e.g., use read_csv() instead of read.csv()).\nDo not put too much code in a single code chunk. Each chunk should do one clear task or sub-task, like loading data, calculate something, making a plot. Shorter chunks make your code easier to read and fix.\nExtensive cleaning steps or extra plots can go in a separate R script or Rmd. If you do so, in the main report, load the cleaned data and include only the required plots. Store all code in your repository to ensure reproducibility. Let us know the location of any additional code in your README.md.\n\n\n\n\n3. Repo and README.md Instructions\nYour repository must include a README.md with the following information:\n\nPurpose of the repository: About 3-4 bullet points on what your project is about such as topic, data source, and sample size.\nList of files: All R scripts and .Rmd files in the repo, organized similarly to this example (use your own file names, and add or remove files as needed):\n\nmy-project/\n├── README.md\n├── data/\n│   └── survey.csv\n├── scripts/\n│   ├── 01_clean_data.R\n│   ├── 02_descriptive.R\n│   └── 03_make_plots.Rmd\n└── report.Rmd\n\nRequired packages: Any non-basic packages needed to run your code (no need to list tidyverse or rmarkdown).\nAdditional information: Anything else a user needs to understand or replicate your work, like the order to run files or where to get the data.\n\nTip: Imagine a classmate opening your repo for the first time. Could they understand and run your project using only the README? If so, you’re all set!\n\n\n\nFAQs\n\nHow do I know if I have “done enough”?\n\nFirst, make sure you’ve met all requirements listed above for the report, code, and README.md.\nTime to complete will vary by student, project, working style, and level of investment in the project. As a rough benchmark, this assignment should take about as much time as previous assignments.\nAim to build on what you’ve learned and push a bit beyond your comfort zone. If you’re unsure whether your plan is enough, check in with us.\nThis assignment should reflect your own work. You may seek advice from people or AI tools, but your code must be written by you, understandable to you, and aligned with our AI policy.\n\n\n\nWhat data should I use?\nWe encourage you to use social science data; other types of data can work too but check with us first. What matters most is applying the skills you learned to a topic that interests you: the best projects are the ones you are genuinely excited to work on\n\n\nI can’t think of anything to analyze!\nYou may use any dataset from class not used in previous homework and or in teaching examples (e.g., penguins, cars, iris datasets are not appropriate). Some options to consider:\n\ngun_deaths from library(rcis), or the raw data from FiveThirtyEight (it’s a similar topic but this is different dataset than HW2)\nExplore the Data Is Plural dataset archive\nExplore the #TidyTuesday dataset archive\n\n\n\nWhat if my data file is too large?\nGitHub does not allow files larger than 100MB. If you try to push one, you’ll get an error and may have to remove the file from your Git history, which is a hassle. Thus:\n\nIf your data is well under 100MB, include it in your repo.\n\nIf it is close to or above 100MB, do not include it in your repo. Instead, store it outside GitHub (e.g., Google Drive, remember to give us access) and include a link to it in your README.md.\n\n\n\nMy idea that doesn’t quite fit the description, what are my options?\nYou’re welcome to propose a small variation on this project, as long as the core of the assignment stays the same. For example, you might want to use web scraping to get your data, do some text analysis, take on a larger data cleaning task, or run some statistical analyses beyond descriptive statistics. If this sounds like you, email me your idea by Sunday, November 15, and we’ll meet in Week 8 to make a plan.\nWhen we meet, we’ll check that your idea matches the project’s learning goals and your current skills. If it’s a big leap, like doing machine learning with no prior background, we’ll adjust it into something challenging but achievable.\nA few things are required for everyone (your README, repo organization, code that you wrote and understand, and some descriptive statistics and plots). Other parts, like the number of plots or how detailed your descriptive statistics are, can be swapped for equivalent work. If we haven’t agreed on a plan, your project should fully meet the guidelines\n\n\n\n\nFormatting Guide for All Homework\nSee Homework 2 for details. The formatting expectations are the same for all assignments.\n\n\nSubmit the Assignment\nTo submit your assignment on Canvas, follow these steps:\n\nBefore the deadline, push the final version of your work to your GitHub repository. Tip: don’t wait until the end to make your first commit; instead stage, commit, and push your work regularly as you go.\nYour GitHub repository should include:\n\nAll files used to collect your data and produce your analyses, such as R scripts and R Markdown files, plus your data (unless it’s too large; see above)\nYour README.md\nYour report as a Rmd file, knitted both as md and pdf (submit all three)\nThe folder that contains all the graphs generated by your .Rmd (this is automatically created when you knit, make sure to push it)\n\nWhen you’re ready to submit:\n\nCopy the URL of your GitHub repository. It will look something like: https://github.com/css-fall26/css-hw05-yourusername\nSubmit that URL on Canvas under HW05. Do not upload any files to Canvas. We only need the repository link. Your repository remains private, only the instructional staff can access it.\n\n\n\n\nAssessment\nAll homework assignments are evaluated using this rubric, accessible using a UChicago account. For more, see the Assessment section of the Syllabus."
+    "text": "HW5 Final Project Overview\nDue: Sunday, December 06 by 11:59 PM (Chicago Time)\nIn this final assignment, you’ll apply the skills learned in the course to a topic of your choice.\n\nAccessing the repo\n\nGo to this link. The first time, click Sign in with GitHub and authorize Classroom 50 (the tool we use to distribute assignments).\nClick Accept assignment to create your private hw05 repository on GitHub. Your repository will be named css-hw05-&lt;USERNAME&gt;. Keep the page open until the setup checklist finishes (a few seconds).\nClick Open repository to access it.\n\nIf the page says “Not a member yet”, accept the invitation to our GitHub organization (check your email, including spam), then click Check again. If it says “This assignment isn’t available to you”, contact the instructor.\n\n\nCloning the repo into your Workbench\n\nLog into Workbench and start a new project:\nFile &gt; New Project &gt; Version Control &gt; Git\nIn the Repository URL field:\n\nPaste the URL of your GitHub repository. To find the URL, go to your hw05 repo on GitHub, click the green Code button, and copy the SSH or HTTPS link (use the method you configured during setup: Workbench users must select SSH).\nThe project name should auto-fill. If not, type the same name manually (it should match the GitHub repo name).\n\nChoose where to save the project directory locally. Tip: Avoid moving folders after cloning them.\nCheck the box “Open in new session” (recommended for keeping projects organized).\nClick Create Project. This will:\n\nCreate a new folder on your machine\n\nInitialize a Git repository linked to GitHub\n\nOpen an RStudio Project in a new session\n\n\nYou’ll use this same process to access and set up each homework assignment throughout the course.\n\n\n\n\n\n\nNote\n\n\n\nThe repo you clone for hw05 (your final project) is intentionally empty: you will need to add your own data and code, and push them. See the instructions below for what to submit. Remember to include the knitted .md file(s)!.\n\n\n\n\nGeneral Homework Workflow\nSee Homework 1 for details. The workflow is the same for all assignments.\n\n\n\nAssignment Description\nThe main goal of the final project is to apply the skills learned in the course to a topic of your choice. Your task is to find data, ask one or more research questions, and answer them descriptively using data and code.\nThe sections below walk you through the details of each part of the assignment and its main deliverables.\n\n1. Report Instructions\n\n1.1 Report Format\n\nFormat: the report must be written using a .Rmd file, knitted to.md and .pdf\nThe report must include: Written text, code chunks, code outputs (tables, plots, descriptive stats). Not all code you write is required to go in your report: you may place extra code in a separate R script or Rmd file. If so, mention this in your README.md. At the end of your report, add the AI disclosure session and learning reflections (as in previous assigments).\nAudience: Write your report as if you were preparing a polished analysis for either an academic audience or a professional industry setting.\nLength: Aim for 800-900 words (minimum 700, maximum 1000).\nUse of R Markdown Syntax: Use clear headings and subheadings and include a table of contents. Include some of the advanced R Markdown tools covered in class (last lecture before exam 2). Your README.md should also be written using Markdown syntax.\n\n\n\n1.2 Report Required Sections\nSpecifically, your report should include the following sections:\n\nProject description\n\nStart by explaining what your project is about, its goals, and why it matters.\nDescribe the dataset (number of observations, time period, key variables, data source). Store the data in your repo, if smaller than 100 MB; if larger, see below.\nState one or more research questions, ideally with social science relevance.\nState one or more hypothesis or describe what you expect to find and why.\n\nDescriptive statistics and plots\n\nInclude tables (format them with kable) and descriptive statistics (counts, percentages, mean, median, contingency tables, etc.).\nInclude 4 or 5 well-designed plots with clear titles, labels, scales, etc. Use different types of plots (do not use the same plot more than once). Ensure each one matches the underlying variable types.\nUse code to transform or prepare variables for your plots and analyses when needed (e.g., recoding, standardizing, creating new variables, joining relational tabels, etc.).\nDescribe the main findings of each graph: highlight patterns, discuss possible relationships between variables, note limitations, and suggest directions for future research. We want to hear your explanation and interpretation of the analyses!\nYou are not expected to include statistical models since we did not cover them in the course. Excellent projects can rely entirely on descriptive statistics and the types of plots you did in HW2 and HW3. If you’d like to add models (e.g., regression, ANOVA, etc.), check with me first (see FAQs below).\n\nAI and learning reflections\n\nAdd this section at the end of your report. Follow the same instructions you were given in assignments 2-4. Review the course policy on AI use.\n\n\n\n\n\n2. Code Instructions\nThis course has a strong coding component, so the quality and organization of your code are an important part of the project. Specifically:\n\nLibrary Loading and Data Import\n\nLoad all required libraries and import your data once, at the top of your Rmd. Do not reload libraries elsewhere.\nStore the data as .csv into a sub-folder; if data files are larger than 100MB, store somewhere else (see below for details)\n\nData Cleaning, Wrangling, and Tidying\n\nInclude code needed to prepare your data (renaming, recoding, aggregating, tidying data, joining data etc.). The amount of cleaning will depend on your project, but all projects must include some.\nIf your code for data prep and cleaning is extensive, place it in a separate script or Rmd file (see below).\n\nData Analysis and Plots\n\nInclude dplyr code for exploring the data with descriptive statistics (summaries, counts, percentages, mean, median, contingency tables, etc.).\nInclude ggplot2 code for 4–5 well-designed plots. Use a variety of plot types and match each to the variable types. If your dataset requires little cleaning, we expect more complex and refined visualizations.\n\nSpecific Programming Techniques\n\nInclude at least one user-defined function\nInclude either a loop (or a map/across/apply alternative) OR a conditional statement. If you can’t find a place to use them in your project, check in with us and we’ll help you find one.\n\nCode Organization\n\nInclude only relevant output (e.g., show the head of your dataset, not the full dataset) and follow coding practices from class: clean style, reproducible workflow, and Markdown formatting. Prefer tidyverse functions over base R, where applicable (e.g., use read_csv() instead of read.csv()).\nDo not put too much code in a single code chunk. Each chunk should do one clear task or sub-task, like loading data, calculate something, making a plot. Shorter chunks make your code easier to read and fix.\nExtensive cleaning steps or extra plots can go in a separate R script or Rmd. If you do so, in the main report, load the cleaned data and include only the required plots. Store all code in your repository to ensure reproducibility. Let us know the location of any additional code in your README.md.\n\n\n\n\n3. Repo and README.md Instructions\nYour repository must include a README.md file containing the following information, formatted using Markdown syntax (e.g., use headers, lists, and bold text as appropriate):\n\nPurpose of the repository: About 3-4 bullet points on what your project is about such as topic, data source, and sample size.\nList of files: All R scripts and .Rmd files in the repo, organized similarly to this example (use your own file names, and add or remove files as needed):\n\nmy-project/\n├── README.md\n├── data/\n│   └── survey.csv\n├── scripts/\n│   ├── 01_clean_data.R\n│   ├── 02_descriptive.R\n│   └── 03_make_plots.Rmd\n└── report.Rmd\n\nRequired packages: Any non-basic packages needed to run your code (no need to list tidyverse or rmarkdown).\nAdditional information: Anything else a user needs to understand or replicate your work, like the order to run files or where to get the data.\n\nTip: Imagine a classmate opening your repo for the first time. Could they understand and run your project using only the README? If so, you’re all set!\n\n\n\nFAQs\n\nHow do I know if I have “done enough”?\n\nFirst, make sure you’ve met all requirements listed above for the report, code, and README.md.\nTime to complete will vary by student, project, working style, and level of investment in the project. As a rough benchmark, this assignment should take about as much time as previous assignments.\nAim to build on what you’ve learned and push a bit beyond your comfort zone. If you’re unsure whether your plan is enough, check in with us.\nThis assignment should reflect your own work. You may seek advice from people or AI tools, but your code must be written by you, understandable to you, and aligned with our AI policy.\n\n\n\nWhat data should I use?\nWe encourage you to use social science data; other types of data can work too but check with us first. What matters most is applying the skills you learned to a topic that interests you: the best projects are the ones you are genuinely excited to work on\n\n\nI can’t think of anything to analyze!\nYou may use any dataset from class not used in previous homework and or in teaching examples (e.g., penguins, cars, iris datasets are not appropriate). Some options to consider:\n\ngun_deaths from library(rcis), or the raw data from FiveThirtyEight (it’s a similar topic but this is different dataset than HW2)\nExplore the Data Is Plural dataset archive\nExplore the #TidyTuesday dataset archive\n\n\n\nWhat if my data file is too large?\nGitHub does not allow files larger than 100MB. If you try to push one, you’ll get an error and may have to remove the file from your Git history, which is a hassle. Thus:\n\nIf your data is well under 100MB, include it in your repo.\n\nIf it is close to or above 100MB, do not include it in your repo. Instead, store it outside GitHub (e.g., Google Drive, remember to give us access) and include a link to it in your README.md.\n\n\n\nMy idea that doesn’t quite fit the description, what are my options?\nYou’re welcome to propose a small variation on this project, as long as the core of the assignment stays the same. For example, you might want to use web scraping to get your data, do some text analysis, take on a larger data cleaning task, or run some statistical analyses beyond descriptive statistics. If this sounds like you, email me your idea by Sunday, November 15, and we’ll meet in Week 8 to make a plan.\nWhen we meet, we’ll check that your idea matches the project’s learning goals and your current skills. If it’s a big leap, like doing machine learning with no prior background, we’ll adjust it into something challenging but achievable.\nA few things are required for everyone (your README, repo organization, code that you wrote and understand, and some descriptive statistics and plots). Other parts, like the number of plots or how detailed your descriptive statistics are, can be swapped for equivalent work. If we haven’t agreed on a plan, your project should fully meet the guidelines\n\n\n\n\nFormatting Guide for All Homework\nSee Homework 2 for details. The formatting expectations are the same for all assignments.\n\n\nSubmit the Assignment\nTo submit your assignment on Canvas, follow these steps:\n\nBefore the deadline, push the final version of your work to your GitHub repository. Tip: don’t wait until the end to make your first commit; instead stage, commit, and push your work regularly as you go.\nYour GitHub repository should include:\n\nAll files used to collect your data and produce your analyses, such as R scripts and R Markdown files, plus your data (unless it’s too large; see above)\nYour README.md\nYour report as a Rmd file, knitted both as md and pdf (submit all three)\nThe folder that contains all the graphs generated by your .Rmd (this is automatically created when you knit, make sure to push it)\n\nWhen you’re ready to submit:\n\nCopy the URL of your GitHub repository. It will look something like: https://github.com/css-fall26/css-hw05-yourusername\nSubmit that URL on Canvas under HW05. Do not upload any files to Canvas. We only need the repository link. Your repository remains private, only the instructional staff can access it.\n\n\n\n\nAssessment\nAll homework assignments are evaluated using this rubric, accessible using a UChicago account. For more, see the Assessment section of the Syllabus."
   },
   {
     "objectID": "hw/hw03.html",
@@ -2839,7 +2839,7 @@
     "href": "lectures/index.html",
     "title": "Computing for the Social Sciences",
     "section": "",
-    "text": "Course Schedule Fall 2026\n\n\n\n\n\n\n\n\n\nWeek\nDate\nLecture & Assessment\n\n\n\n\nWeek 1\nMon, Sep 28\nLecture 1: Course Logistics; Intro to R & Markdown\n\n\n\nWed, Sep 30\nLecture 2: Git & GitHub with R Studio\n\n\n\nThu, Oct 01\nAssignment 1 Open\n\n\nWeek 2\nMon, Oct 05\nLecture 3: Intro to ggplot2; Coding Style\n\n\n\nWed, Oct 07\nLecture 4: Graphs for Data Analysis with ggplot2\n\n\n\nThu, Oct 08\nAssignment 1 Due\n\n\nWeek 3\nMon, Oct 12\nLecture 5: Intro to dplyr; Pipes\n\n\n\nWed, Oct 14\nLecture 6: Intermediate dplyr; Renaming & Recoding Variables\n\n\n\nThu, Oct 15\nAssignment 2 Open\n\n\nWeek 4\nMon, Oct 19\nLecture 7: Missing Data; Factors\n\n\n\nWed, Oct 21\nLecture 8: Tidy Data with tidyr; Regex with stringr\n\n\n\nThu, Oct 22\nAssignment 2 Due\n\n\nWeek 5\nMon, Oct 26\nLecture 9: Importing Data with readr; Relational Data with dplyr\n\n\n\nWed, Oct 28\nLecture 10: Exam 1; Intro to lubridate\n\n\n\nWed, Oct 28\nIn-Class Exam 1\n\n\n\nThu, Oct 29\nAssignment 3 Open\n\n\nWeek 6\nMon, Nov 02\nLecture 11: Review Session\n\n\n\nWed, Nov 04\nLecture 12: Data Structures and Base R\n\n\n\nThu, Nov 05\nAssignment 5 (Final Project) Open\n\n\n\nFri, Nov 06\nAssignment 3 Due\n\n\nWeek 7\nMon, Nov 09\nLecture 13: Control Flow with Conditionals\n\n\n\nWed, Nov 11\nLecture 14: Control Flow with Loops\n\n\n\nThu, Nov 12\nAssignment 4 Open\n\n\nWeek 8\nMon, Nov 16\nLecture 15: Control Flow with Loops (cont.); Functions\n\n\n\nWed, Nov 18\nLecture 16: Functions (cont.); Reproducible Workflow\n\n\n\nFri, Nov 20\nAssignment 4 Due\n\n\nWeek 9\nMon, Nov 30\nLecture 17: TBD\n\n\n\nWed, Dec 02\nLecture 18: Exam 2\n\n\n\nWed, Dec 02\nIn-Class Exam 2\n\n\n\nSun, Dec 06\nAssignment 5 (Final Project) Due\n\n\n\n\n\nNote: No lecture the week of Nov 23, 2026 (Thanksgiving Break)."
+    "text": "Course Schedule Fall 2026\n\n\n\nLast Updated on 11/17/26 (Finalized Lecture 17 Agenda).\n\n\n\n\n\n\nWeek\nDate\nLecture & Assessment\n\n\n\n\nWeek 1\nMon, Sep 28\nLecture 1: Course Logistics; Intro to R & Markdown\n\n\n\nWed, Sep 30\nLecture 2: Git & GitHub with R Studio\n\n\n\nThu, Oct 01\nAssignment 1 Open\n\n\nWeek 2\nMon, Oct 05\nLecture 3: Intro to ggplot2; Coding Style\n\n\n\nWed, Oct 07\nLecture 4: Graphs for Data Analysis with ggplot2\n\n\n\nThu, Oct 08\nAssignment 1 Due\n\n\nWeek 3\nMon, Oct 12\nLecture 5: Intro to dplyr; Pipes\n\n\n\nWed, Oct 14\nLecture 6: Intermediate dplyr; Renaming & Recoding Variables\n\n\n\nThu, Oct 15\nAssignment 2 Open\n\n\nWeek 4\nMon, Oct 19\nLecture 7: Missing Data; Factors\n\n\n\nWed, Oct 21\nLecture 8: Tidy Data with tidyr; Regex with stringr\n\n\n\nThu, Oct 22\nAssignment 2 Due\n\n\nWeek 5\nMon, Oct 26\nLecture 9: Importing Data with readr; Relational Data with dplyr\n\n\n\nWed, Oct 28\nLecture 10: Exam 1; Intro to lubridate\n\n\n\nWed, Oct 28\nIn-Class Exam 1\n\n\n\nThu, Oct 29\nAssignment 3 Open\n\n\nWeek 6\nMon, Nov 02\nLecture 11: Review Session\n\n\n\nWed, Nov 04\nLecture 12: Data Structures and Base R\n\n\n\nThu, Nov 05\nAssignment 5 (Final Project) Open\n\n\n\nFri, Nov 06\nAssignment 3 Due\n\n\nWeek 7\nMon, Nov 09\nLecture 13: Control Flow with Conditionals\n\n\n\nWed, Nov 11\nLecture 14: Control Flow with Loops\n\n\n\nThu, Nov 12\nAssignment 4 Open\n\n\nWeek 8\nMon, Nov 16\nLecture 15: Control Flow with Loops (cont.); Functions\n\n\n\nWed, Nov 18\nLecture 16: Functions (cont.)\n\n\n\nFri, Nov 20\nAssignment 4 Due\n\n\nWeek 9\nMon, Nov 30\nLecture 17: Reproducible Workflow; Exam 2 Review\n\n\n\nWed, Dec 02\nLecture 18: Exam 2\n\n\n\nWed, Dec 02\nIn-Class Exam 2\n\n\n\nSun, Dec 06\nAssignment 5 (Final Project) Due\n\n\n\n\n\nNote: No lecture the week of Nov 23, 2026 (Thanksgiving Break)."
   },
   {
     "objectID": "setup/setup-test.html",
@@ -3567,7 +3567,7 @@
     "href": "lectures/15-slides.html",
     "title": "Computing for the Social Sciences: Lecture 15",
     "section": "",
-    "text": "Alternatives to For Loops in R\nWhile Loops\nIntroduction to Functions\n\n\n\n Slides last updated on November 12, 2026. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos."
+    "text": "Alternatives to For Loops in R\nWhile Loops\nIntroduction to Functions\n\n\n\n Slides last updated on November 18, 2026. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos."
   },
   {
     "objectID": "lectures/14-slides.html",
@@ -3707,7 +3707,7 @@
     "href": "lectures/15-slides.html#option-3-replacing-for-loops-with-apply-functions-4",
     "title": "Computing for the Social Sciences: Lecture 15",
     "section": "Option 3: Replacing for loops with apply() functions",
-    "text": "Option 3: Replacing for loops with apply() functions\n\n# Use numeric columns from penguins dataset\nnum_data &lt;- penguins[ , 3:6]\n\n# apply(): function across columns (MARGIN = 2)\napply(num_data, 2, mean, na.rm = TRUE)\n\n# lapply(): list output\nlapply(num_data, mean, na.rm = TRUE)\n\n# sapply(): simplified vector output\nsapply(num_data, mean, na.rm = TRUE)\n\n# vapply(): safe version of sapply()\nvapply(num_data, mean, na.rm = TRUE, FUN.VALUE = numeric(1))\n\n\n\n\n\n\n\nTips for the apply() Family\n\n\n\napply() works best with matrix-like structures\n\nlapply() is list-safe, but sapply() is more concise\nvapply() avoids surprises (e.g. unpredictable output type) by enforcing output type (here returns a single numeric value)"
+    "text": "Option 3: Replacing for loops with apply() functions\n\n# Use numeric columns from penguins dataset\nnum_data &lt;- penguins[ , 3:6]\n\n# apply(): function across columns (MARGIN = 2)\napply(num_data, 2, mean, na.rm = TRUE)\n\n# lapply(): list output\nlapply(num_data, mean, na.rm = TRUE)\n\n# sapply(): simplified vector output\nsapply(num_data, mean, na.rm = TRUE)\n\n# vapply(): safe version of sapply()\nvapply(num_data, mean, na.rm = TRUE, FUN.VALUE = numeric(1))\n\n\n\n\n\n\n\nTips for the apply() Family\n\n\n\n\napply() works best with matrix-like structures\n\nlapply() is list-safe, but sapply() is more concise\nvapply() avoids surprises (e.g. unpredictable output type) by enforcing output type (here returns a single numeric value)"
   },
   {
     "objectID": "lectures/15-slides.html#option-3-practice-using-functions-from-the-apply-family",
@@ -3720,8 +3720,8 @@
     "objectID": "lectures/15-slides.html#for-loops-best-practices",
     "href": "lectures/15-slides.html#for-loops-best-practices",
     "title": "Computing for the Social Sciences: Lecture 15",
-    "section": "For loops best practices",
-    "text": "For loops best practices\nCHECK THIS SLIDE NEW FALL 26\n\nWhen in doubt, loop over indexes, so you can access both i and x[i]; loop over values only when you just need the values.\nWhen you loop over indexes use seq_along() vs 1:length(x)\nPre allocate your output\nPrefer vectorized code when possibile (more on this next time!)"
+    "section": "For Loops: Best Practices",
+    "text": "For Loops: Best Practices\n\nWhen in doubt, loop over indexes, so you can access both i and x[i]; loop over values only when you just need the values.\nWhen you loop over indexes use seq_along() vs 1:length(x)\nPre allocate your output vector (best practice, saves R memory)\nPrefer vectorized code when possible (Options 1 to 3 we learned today)"
   },
   {
     "objectID": "lectures/15-slides.html#definition-of-while-loops",
@@ -3735,7 +3735,7 @@
     "href": "lectures/15-slides.html#while-loop-syntax",
     "title": "Computing for the Social Sciences: Lecture 15",
     "section": "While Loop Syntax",
-    "text": "While Loop Syntax\nSyntax:\nwhile (condition to be evaluated) {\n  statement(s)\n}\nExample:\ncounter &lt;- 1\n\nwhile(counter &lt;= 4) {\n  print(counter)\n  counter &lt;- counter + 1\n}"
+    "text": "While Loop Syntax\nSyntax:\nwhile (condition to be evaluated) {\n  statement(s)\n}\nExample:\ncounter &lt;- 1\n\nwhile(counter &lt;= 3) {\n  print(counter)\n  counter &lt;- counter + 1\n}"
   },
   {
     "objectID": "lectures/15-slides.html#while-loop-examples",
@@ -3749,21 +3749,21 @@
     "href": "lectures/15-slides.html#while-loop-examples-1",
     "title": "Computing for the Social Sciences: Lecture 15",
     "section": "While Loop Examples",
-    "text": "While Loop Examples\nTake the previous code, but this time we do not increment our counter variable. What is the output of this code?\ncounter &lt;- 1\nwhile(counter &lt; 3){\n  print(counter)\n}"
+    "text": "While Loop Examples\nTake the previous code, but this time we do not increment our counter variable. What happens?\ncounter &lt;- 1\nwhile(counter &lt;= 3){\n  print(counter)\n}"
   },
   {
     "objectID": "lectures/15-slides.html#while-loop-examples-2",
     "href": "lectures/15-slides.html#while-loop-examples-2",
     "title": "Computing for the Social Sciences: Lecture 15",
     "section": "While Loop Examples",
-    "text": "While Loop Examples\nObserve this last one. What is the output of this code?\ncounter &lt;- 1\nwhile(counter &lt; 4){\n  print(counter)\n  multiply &lt;- counter * 100\n  print(multiply)\n  counter &lt;- counter + 1\n  print(counter)\n}"
+    "text": "While Loop Examples\nOne more example. What is the output of this code?\ncounter &lt;- 1\nwhile(counter &lt; 4){\n  print(counter)\n  multiply &lt;- counter * 100\n  print(multiply)\n  counter &lt;- counter + 1\n  print(counter)\n}"
   },
   {
     "objectID": "lectures/15-slides.html#while-loop-uses",
     "href": "lectures/15-slides.html#while-loop-uses",
     "title": "Computing for the Social Sciences: Lecture 15",
     "section": "While Loop Uses",
-    "text": "While Loop Uses\nWhile Loops are useful when you don’t know in advance how many times to iterate: you want the loop to continue until a condition is met.\nExample use cases:\n\nKeep looping until you get three heads in a row from random coin flips\n\nKeep accepting user input until you reach a target number of responses\n\nWhile loops typically require a counter variable: set it outside the loop, and update it inside the loop, otherwise the loop never ends.\nWhile loops are important but less common than for loops, especially for the types of tasks we do in this course."
+    "text": "While Loop Uses\nWhile Loops are useful when you don’t know in advance how many times to iterate: you want the loop to continue until a condition is met.\n\nExample use cases:\n\nKeep looping until you get three heads in a row from random coin flips\n\nKeep accepting user input until you reach a target number of responses\n\nWhile loops are important but less common than for loops, especially for the types of tasks we do in this course."
   },
   {
     "objectID": "lectures/15-slides.html#from-using-to-writing-functions",
@@ -3833,28 +3833,28 @@
     "href": "lectures/15-slides.html#tips-for-writing-functions-name",
     "title": "Computing for the Social Sciences: Lecture 15",
     "section": "Tips for writing functions: name",
-    "text": "Tips for writing functions: name\nUse unique names:\n\nIf your function name matches the name of an existing R function, your function will replace the existing function for your current session (e.g., write my_sum, do not re-write sum)\nUnless there is a specific reason (e.g. learning purposes, etc.), do not create a new function like my_sum() when R already has a built-in sum() function you can use\n\nUse informative names:\n\nThe name should suggest what the function does\nIt should be short\nAvoid reserved words like if, else, for, function, etc. To see the full list: type help(reserved) in the Console"
+    "text": "Tips for writing functions: name\nUse unique names:\n\nIf your function name matches the name of an existing R function, your function will replace the existing function for your current session (e.g., us the my_sum, not sum)\n\nUse informative names:\n\nThe name should suggest what the function does\nIt should be short\nAvoid reserved words like if, else, for, function, etc. (type help(reserved) in the Console to see them)"
   },
   {
     "objectID": "lectures/15-slides.html#tips-for-writing-functions-variables-scope",
     "href": "lectures/15-slides.html#tips-for-writing-functions-variables-scope",
     "title": "Computing for the Social Sciences: Lecture 15",
     "section": "Tips for writing functions: variables scope",
-    "text": "Tips for writing functions: variables scope\nVariables defined inside a function are not available outside it. Their scope lies within and is limited to the function itself.\nRun this in a fresh R session: total exists only inside my_sum():\nmy_sum &lt;- function(vector) {\n  total &lt;- 0\n  for (i in seq_along(vector)) {\n    total &lt;- total + vector[i]\n  }\n  return(total)\n}\n\nx &lt;- c(2,1,5,2)\nmy_sum(x)\ntotal   # Error: object 'total' not found"
+    "text": "Tips for writing functions: variables scope\nVariables defined inside a function are not available outside it. Their scope lies within and is limited to the function itself.\nRun this code in a fresh R session: total exists only inside my_sum()\nmy_sum &lt;- function(vector) {\n  total &lt;- 0\n  for (i in seq_along(vector)) {\n    total &lt;- total + vector[i]\n  }\n  return(total)\n}\n\nx &lt;- c(2,1,5,2)\nmy_sum(x)\ntotal   # Error: object 'total' not found"
   },
   {
     "objectID": "lectures/15-slides.html#practice-writing-functions",
     "href": "lectures/15-slides.html#practice-writing-functions",
     "title": "Computing for the Social Sciences: Lecture 15",
     "section": "💻 Practice writing functions",
-    "text": "💻 Practice writing functions\nDownload the class materials from the website (see Lecture 18 homepage): complete QUESTION 1 and QUESTION 2."
+    "text": "💻 Practice writing functions\nDownload the class materials from the website: complete QUESTION 1 and QUESTION 2."
   },
   {
     "objectID": "lectures/15-slides.html#the-return-statements",
     "href": "lectures/15-slides.html#the-return-statements",
     "title": "Computing for the Social Sciences: Lecture 15",
     "section": "The return statement(s)",
-    "text": "The return statement(s)\nIf you do not write a return statement, your output will be the last statement in your code:\n\nmy_sum &lt;- function(vector) {\n  total &lt;- 0\n  for (i in seq_along(vector)) {\n    total &lt;- total + vector[i]\n  }\n  total\n}\n\nx &lt;- c(2,1,5,2)\nmy_sum(x)\n\nThis works, but it’s best practice to use return for clarity and readability. Remember that any code after return will be ignored! Let’s see a couple of examples…"
+    "text": "The return statement(s)\nIf you do not write return the function returns the value of the last expression evaluated.\n\n\nImplicit return\n\nmy_sum &lt;- function(vector) {\n  total &lt;- 0\n  for (i in seq_along(vector)) {\n    total &lt;- total + vector[i]\n  }\n  total\n}\n\n\nExplicit return (best practice)\n\nmy_sum &lt;- function(vector) {\n  total &lt;- 0\n  for (i in seq_along(vector)) {\n    total &lt;- total + vector[i]\n  }\n  return(total)\n}\n\n\n\nRemember that any code after return will be ignored! Let’s see how…"
   },
   {
     "objectID": "lectures/15-slides.html#write-multiple-return-statements-example-1",
@@ -3882,35 +3882,35 @@
     "href": "lectures/15-slides.html#using-stop-when-writing-a-function",
     "title": "Computing for the Social Sciences: Lecture 15",
     "section": "Using stop() when writing a function",
-    "text": "Using stop() when writing a function\nDefine a function celsius_to_fahr() that converts temperatures from Celsius to Fahrenheit using the formula fahrenheit = (celsius * 9/5) + 32\ncelsius_to_fahr &lt;- function(celsius) {\n  fahr &lt;- (celsius * 9/5) + 32\n  return(fahr)\n}\n\ncelsius_to_fahr(0)\ncelsius_to_fahr(-20)"
+    "text": "Using stop() when writing a function\nUsing stop() halts the function and shows an error message. Use it when the input is wrong and the function can’t sensibly continue:\nmy_sum &lt;- function(vector) {\n  # check 1\n  if (missing(vector)) {   \n    stop(\"you must provide a vector\")  \n  }\n  # check 2\n  if (!is.numeric(vector)) {\n    stop(\"input must be a numeric vector\")\n  }\n  # compute the sum\n  total &lt;- 0\n  for (i in seq_along(vector)) {\n    total &lt;- total + vector[i]\n  }\n  return(total)\n}\n\nmy_sum(c(2, 1, 5, 2))\nmy_sum(c(\"one\", 2, 3))\nmy_sum()"
   },
   {
     "objectID": "lectures/15-slides.html#using-stop-when-writing-a-function-1",
     "href": "lectures/15-slides.html#using-stop-when-writing-a-function-1",
     "title": "Computing for the Social Sciences: Lecture 15",
     "section": "Using stop() when writing a function",
-    "text": "Using stop() when writing a function\nTo ensure this function works properly, the argument must be numeric. Otherwise, the conversion between the two temperature scales will not work.\nThus, we use if-else to verify if the provided argument is numeric. If not, we use stop() to raise an error and stop the function execution!\ncelsius_to_fahr &lt;- function(celsius) {\n  if (!is.numeric(celsius)) {\n    stop(\"error: input must be a number, try again\")\n  } else {\n    fahr &lt;- (celsius * 9/5) + 32\n    return(fahr) \n  }\n}\n\ncelsius_to_fahr(\"zero\")\nQuestion: Based on what you see in this code, what’s the difference between stop() and return()?"
+    "text": "Using stop() when writing a function\nDefine a function celsius_to_fahr() that converts temperatures from Celsius to Fahrenheit using the formula fahrenheit = (celsius * 9/5) + 32\ncelsius_to_fahr &lt;- function(celsius) {\n  fahr &lt;- (celsius * 9/5) + 32\n  return(fahr)\n}\n\ncelsius_to_fahr(0)\ncelsius_to_fahr(-20)"
   },
   {
     "objectID": "lectures/15-slides.html#using-stop-when-writing-a-function-2",
     "href": "lectures/15-slides.html#using-stop-when-writing-a-function-2",
     "title": "Computing for the Social Sciences: Lecture 15",
     "section": "Using stop() when writing a function",
-    "text": "Using stop() when writing a function\nMost functions exit in one of two ways. They either return() a value, indicating success, or they stop() and throw an error, indicating failure. Therefore:\n\nreturn(): exits the function NORMALLY, handing back a value\nstop(): exits the function WITH AN ERROR, so execution halts, the console shows Error:, and no misleading value is returned"
+    "text": "Using stop() when writing a function\nTo ensure this function works, the argument must be numeric. Otherwise, the conversion between the two temperature scales won’t work.\nWe use if-else to verify the argument is numeric. If not, we use stop() to raise an error and stop the function execution!\ncelsius_to_fahr &lt;- function(celsius) {\n  if (!is.numeric(celsius)) {\n    stop(\"error: input must be a number, try again\")\n  } else {\n    fahr &lt;- (celsius * 9/5) + 32\n    return(fahr) \n  }\n}\n\ncelsius_to_fahr(\"zero\")\n\nQuestion: Based on what you see in this code, what’s the difference between stop() and return()?"
   },
   {
     "objectID": "lectures/15-slides.html#using-stop-when-writing-a-function-obseve-this-comparison",
     "href": "lectures/15-slides.html#using-stop-when-writing-a-function-obseve-this-comparison",
     "title": "Computing for the Social Sciences: Lecture 15",
     "section": "Using stop() when writing a function: obseve this comparison",
-    "text": "Using stop() when writing a function: obseve this comparison\nApproach 1: using return() for errors ❌\nmy_sum &lt;- function(vector) {\n  \n  # input check with return(): the error message is just a regular value\n  if (!is.numeric(vector)) {\n    return(\"Error: input must be a numeric vector\")\n  }\n  \n  # compute the sum\n  total &lt;- 0\n  for (i in seq_along(vector)) {\n    total &lt;- total + vector[i]\n  }\n  return(total)\n}\n\nresult &lt;- my_sum(c(\"one\", 2, 3))  # no error shown!\nresult                            # only now we see something is off\nresult + 10                       # fails HERE, with a confusing message"
+    "text": "Using stop() when writing a function: obseve this comparison\nApproach 1: using return() for errors ❌\nmy_sum &lt;- function(vector) {\n  \n  # input check with return(): the error message is just a regular value\n  if (!is.numeric(vector)) {\n    return(\"Error: input must be a numeric vector\")\n  }\n  \n  # compute the sum\n  total &lt;- 0\n  for (i in seq_along(vector)) {\n    total &lt;- total + vector[i]\n  }\n  return(total)\n}\n\nresult &lt;- my_sum(c(\"one\", 2, 3))  # no error shown!\nresult                            # only now we see something is off\nresult + 10                       # fails here, with a confusing message"
   },
   {
     "objectID": "lectures/15-slides.html#using-stop-when-writing-a-function-obseve-this-comparison-1",
     "href": "lectures/15-slides.html#using-stop-when-writing-a-function-obseve-this-comparison-1",
     "title": "Computing for the Social Sciences: Lecture 15",
     "section": "Using stop() when writing a function: obseve this comparison",
-    "text": "Using stop() when writing a function: obseve this comparison\nApproach 2: using stop() for errors ✅\nmy_sum &lt;- function(vector) {\n  \n  # input check with stop(): raise a real error\n  if (!is.numeric(vector)) {\n    stop(\"input must be a numeric vector\")\n  }\n  \n  # compute the sum (identical to previous code)\n  total &lt;- 0\n  for (i in seq_along(vector)) {\n    total &lt;- total + vector[i]\n  }\n  return(total)\n}\n\nresult &lt;- my_sum(c(\"one\", 2, 3))  # Error: input must be a numeric vector, halts immediately\n                                  # with OUR message; result is never created\nresult + 10                       # in a script, this line is never reached"
+    "text": "Using stop() when writing a function: obseve this comparison\nApproach 2: using stop() for errors ✅\nmy_sum &lt;- function(vector) {\n  \n  # input check with stop(): raise a real error\n  if (!is.numeric(vector)) {\n    stop(\"input must be a numeric vector\")\n  }\n  \n  # compute the sum (identical to previous code)\n  total &lt;- 0\n  for (i in seq_along(vector)) {\n    total &lt;- total + vector[i]\n  }\n  return(total)\n}\n\nresult2 &lt;- my_sum(c(\"one\", 2, 3))  # Error: input must be a numeric vector, script stops\nresult2 + 10                       # in a script, this line is never reached"
   },
   {
     "objectID": "lectures/15-slides.html#practice-writing-functions-1",
@@ -3931,7 +3931,7 @@
     "href": "lectures/15-slides.html#to-print-these-slides-as-pdf",
     "title": "Computing for the Social Sciences: Lecture 15",
     "section": "To print these slides as pdf",
-    "text": "To print these slides as pdf\nClick on the icon bottom-left corner (the three lines) &gt; Tools &gt; PDF Export Mode &gt; Print as a Pdf\n:::"
+    "text": "To print these slides as pdf\nClick on the icon bottom-left corner (the three lines) &gt; Tools &gt; PDF Export Mode &gt; Print as a Pdf"
   },
   {
     "objectID": "hw/hw04-old.html",
@@ -3945,7 +3945,7 @@
     "href": "lectures/15-slides.html#last-lecture-for-loop-with-a-dataframe",
     "title": "Computing for the Social Sciences: Lecture 15",
     "section": "Last Lecture: for loop with a dataframe",
-    "text": "Last Lecture: for loop with a dataframe\nIn lecture 14 we learned how to apply a for loop to calculate mean value of several columns in a dataframe:\n\nlibrary(tidyverse)\nlibrary(palmerpenguins)\n\noutput &lt;- vector(mode = \"double\", length = ncol(penguins))\n\nfor (i in seq_along(penguins)) {\n  output[i] &lt;- mean(penguins[[i]], na.rm = TRUE)\n}\n\noutput\n\n\ni will index each column\noutput[i] saves the results in the output vector at the correct position\npenguins[[i]] ` pulls out the column’s values as a plain vector"
+    "text": "Last Lecture: for loop with a dataframe\nIn lecture 14 we learned how to apply a for loop to calculate mean value of several columns in a dataframe:\n\nlibrary(tidyverse)\n\nWarning: package 'tidyverse' was built under R version 4.5.3\n\n\nWarning: package 'ggplot2' was built under R version 4.5.3\n\n\nWarning: package 'tidyr' was built under R version 4.5.3\n\n\nWarning: package 'purrr' was built under R version 4.5.3\n\n\nWarning: package 'dplyr' was built under R version 4.5.3\n\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.2.1     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   4.0.3     ✔ tibble    3.3.0\n✔ lubridate 1.9.4     ✔ tidyr     1.3.2\n✔ purrr     1.2.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(palmerpenguins)\n\n\nAttaching package: 'palmerpenguins'\n\nThe following objects are masked from 'package:datasets':\n\n    penguins, penguins_raw\n\noutput &lt;- vector(mode = \"double\", length = ncol(penguins))\n\nfor (i in seq_along(penguins)) {\n  output[i] &lt;- mean(penguins[[i]], na.rm = TRUE)\n}\n\nWarning in mean.default(penguins[[i]], na.rm = TRUE): argument is not numeric\nor logical: returning NA\n\n\nWarning in mean.default(penguins[[i]], na.rm = TRUE): argument is not numeric\nor logical: returning NA\nWarning in mean.default(penguins[[i]], na.rm = TRUE): argument is not numeric\nor logical: returning NA\n\noutput\n\n\ni will index each column\noutput[i] saves the results in the output vector at the correct position\npenguins[[i]] ` pulls out the column’s values as a plain vector"
   },
   {
     "objectID": "lectures/15-slides.html#why-we-even-learn-for-loops-in-r",
@@ -3967,5 +3967,691 @@
     "title": "Computing for the Social Sciences: Lecture 15",
     "section": "Last Lecture: we ended saying there are alternatives to for loops in R",
     "text": "Last Lecture: we ended saying there are alternatives to for loops in R\nFor loops make iteration explicit and are an important programming tool. You will encounter them in many programming languages, so it is worth learning them…\nBut R has many functions that do the same job as a for loop, but more concisely: across, map, apply"
+  },
+  {
+    "objectID": "lectures/17-slides.html#main-idea-reproducibilty",
+    "href": "lectures/17-slides.html#main-idea-reproducibilty",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "Main Idea: Reproducibilty",
+    "text": "Main Idea: Reproducibilty\nReproducibility means that you, or anyone else, can re-run your analysis from scratch and get the same results!"
+  },
+  {
+    "objectID": "lectures/17-slides.html#tip-1-start-every-session-with-a-clean-empty-workspace",
+    "href": "lectures/17-slides.html#tip-1-start-every-session-with-a-clean-empty-workspace",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "Tip 1: Start every session with a clean, empty workspace",
+    "text": "Tip 1: Start every session with a clean, empty workspace\nWhen you run an R session, your workspace includes everything created during that session:\n\npackages you loaded with library()\nall user-created objects (data, vectors, functions, models, …)\n\nBy default, R offers to save this workspace when you quit and restore it when you return. This is convenient in the short run, but not in the long run."
+  },
+  {
+    "objectID": "lectures/17-slides.html#tip-1-how",
+    "href": "lectures/17-slides.html#tip-1-how",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "Tip 1: How?",
+    "text": "Tip 1: How?\nWhen closing a session, R asks: “Do you want to save your workspace?” → Answer No.\nEven better, change the defaults so R never asks again: Tools → Global Options → General\n\nUncheck “Restore .RData into workspace at startup”\nSet “Save workspace to .RData on exit” to Never"
+  },
+  {
+    "objectID": "lectures/17-slides.html#tip-1-why",
+    "href": "lectures/17-slides.html#tip-1-why",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "Tip 1: Why?",
+    "text": "Tip 1: Why?\nA restored workspace can hide objects you forgot about or that your current script never creates:\n\nobjects created by other scripts may still be lurking\npackages or data may be loaded that your script never loads\nyou may have modified objects directly in the Console without updating the script\n\nIf your script only “works” because of leftovers in the workspace, it is silently broken. That hurts reproducibility"
+  },
+  {
+    "objectID": "lectures/17-slides.html#tip-2-use-a-project-based-workflow-and-relative-paths",
+    "href": "lectures/17-slides.html#tip-2-use-a-project-based-workflow-and-relative-paths",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "Tip 2: Use a project-based workflow and relative paths",
+    "text": "Tip 2: Use a project-based workflow and relative paths\nIn this class, we use a project-based workflow by creating an .Rproj file in every repo! Value of this approach:\n\nkeeps all files for one project together in one folder\nsets the working directory automatically, so relative paths just work\nlets you switch between projects (or open several) without confusion\n\n\n\n\n\n\n\nNote\n\n\nIf you complete HW5, remember to create .Rproj file in your repo: see these slides from Lecture 10."
+  },
+  {
+    "objectID": "lectures/17-slides.html#tip-2-use-a-project-based-workflow-and-relative-paths-1",
+    "href": "lectures/17-slides.html#tip-2-use-a-project-based-workflow-and-relative-paths-1",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "Tip 2: Use a project-based workflow and relative paths",
+    "text": "Tip 2: Use a project-based workflow and relative paths\nAvoid this pattern:\n# fragile: works only on this computer, only today\nsetwd(\"/Users/sabrina/Documents/css/hw5/data\")\ndf &lt;- read_csv(\"survey.csv\")\nAn absolute path or a path hard-wired like this example will not work on anyone else’s computer, or on yours a year from now.\nRely on the project root using the .Rproj folders. For more tips, explore the here package builds paths from the top-level project folder, no matter which script or subfolder you are in."
+  },
+  {
+    "objectID": "lectures/17-slides.html#tip-3-treat-raw-data-as-read-only",
+    "href": "lectures/17-slides.html#tip-3-treat-raw-data-as-read-only",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "Tip 3: Treat raw data as read-only",
+    "text": "Tip 3: Treat raw data as read-only\nYour raw data files are your starting point: never edit them by hand, and never let a script overwrite them.\n\nkeep raw files in their own folder (e.g., data/raw/) and treat it as untouchable\ndo all cleaning in a script, so every change is recorded and repeatable\nsave cleaned/processed versions to a separate folder (e.g., data/processed/)\n\n\n\n\n\n\n\nTest\n\n\nIf you deleted everything in data/processed/, could you regenerate it by re-running your scripts on the raw data? If yes, your pipeline is reproducible. See Wilson et al. (2017), Good Enough Practices in Scientific Computing"
+  },
+  {
+    "objectID": "lectures/17-slides.html#tip-4-build-debugging-skills",
+    "href": "lectures/17-slides.html#tip-4-build-debugging-skills",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "Tip 4: Build debugging skills",
+    "text": "Tip 4: Build debugging skills\nWhat debugging tips have you learned so far from working in R?\nPlease share your answer here"
+  },
+  {
+    "objectID": "lectures/17-slides.html#tip-4-build-debugging-skills-1",
+    "href": "lectures/17-slides.html#tip-4-build-debugging-skills-1",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "Tip 4: Build debugging skills",
+    "text": "Tip 4: Build debugging skills\nWe can think about degugging as a process…\nStep 1. Realize that you have a bug:\n\na bug can be syntactic (like a typo)\nor conceptual (a misunderstanding of R’s rules)"
+  },
+  {
+    "objectID": "lectures/17-slides.html#tip-4-build-debugging-skills-2",
+    "href": "lectures/17-slides.html#tip-4-build-debugging-skills-2",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "Tip 4: Build debugging skills",
+    "text": "Tip 4: Build debugging skills\nStep 2. Figure out where it is:\n\nread your code out loud\nuse print() statements to check each line\nuse class() to check the data structure you are working with\nrun one piece of code at a time\nif it comes from misuse of a specific function, check its documentation with ?function_name\nask AI to identify it and explain why\ntake a break!\n\nStep 3. Fix it!\nThen re-run the whole script in a fresh session to confirm\nMore in “Debugging R code” from What They Forgot to Teach You About R"
+  },
+  {
+    "objectID": "lectures/17-slides.html#tip-5-read-and-understand-what-r-tells-you",
+    "href": "lectures/17-slides.html#tip-5-read-and-understand-what-r-tells-you",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "Tip 5: Read and understand what R tells you",
+    "text": "Tip 5: Read and understand what R tells you\nR communicates in three distinct ways, and they are not all bad news:\n\nErrors stop your code. R could not do what you asked: this must be fixed.\nWarnings let the code run, but R flags that something may be off. Check the result before trusting it.\nMessages are informative. Nothing is wrong, R is just telling you what it did."
+  },
+  {
+    "objectID": "lectures/17-slides.html#tip-5-read-and-understand-what-r-tells-you-1",
+    "href": "lectures/17-slides.html#tip-5-read-and-understand-what-r-tells-you-1",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "Tip 5: Read and understand what R tells you",
+    "text": "Tip 5: Read and understand what R tells you\nlog(\"a\")\n#&gt; Error in log(\"a\"): non-numeric argument to mathematical function\nErrors: code stopped, fix it\nlog(-1)\n#&gt; Warning message: NaNs produced\nWarning: code ran, but the result is NaN (check your input)\n\nlibrary(tidyverse)\n#&gt; ── Attaching core tidyverse packages ──────────────\nMessage: nothing is wrong, but useful info"
+  },
+  {
+    "objectID": "lectures/17-slides.html#tip-6-restart-r-often-session-restart-r",
+    "href": "lectures/17-slides.html#tip-6-restart-r-often-session-restart-r",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "Tip 6: Restart R often (Session → Restart R)",
+    "text": "Tip 6: Restart R often (Session → Restart R)\nStuck with a bug, but you’re 100% sure the code is correct? Restart R:\n\nMore reliable than rm(list = ls()) or the broom icon. Those only delete user objects; packages you loaded, options you changed, and other session state all survive invisibly\nrestarting keeps RStudio open but clears everything underneath, giving you a truly clean session\nif your script still works after a restart, run top to bottom, that’s evidence it is reproducible\n\n\n\n\n\n\n\nNote\n\n\nRestart early, restart often. If restarting feels costly, that is a sign your workflow depends on hidden state, exactly what Tips 1 and 2 prevent."
+  },
+  {
+    "objectID": "lectures/17-slides.html#tip-7-use-code-auto-formatting-in-rstudio",
+    "href": "lectures/17-slides.html#tip-7-use-code-auto-formatting-in-rstudio",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "Tip 7: Use code auto-formatting in RStudio",
+    "text": "Tip 7: Use code auto-formatting in RStudio\nConsistent style makes bugs easier to see (yours and others). RStudio helps:\n\noption 1: Code &gt; Reformat Code (Shift + Cmd/Ctrl + A)\noption 2: Code &gt; Reindent Lines (Cmd/Ctrl + I)\noption 3: install the styler package for more on restyling\n\nOpen an R script and try this out:\n y&lt;-10\n  if (y &lt; 20) {\nx &lt;- \"Too low\" }\nelse {\n  x &lt;-\"Too high\"}"
+  },
+  {
+    "objectID": "lectures/17-slides.html#recap-habits-for-reproducible-work",
+    "href": "lectures/17-slides.html#recap-habits-for-reproducible-work",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "Recap: habits for reproducible work",
+    "text": "Recap: habits for reproducible work\n\nStart every session with a clean, empty workspace\nUse a project-based workflow (.Rproj in every repo)\nTreat raw data as read-only; clean it with scripts\nBuild debugging skills\nDistinguish errors, warnings, and messages\nRestart R often\nAuto-format your code\n\n\n\n\n\n\n\nImportant\n\n\nFINAL TEST: Close R, reopen the project, run your script top to bottom. Does it work?"
+  },
+  {
+    "objectID": "lectures/17-slides.html#resources-for-reproducible-work",
+    "href": "lectures/17-slides.html#resources-for-reproducible-work",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "Resources for reproducible work",
+    "text": "Resources for reproducible work\n\nBryan & Hester, What They Forgot to Teach You About R on clean workspaces, safe paths, debugging\nBryan, “Project-oriented workflow” (tidyverse blog)\nWickham, Çetinkaya-Rundel & Grolemund, R for Data Science, “Workflow: scripts and projects”\nWilson et al. (2017), Good Enough Practices in Scientific Computing, for general tips on the topic of reproducibility\nThe here and styler packages"
+  },
+  {
+    "objectID": "lectures/17-slides.html#r-markdown-recap",
+    "href": "lectures/17-slides.html#r-markdown-recap",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "R Markdown Recap",
+    "text": "R Markdown Recap\nR Markdown is a file format (with extension .Rmd) that:\n\ncombines R code, using code chunks, and text in a single document\nmakes it easy to create reproducible reports, analyses, and presentations\nyou might hear about Quarto (with extension .qmd): a newer alternative to R Markdown (if you learn R Markdown, you can quickly adjust to Quarto)"
+  },
+  {
+    "objectID": "lectures/17-slides.html#r-markdown-recap-1",
+    "href": "lectures/17-slides.html#r-markdown-recap-1",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "R Markdown Recap",
+    "text": "R Markdown Recap\nThree Main Components\n\nYAML header for document title, author, output format, etc. Insert it at the top between ---\nText regular Markdown for headers, lists, links, etc.\nCode chunks for code. Insert it with triple backticks ```\n\n\n\n\n\n\n\n\nCode Chunk Tips\n\n\nThree ways to insert a code chunk in your R Markdown:\n\nUse the RStudio toolbar\n\nType manually ```{r} and ```\nUse a shortcut\n\nMac: ⌘ + ⌥ + I\n\nWindows: Ctrl + Alt + I"
+  },
+  {
+    "objectID": "lectures/17-slides.html#r-markdown-vs-r-script",
+    "href": "lectures/17-slides.html#r-markdown-vs-r-script",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "R Markdown vs R Script",
+    "text": "R Markdown vs R Script\nWhen to use a script vs. a Rmd\n\nWhen you want to experiment, test functions, debug code\nWhen you do not need to communicate output or results to others\nFor scripts that need to run top-to-bottom without narrative\nFor larger projects where you could have some code in R scripts (e.g., data cleaning, analysis pipelines, tests, etc.), and others (e.g., the final-narrated versions) in a Rmd file"
+  },
+  {
+    "objectID": "lectures/17-slides.html#r-markdown-what-we-know",
+    "href": "lectures/17-slides.html#r-markdown-what-we-know",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "R Markdown: What We Know",
+    "text": "R Markdown: What We Know\n\nInserting a YAML Header with basic elements\nFormatting text (italics, bold, etc.)\nFormatting titles\nInserting lists (ordered and unordered)\nInserting images, tables, and hyperlinks\nRendering a Rmd into pdf, html, md, etc."
+  },
+  {
+    "objectID": "lectures/17-slides.html#r-markdown-what-we-learn-today",
+    "href": "lectures/17-slides.html#r-markdown-what-we-learn-today",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "R Markdown: What We Learn Today",
+    "text": "R Markdown: What We Learn Today\n\nHow the knitting process works\nInline code\nCode chunks names\nCode chunks options\nGlobal options\nNew YAML header elements"
+  },
+  {
+    "objectID": "lectures/17-slides.html#r-markdown-the-knitting-process",
+    "href": "lectures/17-slides.html#r-markdown-the-knitting-process",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "R Markdown: The Knitting Process",
+    "text": "R Markdown: The Knitting Process\nWhen you “knit” your document, the following sequential things happen, as illustarated here\n\nR Markdown sends the .Rmd file to knitr http://yihui.name/knitr/\nKnitr executes all of the code chunks and creates a new plain Markdown .md file which includes the code and its output\nThis plain Markdown file is then converted by pandoc into any number of output types including html, PDF, Word document, etc.: http://pandoc.org/"
+  },
+  {
+    "objectID": "lectures/17-slides.html#r-markdown-inline-code---how-it-looks-like-in-your-rmd",
+    "href": "lectures/17-slides.html#r-markdown-inline-code---how-it-looks-like-in-your-rmd",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "R Markdown: Inline Code - How it looks like in your Rmd",
+    "text": "R Markdown: Inline Code - How it looks like in your Rmd\n---\ntitle: \"Gun deaths\"\nauthor: \"Sabrina Nardin\"\noutput: html_document\n---\n\n```{r setup, include = FALSE}\nlibrary(tidyverse)\nlibrary(rcis)\n```\n\n## Gun deaths by age\n\nThe `gun_deaths` dataset includes data for `r nrow(gun_deaths)` individuals killed by guns.\n\n```{r youth, echo = FALSE}\nyouth &lt;- gun_deaths %&gt;% filter(age &lt;= 65)\n```\n\nWe have `r nrow(youth)` individuals who are 65 or younger. \nOnly `r nrow(gun_deaths) - nrow(youth)` are older than 65."
+  },
+  {
+    "objectID": "lectures/17-slides.html#r-markdown-inline-code---how-is-rendered-once-knitted",
+    "href": "lectures/17-slides.html#r-markdown-inline-code---how-is-rendered-once-knitted",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "R Markdown: Inline Code - How is rendered once knitted",
+    "text": "R Markdown: Inline Code - How is rendered once knitted\nThe gun_deaths dataset includes data for 100798 individuals killed by guns.\nWe have 85111 individuals who are 65 or younger. Only 15687 are older than 65."
+  },
+  {
+    "objectID": "lectures/17-slides.html#r-markdown-code-chunks-names",
+    "href": "lectures/17-slides.html#r-markdown-code-chunks-names",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "R Markdown: Code Chunks Names",
+    "text": "R Markdown: Code Chunks Names\nA named code chunk:\n```{r youth-distribution}\n# code goes here\n```\nAdvantages:\n\nEasier to navigate to specific chunks (using the drop-down code navigator in the script editor). Note: Two code chunks should not have the same name.\nGraphics produced by the chunks have useful names\nUse it with cache = TRUE to avoid re-performing expensive computations on every run\n\n\n\n\n\n\n\nTip\n\n\ncache = TRUE saves a chunk’s output to a file on memory. On future renders, R checks if the code chunk has changed; if not, R skips re-running the chunk and reuses the cached results (see Ch. 27 R for Data Science)"
+  },
+  {
+    "objectID": "lectures/17-slides.html#r-markdown-code-chunk-options",
+    "href": "lectures/17-slides.html#r-markdown-code-chunk-options",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "R Markdown: Code Chunk Options",
+    "text": "R Markdown: Code Chunk Options\nCheck:\n\nLecture 2\nThis table and options for more."
+  },
+  {
+    "objectID": "lectures/17-slides.html#r-markdown-global-options",
+    "href": "lectures/17-slides.html#r-markdown-global-options",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "R Markdown: Global Options",
+    "text": "R Markdown: Global Options\nUse global chunk options when you want the same settings to apply to ALL code chunks in your R Markdown file.\nGlobal options are defined in a code chunk at the top of your Rmd file with knitr::opts_chunk$set()\nFor example, if you want to hide the code by default in your entire Rmd:\nknitr::opts_chunk$set(\n  echo = FALSE    # shows results but hide codes \n)"
+  },
+  {
+    "objectID": "lectures/17-slides.html#r-markdown-new-yaml-header-elements",
+    "href": "lectures/17-slides.html#r-markdown-new-yaml-header-elements",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "R Markdown: New YAML Header Elements",
+    "text": "R Markdown: New YAML Header Elements\n---\ntitle: \"Gun deaths\"\nauthor: \"Sabrina Nardin\"\noutput: html_document\n---"
+  },
+  {
+    "objectID": "lectures/17-slides.html#yaml-header-table-of-contents",
+    "href": "lectures/17-slides.html#yaml-header-table-of-contents",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "YAML Header: Table of Contents",
+    "text": "YAML Header: Table of Contents\n---\ntitle: \"Gun deaths\"\nauthor: \"Sabrina Nardin\"\noutput: \n  html_document\n    toc: true\n    toc_depth: 2\n---"
+  },
+  {
+    "objectID": "lectures/17-slides.html#yaml-header-apparence-and-style",
+    "href": "lectures/17-slides.html#yaml-header-apparence-and-style",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "YAML Header: Apparence and Style",
+    "text": "YAML Header: Apparence and Style\n---\ntitle: \"Gun deaths\"\nauthor: \"Sabrina Nardin\"\noutput: \n  html_document\n    theme: readable\n    fig_width: 8\n    fig_height: 6\n---"
+  },
+  {
+    "objectID": "lectures/17-slides.html#yaml-header-date-as-string",
+    "href": "lectures/17-slides.html#yaml-header-date-as-string",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "YAML Header: Date as string",
+    "text": "YAML Header: Date as string\nWe can add a date as a simple string, and manually modify it every time we modify our file:\n---\ntitle: \"Gun deaths\"\noutput: html_document\ndate: \"December 1, 2025\"\n---\nBut we can also add it automatically!"
+  },
+  {
+    "objectID": "lectures/17-slides.html#yaml-header-date-with-lubridate",
+    "href": "lectures/17-slides.html#yaml-header-date-with-lubridate",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "YAML Header: Date with lubridate",
+    "text": "YAML Header: Date with lubridate\n---\ntitle: \"Gun deaths\"\noutput: html_document\ndate: \"`r lubridate::today()`\"\n---\nFor more on the lubridate package, see Chapter 16 of R for Data Science and Lecture 12 slides"
+  },
+  {
+    "objectID": "lectures/17-slides.html#yaml-header-date-with-sys.date",
+    "href": "lectures/17-slides.html#yaml-header-date-with-sys.date",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "YAML Header: Date with Sys.Date",
+    "text": "YAML Header: Date with Sys.Date\n---\ntitle: \"Gun deaths\"\noutput: html_document\ndate: \"`r Sys.Date()`\"\n---\nSys.Date returns the current day in the current time zone. The default uses the format year/month/day."
+  },
+  {
+    "objectID": "lectures/17-slides.html#yaml-header-date-with-sys.time",
+    "href": "lectures/17-slides.html#yaml-header-date-with-sys.time",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "YAML Header: Date with Sys.time",
+    "text": "YAML Header: Date with Sys.time\n---\ntitle: \"Gun deaths\"\noutput: html_document\ndate: \"`r format (Sys.time(), '%d, %B, %Y')`\"\n---\nSys.time returns an absolute date-time value which can be converted to various time zones, and it more easily is customizable. This format says we want the date as: numeric day, full name of the month, and full (4-digit) year, but it can be changed"
+  },
+  {
+    "objectID": "lectures/17-slides.html#practice-with-rmd",
+    "href": "lectures/17-slides.html#practice-with-rmd",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "💻 Practice with Rmd",
+    "text": "💻 Practice with Rmd\nDownload today’s class materials and complete the tutorial!"
+  },
+  {
+    "objectID": "lectures/17-slides.html#r-markdown-more-info-and-tips",
+    "href": "lectures/17-slides.html#r-markdown-more-info-and-tips",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "R Markdown More Info and Tips",
+    "text": "R Markdown More Info and Tips\nFor final project (HW5), experiment with a few of the R Markdown options covered in these slides or in R for Data Science 1st Edition:\n\nChapter 27 “R Markdown”\nChapter 28 “Graphics for communication”\nChapter 29 “R Markdown formats”"
+  },
+  {
+    "objectID": "lectures/17-slides.html#why",
+    "href": "lectures/17-slides.html#why",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "Why",
+    "text": "Why\nSo far we have been using\nWe can do the same with the command line"
+  },
+  {
+    "objectID": "lectures/17-slides.html#how-to",
+    "href": "lectures/17-slides.html#how-to",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "How to",
+    "text": "How to\nSlide with side by side comparison"
+  },
+  {
+    "objectID": "lectures/17-slides.html#tutorial",
+    "href": "lectures/17-slides.html#tutorial",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "Tutorial",
+    "text": "Tutorial\nDownload the Git/Github from the command line tutorial from HERE"
+  },
+  {
+    "objectID": "lectures/17-slides.html#to-print-these-slides-as-pdf",
+    "href": "lectures/17-slides.html#to-print-these-slides-as-pdf",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "To print these slides as pdf",
+    "text": "To print these slides as pdf\nClick on the icon bottom-left corner (the three lines) &gt; Tools &gt; PDF Export Mode &gt; Print as a Pdf"
+  },
+  {
+    "objectID": "lectures/17-home.html#learning-objectives",
+    "href": "lectures/17-home.html#learning-objectives",
+    "title": "Lecture 17: Reproducible Workflow; Exam Review",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\n\nReproducible Workflow:\n\nDefine a project-oriented workflow in R and identify best R procedures\nExpand our current knowledge of R Markdown\nBasics of Git/GitHub via terminal/command line\n\nExam 2 Review"
+  },
+  {
+    "objectID": "lectures/17-home.html#readings",
+    "href": "lectures/17-home.html#readings",
+    "title": "Lecture 17: Reproducible Workflow; Exam Review",
+    "section": "Readings",
+    "text": "Readings\n\nGood Enough Practices in Scientific Computing\nChapters 1, 2, 3, 7 in What They Forgot to Teach You About R\nChapters 27 “R Markdown”, 28 “Graphics for communication”, and 29 “R Markdown formats” in R for Data Science 1st Edition\nArticle on Project-oriented workflow"
+  },
+  {
+    "objectID": "lectures/16-slides.html",
+    "href": "lectures/16-slides.html",
+    "title": "Computing for the Social Sciences: Lecture 16",
+    "section": "",
+    "text": "Anonymous Functions\nDocumenting your Function\nFunctions with the tidyverse\n\n\n\n Slides last updated on November 17, 2026. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos. \n\nSo far, we learned the following concepts:\n\nUsing existing functions\nWriting your own function\nUsing return()\nUsing stop()\n\nIn these slides, we add:\n\nAnonymous functions\nDocumenting your function\nWriting functions with the tidyverse"
+  },
+  {
+    "objectID": "lectures/16-slides.html#anonymous-functions-1",
+    "href": "lectures/16-slides.html#anonymous-functions-1",
+    "title": "Computing for the Social Sciences: Lecture 16",
+    "section": "Anonymous Functions",
+    "text": "Anonymous Functions\nAnonymous functions are functions without a name!\nWhen to use them:\n\nWhen the function is very short and you need it only once\nWhen another function (like those in the apply() family) expects another function as input"
+  },
+  {
+    "objectID": "lectures/16-slides.html#anonymous-functions-with-a-number-as-input",
+    "href": "lectures/16-slides.html#anonymous-functions-with-a-number-as-input",
+    "title": "Computing for the Social Sciences: Lecture 16",
+    "section": "Anonymous Functions with a number as input",
+    "text": "Anonymous Functions with a number as input\nImagine we have the following function:\n\nadd &lt;- function(x) {\n  return(x + 3)}\nadd(2)\n\nRe-write it as an anonymous function. Note: one line, no name, no return statement, call it without the name\n\n(function(x) {x + 3}) (2)\n\nOften anonymous functions are written without the {}, like this:\n\n(function(x) x + 3) (2)"
+  },
+  {
+    "objectID": "lectures/16-slides.html#anonymous-functions-with-a-vector-as-input",
+    "href": "lectures/16-slides.html#anonymous-functions-with-a-vector-as-input",
+    "title": "Computing for the Social Sciences: Lecture 16",
+    "section": "Anonymous Functions with a vector as input",
+    "text": "Anonymous Functions with a vector as input\nSame function as before but here we pass a vector as input rather than a single number:\n\nadd &lt;- function(x) {\n  return(x + 3) }\nadd(c(1,2,3))\n\nTo rewrite it as anonymous function, the following code won’t work because the vector isn’t passed correctly:\n(function(x) x + 3) c(1, 2, 3)\nInstead, this works correctly, since the entire vector is passed as a single argument:\n\n(function(x) x + 3) (c(1, 2, 3))"
+  },
+  {
+    "objectID": "lectures/16-slides.html#anonymous-functions-with-sapply-and-lapply",
+    "href": "lectures/16-slides.html#anonymous-functions-with-sapply-and-lapply",
+    "title": "Computing for the Social Sciences: Lecture 16",
+    "section": "Anonymous Functions with sapply() and lapply()",
+    "text": "Anonymous Functions with sapply() and lapply()\nYou can also rewrite the previous code using sapply() or lapply(). Remember them from last time? They can be used instead of for loops in R.\nBoth belong to the apply() family and have the same structure:\nlapply(X, FUN)\nsapply(X, FUN)\n\nX is a vector or list (the input)\nFUN is a function to apply to each element of X\n\nThey both loop through the elements of X, apply FUN to each element…"
+  },
+  {
+    "objectID": "lectures/16-slides.html#anonymous-functions-with-sapply-and-lapply-1",
+    "href": "lectures/16-slides.html#anonymous-functions-with-sapply-and-lapply-1",
+    "title": "Computing for the Social Sciences: Lecture 16",
+    "section": "Anonymous Functions with sapply() and lapply()",
+    "text": "Anonymous Functions with sapply() and lapply()\n…But then differ in how they return the result:\n\nlapply() (“list apply”) always returns a list\nsapply() (“simplify apply”) tries to simplify the result to a vector; if it can’t, it returns a list\n\n\n# previous anonymous function\n(function(x) x + 3) (c(1,2,3))\n\n# rewritten with sapply\nsapply(c(1,2,3), function(x) x + 3)\nsapply(c(1,2,3), \\(x) x + 3)\n\n# re-written with lapply\nlapply(c(1,2,3), function(x) x + 3)\nlapply(c(1,2,3), \\(x) x + 3)      \n\n\nTip: sapply() is popular because usually returns a vector, but sometimes can be a matrix or a list. If you need a predictable output, use map_*() from purrr"
+  },
+  {
+    "objectID": "lectures/16-slides.html#anonymous-functions-the-purrr-way",
+    "href": "lectures/16-slides.html#anonymous-functions-the-purrr-way",
+    "title": "Computing for the Social Sciences: Lecture 16",
+    "section": "Anonymous Functions the purrr way",
+    "text": "Anonymous Functions the purrr way\nThe purrr package (remember the map(), map_dbl() from last lecture? same package!) provides another way to write anonymous functions.\nSame function as before that adds 1 to each element of the input:\n\nadd &lt;- function(x) {\n  x + 1\n}\nadd(c(1,2,3))\n\nRewrite it as anonymous function in purrr in two ways:\n\nlibrary(purrr)\nmap_dbl(c(1, 2, 3), function(x) x + 1)\nmap_dbl(c(1,2,3), ~.x + 1)\n\nTip: map() has several versions like map_dbl(), map_chr(), and map_df() which let you control the output type directly"
+  },
+  {
+    "objectID": "lectures/16-slides.html#practice-writing-functions",
+    "href": "lectures/16-slides.html#practice-writing-functions",
+    "title": "Computing for the Social Sciences: Lecture 16",
+    "section": "💻 Practice writing functions",
+    "text": "💻 Practice writing functions\nDownload the class materials from the website: complete QUESTION 3."
+  },
+  {
+    "objectID": "lectures/16-slides.html#functions-should-be-well-documented-how",
+    "href": "lectures/16-slides.html#functions-should-be-well-documented-how",
+    "title": "Computing for the Social Sciences: Lecture 16",
+    "section": "Functions should be well-documented! How?",
+    "text": "Functions should be well-documented! How?\nEach function should include:\n\nA one-sentence description of what it does\nIts arguments, with their data types (denoted with Args: or @param)\nIts return value (denoted with Returns: or @return)\n\n\n\n\n\n\n\n\nWrite your documentation yourself first\n\n\nIf you can’t describe your function in one sentence, revisit the function. If you use AI, use it to polish your draft, not to start it."
+  },
+  {
+    "objectID": "lectures/16-slides.html#codying-style-document-your-function",
+    "href": "lectures/16-slides.html#codying-style-document-your-function",
+    "title": "Computing for the Social Sciences: Lecture 16",
+    "section": "Codying style: document your function",
+    "text": "Codying style: document your function\n\nmy_sum &lt;- function(vector) {\n  \n  # Calculates the sum of all numbers in a numeric vector using a `for` loop.\n  # Args:\n  #   vector (num): a numeric vector whose elements will be summed\n  # Returns:\n  #  value (num): single numeric value.\n  # Example use:\n  #   x &lt;- c(3, 1, 4)\n  #   my_sum(x)\n    \n  total &lt;- 0\n  for (i in seq_along(vector)) {\n    total &lt;- total + vector[i]\n  }\n  total\n}"
+  },
+  {
+    "objectID": "lectures/16-slides.html#example-from-googles-r-style-guide-here",
+    "href": "lectures/16-slides.html#example-from-googles-r-style-guide-here",
+    "title": "Computing for the Social Sciences: Lecture 16",
+    "section": "Example from Google’s R Style Guide here",
+    "text": "Example from Google’s R Style Guide here\n\nCalculateSampleCovariance &lt;- function(x, y, verbose = TRUE) {\n\n  # Computes the sample covariance between two vectors.\n  # Args:\n  #   x: One of two vectors whose sample covariance is to be calculated.\n  #   y: The other vector. x and y must have the same length, greater than one,\n  #      with no missing values.\n  #   verbose: If TRUE, prints sample covariance; if not, not. Default is TRUE.\n  # Returns:\n  #   The sample covariance between x and y.\n  \n  n &lt;- length(x)\n  if (n &lt;= 1 || n != length(y)) {\n    stop(\"Arguments x and y have invalid lengths: \",\n         length(x), \" and \", length(y), \".\") }\n  if (TRUE %in% is.na(x) || TRUE %in% is.na(y)) {\n    stop(\" Arguments x and y must not have missing values.\") }\n  covariance &lt;- var(x, y)\n  if (verbose)\n    cat(\"Covariance = \", round(covariance, 4), \".\\n\", sep = \"\")\n  return(covariance)\n}"
+  },
+  {
+    "objectID": "lectures/16-slides.html#practice-writing-functions-1",
+    "href": "lectures/16-slides.html#practice-writing-functions-1",
+    "title": "Computing for the Social Sciences: Lecture 16",
+    "section": "💻 Practice writing functions",
+    "text": "💻 Practice writing functions\nDownload the class materials from the website\nAFTER CLASS CHALLENGE: complete QUESTION 5 and QUESTION 6"
+  },
+  {
+    "objectID": "lectures/16-slides.html#functions-and",
+    "href": "lectures/16-slides.html#functions-and",
+    "title": "Computing for the Social Sciences: Lecture 16",
+    "section": "Functions and {{ }}",
+    "text": "Functions and {{ }}\nYou can write custom functions and use them together with dplyr or ggplot2 functions!\nYou need the following elements:\n\nsyntax to write a custom function\nspecial operators that allow R to evaluate your custom functions correctly:\n\nbang-bang !! with enquo() (this is the old method)\ncurly-curly or embracing { } (this the most common method)\n\n\nCheck Chapter 25 for more https://r4ds.hadley.nz/functions.html"
+  },
+  {
+    "objectID": "lectures/16-slides.html#functions-and-1",
+    "href": "lectures/16-slides.html#functions-and-1",
+    "title": "Computing for the Social Sciences: Lecture 16",
+    "section": "Functions and {{ }}",
+    "text": "Functions and {{ }}\nWe create a data frame of age and height of 5 individuals:\n\nlibrary(dplyr)\n\ndf &lt;- tibble(age = c(10, 12, 13, 14, 10), \n             height = c(110, 140, 155, 170, 130))\ndf\n\n# A tibble: 5 × 2\n    age height\n  &lt;dbl&gt;  &lt;dbl&gt;\n1    10    110\n2    12    140\n3    13    155\n4    14    170\n5    10    130"
+  },
+  {
+    "objectID": "lectures/16-slides.html#functions-and-2",
+    "href": "lectures/16-slides.html#functions-and-2",
+    "title": "Computing for the Social Sciences: Lecture 16",
+    "section": "Functions and {{ }}",
+    "text": "Functions and {{ }}\nIn this example, we use summarize() from dplyr to compute the mean and standard deviation on the column age of this data frame:\n\ndf |&gt;\n  summarize(mean_age = mean(age),\n            sd_age = sd(age))\n\n# A tibble: 1 × 2\n  mean_age sd_age\n     &lt;dbl&gt;  &lt;dbl&gt;\n1     11.8   1.79"
+  },
+  {
+    "objectID": "lectures/16-slides.html#functions-and-3",
+    "href": "lectures/16-slides.html#functions-and-3",
+    "title": "Computing for the Social Sciences: Lecture 16",
+    "section": "Functions and {{ }}",
+    "text": "Functions and {{ }}\nLet’s try re-writing the previous code as a function without the embracing:\n\ncustom_summary &lt;- function(data, col) {\n  data |&gt;\n    summarize(mean_value = mean(col),\n              sd_value = sd(col))\n}\n\ncustom_summary(df, age)\n\nError in `summarize()`:\nℹ In argument: `mean_value = mean(col)`.\nCaused by error:\n! object 'age' not found\n\n\n\nWe are getting an error because dplyr looks for a column literally called col, which doesn’t exist in df!"
+  },
+  {
+    "objectID": "lectures/16-slides.html#functions-and-4",
+    "href": "lectures/16-slides.html#functions-and-4",
+    "title": "Computing for the Social Sciences: Lecture 16",
+    "section": "Functions and {{ }}",
+    "text": "Functions and {{ }}\nEmbracing an argument means wrapping it in double braces:\n\ncustom_summary &lt;- function(data, col) {\n  data |&gt;\n    summarize(mean_value = mean({{ col }}),\n              sd_value = sd({{ col }}))\n}\n\ncustom_summary(df, age)\n\n# A tibble: 1 × 2\n  mean_value sd_value\n       &lt;dbl&gt;    &lt;dbl&gt;\n1       11.8     1.79\n\n\nEmbracing tells dplyr to use the column stored inside the argument age, not a column named col\n\n\n\n\n\n\n\nHow to remember it\n\n\nOur book suggests thinking of { } as looking down a tunnel: { var } makes dplyr look inside var rather than for a column called var."
+  },
+  {
+    "objectID": "lectures/16-slides.html#functions-and-5",
+    "href": "lectures/16-slides.html#functions-and-5",
+    "title": "Computing for the Social Sciences: Lecture 16",
+    "section": "Functions and {{ }}",
+    "text": "Functions and {{ }}\nRewrite it with multiple columns as arguments:\n\ncustom_summary &lt;- function(data, col1, col2) {\n  results &lt;- list(\n    summarise(data, \n              mean_value = mean({{ col1 }}),\n              sd_value = sd({{ col1 }})),\n    summarise(data, \n              mean_value = mean({{ col2 }}),\n              sd_value = sd({{ col2 }}))\n  )\n  # Combine output into a single data frame\n  bind_rows(results)\n}\ncustom_summary(df, age, height)\n\n# A tibble: 2 × 2\n  mean_value sd_value\n       &lt;dbl&gt;    &lt;dbl&gt;\n1       11.8     1.79\n2      141      23.0"
+  },
+  {
+    "objectID": "lectures/16-slides.html#functions-and-6",
+    "href": "lectures/16-slides.html#functions-and-6",
+    "title": "Computing for the Social Sciences: Lecture 16",
+    "section": "Functions and {{ }}",
+    "text": "Functions and {{ }}\nWhen do you need to embrace when writing a function?\nIn all cases of “tidy evaluation,” which has two main types (see the readings, Chapter 25 for details):\n\nData Masking: in functions such as arrange(), filter(), summarize() from dplyr and in aes() from ggplot2 often when you need to pass a variable name\nTidy Selection: in functions such as select(), relocate(), rename() when you need to select variables by name"
+  },
+  {
+    "objectID": "lectures/16-slides.html#practice-writing-functions-2",
+    "href": "lectures/16-slides.html#practice-writing-functions-2",
+    "title": "Computing for the Social Sciences: Lecture 16",
+    "section": "💻 Practice writing functions",
+    "text": "💻 Practice writing functions\nDownload the class materials from the website: complete QUESTION 7."
+  },
+  {
+    "objectID": "lectures/16-slides.html#to-print-these-slides-as-pdf",
+    "href": "lectures/16-slides.html#to-print-these-slides-as-pdf",
+    "title": "Computing for the Social Sciences: Lecture 16",
+    "section": "To print these slides as pdf",
+    "text": "To print these slides as pdf\nClick on the icon bottom-left corner (the three lines) &gt; Tools &gt; PDF Export Mode &gt; Print as a Pdf"
+  },
+  {
+    "objectID": "lectures/17-slides.html#main-idea-reproducibilty-1",
+    "href": "lectures/17-slides.html#main-idea-reproducibilty-1",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "Main Idea: Reproducibilty",
+    "text": "Main Idea: Reproducibilty\nThe tips in the next slides all serve one principle:\n\n\n\n\n\n\n\nDon’t preserve the workspace. Preserve the code that creates the workspace\n\n\nYour scripts are the product. Everything else (objects in memory, console history, current session) is disposable. For more see Bryan & Hester, What They Forgot to Teach You About R."
+  },
+  {
+    "objectID": "lectures/17-slides.html#yaml-header-how-to-add-a-date",
+    "href": "lectures/17-slides.html#yaml-header-how-to-add-a-date",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "YAML Header: How to add a date",
+    "text": "YAML Header: How to add a date\nAdd a date as a simple string, and manually modify it every time we modify our file:\n---\ntitle: \"Gun deaths\"\noutput: html_document\ndate: \"December 1, 2025\"\n---\nBut we can also add it automatically with lubridate:\n---\ntitle: \"Gun deaths\"\noutput: html_document\ndate: \"`r lubridate::today()`\"\n---"
+  },
+  {
+    "objectID": "lectures/17-slides.html#yaml-header-how-to-add-a-date-1",
+    "href": "lectures/17-slides.html#yaml-header-how-to-add-a-date-1",
+    "title": "Computing for the Social Sciences: Lecture 17",
+    "section": "YAML Header: How to add a date",
+    "text": "YAML Header: How to add a date\nOr with Sys.Date with default format year/month/day\n---\ntitle: \"Gun deaths\"\noutput: html_document\ndate: \"`r Sys.Date()`\"\n---\nOr with Sys.time which is more flexible\n---\ntitle: \"Gun deaths\"\noutput: html_document\ndate: \"`r format (Sys.time(), '%d, %B, %Y')`\"\n---"
+  },
+  {
+    "objectID": "lectures/15-slides.html#make-sure-your-while-loop-can-stop",
+    "href": "lectures/15-slides.html#make-sure-your-while-loop-can-stop",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "Make Sure Your While Loop Can Stop",
+    "text": "Make Sure Your While Loop Can Stop\nA while loop runs until its condition becomes FALSE. To make sure that happens:\n\nSet the variable outside the loop (before the loop starts)\nCheck it in the loop condition\nUpdate it inside the loop so the condition can eventually become FALSE\n\nIf nothing inside the loop changes the condition, the loop never ends."
+  },
+  {
+    "objectID": "lectures/15-slides.html#when-r-has-a-built-in-function-use-it",
+    "href": "lectures/15-slides.html#when-r-has-a-built-in-function-use-it",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "When R has a built-in function: use it",
+    "text": "When R has a built-in function: use it\nIn our example, we wrote a function called my_sum() to illustrate how user-written functions work:\n\nwe gave it a name\ndefined arguments\nwrote a return statement\nand we called the function on different vectors\n\n\nIf R already has a built-in function for a task (e.g., here sum()), it’s usually best to use it rather than writing your own. Built-in functions are tested and optimized."
+  },
+  {
+    "objectID": "lectures/15-slides.html#when-to-write-your-own-function",
+    "href": "lectures/15-slides.html#when-to-write-your-own-function",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "When to Write Your Own Function",
+    "text": "When to Write Your Own Function\nWrite a custom function when you want to…\n\nFill a gap: R has no built-in function for the task\nAvoid repetition: replace copy-and-pasted code, reducing the chance of mistakes\nReuse code: write it once, use it across scripts and projects\nOrganize your workflow: break work into clear steps (e.g., one function imports the data, another cleans it)\n\n\n\nRule of thumb: if you’ve copied and pasted the same code more than twice, write a function!"
+  },
+  {
+    "objectID": "lectures/15-slides.html#single-return-statements-example",
+    "href": "lectures/15-slides.html#single-return-statements-example",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "Single return statements: Example",
+    "text": "Single return statements: Example\n\nmy_fun &lt;- function() {\n  return(\"done\")\n  print(\"This line never runs\")\n}\n\nmy_fun()"
+  },
+  {
+    "objectID": "lectures/15-slides.html#multiple-return-statements-example-1",
+    "href": "lectures/15-slides.html#multiple-return-statements-example-1",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "Multiple return statements: Example 1",
+    "text": "Multiple return statements: Example 1\nThis function takes a number as input and checks if it is zero, positive, or negative:\n\ndescribe_number &lt;- function(x) {\n  if (x == 0) {\n    return(\"x is zero (special case!)\")\n  }\n  if (x &gt; 0) {\n    return(\"x is positive\")\n  } else {\n    return(\"x is negative\")\n  }\n}\n\ndescribe_number(0)\ndescribe_number(5)\ndescribe_number(-3)"
+  },
+  {
+    "objectID": "lectures/15-slides.html#one-return-statement-with-multiple-outputs",
+    "href": "lectures/15-slides.html#one-return-statement-with-multiple-outputs",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "One return statement with multiple outputs",
+    "text": "One return statement with multiple outputs\nIn the previous example, our functions had multiple return() statements but each returned one object only.\nYou can also write a function with one return() statement that gives back several objects. Like this:\n\nmy_sum &lt;- function(vector) {\n  total &lt;- 0\n  for (i in seq_along(vector)) {\n    total &lt;- total + vector[i]\n  }\n  return(list(total = total, n = length(vector)))\n}\n\nx &lt;- c(2, 1, 5, 2)\ny &lt;- my_sum(x)\n\ny$total    # access a list element by name\ny[[1]]     # access a list element by position (double brackets!)\n\n\nQuestions: Could we return a vector instead of a list here? How? Why is a list usually the better choice when a function returns multiple objects?"
+  },
+  {
+    "objectID": "lectures/15-slides.html#one-return-statement-with-multiple-outputs-1",
+    "href": "lectures/15-slides.html#one-return-statement-with-multiple-outputs-1",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "One return statement with multiple outputs",
+    "text": "One return statement with multiple outputs\n\nQuestions: Could we return a vector instead of a list here? How? Why is a list usually the better choice when a function returns multiple objects?\n\n\nYes: you can return a vector, but a vector holds only one data type so it will coherence everything into a common type\nA list keeps each object as it is: different types, lengths, and structures and you can access each element by subsetting lists"
+  },
+  {
+    "objectID": "lectures/15-slides.html#vector-vs.-list-mixing-types",
+    "href": "lectures/15-slides.html#vector-vs.-list-mixing-types",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "Vector vs. list: mixing types",
+    "text": "Vector vs. list: mixing types\n\n\nVector\n\nreturn(c(total = total,\n         label = \"sum\"))\n\ny[\"total\"] + 1\n# Error: non-numeric argument\n\nc() turns everything into text\n\nList\n\nreturn(list(total = total,\n            label = \"sum\"))\n\ny$total + 1\n# 11\n\nA list keeps each type as it is"
+  },
+  {
+    "objectID": "lectures/15-slides.html#using-stop-when-writing-a-function-3",
+    "href": "lectures/15-slides.html#using-stop-when-writing-a-function-3",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "Using stop() when writing a function",
+    "text": "Using stop() when writing a function\nMost functions exit in one of two ways.\nThey either return() a value, indicating success or they stop() and throw an error, indicating failure:\n\nreturn(): exits the function normally, handing back a value\nstop(): exits the function with an error, so the execution halts and the Console shows Error:"
+  },
+  {
+    "objectID": "lectures/15-slides.html#multiple-return-statements-example",
+    "href": "lectures/15-slides.html#multiple-return-statements-example",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "Multiple return statements: Example",
+    "text": "Multiple return statements: Example\nThis function takes a number as input and checks if it is zero, positive, or negative:\n\ndescribe_number &lt;- function(x) {\n  if (x == 0) {\n    return(\"x is zero (special case!)\")\n  }\n  if (x &gt; 0) {\n    return(\"x is positive\")\n  } else {\n    return(\"x is negative\")\n  }\n}\n\ndescribe_number(0)\ndescribe_number(5)\ndescribe_number(-3)"
+  },
+  {
+    "objectID": "lectures/15-slides.html#one-return-statement-multiple-outputs-example",
+    "href": "lectures/15-slides.html#one-return-statement-multiple-outputs-example",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "One return statement, Multiple outputs: Example",
+    "text": "One return statement, Multiple outputs: Example\nIn the previous example, our functions had multiple return() statements but each returned one object only.\nYou can also write a function with one return() statement that gives back several objects. Like this:\n\nmy_sum &lt;- function(vector) {\n  total &lt;- 0\n  for (i in seq_along(vector)) {\n    total &lt;- total + vector[i]\n  }\n  return(list(total = total, n = length(vector)))\n}\n\nx &lt;- c(2, 1, 5, 2)\ny &lt;- my_sum(x)\n\ny$total    # access a list element by name\ny[[1]]     # access a list element by position (double brackets!)\n\n\nQuestions: Could we return a vector instead of a list here? How? Why is a list usually the better choice when a function returns multiple objects?"
+  },
+  {
+    "objectID": "lectures/15-slides.html#one-return-statement-multiple-outputs-example-1",
+    "href": "lectures/15-slides.html#one-return-statement-multiple-outputs-example-1",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "One return statement, Multiple outputs: Example",
+    "text": "One return statement, Multiple outputs: Example\n\nQuestions: Could we return a vector instead of a list here? How? Why is a list usually the better choice when a function returns multiple objects?\n\n\nYes: you can return a vector, but a vector holds only one data type so it will coherence everything into a common type\nA list keeps each object as it is: different types, lengths, and structures and you can access each element by subsetting lists"
+  },
+  {
+    "objectID": "lectures/15-slides.html#using-stop-when-writing-a-function-4",
+    "href": "lectures/15-slides.html#using-stop-when-writing-a-function-4",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "Using stop() when writing a function",
+    "text": "Using stop() when writing a function\nApproach 1: using return() for errors ❌\nmy_sum &lt;- function(vector) {\n  \n  # input check with return(): the error message is just a regular value\n  if (!is.numeric(vector)) {\n    return(\"Error: input must be a numeric vector\")\n  }\n  \n  # compute the sum\n  total &lt;- 0\n  for (i in seq_along(vector)) {\n    total &lt;- total + vector[i]\n  }\n  return(total)\n}\n\nresult &lt;- my_sum(c(\"one\", 2, 3))  # no error shown!\nresult                            # only now we see something is off\nresult + 10                       # fails here, with a confusing message"
+  },
+  {
+    "objectID": "lectures/15-slides.html#using-stop-when-writing-a-function-5",
+    "href": "lectures/15-slides.html#using-stop-when-writing-a-function-5",
+    "title": "Computing for the Social Sciences: Lecture 15",
+    "section": "Using stop() when writing a function",
+    "text": "Using stop() when writing a function\nApproach 2: using stop() for errors ✅\nmy_sum &lt;- function(vector) {\n  \n  # input check with stop(): raise a real error\n  if (!is.numeric(vector)) {\n    stop(\"input must be a numeric vector\")\n  }\n  \n  # compute the sum (identical to previous code)\n  total &lt;- 0\n  for (i in seq_along(vector)) {\n    total &lt;- total + vector[i]\n  }\n  return(total)\n}\n\nresult2 &lt;- my_sum(c(\"one\", 2, 3))  # Error: input must be a numeric vector, script stops\nresult2 + 10                       # in a script, this line is never reached"
+  },
+  {
+    "objectID": "lectures/16-slides.html#anonymous-functions-with-sapply-and-lapply-2",
+    "href": "lectures/16-slides.html#anonymous-functions-with-sapply-and-lapply-2",
+    "title": "Computing for the Social Sciences: Lecture 16",
+    "section": "Anonymous Functions with sapply() and lapply()",
+    "text": "Anonymous Functions with sapply() and lapply()\nHere’s an anonymous function for calculating the mean of a vector x as (sum / length)\nIn this example, the input x is each element of the list l:\n\nl &lt;- list(1:5, 5:7)\n\n# lapply: returns a list (3 and 6)\nlapply(l, function(x) sum(x) / length(x))\nlapply(l, \\(x) sum(x) / length(x))\n\n# sapply: returns a vector, c(3, 6)\nsapply(l, function(x) sum(x) / length(x))\nsapply(l, \\(x) sum(x) / length(x))\n\nThe function runs twice: first with x = 1:5, then with x = 5:7."
+  },
+  {
+    "objectID": "lectures/16-slides.html#anonymous-functions-syntax",
+    "href": "lectures/16-slides.html#anonymous-functions-syntax",
+    "title": "Computing for the Social Sciences: Lecture 16",
+    "section": "Anonymous Functions Syntax",
+    "text": "Anonymous Functions Syntax\nWe have the following function:\n\nadd &lt;- function(x) {\n  return(x + 3)\n}\nadd(2)\n\n\nNow we rewrite it as an anonymous function: no name, one line, and call it directly:\n\n(function(x) {x + 3})(2)\n\n\n\nOften anonymous functions are written without the {}:\n\n(function(x) x + 3)(2)\n\n\n\nOr with the \\(x) shortcut (R 4.1+):\n\n(\\(x) x + 3)(2)"
+  },
+  {
+    "objectID": "lectures/16-slides.html#anonymous-functions-syntax-1",
+    "href": "lectures/16-slides.html#anonymous-functions-syntax-1",
+    "title": "Computing for the Social Sciences: Lecture 16",
+    "section": "Anonymous Functions Syntax",
+    "text": "Anonymous Functions Syntax\nThis is the same function as before but now we pass a vector as input rather than a single number:\n\nadd &lt;- function(x) {\n  return(x + 3) }\nadd(c(1,2,3))\n\nTo rewrite it as anonymous function, the following code won’t work: what are we forgetting?\n(function(x) x + 3) c(1, 2, 3)\n\n\nWe are forgetting the second set of ( ): the first ( ) wraps the function; the second ( ) calls it, just like add(2) in regular functions"
+  },
+  {
+    "objectID": "lectures/16-slides.html#anonymous-functions-with-purrr",
+    "href": "lectures/16-slides.html#anonymous-functions-with-purrr",
+    "title": "Computing for the Social Sciences: Lecture 16",
+    "section": "Anonymous Functions with purrr",
+    "text": "Anonymous Functions with purrr\nWe can write anonymous function also with the purrr package map_* family from last lecture.\nSame function as before, adding 3 to each element of the input:\n\nadd &lt;- function(x) {\n  x + 3\n}\nadd(c(1,2,3))\n\nRewritten with purrr in three ways:\n\nlibrary(purrr)\n\n# map_dbl: like sapply, but always returns a double vector\nmap_dbl(c(1, 2, 3), function(x) x + 3)  # option 1: base R syntax\nmap_dbl(c(1, 2, 3), \\(x) x + 3)         # option 2: base R shorthand (R 4.1+)\nmap_dbl(c(1, 2, 3), ~ .x + 3)           # option 3: purrr-specific syntax\n\n# map: like lapply, always returns a list\nmap(c(1, 2, 3), function(x) x + 3)\nmap(c(1, 2, 3), \\(x) x + 3)\nmap(c(1, 2, 3), ~ .x + 3)\n\nOptions 1 and 2 work anywhere in R; option 3 (~ .x) only works inside purrr and other tidyverse functions."
+  },
+  {
+    "objectID": "lectures/16-slides.html#anonymous-functions-in-practice",
+    "href": "lectures/16-slides.html#anonymous-functions-in-practice",
+    "title": "Computing for the Social Sciences: Lecture 16",
+    "section": "Anonymous functions in practice",
+    "text": "Anonymous functions in practice\nCount missing values in each column\n\nlibrary(palmerpenguins); library(purrr); library(dplyr)\n\nsapply(penguins, \\(x) sum(is.na(x)))                              # base R: named vector\nmap_int(penguins, \\(x) sum(is.na(x)))                             # purrr: named integer vector\npenguins |&gt; summarise(across(everything(), \\(x) sum(is.na(x))))   # dplyr: one-row data frame\n\nCompute the mean of several columns by group\n\npenguins |&gt;\n  group_by(species) |&gt;\n  summarise(across(bill_length_mm:body_mass_g, \\(x) mean(x, na.rm = TRUE)))\n# summarise(across(bill_length_mm:body_mass_g, function(x) mean(x, na.rm = TRUE)))"
+  },
+  {
+    "objectID": "lectures/16-slides.html#anonymous-functions-summry",
+    "href": "lectures/16-slides.html#anonymous-functions-summry",
+    "title": "Computing for the Social Sciences: Lecture 16",
+    "section": "Anonymous Functions Summry",
+    "text": "Anonymous Functions Summry\n\n\nThree ways to write them: function(x) and \\(x) work anywhere in R; ~ .x only works in purrr and the tidyverse\nYou will mostly use them with apply and map, but anonymous functions work anywhere a function takes another function as input, e.g., across(x, function(x) x + 3))\nWhen to use one: for a short, simple operation you need only once, typically as input to another function\nWhen not to use one: if it’s long, complex, or used more than once, give it a name"
+  },
+  {
+    "objectID": "lectures/16-slides.html#document-your-function-example-1",
+    "href": "lectures/16-slides.html#document-your-function-example-1",
+    "title": "Computing for the Social Sciences: Lecture 16",
+    "section": "Document your function: Example 1",
+    "text": "Document your function: Example 1\n\n#'  Calculate the sum of a numeric vector\n#' \n#' @param vector A numeric vector\n#' @return A single number: the sum of the elements of `vector`\n\nmy_sum &lt;- function(vector) {\n  total &lt;- 0\n  for (i in seq_along(vector)) {\n    total &lt;- total + vector[i]\n  }\n  return(total)\n}"
+  },
+  {
+    "objectID": "lectures/16-slides.html#document-your-function-example-1-1",
+    "href": "lectures/16-slides.html#document-your-function-example-1-1",
+    "title": "Computing for the Social Sciences: Lecture 16",
+    "section": "Document your function: Example 1",
+    "text": "Document your function: Example 1\nThis is the roxygen2 format: In RStudio, place your cursor in a function and use Code → Insert Roxygen Skeleton\n\n#' Title\n#'\n#' @param vector \n#'\n#' @returns\n#' @export\n#'\n#' @examples\n\nmy_sum &lt;- function(vector) {\n  total &lt;- 0\n  for (i in seq_along(vector)) {\n    total &lt;- total + vector[i]\n  }\n  return(total)\n}"
+  },
+  {
+    "objectID": "lectures/16-slides.html#document-your-function-example-2",
+    "href": "lectures/16-slides.html#document-your-function-example-2",
+    "title": "Computing for the Social Sciences: Lecture 16",
+    "section": "Document your function: Example 2",
+    "text": "Document your function: Example 2\n\nmy_sum &lt;- function(vector) {\n  # Calculates the sum of all elements in a numeric vector.\n  #\n  # Args:\n  #   vector: a numeric vector whose elements will be summed.\n  #\n  # Returns:\n  #   A single number: the sum of the elements of vector.\n  #\n  # Example:\n  #   x &lt;- c(3, 1, 4)\n  #   my_sum(x)\n\n  total &lt;- 0\n  for (i in seq_along(vector)) {\n    total &lt;- total + vector[i]\n  }\n  return(total)\n}"
+  },
+  {
+    "objectID": "lectures/16-slides.html#document-your-function-example-2-1",
+    "href": "lectures/16-slides.html#document-your-function-example-2-1",
+    "title": "Computing for the Social Sciences: Lecture 16",
+    "section": "Document your function: Example 2",
+    "text": "Document your function: Example 2\nExample from Google’s R Style Guide here\n\nCalculateSampleCovariance &lt;- function(x, y, verbose = TRUE) {\n  # Computes the sample covariance between two vectors.\n  #\n  # Args:\n  #   x: One of two vectors whose sample covariance is to be calculated.\n  #   y: The other vector. x and y must have the same length, greater than one,\n  #      with no missing values.\n  #   verbose: If TRUE, prints sample covariance; if not, not. Default is TRUE.\n  #\n  # Returns:\n  #   The sample covariance between x and y.\n  \n  n &lt;- length(x)\n  if (n &lt;= 1 || n != length(y)) {\n    stop(\"Arguments x and y have different lengths: \",\n         length(x), \" and \", length(y), \".\")\n  }\n  if (TRUE %in% is.na(x) || TRUE %in% is.na(y)) {\n    stop(\" Arguments x and y must not have missing values.\")\n  }\n  covariance &lt;- var(x, y)\n  if (verbose)\n    cat(\"Covariance = \", round(covariance, 4), \".\\n\", sep = \"\")\n  return(covariance)\n}"
+  },
+  {
+    "objectID": "lectures/16-slides.html#embracing-multiple-columns",
+    "href": "lectures/16-slides.html#embracing-multiple-columns",
+    "title": "Computing for the Social Sciences: Lecture 16",
+    "section": "Embracing multiple columns",
+    "text": "Embracing multiple columns\nPass several columns at once by embracing them inside across():\n\ncustom_summary &lt;- function(data, cols) {\n  data |&gt;\n    summarize(across({{ cols }}, list(mean = mean, sd = sd)))\n}\n\ncustom_summary(df, c(age, height))\n\n# A tibble: 1 × 4\n  age_mean age_sd height_mean height_sd\n     &lt;dbl&gt;  &lt;dbl&gt;       &lt;dbl&gt;     &lt;dbl&gt;\n1     11.8   1.79         141      23.0\n\n\nThe output has clearly labeled columns: age_mean, age_sd, height_mean, height_sd."
+  },
+  {
+    "objectID": "lectures/16-slides.html#embracing-with-ggplot2",
+    "href": "lectures/16-slides.html#embracing-with-ggplot2",
+    "title": "Computing for the Social Sciences: Lecture 16",
+    "section": "Embracing with ggplot2",
+    "text": "Embracing with ggplot2\n\nlibrary(ggplot2)\n\nplot_hist &lt;- function(data, var) {\n  ggplot(data, aes(x = {{ var }})) +\n    geom_histogram()\n}\n\nplot_hist(df, age)\nplot_hist(df, height)"
+  },
+  {
+    "objectID": "lectures/16-slides.html#when-do-you-need-embracing-when-writing-a-function",
+    "href": "lectures/16-slides.html#when-do-you-need-embracing-when-writing-a-function",
+    "title": "Computing for the Social Sciences: Lecture 16",
+    "section": "When do you need embracing {{ }} when writing a function?",
+    "text": "When do you need embracing {{ }} when writing a function?\nWhenever your function passes a column name to a tidyverse function that uses “tidy evaluation.” There are two main types (see Chapter 25 of the readings for details):\n\nData masking: functions that compute with columns\n\ne.g., mutate(), filter(), summarize(), arrange(), group_by() in dplyr, and aes() in ggplot2\n\nTidy selection: functions that choose columns\n\ne.g., select(), rename(), relocate(), across(), pivot_longer()\n\n\n\n\n\n\n\n\n\nHow to tell which one?\n\n\nCheck the help page: arguments are labeled &lt;data-masking&gt; or &lt;tidy-select&gt;."
+  },
+  {
+    "objectID": "lectures/16-slides.html#anonymous-functions-summary",
+    "href": "lectures/16-slides.html#anonymous-functions-summary",
+    "title": "Computing for the Social Sciences: Lecture 16",
+    "section": "Anonymous Functions Summary",
+    "text": "Anonymous Functions Summary\n\nThree ways to write them: function(x) and \\(x) work anywhere in R; ~ .x only works in purrr\nYou will mostly use them with apply and map, but anonymous functions work anywhere a function takes another function as input, e.g., across(x, function(x) x + 3))\nWhen to use one: for a short, simple operation you need only once\nWhen not to use one: if it’s long, complex, or used more than once, give it a name"
+  },
+  {
+    "objectID": "lectures/16-slides.html#document-your-function-example-3",
+    "href": "lectures/16-slides.html#document-your-function-example-3",
+    "title": "Computing for the Social Sciences: Lecture 16",
+    "section": "Document your function: Example 3",
+    "text": "Document your function: Example 3\nExample from Google’s R Style Guide here\n\nCalculateSampleCovariance &lt;- function(x, y, verbose = TRUE) {\n  # Computes the sample covariance between two vectors.\n  #\n  # Args:\n  #   x: One of two vectors whose sample covariance is to be calculated.\n  #   y: The other vector. x and y must have the same length, greater than one,\n  #      with no missing values.\n  #   verbose: If TRUE, prints sample covariance; if not, not. Default is TRUE.\n  #\n  # Returns:\n  #   The sample covariance between x and y.\n  \n  n &lt;- length(x)\n  if (n &lt;= 1 || n != length(y)) {\n    stop(\"Arguments x and y have different lengths: \",\n         length(x), \" and \", length(y), \".\")\n  }\n  if (TRUE %in% is.na(x) || TRUE %in% is.na(y)) {\n    stop(\" Arguments x and y must not have missing values.\")\n  }\n  covariance &lt;- var(x, y)\n  if (verbose)\n    cat(\"Covariance = \", round(covariance, 4), \".\\n\", sep = \"\")\n  return(covariance)\n}"
+  },
+  {
+    "objectID": "lectures/16-slides.html#anonymous-functions-common-uses",
+    "href": "lectures/16-slides.html#anonymous-functions-common-uses",
+    "title": "Computing for the Social Sciences: Lecture 16",
+    "section": "Anonymous Functions: Common uses",
+    "text": "Anonymous Functions: Common uses\nCount missing values in each column:\n\nlibrary(palmerpenguins); library(purrr); library(dplyr)\n\nsapply(penguins, \\(x) sum(is.na(x)))                              # base R: named vector\nmap_int(penguins, \\(x) sum(is.na(x)))                             # purrr: named integer vector\npenguins |&gt; summarise(across(everything(), \\(x) sum(is.na(x))))   # dplyr: one-row data frame\n\nCompute the mean of several columns by group:\n\npenguins |&gt;\n  group_by(species) |&gt;\n  summarise(across(bill_length_mm:body_mass_g, \\(x) mean(x, na.rm = TRUE)))\n# summarise(across(bill_length_mm:body_mass_g, function(x) mean(x, na.rm = TRUE)))"
+  },
+  {
+    "objectID": "lectures/16-slides.html#anonymous-functions-syntax-2",
+    "href": "lectures/16-slides.html#anonymous-functions-syntax-2",
+    "title": "Computing for the Social Sciences: Lecture 16",
+    "section": "Anonymous Functions Syntax",
+    "text": "Anonymous Functions Syntax\nThis is the same function as before but now we pass a vector as input rather than a single number:\n\nadd &lt;- function(x) {\n  return(x + 3) }\nadd(c(1,2,3))\n\nTo rewrite it as anonymous function, the following code won’t work, what are we forgetting?\n(function(x) x + 3) c(1, 2, 3)\n\nThe first ( ) wraps the function. The second ( ) calls it, just like add(2)"
+  },
+  {
+    "objectID": "lectures/16-home.html#before-class-and-readings",
+    "href": "lectures/16-home.html#before-class-and-readings",
+    "title": "Lecture 16: Functions (cont.)",
+    "section": "Before class and Readings",
+    "text": "Before class and Readings\n\nReview Lecture 15 slides and readings"
   }
 ]

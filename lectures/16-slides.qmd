@@ -1,6 +1,6 @@
 ---
 title: "Computing for the Social Sciences: Lecture 16"
-subtitle: "Topics: Functions (cont.); Reproducible Workflow"
+subtitle: "Topics: Functions (cont.)"
 author: "Sabrina Nardin, Fall 2026"
 format:
   revealjs:
@@ -22,16 +22,11 @@ format:
 1. Anonymous Functions 
 2. Documenting your Function
 3. Functions with the tidyverse
-4. Tips to improve your R Workflow
-5. Deep-dive into R Markdown
 :::
 
-### Slides are in progress and will be updated before class.
-
-::: {.content-hidden}
-
 <!--
-TBD to add in agenda: tutorial on Git/Github with the command line
+### Slides are in progress and will be updated before class.
+::: {.content-hidden}
 -->
 
 <span style="font-size: 0.8em; color: #666;">
@@ -40,14 +35,14 @@ TBD to add in agenda: tutorial on Git/Github with the command line
 
 ---
 
-So far, we learned the following concepts:
+### So far, we learned the following concepts:
 
 - Using existing functions
 - Writing your own function
 - Using return()
 - Using stop()
 
-In these slides, we add:
+### In these slides, we add:
 
 - Anonymous functions
 - Documenting your function
@@ -60,7 +55,7 @@ In these slides, we add:
 
 ## Anonymous Functions
 
-Anonymous functions are **functions without a name**
+**Anonymous functions are functions without a name!**
 
 **When to use them:**
 
@@ -68,64 +63,73 @@ Anonymous functions are **functions without a name**
 
 * When another function (like those in the `apply()` family) expects another function as input
 
-Whenever you can: write the function explicitly instead!
-
 ---
 
-## Anonymous Functions with a number as input
+## Anonymous Functions Syntax
 
-Imagine we have the following function:
+We have the following function:
 
-```{r echo = TRUE, results = "hide"}
+```{r}
+#| echo: true
+#| results: hide
 add <- function(x) {
-  return(x + 3) }
+  return(x + 3)
+}
 add(2)
 ```
 
-Re-write it as an anonymous function. Note: one line, no name, and call it with `()`:
-```{r echo = TRUE, results = "hide"}
-(function(x) {x + 3}) (2)
-```
+::: {.fragment}
+Now we rewrite it as an anonymous function: no name, one line, and call it directly:
 
-Often anonymous functions are written without the `{}`, like this:
-```{r echo = TRUE, results = "hide"}
-(function(x) x + 3) (2)
-```
-
-<!--
-Here's an anonymous function for calculating the mean of a vector `x`. In the following example, the input `x` to the function is each element of the list `l`.
 ```{r}
-l <- list(1:5, 5:7)
-lapply(l, FUN = function(x){sum(x)/length(x)})
+#| echo: true
+#| results: hide
+(function(x) {x + 3})(2)
 ```
+:::
 
-see http://adv-r.had.co.nz/Functional-programming.html#anonymous-functions
--->
+::: {.fragment}
+Often anonymous functions are written without the `{}`:
+
+```{r}
+#| echo: true
+#| results: hide
+(function(x) x + 3)(2)
+```
+:::
+
+::: {.fragment}
+Or with the `\(x)` shortcut (R 4.1+):
+
+```{r}
+#| echo: true
+#| results: hide
+(\(x) x + 3)(2)
+```
+:::
 
 ---
 
-## Anonymous Functions with a vector as input
+## Anonymous Functions Syntax
 
-Same function as before but here we pass a vector as input rather than a single number:
+This is the same function as before but now we pass a vector as input rather than a single number:
 ```{r echo = TRUE, results = "hide"}
 add <- function(x) {
   return(x + 3) }
 add(c(1,2,3))
 ```
 
-To rewrite it as anonymous function, the following code **won't work** because the vector isn't passed correctly:
+To rewrite it as anonymous function, **the following code won't work**:  what are we forgetting?
 ```r
 (function(x) x + 3) c(1, 2, 3)
 ```
 
-Instead, **this works correctly**, since the entire vector is passed as a single argument:
-```{r echo = TRUE, results = "hide"}
-(function(x) x + 3) (c(1, 2, 3))
-```
+:::{.fragment}
+> We are forgetting the second set of `( )`: the first `( )` wraps the function; the second `( )` *calls* it, just like `add(2)` in regular functions
+:::
 
 <!--
-So the problem isn’t that anonymous functions can’t handle multiple values — they can!
-The issue is the comma-separated syntax, which in R means multiple arguments, not a vector of values.
+So the problem isn’t that anonymous functions can’t handle multiple values — they can! The issue is the comma-separated syntax, which in R means multiple arguments, not a vector of values.
 -->
 
 ---
@@ -134,7 +138,7 @@ The issue is the comma-separated syntax, which in R means multiple arguments, no
 
 You can also rewrite the previous code using `sapply()` or `lapply()`. Remember them from last time? They can be used instead of for loops in R.
 
-Both belong to the `apply()` family and have the same basic structure:
+Both belong to the `apply()` family and have the same structure:
 
 ```r
 lapply(X, FUN)
@@ -144,123 +148,273 @@ sapply(X, FUN)
 - `X` is a vector or list (the input)
 - `FUN` is a function to apply to each element of X
 
-They both loop through the elements of `X`, apply `FUN` to each element...
+**They both loop through the elements of `X`, apply `FUN` to each element...**
 
 ---
 
 ## Anonymous Functions with sapply() and lapply()
 
-...But then differ in how they return the result:
+**...But then differ in how they return the result:**
 
-- `lapply`  means "list apply", always returns the output as a list
-- `sapply()` means "simplify apply", returns a simplified version of the list (usually a vector, sometimes a matrix)
+- `lapply()` ("list apply") always returns a *list*
+- `sapply()` ("simplify apply") tries to *simplify* the result to a vector; if it can't, it returns a list
 
 ```{r echo = TRUE, results = "hide"}
 # previous anonymous function
-(function(x) x + 1) (c(1, 2, 3))
+(function(x) x + 3) (c(1,2,3))
 
-# re-written with sapply
-sapply(c(1,2,3), function(x) x + 1)
+# rewritten with sapply
+sapply(c(1,2,3), function(x) x + 3)
+sapply(c(1,2,3), \(x) x + 3)
 
 # re-written with lapply
-lapply(c(1,2,3), function(x) x + 1)
+lapply(c(1,2,3), function(x) x + 3)
+lapply(c(1,2,3), \(x) x + 3)      
 ```
 
-**Tip:** Using `sapply()` is more common because it returns a vector, which is easier to work with that a list!
+:::{.fragment}
+*Tip:* `sapply()` is popular because usually returns a vector, but sometimes can be a matrix or a list. If you need a predictable output, use `map_*()` from `purrr`
+:::
 
 ---
 
-## Anonymous Functions the purrr way
+## Anonymous Functions with sapply() and lapply()
 
-The `purrr` package (remember the `map()`, `map_dbl()` from last lecture? same package!) provides another way to write anonymous functions.
+Here's an anonymous function for calculating the mean of a vector `x` as (sum / length)
 
-Same function as before that adds 1 to each element of the input:
+In this example, the input `x` is each element of the list `l`:
+
+```{r echo = TRUE, results = "hide"}
+
+l <- list(1:5, 5:7)
+
+# lapply: returns a list (3 and 6)
+lapply(l, function(x) sum(x) / length(x))
+lapply(l, \(x) sum(x) / length(x))
+
+# sapply: returns a vector, c(3, 6)
+sapply(l, function(x) sum(x) / length(x))
+sapply(l, \(x) sum(x) / length(x))
+```
+
+The function runs twice: first with `x = 1:5`, then with `x = 5:7`.
+
+<!--
+Note `sapply(l, mean)` does the same thing. Remember: when R has a built-in function, use it!
+
+http://adv-r.had.co.nz/Functional-programming.html#anonymous-functions
+-->
+
+---
+
+## Anonymous Functions with purrr
+
+We can write anonymous function also with the `purrr` package [`map_*` family from last lecture](https://brinasab.github.io/css-website/lectures/15-slides.html#/option-1-replacing-for-loops-with-map-functions-1).
+
+Same function as before, adding 3 to each element of the input:
 ```{r echo = TRUE, results = "hide"}
 add <- function(x) {
-  x + 1
+  x + 3
 }
 add(c(1,2,3))
 ```
 
-Rewrite it as anonymous function in [`purrr`](https://purrr.tidyverse.org/reference/map.html) in two ways:
+Rewritten with [`purrr`](https://purrr.tidyverse.org/reference/map.html) in three ways:
 ```{r echo = TRUE, results = "hide"}
 library(purrr)
-map_dbl(c(1, 2, 3), function(x) x + 1)
-map_dbl(c(1,2,3), ~.x + 1)
+
+# map_dbl: like sapply, but always returns a double vector
+map_dbl(c(1, 2, 3), function(x) x + 3)  # option 1: base R syntax
+map_dbl(c(1, 2, 3), \(x) x + 3)         # option 2: base R shorthand (R 4.1+)
+map_dbl(c(1, 2, 3), ~ .x + 3)           # option 3: purrr-specific syntax
+
+# map: like lapply, always returns a list
+map(c(1, 2, 3), function(x) x + 3)
+map(c(1, 2, 3), \(x) x + 3)
+map(c(1, 2, 3), ~ .x + 3)
+
 ```
 
-*Tip:* `map()` has several versions like `map_dbl()`, `map_chr()`, and `map_df()` which let you control the output type directly
+Options 1 and 2 work anywhere in R; option 3 (`~ .x`) only works inside purrr and other tidyverse functions.
+
+<!--
+In R, any number you type, like 1, 2, or 3, is a double by default, even if it looks like a whole number.
+To force it to be an integer when you type ot you need to do c(1L, 2L, 3L)
+class(c(1,2,3))
+typeof(c(1,2,3))
+-->
+
+---
+
+## Anonymous Functions: Common uses
+
+**Count missing values in each column:**
+
+```{r}
+#| echo: true
+#| results: hide
+
+library(palmerpenguins); library(purrr); library(dplyr)
+
+sapply(penguins, \(x) sum(is.na(x)))                              # base R: named vector
+map_int(penguins, \(x) sum(is.na(x)))                             # purrr: named integer vector
+penguins |> summarise(across(everything(), \(x) sum(is.na(x))))   # dplyr: one-row data frame
+```
+
+**Compute the mean of several columns by group:**
+
+```{r}
+#| echo: true
+#| results: hide
+
+penguins |>
+  group_by(species) |>
+  summarise(across(bill_length_mm:body_mass_g, \(x) mean(x, na.rm = TRUE)))
+# summarise(across(bill_length_mm:body_mass_g, function(x) mean(x, na.rm = TRUE)))
+```
+
+---
+
+## Anonymous Functions Summary
+
+- **Three ways to write them:** `function(x)` and `\(x)` work anywhere in R; `~ .x` only works in purrr
+- You will mostly use them with apply and map, but **anonymous functions work anywhere a function takes another function as input**, e.g., `across(x, function(x) x + 3))`
+- **When to use one:** for a short, simple operation you need only once
+- **When not to use one:** if it's long, complex, or used more than once, give it a name
+
 
 ---
 
 ## 💻 Practice writing functions 
 
-**Download the class materials from the website (see Lecture 18 homepage): complete QUESTION 3. Once done, share your code [here](https://codeshare.io/2KqD88)**
-
+**Download the class materials from the website: complete QUESTION 3.**
 
 
 # 2. Documenting your function {.slide .center .middle}
 
 ---
 
-## Functions should be well-documented! How? 
+## Functions should be well-documented! How?
 
-Each function should include the following:
+Each function should include:
 
-* a one-sentence description of the function summarizing what it does
-* all function's arguments, denoted as `Args:`, with their data types
-* a description of the return value, denoted by `Returns:` 
+- A **one-sentence description** of what it does
+- Its **arguments**, with their data types (denoted with `Args:` or `@param`)
+- Its **return value** (denoted with `Returns:` or `@return`)
 
-**Do not use AI do generate your documentation: it overly complicate things** 
+::: {.callout-tip title="Write your documentation yourself first"}
+If you can't describe your function in one sentence, revisit the function. If you use AI, use it to polish your draft, not to start it.
+:::
 
 ---
 
-## Codying style: document your function
+## Document your function: Example 1
 
-```{r echo = TRUE, results = "hide"}
+```{r}
+#| echo: true
+#| eval: false
+
+#'  Calculate the sum of a numeric vector
+#' 
+#' @param vector A numeric vector
+#' @return A single number: the sum of the elements of `vector`
 
 my_sum <- function(vector) {
-  
-  # Calculates the sum of all numbers in a numeric vector using a `for` loop.
-  # Args:
-  #   vector (num): a numeric vector whose elements will be summed
-  # Returns:
-  #  value (num): single numeric value.
-  # Example use:
-  #   x <- c(3, 1, 4)
-  #   my_sum(x)
-    
   total <- 0
   for (i in seq_along(vector)) {
     total <- total + vector[i]
   }
-  total
+  return(total)
 }
 ```
 
 ---
 
-## Example from Google's R Style Guide [here](https://web.stanford.edu/class/cs109l/unrestricted/resources/google-style.html#:~:text=Function%20Documentation,-Functions%20should%20contain&text=These%20comments%20should%20consist%20of,value%2C%20denoted%20by%20Returns%3A%20.)
+## Document your function: Example 1
 
-```{r echo = TRUE, results = "hide"}
+This is the **roxygen2** format: In RStudio, place your cursor in a function and use *Code → Insert Roxygen Skeleton*
 
+```{r}
+#| echo: true
+#| results: hide
+
+#' Title
+#'
+#' @param vector 
+#'
+#' @returns
+#' @export
+#'
+#' @examples
+
+my_sum <- function(vector) {
+  total <- 0
+  for (i in seq_along(vector)) {
+    total <- total + vector[i]
+  }
+  return(total)
+}
+```
+
+---
+
+## Document your function: Example 2
+
+```{r}
+#| echo: true
+#| results: hide
+
+my_sum <- function(vector) {
+  # Calculates the sum of all elements in a numeric vector.
+  #
+  # Args:
+  #   vector: a numeric vector whose elements will be summed.
+  #
+  # Returns:
+  #   A single number: the sum of the elements of vector.
+  #
+  # Example:
+  #   x <- c(3, 1, 4)
+  #   my_sum(x)
+
+  total <- 0
+  for (i in seq_along(vector)) {
+    total <- total + vector[i]
+  }
+  return(total)
+}
+```
+
+---
+
+## Document your function: Example 3
+
+Example from Google's R Style Guide [here](https://web.stanford.edu/class/cs109l/unrestricted/resources/google-style.html#:~:text=Function%20Documentation,-Functions%20should%20contain&text=These%20comments%20should%20consist%20of,value%2C%20denoted%20by%20Returns%3A%20.)
+
+```{r}
+#| echo: true
+#| results: hide
+ 
 CalculateSampleCovariance <- function(x, y, verbose = TRUE) {
-
   # Computes the sample covariance between two vectors.
+  #
   # Args:
   #   x: One of two vectors whose sample covariance is to be calculated.
   #   y: The other vector. x and y must have the same length, greater than one,
   #      with no missing values.
   #   verbose: If TRUE, prints sample covariance; if not, not. Default is TRUE.
+  #
   # Returns:
   #   The sample covariance between x and y.
   
   n <- length(x)
   if (n <= 1 || n != length(y)) {
-    stop("Arguments x and y have invalid lengths: ",
-         length(x), " and ", length(y), ".") }
+    stop("Arguments x and y have different lengths: ",
+         length(x), " and ", length(y), ".")
+  }
   if (TRUE %in% is.na(x) || TRUE %in% is.na(y)) {
-    stop(" Arguments x and y must not have missing values.") }
+    stop(" Arguments x and y must not have missing values.")
+  }
   covariance <- var(x, y)
   if (verbose)
     cat("Covariance = ", round(covariance, 4), ".\n", sep = "")
@@ -272,10 +426,9 @@ CalculateSampleCovariance <- function(x, y, verbose = TRUE) {
 
 ## 💻 Practice writing functions 
 
-**Download the class materials from the website (see Lecture 18 homepage)**
+**Download the class materials from the website**
 
-**AFTER CLASS CHALLENGE: complete QUESTION 5 and QUESTION 6 on writing a more complex function and adding documentation to it** 
-
+**AFTER CLASS CHALLENGE: complete QUESTION 5 and QUESTION 6** 
 
 
 # 3. Writing functions with the tidyverse {.slide .center .middle}
@@ -284,22 +437,23 @@ CalculateSampleCovariance <- function(x, y, verbose = TRUE) {
 
 ## Functions and {{ }}
 
-You can write custom functions and use them together with `dplyr` or `ggplot` functions!
+You can write custom functions and use them together with `dplyr` or `ggplot2` functions!
 
 You need the following elements: 
 
 * syntax to write a custom function
-* special operators that allows R to evaluate your custom functions correctly: 
+* special operators that allow R to evaluate your custom functions correctly: 
    * bang-bang `!!`  with `enquo()` (this is the old method)
-   * curly-curly or embracing `{{ }}` (this replaced the former method!)
+   * curly-curly or embracing `{{ }}` (this the most common method)
 
-Check out Chapter 25 for details <https://r4ds.hadley.nz/functions.html>
+Check Chapter 25 for more <https://r4ds.hadley.nz/functions.html>
 
 ---
 
 ## Functions and {{ }}
 
-Example: create a data frame of age and height of 5 individuals:
+We create a data frame of age and height of 5 individuals:
+
 ```{r echo = TRUE}
 library(dplyr)
 
@@ -312,11 +466,11 @@ df
 
 ## Functions and {{ }}
 
-Use `summarize()` from `dplyr` to compute the mean and standard deviation on the column `age` of this data frame:
+In this example, we use `summarize()` from `dplyr` to compute the mean and standard deviation on the column `age` of this data frame:
 
 ```{r echo = TRUE}
 
-df %>%
+df |>
   summarize(mean_age = mean(age),
             sd_age = sd(age))
 ```
@@ -325,12 +479,35 @@ df %>%
 
 ## Functions and {{ }}
 
-Rewrite the previous code using a function and the curly-curly operator (embracing): 
+Let's try re-writing the previous code as a function without the embracing:
 
-```{r echo = TRUE}
+```{r}
+#| echo: true
+#| error: true
 
 custom_summary <- function(data, col) {
-  data %>%
+  data |>
+    summarize(mean_value = mean(col),
+              sd_value = sd(col))
+}
+
+custom_summary(df, age)
+```
+
+:::{.fragment}
+**We are getting an error because `dplyr` looks for a column literally called `col`, which doesn't exist in `df`!**
+:::
+
+---
+
+## Functions and {{ }}
+
+Embracing an argument means wrapping it in double braces:
+
+```{r}
+#| echo: true
+custom_summary <- function(data, col) {
+  data |>
     summarize(mean_value = mean({{ col }}),
               sd_value = sd({{ col }}))
 }
@@ -338,52 +515,64 @@ custom_summary <- function(data, col) {
 custom_summary(df, age)
 ```
 
-The `{{ }}` operator tells `dplyr` not to treat "col" as the literal variable name, but instead to look inside it for the variable we actually need (here "age")
+**Embracing tells `dplyr` to use the column *stored inside* the argument `age`, not a column named `col`**
+
+::: {.callout-tip title="How to remember it"}
+Our book suggests thinking of `{{ }}` as looking down a tunnel: `{{ var }}` makes dplyr look *inside* `var` rather than for a column called `var`.
+:::
 
 ---
 
-## Functions and {{ }}
+## Embracing multiple columns
 
-**Embracing a variable means to wrap it in braces so `var` becomes `{{ var }}` when using functions `dplyr` or `ggplot` code.**
+Pass several columns at once by embracing them inside `across()`:
 
-It tells `dplyr` to use the value stored inside the argument, not the argument as the literal variable name
+```{r}
+#| echo: true
 
-From the book: "one way to remember what’s happening is to think of `{{ }}` as looking down a tunnel — `{{ var }}` will make a `dplyr` function look inside of var rather than looking for a variable called var"
-
----
-
-## Functions and {{ }}
-
-Rewrite it with multiple columns as arguments:
-
-```{r echo = TRUE}
-
-custom_summary <- function(data, col1, col2) {
-  results <- list(
-    summarise(data, 
-              mean_value = mean({{ col1 }}),
-              sd_value = sd({{ col1 }})),
-    summarise(data, 
-              mean_value = mean({{ col2 }}),
-              sd_value = sd({{ col2 }}))
-  )
-  # Combine output into a single data frame
-  bind_rows(results)
+custom_summary <- function(data, cols) {
+  data |>
+    summarize(across({{ cols }}, list(mean = mean, sd = sd)))
 }
-custom_summary(df, age, height)
+
+custom_summary(df, c(age, height))
 ```
 
+The output has clearly labeled columns: `age_mean`, `age_sd`, `height_mean`, `height_sd`.
+
+<!--
+## Embracing with ggplot2
+
+```{r}
+#| echo: true
+#| eval: false
+
+library(ggplot2)
+
+plot_hist <- function(data, var) {
+  ggplot(data, aes(x = {{ var }})) +
+    geom_histogram()
+}
+
+plot_hist(df, age)
+plot_hist(df, height)
+```
+-->
+
 ---
 
-## Functions and {{ }}
+## When do you need embracing {{ }} when writing a function?
 
-**When do you need to embrace when writing a function?**
+Whenever your function passes a **column name** to a tidyverse function that uses "tidy evaluation." There are two main types (see Chapter 25 of the readings for details):
 
-In all cases of "tidy evaluation," which has two main types (see the readings, Chapter 25 for details): 
+- **Data masking**: functions that *compute with* columns
+  - e.g., `mutate()`, `filter()`, `summarize()`, `arrange()`, `group_by()` in dplyr, and `aes()` in ggplot2
+- **Tidy selection**: functions that *choose* columns
+  - e.g., `select()`, `rename()`, `relocate()`, `across()`, `pivot_longer()`
 
-* Data Masking: in functions such as `arrange()`, `filter()`, `summarize()` from `dplyr` and in `aes()` from `ggplot2` often *when you need to pass a variable name*
-
-* Tidy Selection: in functions such as `select()`, `relocate()`, `rename()` *when you need to select variables by name* 
+::: {.callout-tip title="How to tell which one?"}
+Check the help page: arguments are labeled `<data-masking>` or `<tidy-select>`.
+:::
 
 <!--
 ### Functions and `{{ }}`: additional resources
@@ -407,571 +596,8 @@ In all cases of "tidy evaluation," which has two main types (see the readings, C
 
 ## 💻 Practice writing functions 
 
-**Download the class materials from the website (see Lecture 18 homepage): complete QUESTION 7. Once done share your code [here](https://codeshare.io/anVgz4)**
+**Download the class materials from the website: complete QUESTION 7.**
 
-
-# 4. Tips to improve your R workflow {.slide .center .middle}
-
----
-
-## Main Idea: Reproducibilty
-
-Reproducibility: **you, or anyone else, can re-run your analysis from scratch and get the same result.**
-
-The tips in the next slides all serve one principle:
-
-::: {.callout-important}
-**Don't preserve the workspace. Preserve the code that creates the workspace.**
-
-Your scripts are the product. Everything else (objects in memory, the console history, the current session) is disposable. See Bryan & Hester, [*What They Forgot to Teach You About R*](https://rstats.wtf/)
-:::
-
----
-
-## Tip 1: Start every session with a clean, empty workspace
-
-When you run an R session, your **workspace** includes everything created during that session:
-
-- packages you loaded with `library()`
-- all user-created objects (data, vectors, functions, models, ...)
-
-By default, R offers to *save* this workspace when you quit and *restore* it when you return. This is convenient in the short run, but not in the long run.  
-
----
-
-## Tip 1: How?
-
-When closing a session, R asks: *"Do you want to save your workspace?"* → **Answer No.**
-
-Even better, change the defaults so R never asks again: **Tools → Global Options → General**
-
-- Uncheck "Restore .RData into workspace at startup"
-- Set "Save workspace to .RData on exit" to **Never**
-
-<!--
-::: {.callout-tip}
-You can also run `usethis::use_blank_slate()` to apply these settings for you.
-:::
--->
-
----
-
-## Tip 1: Why?
-
-A restored workspace can hide objects you forgot about or that your current script never creates:
-
-- objects created by *other* scripts may still be lurking
-- packages or data may be loaded that your script never loads
-- you may have modified objects directly in the Console without updating the script
-
-If your script only "works" because of leftovers in the workspace, it is silently broken. That hurts reproducibility
-
-<!-- When everything lives in the code, you, and anyone else, can rebuild the entire workspace from scratch, on any machine, at any time. -->
-
----
-
-## Tip 2: Use a project-based workflow and relative paths
-
-In this class, we use a project-based workflow **by creating an `.Rproj` file in every repo!** 
-Value of this approach:
-
-- keeps all files for one project together in one folder
-- sets the working directory automatically, so **relative paths just work**
-- lets you switch between projects (or open several) without confusion
-
-::: {.callout-note}
-If you complete HW5, remember to create `.Rproj` file in your repo: see [these slides from Lecture 10](https://brinasab.github.io/css-website-summer/lectures/10-slides.html#/rstudio-projects-make-using-relative-file-paths-easier).
-:::
-
----
-
-## Tip 2: Use a project-based workflow and relative paths
-
-**Avoid this pattern:**
-
-```r
-# fragile: works only on this computer, only today
-setwd("/Users/sabrina/Documents/css/hw5/data")
-df <- read_csv("survey.csv")
-```
-
-An absolute path or a path hard-wired like this example will not work on anyone else's computer, or on yours a year from now.
-
-Rely on the project root using the `.Rproj` folders. For more tips, explore the [`here` package](https://here.r-lib.org/) builds paths from the top-level project folder, no matter which script or subfolder you are in.
-
-<!--
-```r
-# robust: relative to the .Rproj folder, works anywhere
-library(here)
-df <- read_csv(here("data", "survey.csv"))
-```
--->
-
-
----
-
-## Tip 3: Treat raw data as read-only
-
-Your raw data files are your starting point: never edit them by hand, and never let a script overwrite them.
-
-- keep raw files in their own folder (e.g., `data/raw/`) and treat it as untouchable
-- do all cleaning **in a script**, so every change is recorded and repeatable
-- save cleaned/processed versions to a separate folder (e.g., `data/processed/`)
-
-::: {.callout-tip}
-## Test
-If you deleted everything in `data/processed/`, could you regenerate it by re-running your scripts on the raw data? If yes, your pipeline is reproducible. See Wilson et al. (2017), [*Good Enough Practices in Scientific Computing*](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510)
-:::
-
----
-
-## Tip 4: Build debugging skills
-
-**What debugging tips have you learned from working with R so far?**
-
----
-
-## Tip 4: Build debugging skills
-
-**1. Realize that you have a bug:** 
-
-- a bug can be syntactic (like a typo) 
-- or conceptual (a misunderstanding of R's rules)
-
-<!--
-We all encounter both types of bugs. Fixing the latter requires time and experience, but we can address syntactic bugs faster by improving our coding style!
--->
-
----
-
-## Tip 4: Build debugging skills
-
-**2. Figure out where it is:**
-
-- read your code out loud
-- use `print()` statements to check each line
-- run one piece of code at a time
-- if it comes from misuse of a specific function, check its documentation with `?function_name`
-- ask AI to identify it and explain why
-- take a break!
-
-**3. Fix it:** then re-run the *whole* script in a fresh session to confirm
-
-More in ["Debugging R code"](https://rstats.wtf/debugging-r) from *What They Forgot to Teach You About R*
-
----
-
-## Tip 5: Read and understand what R tells you
-
-R communicates in three distinct ways, and they are **not** all bad news:
-
-- **Errors** stop your code. R could not do what you asked: this must be fixed.
-
-- **Warnings** let the code run, but flag that something may be off. Ceck the result before trusting it.
-
-- **Messages** are informative. Nothing is wrong, R is just telling you what it did.
-
----
-
-## Tip 5: Read and understand what R tells you
-
-```r
-log("a")
-#> Error in log("a"): non-numeric argument to mathematical function
-```
-Errors: code stopped: fix it before moving on
-
-```r
-log(-1)
-#> Warning message: NaNs produced
-```
-Warning: code ran, but the result is `NaN` (check your input)
-
-<!--
-log(-1) has no answer in the real numbers. But from R's perspective, the call itself is legitimate: log() expects a number, and you gave it a number. So R can carry out the computation — it just produces NaN ("Not a Number"), which is a real value in R that represents an undefined mathematical result. The code ran and returned something, so R warns you rather than stopping.
--->
-```r
-library(tidyverse)
-#> ── Attaching core tidyverse packages ──────────────
-```
-Message: nothing is wrong, just useful info
-
-<!--
-For example, plotting with geom_smooth() prints a message because it automatically decides which smoothing algorithm to use (default depends on sample size):
-
-```{r echo = TRUE, out.width = "35%"}
-library(tidyverse)
-ggplot(diamonds, aes(carat, price)) +
-  geom_point() +
-  geom_smooth()
-```
--->
-
----
-
-## Tip 6: Restart R often (Session → Restart R)
-
-Stuck with a bug, but you're 100% sure the code is correct? Restart R:
-
-- More reliable than `rm(list = ls())` or the broom icon. Those only delete user objects; packages you loaded, options you changed, and other session state all survive invisibly
-- restarting keeps RStudio open but clears everything underneath, giving you a truly clean session
-- if your script still works after a restart, run top to bottom, that's evidence it is reproducible
-
-::: {.callout-note}
-Restart early, restart often. If restarting feels costly, that is a sign your workflow depends on hidden state, exactly what Tips 1 and 2 prevent.
-:::
-
----
-
-## Tip 7: Use code auto-formatting in RStudio
-
-Consistent style makes bugs easier to see (yours *and* others). RStudio helps:
-
-- option 1: `Code > Reformat Code` (Shift + Cmd/Ctrl + A)
-- option 2: `Code > Reindent Lines` (Cmd/Ctrl + I)
-- option 3: install the [`styler`](http://styler.r-lib.org/) package for more on restyling
-
-Open an R script and try this out:
-
-```r
- y<-10
-  if (y < 20) {
-x <- "Too low" }
-else {
-  x <-"Too high"}
-```
-
----
-
-## Recap: habits for reproducible work
-
-1. Start every session with a **clean, empty workspace**
-2. Use a **project-based** workflow (`.Rproj` in every repo)
-3. Treat raw data as **read-only**; clean it with scripts
-4. Build **debugging** skills
-5. Distinguish **errors, warnings, and messages**
-6. **Restart R** often
-7. **Auto-format** your code
-
-::: {.callout-important}
-**FINAL TEST: Close R, reopen the project, run your script top to bottom. Does it work?**
-:::
-
----
-
-## Resources for reproducible work
-
-- Bryan & Hester, [*What They Forgot to Teach You About R*](https://rstats.wtf/) on clean workspaces, safe paths, debugging
-- Bryan, ["Project-oriented workflow"](https://www.tidyverse.org/blog/2017/12/workflow-vs-script/) (tidyverse blog)
-- Wickham, Çetinkaya-Rundel & Grolemund, [*R for Data Science*, "Workflow: scripts and projects"](https://r4ds.hadley.nz/workflow-scripts.html)
-- Wilson et al. (2017), [*Good Enough Practices in Scientific Computing*](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510), for general tips on the topic of reproducibility
-- The [`here`](https://here.r-lib.org/) and [`styler`](http://styler.r-lib.org/) packages
-
-
-# 5. Deep-dive into R Markdown {.slide .center .middle}
-
----
-
-## R Markdown Recap
-
-**R Markdown is a file format (with extension `.Rmd`) that:**
-
-- combines R code, using code chunks, and text in a single document
-- makes it easy to create reproducible reports, analyses, and presentations
-- you might hear about Quarto (with extension `.qmd`): a newer alternative to R Markdown (if you learn R Markdown, you can quickly adjust to Quarto)
-
----
-
-## R Markdown Recap
-
-### Three Main Components
-
-1.  **YAML header** for document title, author, output format, etc. Insert it at the top between `---`
-
-2.  **Text** regular Markdown for headers, lists, links, etc.
-
-3.  **Code chunks** for code. Insert it with triple backticks ```` ``` ````
-
-::: {.fragment .setup-box .callout-tip title="Code Chunk Tips"}
-**Three ways to insert a code chunk in your R Markdown:**
-
--   Use the RStudio toolbar\
--   Type manually ```` ```{r} ```` and ```` ``` ````
--   Use a shortcut
-    -   Mac: ⌘ + ⌥ + I\
-    -   Windows: Ctrl + Alt + I
-:::
-
----
-
-## R Markdown vs R Script
-
-### When to use a script vs. a Rmd
-
-- When you want to experiment, test functions, debug code
-
-- When you do not need to communicate output or results to others
-
-- For scripts that need to run top-to-bottom without narrative
-
-- For larger projects where you could have some code in R scripts (e.g., data cleaning, analysis pipelines, tests, etc.), and others (e.g., the final-narrated versions) in a Rmd file
-
----
-
-## R Markdown: What We Know
-
-* Inserting a YAML Header with basic elements
-* Formatting text (italics, bold, etc.)
-* Formatting titles 
-* Inserting lists (ordered and unordered)
-* Inserting images, tables, and hyperlinks
-* Rendering a Rmd into pdf, html, md, etc.
-
----
-
-## R Markdown: What We Learn Today
-
-* How the knitting process works
-* Inline code
-* Code chunks names
-* Code chunks options
-* Global options
-* New YAML header elements
-
----
-
-## R Markdown: The Knitting Process
-
-When you "knit" your document, the following sequential things happen, as [illustarated here](https://bookdown.org/yihui/rmarkdown-cookbook/rmarkdown-process.html)
-
-1.  R Markdown sends the `.Rmd` file to `knitr` http://yihui.name/knitr/
-
-2.  Knitr executes all of the code chunks and creates a new plain Markdown `.md` file which includes the code and its output
-
-3.  This plain Markdown file is then converted by `pandoc` into any number of output types including html, PDF, Word document, etc.: http://pandoc.org/
-
----
-
-## R Markdown: Inline Code - How it looks like in your Rmd
-
-````{verbatim, echo = TRUE}
----
-title: "Gun deaths"
-author: "Sabrina Nardin"
-output: html_document
----
-
-```{r setup, include = FALSE}
-library(tidyverse)
-library(rcis)
-```
-
-## Gun deaths by age
-
-The `gun_deaths` dataset includes data for `r nrow(gun_deaths)` individuals killed by guns.
-
-```{r youth, echo = FALSE}
-youth <- gun_deaths %>% filter(age <= 65)
-```
-
-We have `r nrow(youth)` individuals who are 65 or younger. 
-Only `r nrow(gun_deaths) - nrow(youth)` are older than 65.
-
-````
-
----
-
-## R Markdown: Inline Code - How is rendered once knitted
-
-```{r youth, include = FALSE}
-library(tidyverse)
-library(rcis)
-youth <- gun_deaths |> filter(age <= 65)
-```
-
-The `gun_deaths` dataset includes data for `r nrow(gun_deaths)` individuals killed by guns.
-
-We have `r nrow(youth)` individuals who are 65 or younger. 
-Only `r nrow(gun_deaths) - nrow(youth)` are older than 65.
-
----
-
-## R Markdown: Code Chunks Names
-
-A named code chunk:
-````{verbatim, lang = 'markdown', echo = TRUE}
-```{r youth-distribution}
-# code goes here
-```
-````
-
-Advantages:
-
-1. Easier to navigate to specific chunks (using the drop-down code navigator in the script editor). Note: Two code chunks should not have the same name.
-
-1. Graphics produced by the chunks have useful names
-
-1. Use it with `cache = TRUE` to avoid re-performing expensive computations on every run 
-
-::: {.callout-tip}
-`cache = TRUE` saves a chunk's output to a file on memory. On future renders, R checks if the code chunk has changed; if not, R skips re-running the chunk and reuses the cached results (see Ch. 27 R for Data Science)
-:::
-
----
-
-## R Markdown: Code Chunk Options {.center}
-
-::: small
-| Option | What it does | Default |
-|------------------------|------------------------|------------------------|
-| `eval = FALSE` | Code is not run, only shown; results do not appear. Useful for code examples or showing code with errors. | `eval = TRUE` |
-| `include = FALSE` | Code is run, but both code and results are hidden. Useful for setup code you don't want to display. | `include = TRUE` |
-| `echo = FALSE` | Code is run, results are shown, but code is hidden. Good when readers only need the output. | `echo = TRUE` |
-| `error = TRUE` | Code is run and shown, even if it throws an error. Useful when demonstrating broken code. | `error = FALSE` |
-| `message = FALSE` / `warning = FALSE` | Code is run, but messages and warnings are hidden from the output. | `message = TRUE` / `warning = TRUE` |
-:::
-
-Check [this table](https://r4ds.had.co.nz/r-markdown.html#chunk-options) and [options](http://yihui.name/knitr/options/) for more.
-
----
-
-## R Markdown: Global Options
-
-Use global chunk options when you want the same settings to apply to ALL code chunks in your R Markdown file.
-
-Global options are defined in a code chunk at the top of your Rmd file with `knitr::opts_chunk$set()` 
-
-For example, if you want to hide the code by default in your entire Rmd:
-
-```r
-knitr::opts_chunk$set(
-  echo = FALSE    # shows results but hide codes 
-)
-```
-
----
-
-## R Markdown: New YAML Header Elements
-
-````{verbatim, echo = TRUE}
----
-title: "Gun deaths"
-author: "Sabrina Nardin"
-output: html_document
----
-````
-
----
-
-## YAML Header: Table of Contents
-
-````{verbatim, echo = TRUE}
----
-title: "Gun deaths"
-author: "Sabrina Nardin"
-output: 
-  html_document
-    toc: true
-    toc_depth: 2
----
-````
-
----
-
-## YAML Header: Apparence and Style
-
-````{verbatim, echo = TRUE}
----
-title: "Gun deaths"
-author: "Sabrina Nardin"
-output: 
-  html_document
-    theme: readable
-    fig_width: 8
-    fig_height: 6
----
-````
-
----
-
-## YAML Header: Date as string
-
-We can add a date as a simple string, and manually modify it every time we modify our file:
-
-````{verbatim, echo = TRUE}
----
-title: "Gun deaths"
-output: html_document
-date: "December 1, 2025"
----
-````
-
-But we can also add it automatically!
-
----
-
-## YAML Header: Date with lubridate 
-
-````{verbatim, echo = TRUE}
----
-title: "Gun deaths"
-output: html_document
-date: "`r lubridate::today()`"
----
-````
-
-For more on the `lubridate` package, see Chapter 16 of R for Data Science and [Lecture 12 slides](https://brinasab.github.io/css-website-summer/lectures/12-home.html)
-
----
-
-## YAML Header: Date with Sys.Date
-
-````{verbatim, echo = TRUE}
----
-title: "Gun deaths"
-output: html_document
-date: "`r Sys.Date()`"
----
-````
-
-`Sys.Date` returns the current day in the current time zone. The default uses the format year/month/day.
-
----
-
-## YAML Header: Date with Sys.time
-
-````{verbatim, echo = TRUE}
----
-title: "Gun deaths"
-output: html_document
-date: "`r format (Sys.time(), '%d, %B, %Y')`"
----
-````
-
-`Sys.time` returns an absolute date-time value which can be converted to various time zones, and it more easily is customizable. This format says we want the date as: numeric day, full name of the month, and full (4-digit) year, but it can be changed
-
----
-
-## 💻 Practice with Rmd
-
-Download today's class materials and complete the tutorial!
-
----
-
-## R Markdown More Info and Tips
-
-If you do the final project (HW5), try to experiment with a couple of the R Markdown options we have seen today!
-
-For more, see also [R for Data Science 1st Edition](http://r4ds.had.co.nz):
-
-- Chapter 27 "R Markdown"
-- Chapter 28 "Graphics for communication"
-- Chapter 29 "R Markdown formats" 
-
-
-# 3. Git/Github from the command line {.slide .center .middle}
-
-Download the **Git/Github from the command line tutorial from [HERE](https://drive.google.com/file/d/1cY48ez1rirI4qDhNccWqzisRfAigi4fB/view?usp=sharing)** to follow along or try it out after class! 
 
 ---
 

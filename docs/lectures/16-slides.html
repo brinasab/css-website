@@ -28,6 +28,72 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #24292e;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #24292e; } /* Normal */
+    code span.al { color: #ff5555; font-weight: bold; } /* Alert */
+    code span.an { color: #6a737d; } /* Annotation */
+    code span.at { color: #d73a49; } /* Attribute */
+    code span.bn { color: #005cc5; } /* BaseN */
+    code span.bu { color: #d73a49; } /* BuiltIn */
+    code span.cf { color: #d73a49; } /* ControlFlow */
+    code span.ch { color: #032f62; } /* Char */
+    code span.cn { color: #005cc5; } /* Constant */
+    code span.co { color: #6a737d; } /* Comment */
+    code span.cv { color: #6a737d; } /* CommentVar */
+    code span.do { color: #6a737d; } /* Documentation */
+    code span.dt { color: #d73a49; } /* DataType */
+    code span.dv { color: #005cc5; } /* DecVal */
+    code span.er { color: #ff5555; text-decoration: underline; } /* Error */
+    code span.ex { color: #d73a49; font-weight: bold; } /* Extension */
+    code span.fl { color: #005cc5; } /* Float */
+    code span.fu { color: #6f42c1; } /* Function */
+    code span.im { color: #032f62; } /* Import */
+    code span.in { color: #6a737d; } /* Information */
+    code span.kw { color: #d73a49; } /* Keyword */
+    code span.op { color: #24292e; } /* Operator */
+    code span.ot { color: #6f42c1; } /* Other */
+    code span.pp { color: #d73a49; } /* Preprocessor */
+    code span.re { color: #6a737d; } /* RegionMarker */
+    code span.sc { color: #005cc5; } /* SpecialChar */
+    code span.ss { color: #032f62; } /* SpecialString */
+    code span.st { color: #032f62; } /* String */
+    code span.va { color: #e36209; } /* Variable */
+    code span.vs { color: #032f62; } /* VerbatimString */
+    code span.wa { color: #ff5555; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-864c5404f4710dceefb0a9fe440f50a1.css">
   <link rel="stylesheet" href="../style/styles.css">
@@ -131,7 +197,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">Computing for the Social Sciences: Lecture 16</h1>
-  <p class="subtitle">Topics: Functions (cont.); Reproducible Workflow</p>
+  <p class="subtitle">Topics: Functions (cont.)</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -150,14 +216,552 @@ Sabrina Nardin, Fall 2026
 <li>Anonymous Functions</li>
 <li>Documenting your Function</li>
 <li>Functions with the tidyverse</li>
-<li>Tips to improve your R Workflow</li>
-<li>Deep-dive into R Markdown</li>
 </ol>
 </div>
+<!--
+### Slides are in progress and will be updated before class.
+::: {.content-hidden}
+-->
+<p><span style="font-size: 0.8em; color: #666;"> <em>Slides last updated on <strong>November 18, 2026</strong>. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.</em> </span></p>
 </section>
-<h3 id="slides-are-in-progress-and-will-be-updated-before-class.">Slides are in progress and will be updated before class.</h3></section>
+<section class="slide level2 center">
+
+<h3 id="so-far-we-learned-the-following-concepts">So far, we learned the following concepts:</h3>
+<ul>
+<li>Using existing functions</li>
+<li>Writing your own function</li>
+<li>Using return()</li>
+<li>Using stop()</li>
+</ul>
+<h3 id="in-these-slides-we-add">In these slides, we add:</h3>
+<ul>
+<li>Anonymous functions</li>
+<li>Documenting your function</li>
+<li>Writing functions with the tidyverse</li>
+</ul>
+</section></section>
+<section>
+<section id="anonymous-functions" class="title-slide slide level1 center middle">
+<h1>1. Anonymous Functions</h1>
+
+</section>
+<section id="anonymous-functions-1" class="slide level2 center">
+<h2>Anonymous Functions</h2>
+<p><strong>Anonymous functions are functions without a name!</strong></p>
+<p><strong>When to use them:</strong></p>
+<ul>
+<li><p>When the function is very short and you need it only once</p></li>
+<li><p>When another function (like those in the <code>apply()</code> family) expects another function as input</p></li>
+</ul>
+</section>
+<section id="anonymous-functions-syntax" class="slide level2 center">
+<h2>Anonymous Functions Syntax</h2>
+<p>We have the following function:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>add <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb1-2"><a></a>  <span class="fu">return</span>(x <span class="sc">+</span> <span class="dv">3</span>)</span>
+<span id="cb1-3"><a></a>}</span>
+<span id="cb1-4"><a></a><span class="fu">add</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<p>Now we rewrite it as an anonymous function: no name, one line, and call it directly:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>(<span class="cf">function</span>(x) {x <span class="sc">+</span> <span class="dv">3</span>})(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="fragment">
+<p>Often anonymous functions are written without the <code>{}</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>(<span class="cf">function</span>(x) x <span class="sc">+</span> <span class="dv">3</span>)(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="fragment">
+<p>Or with the <code>\(x)</code> shortcut (R 4.1+):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>(\(x) x <span class="sc">+</span> <span class="dv">3</span>)(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="anonymous-functions-syntax-1" class="slide level2 center">
+<h2>Anonymous Functions Syntax</h2>
+<p>This is the same function as before but now we pass a vector as input rather than a single number:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>add <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb5-2"><a></a>  <span class="fu">return</span>(x <span class="sc">+</span> <span class="dv">3</span>) }</span>
+<span id="cb5-3"><a></a><span class="fu">add</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>To rewrite it as anonymous function, <strong>the following code won’t work</strong>: what are we forgetting?</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>(<span class="cf">function</span>(x) x <span class="sc">+</span> <span class="dv">3</span>) <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="fragment">
+<blockquote>
+<p>We are forgetting the second set of <code>( )</code>: the first <code>( )</code> wraps the function; the second <code>( )</code> <em>calls</em> it, just like <code>add(2)</code> in regular functions</p>
+</blockquote>
+</div>
+<!--
+So the problem isn’t that anonymous functions can’t handle multiple values — they can! The issue is the comma-separated syntax, which in R means multiple arguments, not a vector of values.
+-->
+</section>
+<section id="anonymous-functions-with-sapply-and-lapply" class="slide level2 center">
+<h2>Anonymous Functions with sapply() and lapply()</h2>
+<p>You can also rewrite the previous code using <code>sapply()</code> or <code>lapply()</code>. Remember them from last time? They can be used instead of for loops in R.</p>
+<p>Both belong to the <code>apply()</code> family and have the same structure:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">lapply</span>(X, FUN)</span>
+<span id="cb7-2"><a></a><span class="fu">sapply</span>(X, FUN)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><code>X</code> is a vector or list (the input)</li>
+<li><code>FUN</code> is a function to apply to each element of X</li>
+</ul>
+<p><strong>They both loop through the elements of <code>X</code>, apply <code>FUN</code> to each element…</strong></p>
+</section>
+<section id="anonymous-functions-with-sapply-and-lapply-1" class="slide level2 center">
+<h2>Anonymous Functions with sapply() and lapply()</h2>
+<p><strong>…But then differ in how they return the result:</strong></p>
+<ul>
+<li><code>lapply()</code> (“list apply”) always returns a <em>list</em></li>
+<li><code>sapply()</code> (“simplify apply”) tries to <em>simplify</em> the result to a vector; if it can’t, it returns a list</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="co"># previous anonymous function</span></span>
+<span id="cb8-2"><a></a>(<span class="cf">function</span>(x) x <span class="sc">+</span> <span class="dv">3</span>) (<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>))</span>
+<span id="cb8-3"><a></a></span>
+<span id="cb8-4"><a></a><span class="co"># rewritten with sapply</span></span>
+<span id="cb8-5"><a></a><span class="fu">sapply</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>), <span class="cf">function</span>(x) x <span class="sc">+</span> <span class="dv">3</span>)</span>
+<span id="cb8-6"><a></a><span class="fu">sapply</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>), \(x) x <span class="sc">+</span> <span class="dv">3</span>)</span>
+<span id="cb8-7"><a></a></span>
+<span id="cb8-8"><a></a><span class="co"># re-written with lapply</span></span>
+<span id="cb8-9"><a></a><span class="fu">lapply</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>), <span class="cf">function</span>(x) x <span class="sc">+</span> <span class="dv">3</span>)</span>
+<span id="cb8-10"><a></a><span class="fu">lapply</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>), \(x) x <span class="sc">+</span> <span class="dv">3</span>)      </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<p><em>Tip:</em> <code>sapply()</code> is popular because usually returns a vector, but sometimes can be a matrix or a list. If you need a predictable output, use <code>map_*()</code> from <code>purrr</code></p>
+</div>
+</section>
+<section id="anonymous-functions-with-sapply-and-lapply-2" class="slide level2 center">
+<h2>Anonymous Functions with sapply() and lapply()</h2>
+<p>Here’s an anonymous function for calculating the mean of a vector <code>x</code> as (sum / length)</p>
+<p>In this example, the input <code>x</code> is each element of the list <code>l</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>l <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">5</span><span class="sc">:</span><span class="dv">7</span>)</span>
+<span id="cb9-2"><a></a></span>
+<span id="cb9-3"><a></a><span class="co"># lapply: returns a list (3 and 6)</span></span>
+<span id="cb9-4"><a></a><span class="fu">lapply</span>(l, <span class="cf">function</span>(x) <span class="fu">sum</span>(x) <span class="sc">/</span> <span class="fu">length</span>(x))</span>
+<span id="cb9-5"><a></a><span class="fu">lapply</span>(l, \(x) <span class="fu">sum</span>(x) <span class="sc">/</span> <span class="fu">length</span>(x))</span>
+<span id="cb9-6"><a></a></span>
+<span id="cb9-7"><a></a><span class="co"># sapply: returns a vector, c(3, 6)</span></span>
+<span id="cb9-8"><a></a><span class="fu">sapply</span>(l, <span class="cf">function</span>(x) <span class="fu">sum</span>(x) <span class="sc">/</span> <span class="fu">length</span>(x))</span>
+<span id="cb9-9"><a></a><span class="fu">sapply</span>(l, \(x) <span class="fu">sum</span>(x) <span class="sc">/</span> <span class="fu">length</span>(x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The function runs twice: first with <code>x = 1:5</code>, then with <code>x = 5:7</code>.</p>
+<!--
+Note `sapply(l, mean)` does the same thing. Remember: when R has a built-in function, use it!
+
+http://adv-r.had.co.nz/Functional-programming.html#anonymous-functions
+-->
+</section>
+<section id="anonymous-functions-with-purrr" class="slide level2 center">
+<h2>Anonymous Functions with purrr</h2>
+<p>We can write anonymous function also with the <code>purrr</code> package <a href="https://brinasab.github.io/css-website/lectures/15-slides.html#/option-1-replacing-for-loops-with-map-functions-1"><code>map_*</code> family from last lecture</a>.</p>
+<p>Same function as before, adding 3 to each element of the input:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>add <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb10-2"><a></a>  x <span class="sc">+</span> <span class="dv">3</span></span>
+<span id="cb10-3"><a></a>}</span>
+<span id="cb10-4"><a></a><span class="fu">add</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Rewritten with <a href="https://purrr.tidyverse.org/reference/map.html"><code>purrr</code></a> in three ways:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">library</span>(purrr)</span>
+<span id="cb11-2"><a></a></span>
+<span id="cb11-3"><a></a><span class="co"># map_dbl: like sapply, but always returns a double vector</span></span>
+<span id="cb11-4"><a></a><span class="fu">map_dbl</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="cf">function</span>(x) x <span class="sc">+</span> <span class="dv">3</span>)  <span class="co"># option 1: base R syntax</span></span>
+<span id="cb11-5"><a></a><span class="fu">map_dbl</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), \(x) x <span class="sc">+</span> <span class="dv">3</span>)         <span class="co"># option 2: base R shorthand (R 4.1+)</span></span>
+<span id="cb11-6"><a></a><span class="fu">map_dbl</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="sc">~</span> .x <span class="sc">+</span> <span class="dv">3</span>)           <span class="co"># option 3: purrr-specific syntax</span></span>
+<span id="cb11-7"><a></a></span>
+<span id="cb11-8"><a></a><span class="co"># map: like lapply, always returns a list</span></span>
+<span id="cb11-9"><a></a><span class="fu">map</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="cf">function</span>(x) x <span class="sc">+</span> <span class="dv">3</span>)</span>
+<span id="cb11-10"><a></a><span class="fu">map</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), \(x) x <span class="sc">+</span> <span class="dv">3</span>)</span>
+<span id="cb11-11"><a></a><span class="fu">map</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="sc">~</span> .x <span class="sc">+</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Options 1 and 2 work anywhere in R; option 3 (<code>~ .x</code>) only works inside purrr and other tidyverse functions.</p>
+<!--
+In R, any number you type, like 1, 2, or 3, is a double by default, even if it looks like a whole number.
+To force it to be an integer when you type ot you need to do c(1L, 2L, 3L)
+class(c(1,2,3))
+typeof(c(1,2,3))
+-->
+</section>
+<section id="anonymous-functions-common-uses" class="slide level2 center">
+<h2>Anonymous Functions: Common uses</h2>
+<p><strong>Count missing values in each column:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">library</span>(palmerpenguins); <span class="fu">library</span>(purrr); <span class="fu">library</span>(dplyr)</span>
+<span id="cb12-2"><a></a></span>
+<span id="cb12-3"><a></a><span class="fu">sapply</span>(penguins, \(x) <span class="fu">sum</span>(<span class="fu">is.na</span>(x)))                              <span class="co"># base R: named vector</span></span>
+<span id="cb12-4"><a></a><span class="fu">map_int</span>(penguins, \(x) <span class="fu">sum</span>(<span class="fu">is.na</span>(x)))                             <span class="co"># purrr: named integer vector</span></span>
+<span id="cb12-5"><a></a>penguins <span class="sc">|&gt;</span> <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), \(x) <span class="fu">sum</span>(<span class="fu">is.na</span>(x))))   <span class="co"># dplyr: one-row data frame</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Compute the mean of several columns by group:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb13-2"><a></a>  <span class="fu">group_by</span>(species) <span class="sc">|&gt;</span></span>
+<span id="cb13-3"><a></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(bill_length_mm<span class="sc">:</span>body_mass_g, \(x) <span class="fu">mean</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)))</span>
+<span id="cb13-4"><a></a><span class="co"># summarise(across(bill_length_mm:body_mass_g, function(x) mean(x, na.rm = TRUE)))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="anonymous-functions-summary" class="slide level2 center">
+<h2>Anonymous Functions Summary</h2>
+<ul>
+<li><strong>Three ways to write them:</strong> <code>function(x)</code> and <code>\(x)</code> work anywhere in R; <code>~ .x</code> only works in purrr</li>
+<li>You will mostly use them with apply and map, but <strong>anonymous functions work anywhere a function takes another function as input</strong>, e.g., <code>across(x, function(x) x + 3))</code></li>
+<li><strong>When to use one:</strong> for a short, simple operation you need only once</li>
+<li><strong>When not to use one:</strong> if it’s long, complex, or used more than once, give it a name</li>
+</ul>
+</section>
+<section id="practice-writing-functions" class="slide level2 center">
+<h2>💻 Practice writing functions</h2>
+<p><strong>Download the class materials from the website: complete QUESTION 3.</strong></p>
+</section></section>
+<section>
+<section id="documenting-your-function" class="title-slide slide level1 center middle">
+<h1>2. Documenting your function</h1>
+
+</section>
+<section id="functions-should-be-well-documented-how" class="slide level2 center">
+<h2>Functions should be well-documented! How?</h2>
+<p>Each function should include:</p>
+<ul>
+<li>A <strong>one-sentence description</strong> of what it does</li>
+<li>Its <strong>arguments</strong>, with their data types (denoted with <code>Args:</code> or <code>@param</code>)</li>
+<li>Its <strong>return value</strong> (denoted with <code>Returns:</code> or <code>@return</code>)</li>
+</ul>
+<div title="Write your documentation yourself first">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Write your documentation yourself first</strong></p>
+</div>
+<div class="callout-content">
+<p>If you can’t describe your function in one sentence, revisit the function. If you use AI, use it to polish your draft, not to start it.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="document-your-function-example-1" class="slide level2 center">
+<h2>Document your function: Example 1</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="co">#'  Calculate the sum of a numeric vector</span></span>
+<span id="cb14-2"><a></a><span class="co">#' </span></span>
+<span id="cb14-3"><a></a><span class="co">#' @param vector A numeric vector</span></span>
+<span id="cb14-4"><a></a><span class="co">#' @return A single number: the sum of the elements of `vector`</span></span>
+<span id="cb14-5"><a></a></span>
+<span id="cb14-6"><a></a>my_sum <span class="ot">&lt;-</span> <span class="cf">function</span>(vector) {</span>
+<span id="cb14-7"><a></a>  total <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb14-8"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(vector)) {</span>
+<span id="cb14-9"><a></a>    total <span class="ot">&lt;-</span> total <span class="sc">+</span> vector[i]</span>
+<span id="cb14-10"><a></a>  }</span>
+<span id="cb14-11"><a></a>  <span class="fu">return</span>(total)</span>
+<span id="cb14-12"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="document-your-function-example-1-1" class="slide level2 center">
+<h2>Document your function: Example 1</h2>
+<p>This is the <strong>roxygen2</strong> format: In RStudio, place your cursor in a function and use <em>Code → Insert Roxygen Skeleton</em></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="co">#' Title</span></span>
+<span id="cb15-2"><a></a><span class="co">#'</span></span>
+<span id="cb15-3"><a></a><span class="co">#' @param vector </span></span>
+<span id="cb15-4"><a></a><span class="co">#'</span></span>
+<span id="cb15-5"><a></a><span class="co">#' @returns</span></span>
+<span id="cb15-6"><a></a><span class="co">#' @export</span></span>
+<span id="cb15-7"><a></a><span class="co">#'</span></span>
+<span id="cb15-8"><a></a><span class="co">#' @examples</span></span>
+<span id="cb15-9"><a></a></span>
+<span id="cb15-10"><a></a>my_sum <span class="ot">&lt;-</span> <span class="cf">function</span>(vector) {</span>
+<span id="cb15-11"><a></a>  total <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb15-12"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(vector)) {</span>
+<span id="cb15-13"><a></a>    total <span class="ot">&lt;-</span> total <span class="sc">+</span> vector[i]</span>
+<span id="cb15-14"><a></a>  }</span>
+<span id="cb15-15"><a></a>  <span class="fu">return</span>(total)</span>
+<span id="cb15-16"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="document-your-function-example-2" class="slide level2 center">
+<h2>Document your function: Example 2</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>my_sum <span class="ot">&lt;-</span> <span class="cf">function</span>(vector) {</span>
+<span id="cb16-2"><a></a>  <span class="co"># Calculates the sum of all elements in a numeric vector.</span></span>
+<span id="cb16-3"><a></a>  <span class="co">#</span></span>
+<span id="cb16-4"><a></a>  <span class="co"># Args:</span></span>
+<span id="cb16-5"><a></a>  <span class="co">#   vector: a numeric vector whose elements will be summed.</span></span>
+<span id="cb16-6"><a></a>  <span class="co">#</span></span>
+<span id="cb16-7"><a></a>  <span class="co"># Returns:</span></span>
+<span id="cb16-8"><a></a>  <span class="co">#   A single number: the sum of the elements of vector.</span></span>
+<span id="cb16-9"><a></a>  <span class="co">#</span></span>
+<span id="cb16-10"><a></a>  <span class="co"># Example:</span></span>
+<span id="cb16-11"><a></a>  <span class="co">#   x &lt;- c(3, 1, 4)</span></span>
+<span id="cb16-12"><a></a>  <span class="co">#   my_sum(x)</span></span>
+<span id="cb16-13"><a></a></span>
+<span id="cb16-14"><a></a>  total <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb16-15"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(vector)) {</span>
+<span id="cb16-16"><a></a>    total <span class="ot">&lt;-</span> total <span class="sc">+</span> vector[i]</span>
+<span id="cb16-17"><a></a>  }</span>
+<span id="cb16-18"><a></a>  <span class="fu">return</span>(total)</span>
+<span id="cb16-19"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="document-your-function-example-3" class="slide level2 center">
+<h2>Document your function: Example 3</h2>
+<p>Example from Google’s R Style Guide <a href="https://web.stanford.edu/class/cs109l/unrestricted/resources/google-style.html#:~:text=Function%20Documentation,-Functions%20should%20contain&amp;text=These%20comments%20should%20consist%20of,value%2C%20denoted%20by%20Returns%3A%20.">here</a></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>CalculateSampleCovariance <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y, <span class="at">verbose =</span> <span class="cn">TRUE</span>) {</span>
+<span id="cb17-2"><a></a>  <span class="co"># Computes the sample covariance between two vectors.</span></span>
+<span id="cb17-3"><a></a>  <span class="co">#</span></span>
+<span id="cb17-4"><a></a>  <span class="co"># Args:</span></span>
+<span id="cb17-5"><a></a>  <span class="co">#   x: One of two vectors whose sample covariance is to be calculated.</span></span>
+<span id="cb17-6"><a></a>  <span class="co">#   y: The other vector. x and y must have the same length, greater than one,</span></span>
+<span id="cb17-7"><a></a>  <span class="co">#      with no missing values.</span></span>
+<span id="cb17-8"><a></a>  <span class="co">#   verbose: If TRUE, prints sample covariance; if not, not. Default is TRUE.</span></span>
+<span id="cb17-9"><a></a>  <span class="co">#</span></span>
+<span id="cb17-10"><a></a>  <span class="co"># Returns:</span></span>
+<span id="cb17-11"><a></a>  <span class="co">#   The sample covariance between x and y.</span></span>
+<span id="cb17-12"><a></a>  </span>
+<span id="cb17-13"><a></a>  n <span class="ot">&lt;-</span> <span class="fu">length</span>(x)</span>
+<span id="cb17-14"><a></a>  <span class="cf">if</span> (n <span class="sc">&lt;=</span> <span class="dv">1</span> <span class="sc">||</span> n <span class="sc">!=</span> <span class="fu">length</span>(y)) {</span>
+<span id="cb17-15"><a></a>    <span class="fu">stop</span>(<span class="st">"Arguments x and y have different lengths: "</span>,</span>
+<span id="cb17-16"><a></a>         <span class="fu">length</span>(x), <span class="st">" and "</span>, <span class="fu">length</span>(y), <span class="st">"."</span>)</span>
+<span id="cb17-17"><a></a>  }</span>
+<span id="cb17-18"><a></a>  <span class="cf">if</span> (<span class="cn">TRUE</span> <span class="sc">%in%</span> <span class="fu">is.na</span>(x) <span class="sc">||</span> <span class="cn">TRUE</span> <span class="sc">%in%</span> <span class="fu">is.na</span>(y)) {</span>
+<span id="cb17-19"><a></a>    <span class="fu">stop</span>(<span class="st">" Arguments x and y must not have missing values."</span>)</span>
+<span id="cb17-20"><a></a>  }</span>
+<span id="cb17-21"><a></a>  covariance <span class="ot">&lt;-</span> <span class="fu">var</span>(x, y)</span>
+<span id="cb17-22"><a></a>  <span class="cf">if</span> (verbose)</span>
+<span id="cb17-23"><a></a>    <span class="fu">cat</span>(<span class="st">"Covariance = "</span>, <span class="fu">round</span>(covariance, <span class="dv">4</span>), <span class="st">".</span><span class="sc">\n</span><span class="st">"</span>, <span class="at">sep =</span> <span class="st">""</span>)</span>
+<span id="cb17-24"><a></a>  <span class="fu">return</span>(covariance)</span>
+<span id="cb17-25"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="practice-writing-functions-1" class="slide level2 center">
+<h2>💻 Practice writing functions</h2>
+<p><strong>Download the class materials from the website</strong></p>
+<p><strong>AFTER CLASS CHALLENGE: complete QUESTION 5 and QUESTION 6</strong></p>
+</section></section>
+<section>
+<section id="writing-functions-with-the-tidyverse" class="title-slide slide level1 center middle">
+<h1>3. Writing functions with the tidyverse</h1>
+
+</section>
+<section id="functions-and" class="slide level2 center">
+<h2>Functions and {{ }}</h2>
+<p>You can write custom functions and use them together with <code>dplyr</code> or <code>ggplot2</code> functions!</p>
+<p>You need the following elements:</p>
+<ul>
+<li>syntax to write a custom function</li>
+<li>special operators that allow R to evaluate your custom functions correctly:
+<ul>
+<li>bang-bang <code>!!</code> with <code>enquo()</code> (this is the old method)</li>
+<li>curly-curly or embracing <code>{ }</code> (this the most common method)</li>
+</ul></li>
+</ul>
+<p>Check Chapter 25 for more <a href="https://r4ds.hadley.nz/functions.html" class="uri">https://r4ds.hadley.nz/functions.html</a></p>
+</section>
+<section id="functions-and-1" class="slide level2 center">
+<h2>Functions and {{ }}</h2>
+<p>We create a data frame of age and height of 5 individuals:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb18-2"><a></a></span>
+<span id="cb18-3"><a></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">age =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">12</span>, <span class="dv">13</span>, <span class="dv">14</span>, <span class="dv">10</span>), </span>
+<span id="cb18-4"><a></a>             <span class="at">height =</span> <span class="fu">c</span>(<span class="dv">110</span>, <span class="dv">140</span>, <span class="dv">155</span>, <span class="dv">170</span>, <span class="dv">130</span>))</span>
+<span id="cb18-5"><a></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 2
+    age height
+  &lt;dbl&gt;  &lt;dbl&gt;
+1    10    110
+2    12    140
+3    13    155
+4    14    170
+5    10    130</code></pre>
+</div>
+</div>
+</section>
+<section id="functions-and-2" class="slide level2 center">
+<h2>Functions and {{ }}</h2>
+<p>In this example, we use <code>summarize()</code> from <code>dplyr</code> to compute the mean and standard deviation on the column <code>age</code> of this data frame:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>df <span class="sc">|&gt;</span></span>
+<span id="cb20-2"><a></a>  <span class="fu">summarize</span>(<span class="at">mean_age =</span> <span class="fu">mean</span>(age),</span>
+<span id="cb20-3"><a></a>            <span class="at">sd_age =</span> <span class="fu">sd</span>(age))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 2
+  mean_age sd_age
+     &lt;dbl&gt;  &lt;dbl&gt;
+1     11.8   1.79</code></pre>
+</div>
+</div>
+</section>
+<section id="functions-and-3" class="slide level2 center">
+<h2>Functions and {{ }}</h2>
+<p>Let’s try re-writing the previous code as a function without the embracing:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>custom_summary <span class="ot">&lt;-</span> <span class="cf">function</span>(data, col) {</span>
+<span id="cb22-2"><a></a>  data <span class="sc">|&gt;</span></span>
+<span id="cb22-3"><a></a>    <span class="fu">summarize</span>(<span class="at">mean_value =</span> <span class="fu">mean</span>(col),</span>
+<span id="cb22-4"><a></a>              <span class="at">sd_value =</span> <span class="fu">sd</span>(col))</span>
+<span id="cb22-5"><a></a>}</span>
+<span id="cb22-6"><a></a></span>
+<span id="cb22-7"><a></a><span class="fu">custom_summary</span>(df, age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in `summarize()`:
+ℹ In argument: `mean_value = mean(col)`.
+Caused by error:
+! object 'age' not found</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p><strong>We are getting an error because <code>dplyr</code> looks for a column literally called <code>col</code>, which doesn’t exist in <code>df</code>!</strong></p>
+</div>
+</section>
+<section id="functions-and-4" class="slide level2 center">
+<h2>Functions and {{ }}</h2>
+<p>Embracing an argument means wrapping it in double braces:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a>custom_summary <span class="ot">&lt;-</span> <span class="cf">function</span>(data, col) {</span>
+<span id="cb24-2"><a></a>  data <span class="sc">|&gt;</span></span>
+<span id="cb24-3"><a></a>    <span class="fu">summarize</span>(<span class="at">mean_value =</span> <span class="fu">mean</span>({{ col }}),</span>
+<span id="cb24-4"><a></a>              <span class="at">sd_value =</span> <span class="fu">sd</span>({{ col }}))</span>
+<span id="cb24-5"><a></a>}</span>
+<span id="cb24-6"><a></a></span>
+<span id="cb24-7"><a></a><span class="fu">custom_summary</span>(df, age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 2
+  mean_value sd_value
+       &lt;dbl&gt;    &lt;dbl&gt;
+1       11.8     1.79</code></pre>
+</div>
+</div>
+<p><strong>Embracing tells <code>dplyr</code> to use the column <em>stored inside</em> the argument <code>age</code>, not a column named <code>col</code></strong></p>
+<div title="How to remember it">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>How to remember it</strong></p>
+</div>
+<div class="callout-content">
+<p>Our book suggests thinking of <code>{ }</code> as looking down a tunnel: <code>{ var }</code> makes dplyr look <em>inside</em> <code>var</code> rather than for a column called <code>var</code>.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="embracing-multiple-columns" class="slide level2 center">
+<h2>Embracing multiple columns</h2>
+<p>Pass several columns at once by embracing them inside <code>across()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>custom_summary <span class="ot">&lt;-</span> <span class="cf">function</span>(data, cols) {</span>
+<span id="cb26-2"><a></a>  data <span class="sc">|&gt;</span></span>
+<span id="cb26-3"><a></a>    <span class="fu">summarize</span>(<span class="fu">across</span>({{ cols }}, <span class="fu">list</span>(<span class="at">mean =</span> mean, <span class="at">sd =</span> sd)))</span>
+<span id="cb26-4"><a></a>}</span>
+<span id="cb26-5"><a></a></span>
+<span id="cb26-6"><a></a><span class="fu">custom_summary</span>(df, <span class="fu">c</span>(age, height))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 4
+  age_mean age_sd height_mean height_sd
+     &lt;dbl&gt;  &lt;dbl&gt;       &lt;dbl&gt;     &lt;dbl&gt;
+1     11.8   1.79         141      23.0</code></pre>
+</div>
+</div>
+<p>The output has clearly labeled columns: <code>age_mean</code>, <code>age_sd</code>, <code>height_mean</code>, <code>height_sd</code>.</p>
+<!--
+## Embracing with ggplot2
+
+
+::: {.cell}
+
+```{.r .cell-code}
+library(ggplot2)
+
+plot_hist <- function(data, var) {
+  ggplot(data, aes(x = {{ var }})) +
+    geom_histogram()
+}
+
+plot_hist(df, age)
+plot_hist(df, height)
+```
+:::
+
+-->
+</section>
+<section id="when-do-you-need-embracing-when-writing-a-function" class="slide level2 center">
+<h2>When do you need embracing {{ }} when writing a function?</h2>
+<p>Whenever your function passes a <strong>column name</strong> to a tidyverse function that uses “tidy evaluation.” There are two main types (see Chapter 25 of the readings for details):</p>
+<ul>
+<li><strong>Data masking</strong>: functions that <em>compute with</em> columns
+<ul>
+<li>e.g., <code>mutate()</code>, <code>filter()</code>, <code>summarize()</code>, <code>arrange()</code>, <code>group_by()</code> in dplyr, and <code>aes()</code> in ggplot2</li>
+</ul></li>
+<li><strong>Tidy selection</strong>: functions that <em>choose</em> columns
+<ul>
+<li>e.g., <code>select()</code>, <code>rename()</code>, <code>relocate()</code>, <code>across()</code>, <code>pivot_longer()</code></li>
+</ul></li>
+</ul>
+<div title="How to tell which one?">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>How to tell which one?</strong></p>
+</div>
+<div class="callout-content">
+<p>Check the help page: arguments are labeled <code>&lt;data-masking&gt;</code> or <code>&lt;tidy-select&gt;</code>.</p>
+</div>
+</div>
+</div>
+</div>
+<!--
+### Functions and `{{ }}`: additional resources
+
+**Using bang-bang `!!`**
+
+* Chapter ["7 Tidy evaluation"](https://krlmlr.github.io/tidyprog/tidy-evaluation.html): explanation with examples on how and why to use `!!` with `enquo`
+
+* Blog post ["Writing Custom Tidyverse Functions"](https://jonthegeek.com/2018/06/04/writing-custom-tidyverse-functions/): explanation with step-by-step example on how and when to use `!!` with `ensym` and with `enquo`
+
+* Another example [here](http://zevross.com/blog/2018/09/11/writing-efficient-and-streamlined-r-code-with-help-from-the-new-rlang-package/) 
+
+**Using curly-curly `{{ }}`**
+
+* Blog post ["Curly-Curly, the successor of Bang-Bang"](https://www.r-bloggers.com/2019/06/curly-curly-the-successor-of-bang-bang/)
+
+* Another example [here](https://agstats.io/post/writing-r-functions/) (under "Functions and Tidy Evaluation")
+-->
+</section>
+<section id="practice-writing-functions-2" class="slide level2 center">
+<h2>💻 Practice writing functions</h2>
+<p><strong>Download the class materials from the website: complete QUESTION 7.</strong></p>
+</section>
+<section id="to-print-these-slides-as-pdf" class="slide level2 center">
+<h2>To print these slides as pdf</h2>
+<p>Click on the icon bottom-left corner (the three lines) &gt; Tools &gt; PDF Export Mode &gt; Print as a Pdf</p>
+
+
+</section></section>
     </div>
-  </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
   <script src="../site_libs/revealjs/dist/reveal.js"></script>
