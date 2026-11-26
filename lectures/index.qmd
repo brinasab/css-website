@@ -10,7 +10,7 @@ format:
 
 <div class="my-4"></div>
 
-<small><em>Last Updated on 11/17/26 (Finalized Lecture 17 Agenda).</em></small>
+<small><em>Last Updated on 11/18/26 (Finalized Lecture 17 Agenda).</em></small>
 
 ```{=html}
 <style>

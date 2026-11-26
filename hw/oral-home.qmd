@@ -1,0 +1,89 @@
+---
+title: "Optional Oral Exam: Guidelines"
+when: "Week 10"
+summary: "What to expect and how to prepare"
+url_signup: "https://calendar.app.google/C8pqaJha2SzodwVE9"
+url_rubric: "https://docs.google.com/spreadsheets/d/1TdC8lpokCVAyKLyQaETJ3vynHq7CADGYdKkN88QeuEw/edit?usp=sharing"
+page-layout: full
+draft: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Info and Sign-ups
+
+- **When**: {{< meta when >}}
+- **Format**: 15-minute, one-on-one conversation in person (1155 E. 60th St, Room 295, Office 221A)
+- **Sign-up**: [Book your slot]({{< meta url_signup >}})
+- **Rubric**: [View the rubric]({{< meta url_rubric >}})
+
+
+## Format and Content
+
+The oral exam is optional and gives you the opportunity to improve your grade on **one take-home assignment (Assignment 2, 3, or 4)** or **one in-class exam** of your choice. You may take the oral exam only once.
+
+**Bring nothing but yourself** (no notes, laptops, phones, or other screens). The instructor will share their screen with everything needed, such as your exam, your repositories, and other relevant class materials.
+
+The conversation will **start with the assessment you selected**. If you selected an assignment, you'll be asked to walk through portions of your code. If you selected an exam, we'll pull up questions from it and ask you to identify the correct answer, why it's correct, and why the others are not.
+
+From there, questions may **go beyond your selected assessment** to connect it to lectures, in-class code, and other course materials. The number and depth of questions may vary slightly depending on the type of assessment you choose and how the conversation goes.
+
+
+## Questions You Can Expect
+
+**Some questions will be broader, for example:**
+
+- "Walk me through your code here, line by line."
+- "Walk me through how you broke this question down into steps."
+
+**Others will be more specific, for example:**
+
+- "Why did you choose this approach instead of another one?"
+- "What does this piece of code or this function do?"
+- "Based on what we covered in class, how else could you write this code to get the same result?"
+- "Why is this the right answer on the exam? Why are the other options incorrect?"
+
+### Example
+
+Your answers should focus mostly on how your code works, not on what it does at a high level. For example, suppose your code is:
+
+```r
+df |> group_by(state) |> summarize(avg_income = mean(income, na.rm = TRUE))
+```
+
+*Answer that is too general* "This gives the average income by state." VS. *Answer that explains how the code works:* "I take the data frame and pipe it into `group_by()`, which groups the rows by state. Then `summarize()` collapses each group into one row and creates a new column, `avg_income`, using `mean()`. I set `na.rm = TRUE` so missing values are dropped; otherwise any state with a missing income would return `NA`."
+
+*Follow-up questions on this specific example could be:* "What does the pipe do here?", "What would the result be if you ran only `group_by()`?", "What data structure does this code return?", "Based on what we covered in class, how else could you write this in base R?", "How would you also count how many rows are in each state?", "What would happen if you removed `na.rm = TRUE`?", etc.
+
+The goal is to see your thinking and your familiarity with your own work and the course materials, not to trick you. We won't ask about anything we haven't covered in class, and you won't be asked to code live. 
+
+
+## How to Prepare 
+
+To prepare, review your selected assessment and any feedback you received, along with the slides and in-class code (this is the code you downloaded during lectures with the `usethis::` command). 
+Make sure you can **explain your code out loud** in your own words and connect it to topics from the course.
+
+**If you'd like to review your work before the oral exam, or talk about your final project** [book a slot](https://brinasab.github.io/css-website/) for Week 9: I've added extra office hours on Wednesday, and Mirana and Xulan have office hours on Thursday and Friday. All of these are after Exam 2, so you can review that exam too.
+
+
+## How the Grade Adjustment Works
+
+The oral exam can add up to 10% of the selected assessment's total points: **up to 2 points on an exam (out of 20) or up to 1.5 points on a take-home assignment (out of 15)**. The points added equal your oral exam score multiplied by that maximum. For example, an 80% oral exam score adds 1.6 points to an exam or 1.2 points to an assignment. Because the adjustment is a fixed share of each assessment's value, exams and assignments are treated the same way; exams can gain more raw points only because they are worth more and cover more content.
+
+A score of **70% or higher on the oral exam is required** for any adjustment. The oral exam cannot lower your grade, and the adjusted grade cannot exceed 100% (unused points do not carry over as extra credit).
+
+Examples:
+
+- A **15/20 (75%)** exam becomes **16.6/20 (83%)** with an **80%** oral exam score, or **17/20 (85%)** with a **100%** oral exam score.
+- A **13.2/15 (88%)** assignment becomes **14.4/15 (96%)** with an **80%** oral exam score, or **14.7/15 (98%)** with a **100%** oral exam score.
+- A **14.25/15 (95%)** assignment becomes **15/15 (100%)** with a **100%** oral exam score, since the adjusted grade is capped at 100%.
+- With an oral exam score **below 70%**, the original grade stays the same.
+
+
+## Evaluation
+
+You will be evaluated using the [rubric]({{< meta url_rubric >}}) (use UChicago account to access it), which assesses the accuracy of your answers, the clarity of your explanations, and your ability to connect your work to concepts from the course. Approved accommodations apply to the oral exam as appropriate.
+
+Adjusted scores will be posted at the end of Week 10, once all oral exams are complete. Completed rubrics are not shared automatically, but you are welcome to email the instructor to request yours.
